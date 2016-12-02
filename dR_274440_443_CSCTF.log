@@ -1,0 +1,39 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/36      5 April 2016   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/36 (heads/v5-34-00-patches@v5-34-34-76-g57bae4c, Apr 08 2016, 12:05:00 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+Processing dR_distribution_CSCTF.C...
+----------------------------------
+248788 events to process.....
+=====================================
+Loop on all specified events is over!
+===============
+****Summary****
+248788 total events!
+---------------
+332151 total csctf tracks!
+687486 total RECO tracks!
+---------------
+321006 matched tracks!
+---------------
+11145 unmatched csctf tracks!
+366480 unmatched RECO tracks!
+All csctf tracks included!
+All RECO tracks included!
+Creating root file......
+---------------
+All plots saved in /afs/cern.ch/work/w/wshi/public/EMTFpTResolution/dR_274440_443_CSCTF.root!
+****************
