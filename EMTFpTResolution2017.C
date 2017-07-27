@@ -83,10 +83,10 @@ void EMTFpTResolution2017()
             if(GEN_pt>10 && GEN_pt<=30){
                 h_pT_10_30->Fill(Ratio);
             }
-            if(GEN_pt>30 && GEN_pt)<=100){
+            if(GEN_pt>30 && GEN_pt<=100){
                 h_pT_30_100->Fill(Ratio);
             }
-            if(GEN_pt>100 && GEN_pt)<=1000){
+            if(GEN_pt>100 && GEN_pt<=1000){
                 h_pT_100_1000->Fill(Ratio);
             }//end if
             
