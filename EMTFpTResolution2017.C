@@ -40,15 +40,17 @@ void EMTFpTResolution2017()
         
         cout<<"Accessing file:"<<fileName<<endl;
         
+        
         Float_t *Gen_Pt;
         Float_t *Emtf_Pt;
         Float_t *Bdtg_Awb_Sq;
 
         //event info: Pull variables from nTuple
         myTree->SetBranchAddress("GEN_pt",&Gen_Pt);//GEN pT
-        myTree->SetBranchAddress("EMTF_Pt",&Emtf_Pt);//2016 EMTF
+        myTree->SetBranchAddress("EMTF_pt",&Emtf_Pt);//2016 EMTF
         myTree->SetBranchAddress("BDTG_AWB_Sq",&Bdtg_Awb_Sq);//2017: 1/BDTG pT
-    
+        
+        
         //=*************************
         //=make histograms in modes*
         //=*************************
@@ -63,11 +65,11 @@ void EMTFpTResolution2017()
         //GEN pT >100 GeV muon shower
         TH1F *h_pT_100_1000 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
        
-        h->SetFillColorAlpha(kRed);
-        h_pT_0_10->SetFillColorAlpha(kRed);
-        h_pT_10_30->SetFillColorAlpha(kRed);
-        h_pT_30_100->SetFillColorAlpha(kRed);
-        h_pT_100_1000->SetFillColorAlpha(kRed);
+        h->SetFillColorAlpha(kRed,0.75);
+        h_pT_0_10->SetFillColorAlpha(kRed,0.75);
+        h_pT_10_30->SetFillColorAlpha(kRed,0.75);
+        h_pT_30_100->SetFillColorAlpha(kRed,0.75);
+        h_pT_100_1000->SetFillColorAlpha(kRed,0.75);
         
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
@@ -76,7 +78,7 @@ void EMTFpTResolution2017()
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
             myTree->GetEntry(iEntry);//load the ientry-th event
             
-            Float_t Ratio=Emtf_Pt/Gen_Pt;
+            Float_t Ratio=(*Emtf_Pt)/(*Gen_Pt);
             h->Fill(Ratio);
             
             if(Gen_Pt>0 &&Gen_Pt<=10){
