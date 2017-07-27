@@ -71,9 +71,9 @@ void EMTFpTResolution2017()
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
             //load the i-th event
             myTree->GetEntry(iEntry);
-            Float_t GEN_pt= *Gen_Pt;
-            Float_t EMTF_pt= *Emtf_Pt;
-            Float_t BDTG_AWB_Sq= *Bdtg_Awb_Sq;
+            Float_t GEN_pt = *Gen_Pt;
+            Float_t EMTF_pt = *Emtf_Pt;
+            Float_t BDTG_AWB_Sq = *Bdtg_Awb_Sq;
             
             Float_t Ratio= EMTF_pt/GEN_pt;
             
@@ -98,6 +98,8 @@ void EMTFpTResolution2017()
         h_pT_100_1000->Write();
         
     }//end loop over modes
+    
     myPlot.Close();
     cout<<"Write to file"<<endl;
+    
 }//end EMTFpTResolution2017()
