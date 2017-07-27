@@ -138,7 +138,6 @@ void EMTFpTResolution2017()
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         hs1->Draw("nostack");
         TLegend* L1 = new TLegend(0.6,0.7,0.9,0.9);
-        L1->SetHeader("The Legend Title","C"); // option "C" allows to center the header
         L1->AddEntry(h_pT_0_10_2016,"2016");
         L1->AddEntry(h_pT_0_10_2017,"2017");
         L1->Draw();
