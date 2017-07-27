@@ -129,7 +129,7 @@ void EMTFpTResolution2017()
             
         }//end loop over events
         //output
-        TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root"
+        TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
         
         hs_pT_0_10->Write();
