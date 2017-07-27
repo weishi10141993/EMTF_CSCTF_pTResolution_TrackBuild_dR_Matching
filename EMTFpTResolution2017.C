@@ -69,6 +69,11 @@ void EMTFpTResolution2017()
         //GEN pT >100 GeV muon shower
         TH1F *h_pT_100_1000_2017 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
         
+        THStack hs_pT_0_10("hs_pT_0_10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10");
+        THStack hs_pT_10_30("hs_pT_10_30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30");
+        THStack hs_pT_30_100("hs_pT_30_100","pT Resolution mode "+MODE[i]+" 30<GEN pT<100");
+        THStack hs_pT_100_1000("hs_pT_100_1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000");
+        
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
         cout<<numEvents<<" events to process..."<<endl;
@@ -78,11 +83,11 @@ void EMTFpTResolution2017()
             myTree->GetEntry(iEntry);
             
             Float_t Ratio2016= EMTF_pt/GEN_pt
-            Float_t Ratio2017= 1/BDTG_AWB_Sq*GEN_pt;
+            Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
             
             
             if(GEN_pt > 0 && GEN_pt <= 10){
-                THStack hs_pT_0_10("hs_pT_0_10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10");
+                
                 h_pT_0_10_2016->Fill(Ratio2016);
                 h_pT_0_10_2016->SetFillColor(kRed);
                 hs_pT_0_10.Add(h_pT_0_10_2016);
@@ -92,7 +97,7 @@ void EMTFpTResolution2017()
                 hs_pT_0_10.Add(h_pT_0_10_2017);
             }
             if(GEN_pt > 10 && GEN_pt <= 30){
-                THStack hs_pT_10_30("hs_pT_10_30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30");
+                
                 h_pT_10_30_2016->Fill(Ratio2016);
                 h_pT_10_30_2016->SetFillColor(kRed);
                 hs_pT_10_30.Add(h_pT_10_30_2016);
@@ -102,7 +107,7 @@ void EMTFpTResolution2017()
                 hs_pT_10_30.Add(h_pT_10_30_2017);
             }
             if(GEN_pt > 30 && GEN_pt <= 100){
-                THStack hs_pT_30_100("hs_pT_30_100","pT Resolution mode "+MODE[i]+" 30<GEN pT<100");
+                
                 h_pT_30_100_2016->Fill(Ratio2016);
                 h_pT_30_100_2016->SetFillColor(kRed);
                 hs_pT_30_100.Add(h_pT_30_100_2016);
@@ -112,7 +117,7 @@ void EMTFpTResolution2017()
                 hs_pT_30_100.Add(h_pT_30_100_2017);
             }
             if(GEN_pt > 100 && GEN_pt <= 1000){
-                THStack hs_pT_100_1000("hs_pT_100_1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000");
+                
                 h_pT_100_1000_2016->Fill(Ratio2016);
                 h_pT_100_1000_2016->SetFillColor(kRed);
                 hs_pT_100_1000.Add(h_pT_100_1000_2016);
