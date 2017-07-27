@@ -37,14 +37,14 @@ void EMTFpTResolution2017()
         cout<<"Accessing file:"<<fileName<<endl;
         
         
-        Float_t *Gen_Pt;
-        Float_t *Emtf_Pt;
-        Float_t *Bdtg_Awb_Sq;
+        Float_t GEN_pt;
+        Float_t EMTF_pt;
+        Float_t BDTG_AWB_Sq;
 
         //event info: Pull variables from nTuple
-        myTree->SetBranchAddress("GEN_pt",&Gen_Pt);//GEN pT
-        myTree->SetBranchAddress("EMTF_pt",&Emtf_Pt);//2016 EMTF
-        myTree->SetBranchAddress("BDTG_AWB_Sq",&Bdtg_Awb_Sq);//2017: 1/BDTG pT
+        myTree->SetBranchAddress("GEN_pt",&GEN_pt);//GEN pT
+        myTree->SetBranchAddress("EMTF_pt",&EMTF_pt);//2016 EMTF
+        myTree->SetBranchAddress("BDTG_AWB_Sq",&BDTG_AWB_Sq);//2017: 1/BDTG pT
         
         
         //=*************************
@@ -71,9 +71,6 @@ void EMTFpTResolution2017()
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
             //load the i-th event
             myTree->GetEntry(iEntry);
-            Float_t GEN_pt = *Gen_Pt;
-            Float_t EMTF_pt = *Emtf_Pt;
-            Float_t BDTG_AWB_Sq = *Bdtg_Awb_Sq;
             
             Float_t Ratio= EMTF_pt/GEN_pt;
             
