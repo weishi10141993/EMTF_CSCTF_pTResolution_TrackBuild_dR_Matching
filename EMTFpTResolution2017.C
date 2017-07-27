@@ -54,8 +54,6 @@ void EMTFpTResolution2017()
         //=*************************
         //=make histograms in modes*
         //=*************************
-        //general mode
-        TH1F *h = new TH1F("mode "+MODE[i],"pT Resolution mode "+MODE[i], 100, 0, 5);//station 1,2,3,4
         //GEN pT 0-10 GeV
         TH1F *h_pT_0_10 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
@@ -65,7 +63,6 @@ void EMTFpTResolution2017()
         //GEN pT >100 GeV muon shower
         TH1F *h_pT_100_1000 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
        
-        h->SetFillColorAlpha(kRed,0.75);
         h_pT_0_10->SetFillColorAlpha(kRed,0.75);
         h_pT_10_30->SetFillColorAlpha(kRed,0.75);
         h_pT_30_100->SetFillColorAlpha(kRed,0.75);
@@ -79,7 +76,6 @@ void EMTFpTResolution2017()
             myTree->GetEntry(iEntry);//load the ientry-th event
             
             Float_t Ratio=(*Emtf_Pt)/(*Gen_Pt);
-            h->Fill(Ratio);
             
             if(Gen_Pt>0 &&Gen_Pt<=10){
                 h_pT_0_10->Fill(Ratio);
@@ -92,13 +88,12 @@ void EMTFpTResolution2017()
             }
             if(Gen_Pt>100 &&Gen_Pt<=1000){
                 h_pT_100_1000->Fill(Ratio);
-            }
+            }//end if
             
         }//end loop over events
         
         //output
         TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
-        h->Write();
         h_pT_0_10->Write();
         h_pT_10_30->Write();
         h_pT_30_100->Write();
