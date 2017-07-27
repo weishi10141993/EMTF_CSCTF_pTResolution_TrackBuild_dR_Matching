@@ -185,6 +185,7 @@ void EMTFpTResolution2017()
         C4->Write();
         
         myPlot.Close();
+        cout<<"Finished processing this file..."<<endl;
     }//end loop over modes
 
     cout<<"Write to all files."<<endl;
