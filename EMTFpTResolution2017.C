@@ -131,10 +131,19 @@ void EMTFpTResolution2017()
         //output
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
-        
+        TCanvas *C1=new TCanvas("C1","pT Resolution",700,500);
+        C1->Divide(2,2);
+        C1->cd(1);
+        hs_pT_0_10->Draw("nostack");
         hs_pT_0_10->Write();
+        cs->cd(2);
+        hs_pT_10_30->Draw("nostack");
         hs_pT_10_30->Write();
+        cs->cd(3);
+        hs_pT_30_100->Draw("nostack");
         hs_pT_30_100->Write();
+        cs->cd(4);
+        hs_pT_100_1000->Draw("nostack");
         hs_pT_100_1000->Write();  
         
         h_pT_0_10_2016->Write();  
