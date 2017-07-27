@@ -135,8 +135,9 @@ void EMTFpTResolution2017()
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
         hs1->Add(h_pT_0_10_2016);
         hs1->Add(h_pT_0_10_2017);
-        hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         hs1->Draw("nostack");
+        hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        C1->Modified();
         TLegend* L1 = new TLegend(0.6,0.7,0.9,0.9);
         L1->AddEntry(h_pT_0_10_2016,"2016");
         L1->AddEntry(h_pT_0_10_2017,"2017");
@@ -147,8 +148,9 @@ void EMTFpTResolution2017()
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
         hs2->Add(h_pT_10_30_2016);
         hs2->Add(h_pT_10_30_2017);
-        hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         hs2->Draw("nostack");
+        hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        C2->Modified();
         TLegend* L2 = new TLegend(0.6,0.7,0.9,0.9);
         L2->AddEntry(h_pT_10_30_2016,"2016");
         L2->AddEntry(h_pT_10_30_2017,"2017");
@@ -159,8 +161,9 @@ void EMTFpTResolution2017()
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box 
         hs3->Add(h_pT_30_100_2016);
         hs3->Add(h_pT_30_100_2017);
-        hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         hs3->Draw("nostack");
+        hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        C3->Modified();
         TLegend* L3 = new TLegend(0.6,0.7,0.9,0.9);
         L3->AddEntry(h_pT_30_100_2016,"2016");
         L3->AddEntry(h_pT_30_100_2017,"2017");
@@ -171,8 +174,9 @@ void EMTFpTResolution2017()
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
         hs4->Add(h_pT_100_1000_2016);
         hs4->Add(h_pT_100_1000_2017);
-        hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         hs4->Draw("nostack");
+        hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        C4->Modified();
         TLegend* L4 = new TLegend(0.6,0.7,0.9,0.9);
         L4->AddEntry(h_pT_100_1000_2016,"2016");
         L4->AddEntry(h_pT_100_1000_2017,"2017");
