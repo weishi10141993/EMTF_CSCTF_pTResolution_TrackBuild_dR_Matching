@@ -28,7 +28,8 @@ void EMTFpTResolution2017()
 {
     //TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
     TString MODE[1]={"15"};
-    
+    //output
+    TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
     //loop through all modes
     for (int i=0;i<1;i++){
         
@@ -77,23 +78,21 @@ void EMTFpTResolution2017()
             
             Float_t Ratio=(*Emtf_Pt)/(*Gen_Pt);
             
-            if(Gen_Pt>0 &&Gen_Pt<=10){
+            if(*Gen_Pt>0 && *Gen_Pt<=10){
                 h_pT_0_10->Fill(Ratio);
             }
-            if(Gen_Pt>10 &&Gen_Pt<=30){
+            if(*Gen_Pt>10 && *Gen_Pt<=30){
                 h_pT_10_30->Fill(Ratio);
             }
-            if(Gen_Pt>30 &&Gen_Pt<=100){
+            if(*Gen_Pt>30 && *Gen_Pt<=100){
                 h_pT_30_100->Fill(Ratio);
             }
-            if(Gen_Pt>100 &&Gen_Pt<=1000){
+            if(*Gen_Pt>100 && *Gen_Pt<=1000){
                 h_pT_100_1000->Fill(Ratio);
             }//end if
             
         }//end loop over events
         
-        //output
-        TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
         h_pT_0_10->Write();
         h_pT_10_30->Write();
         h_pT_30_100->Write();
