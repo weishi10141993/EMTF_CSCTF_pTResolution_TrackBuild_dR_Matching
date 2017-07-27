@@ -52,22 +52,22 @@ void EMTFpTResolution2017()
         //=*************************
         //**2016**
         //GEN pT 0-10 GeV
-        TH1F *h_pT_0_10_2016 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2016 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
+        TH1F *h_pT_0_10_2016 = new TH1F("2016 mode "+MODE[i]+" 0<GEN pT<10","2016 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
-        TH1F *h_pT_10_30_2016 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","2016 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
+        TH1F *h_pT_10_30_2016 = new TH1F("2016 mode "+MODE[i]+" 10<GEN pT<30","2016 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
         //GEN pT 30-100 GeV
-        TH1F *h_pT_30_100_2016 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","2016 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
+        TH1F *h_pT_30_100_2016 = new TH1F("2016 mode "+MODE[i]+" 30<GEN pT<100","2016 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
-        TH1F *h_pT_100_1000_2016 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
+        TH1F *h_pT_100_1000_2016 = new TH1F("2016 mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
         //**2017**
         //GEN pT 0-10 GeV
-        TH1F *h_pT_0_10_2017 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2017 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
+        TH1F *h_pT_0_10_2017 = new TH1F("2017 mode "+MODE[i]+" 0<GEN pT<10","2017 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
-        TH1F *h_pT_10_30_2017 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","2017 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
+        TH1F *h_pT_10_30_2017 = new TH1F("2017 mode "+MODE[i]+" 10<GEN pT<30","2017 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
         //GEN pT 30-100 GeV
-        TH1F *h_pT_30_100_2017 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","2017 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
+        TH1F *h_pT_30_100_2017 = new TH1F("2017 mode "+MODE[i]+" 30<GEN pT<100","2017 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
-        TH1F *h_pT_100_1000_2017 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
+        TH1F *h_pT_100_1000_2017 = new TH1F("2017 mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
         
         THStack hs_pT_0_10("hs_pT_0_10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10");
         THStack hs_pT_10_30("hs_pT_10_30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30");
@@ -82,7 +82,7 @@ void EMTFpTResolution2017()
             //load the i-th event
             myTree->GetEntry(iEntry);
             
-            Float_t Ratio2016= EMTF_pt/GEN_pt
+            Float_t Ratio2016= EMTF_pt/GEN_pt;
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
             
             
