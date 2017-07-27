@@ -128,50 +128,50 @@ void EMTFpTResolution2017()
         
         C1->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_0_10_2016->GetYaxis()->SetRange(0,200000);
+        h_pT_0_10_2016->GetYaxis()->SetRangeUser(0,200000);
         h_pT_0_10_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         h_pT_0_10_2016->Draw();  
         h_pT_0_10_2017->Draw("same"); 
         TLegend* L1 = new TLegend(0.6,0.7,0.9,0.9);
         //L1->SetHeader("The Legend Title","C"); // option "C" allows to center the header
-        L1->AddEntry(h_pT_0_10_2016,"2016","f");
-        L1->AddEntry(h_pT_0_10_2017,"2017","f");
+        L1->AddEntry(h_pT_0_10_2016,"2016");
+        L1->AddEntry(h_pT_0_10_2017,"2017");
         L1->Draw();
         C1->Write();
         
         C2->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_10_30_2016->GetYaxis()->SetRange(0,200000);
+        h_pT_10_30_2016->GetYaxis()->SetRangeUser(0,200000);
         h_pT_10_30_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         h_pT_10_30_2016->Draw();  
         h_pT_10_30_2017->Draw("same");  
         TLegend* L2 = new TLegend(0.6,0.7,0.9,0.9);
-        L2->AddEntry(h_pT_10_30_2016,"2016","f");
-        L2->AddEntry(h_pT_10_30_2017,"2017","f");
+        L2->AddEntry(h_pT_10_30_2016,"2016");
+        L2->AddEntry(h_pT_10_30_2017,"2017");
         L2->Draw();
         C2->Write();
         
         C3->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_30_100_2016->GetYaxis()->SetRange(0,200000);
+        h_pT_30_100_2016->GetYaxis()->SetRangeUser(0,200000);
         h_pT_30_100_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         h_pT_30_100_2016->Draw();  
         h_pT_30_100_2017->Draw("same");  
         TLegend* L3 = new TLegend(0.6,0.7,0.9,0.9);
-        L3->AddEntry(h_pT_30_100_2016,"2016","f");
-        L3->AddEntry(h_pT_30_100_2017,"2017","f");
+        L3->AddEntry(h_pT_30_100_2016,"2016");
+        L3->AddEntry(h_pT_30_100_2017,"2017");
         L3->Draw();
         C3->Write();
         
         C4->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_100_1000_2016->GetYaxis()->SetRange(0,200000);
+        h_pT_100_1000_2016->GetYaxis()->SetRangeUser(0,200000);
         h_pT_100_1000_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         h_pT_100_1000_2016->Draw();  
         h_pT_100_1000_2017->Draw("same");  
         TLegend* L4 = new TLegend(0.6,0.7,0.9,0.9);
-        L4->AddEntry(h_pT_100_1000_2016,"2016","f");
-        L4->AddEntry(h_pT_100_1000_2017,"2017","f");
+        L4->AddEntry(h_pT_100_1000_2016,"2016");
+        L4->AddEntry(h_pT_100_1000_2017,"2017");
         L4->Draw();
         C4->Write();
         
