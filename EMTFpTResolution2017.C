@@ -77,16 +77,16 @@ void EMTFpTResolution2017()
             
             Float_t Ratio= EMTF_pt/GEN_pt;
             
-            if(GEN_pt>0 && GEN_pt<=10){
+            if(GEN_pt > 0 && GEN_pt <= 10){
                 h_pT_0_10->Fill(Ratio);
             }
-            if(GEN_pt>10 && GEN_pt<=30){
+            if(GEN_pt > 10 && GEN_pt <= 30){
                 h_pT_10_30->Fill(Ratio);
             }
-            if(GEN_pt>30 && GEN_pt<=100){
+            if(GEN_pt > 30 && GEN_pt <= 100){
                 h_pT_30_100->Fill(Ratio);
             }
-            if(GEN_pt>100 && GEN_pt<=1000){
+            if(GEN_pt > 100 && GEN_pt <= 1000){
                 h_pT_100_1000->Fill(Ratio);
             }//end if
             
