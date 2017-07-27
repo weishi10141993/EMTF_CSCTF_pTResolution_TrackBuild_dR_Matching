@@ -25,11 +25,12 @@ using namespace std;
 //=**************************************************************************************
 void EMTFpTResolution2017()
 {
-    //TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
-    TString MODE[1]={"15"};
-    
+    TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
+    //TString MODE[1]={"15"};
+    int MODES;
+    MODES = sizeof(MODE) / sizeof(TString);
     //loop through all modes
-    for (int i=0;i<1;i++){
+    for (int i=0;i<MODES;i++){
         
         //NOTE: for mode 15, I changed the date 06_05 in file name to 05_10 to keep consistency with other modes
         TString fileName="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/PtRegression_Apr_2017_05_10_invPtTarg_invPtWgt_MODE_" + MODE[i] + "_bitCompr_RPC.root";
@@ -122,14 +123,14 @@ void EMTFpTResolution2017()
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
         
-        TCanvas *C1=new TCanvas("C1","C1",700,500);
-        TCanvas *C2=new TCanvas("C2","C2",700,500);
-        TCanvas *C3=new TCanvas("C3","C3",700,500);
-        TCanvas *C4=new TCanvas("C4","C4",700,500);
-        THStack *hs1 = new THStack("hs1","Mode "+MODE[i]+" pT Resolution 0<GEN pT<10 GeV");
-        THStack *hs2 = new THStack("hs2","Mode "+MODE[i]+" pT Resolution 10<GEN pT<30 GeV");
-        THStack *hs3 = new THStack("hs3","Mode "+MODE[i]+" pT Resolution 30<GEN pT<100 GeV");
-        THStack *hs4 = new THStack("hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
+        TCanvas *C1=new TCanvas(MODE[i]+"C1",MODE[i]+"C1",700,500);
+        TCanvas *C2=new TCanvas(MODE[i]+"C2",MODE[i]+"C2",700,500);
+        TCanvas *C3=new TCanvas(MODE[i]+"C3",MODE[i]+"C3",700,500);
+        TCanvas *C4=new TCanvas(MODE[i]+"C4",MODE[i]+"C4",700,500);
+        THStack *hs1 = new THStack(MODE[i]+"hs1","Mode "+MODE[i]+" pT Resolution 0<GEN pT<10 GeV");
+        THStack *hs2 = new THStack(MODE[i]+"hs2","Mode "+MODE[i]+" pT Resolution 10<GEN pT<30 GeV");
+        THStack *hs3 = new THStack(MODE[i]+"hs3","Mode "+MODE[i]+" pT Resolution 30<GEN pT<100 GeV");
+        THStack *hs4 = new THStack(MODE[i]+"hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
         
         C1->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
