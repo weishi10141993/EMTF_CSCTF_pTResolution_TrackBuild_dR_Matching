@@ -50,7 +50,7 @@ void EMTFpTResolution2017()
         //=*************************
         //=make histograms in modes*
         //=*************************
-        **2016**
+        //**2016**
         //GEN pT 0-10 GeV
         TH1F *h_pT_0_10_2016 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2016 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
@@ -59,7 +59,7 @@ void EMTFpTResolution2017()
         TH1F *h_pT_30_100_2016 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","2016 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
         TH1F *h_pT_100_1000_2016 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
-        **2017**
+        //**2017**
         //GEN pT 0-10 GeV
         TH1F *h_pT_0_10_2017 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2017 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
