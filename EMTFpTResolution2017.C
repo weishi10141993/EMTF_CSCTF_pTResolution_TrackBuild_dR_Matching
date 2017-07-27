@@ -5,6 +5,7 @@ using namespace std;
 #include "TTree.h"
 #include "TH1.h"
 #include "TH2.h"
+#include "TAttFill.h"
 #include "TCanvas.h"
 #include <vector>
 #include "stdio.h"
@@ -49,19 +50,24 @@ void EMTFpTResolution2017()
         //=*************************
         //=make histograms in modes*
         //=*************************
+        **2016**
         //GEN pT 0-10 GeV
-        TH1F *h_pT_0_10 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
+        TH1F *h_pT_0_10_2016 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2016 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
-        TH1F *h_pT_10_30 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
+        TH1F *h_pT_10_30_2016 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","2016 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
         //GEN pT 30-100 GeV
-        TH1F *h_pT_30_100 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
+        TH1F *h_pT_30_100_2016 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","2016 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
-        TH1F *h_pT_100_1000 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
-       
-        h_pT_0_10->SetFillColorAlpha(kRed,0.75);
-        h_pT_10_30->SetFillColorAlpha(kRed,0.75);
-        h_pT_30_100->SetFillColorAlpha(kRed,0.75);
-        h_pT_100_1000->SetFillColorAlpha(kRed,0.75);
+        TH1F *h_pT_100_1000_2016 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
+        **2017**
+        //GEN pT 0-10 GeV
+        TH1F *h_pT_0_10_2017 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","2017 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
+        //GEN pT 10-30 GeV
+        TH1F *h_pT_10_30_2017 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","2017 pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
+        //GEN pT 30-100 GeV
+        TH1F *h_pT_30_100_2017 = new TH1F("mode "+MODE[i]+" 30<GEN pT<100","2017 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
+        //GEN pT >100 GeV muon shower
+        TH1F *h_pT_100_1000_2017 = new TH1F("mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
         
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
@@ -71,32 +77,72 @@ void EMTFpTResolution2017()
             //load the i-th event
             myTree->GetEntry(iEntry);
             
-            Float_t Ratio= EMTF_pt/GEN_pt;
+            Float_t Ratio2016= EMTF_pt/GEN_pt
+            Float_t Ratio2017= 1/BDTG_AWB_Sq*GEN_pt;
+            
             
             if(GEN_pt > 0 && GEN_pt <= 10){
-                h_pT_0_10->Fill(Ratio);
+                THStack hs_pT_0_10("hs_pT_0_10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10");
+                h_pT_0_10_2016->Fill(Ratio2016);
+                h_pT_0_10_2016->SetFillColor(kRed);
+                hs_pT_0_10.Add(h_pT_0_10_2016);
+                
+                h_pT_0_10_2017->Fill(Ratio2017);
+                h_pT_0_10_2017->SetFillColor(kBlue);
+                hs_pT_0_10.Add(h_pT_0_10_2017);
             }
             if(GEN_pt > 10 && GEN_pt <= 30){
-                h_pT_10_30->Fill(Ratio);
+                THStack hs_pT_10_30("hs_pT_10_30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30");
+                h_pT_10_30_2016->Fill(Ratio2016);
+                h_pT_10_30_2016->SetFillColor(kRed);
+                hs_pT_10_30.Add(h_pT_10_30_2016);
+                
+                h_pT_10_30_2017->Fill(Ratio2017);
+                h_pT_10_30_2017->SetFillColor(kBlue);
+                hs_pT_10_30.Add(h_pT_10_30_2017);
             }
             if(GEN_pt > 30 && GEN_pt <= 100){
-                h_pT_30_100->Fill(Ratio);
+                THStack hs_pT_30_100("hs_pT_30_100","pT Resolution mode "+MODE[i]+" 30<GEN pT<100");
+                h_pT_30_100_2016->Fill(Ratio2016);
+                h_pT_30_100_2016->SetFillColor(kRed);
+                hs_pT_30_100.Add(h_pT_30_100_2016);
+                
+                h_pT_30_100_2017->Fill(Ratio2017);
+                h_pT_30_100_2017->SetFillColor(kBlue);
+                hs_pT_30_100.Add(h_pT_30_100_2017);
             }
             if(GEN_pt > 100 && GEN_pt <= 1000){
-                h_pT_100_1000->Fill(Ratio);
+                THStack hs_pT_100_1000("hs_pT_100_1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000");
+                h_pT_100_1000_2016->Fill(Ratio2016);
+                h_pT_100_1000_2016->SetFillColor(kRed);
+                hs_pT_100_1000.Add(h_pT_100_1000_2016);
+                
+                h_pT_100_1000_2017->Fill(Ratio2017);
+                h_pT_100_1000_2017->SetFillColor(kBlue);
+                hs_pT_100_1000.Add(h_pT_100_1000_2017);
             }//end if
             
         }//end loop over events
         //output
-        TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
-        h_pT_0_10->Write();
-        h_pT_10_30->Write();
-        h_pT_30_100->Write();
-        h_pT_100_1000->Write();
+        TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root"
+        TFile myPlot(output,"RECREATE");
         
+        hs_pT_0_10->Write();
+        hs_pT_10_30->Write();
+        hs_pT_30_100->Write();
+        hs_pT_100_1000->Write();  
+        
+        h_pT_0_10_2016->Write();  
+        h_pT_0_10_2017->Write();  
+        h_pT_10_30_2016->Write();  
+        h_pT_10_30_2017->Write();  
+        h_pT_30_100_2016->Write();  
+        h_pT_30_100_2017->Write();  
+        h_pT_100_1000_2016->Write();  
+        h_pT_100_1000_2017->Write();  
+        myPlot.Close();
     }//end loop over modes
-    
-    myPlot.Close();
-    cout<<"Write to file"<<endl;
+
+    cout<<"Write to all files."<<endl;
     
 }//end EMTFpTResolution2017()
