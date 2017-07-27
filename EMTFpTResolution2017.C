@@ -69,20 +69,24 @@ void EMTFpTResolution2017()
         cout<<numEvents<<" events to process..."<<endl;
     
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
-            myTree->GetEntry(iEntry);//load the i-th event
+            //load the i-th event
+            myTree->GetEntry(iEntry);
+            Float_t GEN_pt= *Gen_Pt;
+            Float_t EMTF_pt= *Emtf_Pt;
+            Float_t BDTG_AWB_Sq= *Bdtg_Awb_Sq;
             
-            Float_t Ratio=(*Emtf_Pt)/(*Gen_Pt);
+            Float_t Ratio= EMTF_pt/GEN_pt;
             
-            if((*Gen_Pt)>0 && (*Gen_Pt)<=10){
+            if(GEN_pt>0 && GEN_pt<=10){
                 h_pT_0_10->Fill(Ratio);
             }
-            if((*Gen_Pt)>10 && (*Gen_Pt)<=30){
+            if(GEN_pt>10 && GEN_pt<=30){
                 h_pT_10_30->Fill(Ratio);
             }
-            if((*Gen_Pt)>30 && (*Gen_Pt)<=100){
+            if(GEN_pt>30 && GEN_pt)<=100){
                 h_pT_30_100->Fill(Ratio);
             }
-            if((*Gen_Pt)>100 && (*Gen_Pt)<=1000){
+            if(GEN_pt>100 && GEN_pt)<=1000){
                 h_pT_100_1000->Fill(Ratio);
             }//end if
             
