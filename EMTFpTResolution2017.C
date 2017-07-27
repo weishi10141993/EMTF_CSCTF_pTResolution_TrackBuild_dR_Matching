@@ -13,7 +13,9 @@ using namespace std;
 #include "math.h"
 #include "TMath.h"
 #include "TGraph.h"
-#include <TLegend.h>
+#include "TLegend.h"
+#include "TPaveStats.h"
+#include "TStyle.h"
 //=**************************************************************************************
 //=Study the pT resolution performance of 2017 pT assignment.
 //=Eta in [1.2, 2.4], plot EMTF 2017 trigger pT/GEN pT Compare 2016 EMTF trigger pT/GEN pT, 
