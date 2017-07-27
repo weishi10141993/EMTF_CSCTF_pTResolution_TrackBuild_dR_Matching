@@ -54,7 +54,7 @@ void EMTFpTResolution2017()
         //=*************************
         //**2016**
         //GEN pT 0-10 GeV
-        TH1F *h_pT_0_10_2016 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5,1000,);
+        TH1F *h_pT_0_10_2016 = new TH1F("mode "+MODE[i]+" 0<GEN pT<10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
         //GEN pT 10-30 GeV
         TH1F *h_pT_10_30_2016 = new TH1F("mode "+MODE[i]+" 10<GEN pT<30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30", 100, 0, 5);
         //GEN pT 30-100 GeV
