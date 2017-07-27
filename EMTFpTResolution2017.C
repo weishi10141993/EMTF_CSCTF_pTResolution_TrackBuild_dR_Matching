@@ -12,12 +12,7 @@ using namespace std;
 #include "math.h"
 #include "TMath.h"
 #include "TGraph.h"
-#include <algorithm>    
-#include <TGraphErrors.h>
 #include <TLegend.h>
-#include <TStyle.h>
-#include <TChain.h>
-#include <TChainElement.h>
 //=**************************************************************************************
 //=Study the pT resolution performance of 2017 pT assignment.
 //=Eta in [1.2, 2.4], plot EMTF 2017 trigger pT/GEN pT Compare 2016 EMTF trigger pT/GEN pT, 
@@ -74,20 +69,20 @@ void EMTFpTResolution2017()
         cout<<numEvents<<" events to process..."<<endl;
     
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
-            myTree->GetEntry(iEntry);//load the ientry-th event
+            myTree->GetEntry(iEntry);//load the i-th event
             
             Float_t Ratio=(*Emtf_Pt)/(*Gen_Pt);
             
-            if(*Gen_Pt>0 && *Gen_Pt<=10){
+            if((*Gen_Pt)>0 && (*Gen_Pt)<=10){
                 h_pT_0_10->Fill(Ratio);
             }
-            if(*Gen_Pt>10 && *Gen_Pt<=30){
+            if((*Gen_Pt)>10 && (*Gen_Pt)<=30){
                 h_pT_10_30->Fill(Ratio);
             }
-            if(*Gen_Pt>30 && *Gen_Pt<=100){
+            if((*Gen_Pt)>30 && (*Gen_Pt)<=100){
                 h_pT_30_100->Fill(Ratio);
             }
-            if(*Gen_Pt>100 && *Gen_Pt<=1000){
+            if((*Gen_Pt)>100 && (*Gen_Pt)<=1000){
                 h_pT_100_1000->Fill(Ratio);
             }//end if
             
