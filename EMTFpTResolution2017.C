@@ -16,6 +16,7 @@ using namespace std;
 #include "TLegend.h"
 #include "TPaveStats.h"
 #include "TStyle.h"
+#include "THStack.h"
 //=**************************************************************************************
 //=Study the pT resolution performance of 2017 pT assignment.
 //=Eta in [1.2, 2.4], plot EMTF 2017 trigger pT/GEN pT Compare 2016 EMTF trigger pT/GEN pT, 
@@ -121,19 +122,23 @@ void EMTFpTResolution2017()
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
         
-        TCanvas *C1=new TCanvas("C1","pT Resolution",700,500);
-        TCanvas *C2=new TCanvas("C2","pT Resolution",700,500);
-        TCanvas *C3=new TCanvas("C3","pT Resolution",700,500);
-        TCanvas *C4=new TCanvas("C4","pT Resolution",700,500);
+        TCanvas *C1=new TCanvas("C1","C1",700,500);
+        TCanvas *C2=new TCanvas("C2","C2",700,500);
+        TCanvas *C3=new TCanvas("C3","C3",700,500);
+        TCanvas *C4=new TCanvas("C4","C4",700,500);
+        THStack *hs1 = new THStack("hs1","Mode "+MODE[i]+" pT Resolution 0<GEN pT<10 GeV");
+        THStack *hs2 = new THStack("hs2","Mode "+MODE[i]+" pT Resolution 10<GEN pT<30 GeV");
+        THStack *hs3 = new THStack("hs3","Mode "+MODE[i]+" pT Resolution 30<GEN pT<100 GeV");
+        THStack *hs4 = new THStack("hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
         
         C1->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_0_10_2016->GetYaxis()->SetRangeUser(0,200000);
-        h_pT_0_10_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
-        h_pT_0_10_2016->Draw();  
-        h_pT_0_10_2017->Draw("same"); 
+        hs1->Add(h_pT_0_10_2016);
+        hs1->Add(h_pT_0_10_2017);
+        hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        hs1->Draw("nostack");
         TLegend* L1 = new TLegend(0.6,0.7,0.9,0.9);
-        //L1->SetHeader("The Legend Title","C"); // option "C" allows to center the header
+        L1->SetHeader("The Legend Title","C"); // option "C" allows to center the header
         L1->AddEntry(h_pT_0_10_2016,"2016");
         L1->AddEntry(h_pT_0_10_2017,"2017");
         L1->Draw();
@@ -141,10 +146,10 @@ void EMTFpTResolution2017()
         
         C2->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_10_30_2016->GetYaxis()->SetRangeUser(0,200000);
-        h_pT_10_30_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
-        h_pT_10_30_2016->Draw();  
-        h_pT_10_30_2017->Draw("same");  
+        hs2->Add(h_pT_10_30_2016);
+        hs2->Add(h_pT_10_30_2017);
+        hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        hs2->Draw("nostack");
         TLegend* L2 = new TLegend(0.6,0.7,0.9,0.9);
         L2->AddEntry(h_pT_10_30_2016,"2016");
         L2->AddEntry(h_pT_10_30_2017,"2017");
@@ -152,11 +157,11 @@ void EMTFpTResolution2017()
         C2->Write();
         
         C3->cd();
-        gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_30_100_2016->GetYaxis()->SetRangeUser(0,200000);
-        h_pT_30_100_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
-        h_pT_30_100_2016->Draw();  
-        h_pT_30_100_2017->Draw("same");  
+        gStyle->SetOptStat("e");//optionally print only the entries in statistics box 
+        hs3->Add(h_pT_30_100_2016);
+        hs3->Add(h_pT_30_100_2017);
+        hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        hs3->Draw("nostack");
         TLegend* L3 = new TLegend(0.6,0.7,0.9,0.9);
         L3->AddEntry(h_pT_30_100_2016,"2016");
         L3->AddEntry(h_pT_30_100_2017,"2017");
@@ -165,10 +170,10 @@ void EMTFpTResolution2017()
         
         C4->cd();
         gStyle->SetOptStat("e");//optionally print only the entries in statistics box
-        h_pT_100_1000_2016->GetYaxis()->SetRangeUser(0,200000);
-        h_pT_100_1000_2016->GetXaxis()->SetTitle("Trigger pT/GEN pT");
-        h_pT_100_1000_2016->Draw();  
-        h_pT_100_1000_2017->Draw("same");  
+        hs4->Add(h_pT_100_1000_2016);
+        hs4->Add(h_pT_100_1000_2017);
+        hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+        hs4->Draw("nostack");
         TLegend* L4 = new TLegend(0.6,0.7,0.9,0.9);
         L4->AddEntry(h_pT_100_1000_2016,"2016");
         L4->AddEntry(h_pT_100_1000_2017,"2017");
