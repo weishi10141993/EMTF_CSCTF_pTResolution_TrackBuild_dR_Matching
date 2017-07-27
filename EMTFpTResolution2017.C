@@ -69,11 +69,6 @@ void EMTFpTResolution2017()
         //GEN pT >100 GeV muon shower
         TH1F *h_pT_100_1000_2017 = new TH1F("2017 mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
         
-        THStack hs_pT_0_10("hs_pT_0_10","pT Resolution mode "+MODE[i]+" 0<GEN pT<10");
-        THStack hs_pT_10_30("hs_pT_10_30","pT Resolution mode "+MODE[i]+" 10<GEN pT<30");
-        THStack hs_pT_30_100("hs_pT_30_100","pT Resolution mode "+MODE[i]+" 30<GEN pT<100");
-        THStack hs_pT_100_1000("hs_pT_100_1000","pT Resolution mode "+MODE[i]+" 100<GEN pT<1000");
-        
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
         cout<<numEvents<<" events to process..."<<endl;
@@ -90,72 +85,60 @@ void EMTFpTResolution2017()
                 
                 h_pT_0_10_2016->Fill(Ratio2016);
                 h_pT_0_10_2016->SetLineColor(kRed);
-                hs_pT_0_10.Add(h_pT_0_10_2016);
                 
                 h_pT_0_10_2017->Fill(Ratio2017);
                 h_pT_0_10_2017->SetLineColor(kBlue);
-                hs_pT_0_10.Add(h_pT_0_10_2017);
             }
             if(GEN_pt > 10 && GEN_pt <= 30){
                 
                 h_pT_10_30_2016->Fill(Ratio2016);
                 h_pT_10_30_2016->SetLineColor(kRed);
-                hs_pT_10_30.Add(h_pT_10_30_2016);
                 
                 h_pT_10_30_2017->Fill(Ratio2017);
                 h_pT_10_30_2017->SetLineColor(kBlue);
-                hs_pT_10_30.Add(h_pT_10_30_2017);
             }
             if(GEN_pt > 30 && GEN_pt <= 100){
                 
                 h_pT_30_100_2016->Fill(Ratio2016);
                 h_pT_30_100_2016->SetLineColor(kRed);
-                hs_pT_30_100.Add(h_pT_30_100_2016);
                 
                 h_pT_30_100_2017->Fill(Ratio2017);
                 h_pT_30_100_2017->SetFillColor(kBlue);
-                hs_pT_30_100.Add(h_pT_30_100_2017);
             }
             if(GEN_pt > 100 && GEN_pt <= 1000){
                 
                 h_pT_100_1000_2016->Fill(Ratio2016);
                 h_pT_100_1000_2016->SetLineColor(kRed);
-                hs_pT_100_1000.Add(h_pT_100_1000_2016);
                 
                 h_pT_100_1000_2017->Fill(Ratio2017);
                 h_pT_100_1000_2017->SetLineColor(kBlue);
-                hs_pT_100_1000.Add(h_pT_100_1000_2017);
             }//end if
             
         }//end loop over events
         //output
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
+        
         TCanvas *C1=new TCanvas("C1","pT Resolution",700,500);
         TCanvas *C2=new TCanvas("C2","pT Resolution",700,500);
         TCanvas *C3=new TCanvas("C3","pT Resolution",700,500);
         TCanvas *C4=new TCanvas("C4","pT Resolution",700,500);
         C1->cd();
-        hs_pT_0_10->Draw("nostack");
-        hs_pT_0_10->Write();
+        h_pT_0_10_2016->Draw();  
+        h_pT_0_10_2017->Draw("same"); 
+        C1->Write();
         C2->cd();
-        hs_pT_10_30->Draw("nostack");
-        hs_pT_10_30->Write();
+        h_pT_10_30_2016->Draw();  
+        h_pT_10_30_2017->Draw("same");  
+        C2->Write();
         C3->cd();
-        hs_pT_30_100->Draw("nostack");
-        hs_pT_30_100->Write();
+        h_pT_30_100_2016->Draw();  
+        h_pT_30_100_2017->Draw("same");  
+        C3->Write();
         C4->cd();
-        hs_pT_100_1000->Draw("nostack");
-        hs_pT_100_1000->Write();  
-        
-        h_pT_0_10_2016->Write();  
-        h_pT_0_10_2017->Write();  
-        h_pT_10_30_2016->Write();  
-        h_pT_10_30_2017->Write();  
-        h_pT_30_100_2016->Write();  
-        h_pT_30_100_2017->Write();  
-        h_pT_100_1000_2016->Write();  
-        h_pT_100_1000_2017->Write();  
+        h_pT_100_1000_2016->Draw();  
+        h_pT_100_1000_2017->Draw("same");  
+        C4->Write();
         myPlot.Close();
     }//end loop over modes
 
