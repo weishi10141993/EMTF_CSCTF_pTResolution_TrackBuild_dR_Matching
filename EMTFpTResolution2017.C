@@ -23,8 +23,7 @@ void EMTFpTResolution2017()
 {
     //TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
     TString MODE[1]={"15"};
-    //output
-    TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
+    
     //loop through all modes
     for (int i=0;i<1;i++){
         
@@ -88,7 +87,8 @@ void EMTFpTResolution2017()
             }//end if
             
         }//end loop over events
-        
+        //output
+        TFile myPlot("/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/EMTFpTResolution2017.root","RECREATE");
         h_pT_0_10->Write();
         h_pT_10_30->Write();
         h_pT_30_100->Write();
