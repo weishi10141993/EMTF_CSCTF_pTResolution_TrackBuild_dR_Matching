@@ -89,27 +89,27 @@ void EMTFpTResolution2017()
             if(GEN_pt > 0 && GEN_pt <= 10){
                 
                 h_pT_0_10_2016->Fill(Ratio2016);
-                h_pT_0_10_2016->SetFillColor(kRed);
+                h_pT_0_10_2016->SetLineColor(kRed);
                 hs_pT_0_10.Add(h_pT_0_10_2016);
                 
                 h_pT_0_10_2017->Fill(Ratio2017);
-                h_pT_0_10_2017->SetFillColor(kBlue);
+                h_pT_0_10_2017->SetLineColor(kBlue);
                 hs_pT_0_10.Add(h_pT_0_10_2017);
             }
             if(GEN_pt > 10 && GEN_pt <= 30){
                 
                 h_pT_10_30_2016->Fill(Ratio2016);
-                h_pT_10_30_2016->SetFillColor(kRed);
+                h_pT_10_30_2016->SetLineColor(kRed);
                 hs_pT_10_30.Add(h_pT_10_30_2016);
                 
                 h_pT_10_30_2017->Fill(Ratio2017);
-                h_pT_10_30_2017->SetFillColor(kBlue);
+                h_pT_10_30_2017->SetLineColor(kBlue);
                 hs_pT_10_30.Add(h_pT_10_30_2017);
             }
             if(GEN_pt > 30 && GEN_pt <= 100){
                 
                 h_pT_30_100_2016->Fill(Ratio2016);
-                h_pT_30_100_2016->SetFillColor(kRed);
+                h_pT_30_100_2016->SetLineColor(kRed);
                 hs_pT_30_100.Add(h_pT_30_100_2016);
                 
                 h_pT_30_100_2017->Fill(Ratio2017);
@@ -119,11 +119,11 @@ void EMTFpTResolution2017()
             if(GEN_pt > 100 && GEN_pt <= 1000){
                 
                 h_pT_100_1000_2016->Fill(Ratio2016);
-                h_pT_100_1000_2016->SetFillColor(kRed);
+                h_pT_100_1000_2016->SetLineColor(kRed);
                 hs_pT_100_1000.Add(h_pT_100_1000_2016);
                 
                 h_pT_100_1000_2017->Fill(Ratio2017);
-                h_pT_100_1000_2017->SetFillColor(kBlue);
+                h_pT_100_1000_2017->SetLineColor(kBlue);
                 hs_pT_100_1000.Add(h_pT_100_1000_2017);
             }//end if
             
