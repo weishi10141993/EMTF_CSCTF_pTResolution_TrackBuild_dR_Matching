@@ -99,4 +99,5 @@ void EMTFpTResolution2017()
         
     }//end loop over modes
     myPlot.Close();
+    cout<<"Write to file"<<endl;
 }//end EMTFpTResolution2017()
