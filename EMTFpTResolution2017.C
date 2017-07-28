@@ -146,7 +146,7 @@ void EMTFpTResolution2017()
         hs1->Draw("nostack");
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
-        TLegend* L1 = new TLegend(0.6,0.05,0.9,0.2);
+        TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
         L1->AddEntry(h_pT_0_10_2016,"2016");
         L1->AddEntry(h_pT_0_10_2017,"2017");
         L1->Draw();
@@ -165,7 +165,7 @@ void EMTFpTResolution2017()
         hs2->Draw("nostack");
         hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C2->Modified();
-        TLegend* L2 = new TLegend(0.6,0.05,0.9,0.2);
+        TLegend* L2 = new TLegend(0.4,0.7,0.6,0.9);
         L2->AddEntry(h_pT_10_30_2016,"2016");
         L2->AddEntry(h_pT_10_30_2017,"2017");
         L2->Draw();
@@ -184,7 +184,7 @@ void EMTFpTResolution2017()
         hs3->Draw("nostack");
         hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C3->Modified();
-        TLegend* L3 = new TLegend(0.6,0.05,0.9,0.2);
+        TLegend* L3 = new TLegend(0.4,0.7,0.6,0.9);
         L3->AddEntry(h_pT_30_100_2016,"2016");
         L3->AddEntry(h_pT_30_100_2017,"2017");
         L3->Draw();
@@ -203,7 +203,7 @@ void EMTFpTResolution2017()
         hs4->Draw("nostack");
         hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C4->Modified();
-        TLegend* L4 = new TLegend(0.6,0.05,0.9,0.2);
+        TLegend* L4 = new TLegend(0.4,0.7,0.6,0.9);
         L4->AddEntry(h_pT_100_1000_2016,"2016");
         L4->AddEntry(h_pT_100_1000_2017,"2017");
         L4->Draw();
