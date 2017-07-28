@@ -18,6 +18,9 @@ using namespace std;
 #include "TPaveStats.h"
 #include "TStyle.h"
 #include "THStack.h"
+#include "TFitResultPtr.h"
+
+
 //=**************************************************************************************
 //=Study the pT resolution performance of 2017 pT assignment.
 //=Eta in [1.2, 2.4], plot EMTF 2017 trigger pT/GEN pT Compare 2016 EMTF trigger pT/GEN pT, 
@@ -65,6 +68,34 @@ void EMTFpTResolution2017()
     Double_t xmax2017_pT_30_100[1]={1.10};
     Double_t xmin2017_pT_100_1000[1]={0.00};
     Double_t xmax2017_pT_100_1000[1]={2.50};
+    
+    //extract the mean, sigma and their ratio from the fit
+    //2016
+    Double_t Mean2016_pT_0_10[1]={0};
+    Double_t Sigma2016_pT_0_10[1]={0};
+    Double_t MeanOverSigma2016_pT_0_10[1]={0};
+    Double_t Mean2016_pT_10_30[1]={0};
+    Double_t Sigma2016_pT_10_30[1]={0};
+    Double_t MeanOverSigma2016_pT_10_30[1]={0};
+    Double_t Mean2016_pT_30_100[1]={0};
+    Double_t Sigma2016_pT_30_100[1]={0};
+    Double_t MeanOverSigma2016_pT_30_100[1]={0};
+    Double_t Mean2016_pT_100_1000[1]={0};
+    Double_t Sigma2016_pT_100_1000[1]={0};
+    Double_t MeanOverSigma2016_pT_100_1000[1]={0};
+    //2017
+    Double_t Mean2017_pT_0_10[1]={0};
+    Double_t Sigma2017_pT_0_10[1]={0};
+    Double_t MeanOverSigma2017_pT_0_10[1]={0};
+    Double_t Mean2017_pT_10_30[1]={0};
+    Double_t Sigma2017_pT_10_30[1]={0};
+    Double_t MeanOverSigma2017_pT_10_30[1]={0};
+    Double_t Mean2017_pT_30_100[1]={0};
+    Double_t Sigma2017_pT_30_100[1]={0};
+    Double_t MeanOverSigma2017_pT_30_100[1]={0};
+    Double_t Mean2017_pT_100_1000[1]={0};
+    Double_t Sigma2017_pT_100_1000[1]={0};
+    Double_t MeanOverSigma2017_pT_100_1000[1]={0};
     
     int MODES;
     MODES = sizeof(MODE) / sizeof(TString);
@@ -173,10 +204,16 @@ void EMTFpTResolution2017()
         
         C1->cd();
         h_pT_0_10_2016->Fit("gaus","","",xmin2016_pT_0_10[i],xmax2016_pT_0_10[i]);
+        Mean2016_pT_0_10[i]= h_pT_0_10_2016->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
+        Sigma2016_pT_0_10[i]= h_pT_0_10_2016->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
+        MeanOverSigma2016_pT_0_10[i]= Sigma2016_pT_0_10[i]/Mean2016_pT_0_10[i];// sigma/mean metric
         h_pT_0_10_2016->GetFunction("gaus")->SetLineColor(kRed);
         h_pT_0_10_2016->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         gStyle->SetOptFit(1);
         h_pT_0_10_2017->Fit("gaus","","",xmin2017_pT_0_10[i],xmax2017_pT_0_10[i]);
+        Mean2017_pT_0_10[i]= h_pT_0_10_2017->GetFunction("gaus")->GetParameter(1);
+        Sigma2017_pT_0_10[i]= h_pT_0_10_2017->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2017_pT_0_10[i]= Sigma2017_pT_0_10[i]/Mean2017_pT_0_10[i];
         h_pT_0_10_2017->GetFunction("gaus")->SetLineColor(kBlue);
         h_pT_0_10_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
@@ -196,10 +233,16 @@ void EMTFpTResolution2017()
         
         C2->cd();
         h_pT_10_30_2016->Fit("gaus","","",xmin2016_pT_10_30[i],xmax2016_pT_10_30[i]);
+        Mean2016_pT_10_30[i]= h_pT_10_30_2016->GetFunction("gaus")->GetParameter(1);
+        Sigma2016_pT_10_30[i]= h_pT_10_30_2016->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2016_pT_10_30[i]= Sigma2016_pT_10_30[i]/Mean2016_pT_10_30[i];
         h_pT_10_30_2016->GetFunction("gaus")->SetLineColor(kRed);
         h_pT_10_30_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_10_30_2017->Fit("gaus","","",xmin2017_pT_10_30[i],xmax2017_pT_10_30[i]);
+        Mean2017_pT_10_30[i]= h_pT_10_30_2017->GetFunction("gaus")->GetParameter(1);
+        Sigma2017_pT_10_30[i]= h_pT_10_30_2017->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2017_pT_10_30[i]= Sigma2017_pT_10_30[i]/Mean2017_pT_10_30[i];
         h_pT_10_30_2017->GetFunction("gaus")->SetLineColor(kBlue);
         h_pT_10_30_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
@@ -219,10 +262,16 @@ void EMTFpTResolution2017()
         
         C3->cd();
         h_pT_30_100_2016->Fit("gaus","","",xmin2016_pT_30_100[i],xmax2016_pT_30_100[i]);
+        Mean2016_pT_30_100[i]= h_pT_30_100_2016->GetFunction("gaus")->GetParameter(1);
+        Sigma2016_pT_30_100[i]= h_pT_30_100_2016->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2016_pT_30_100[i]= Sigma2016_pT_30_100[i]/Mean2016_pT_30_100[i];
         h_pT_30_100_2016->GetFunction("gaus")->SetLineColor(kRed);
         h_pT_30_100_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_30_100_2017->Fit("gaus","","",xmin2017_pT_30_100[i],xmax2017_pT_30_100[i]);
+        Mean2017_pT_30_100[i]= h_pT_30_100_2017->GetFunction("gaus")->GetParameter(1);
+        Sigma2017_pT_30_100[i]= h_pT_30_100_2017->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2017_pT_30_100[i]= Sigma2017_pT_30_100[i]/Mean2017_pT_30_100[i];
         h_pT_30_100_2017->GetFunction("gaus")->SetLineColor(kBlue);
         h_pT_30_100_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
@@ -242,10 +291,16 @@ void EMTFpTResolution2017()
         
         C4->cd();
         h_pT_100_1000_2016->Fit("gaus","","",xmin2016_pT_100_1000[i],xmax2016_pT_100_1000[i]);
+        Mean2016_pT_100_1000[i]= h_pT_100_1000_2016->GetFunction("gaus")->GetParameter(1);
+        Sigma2016_pT_100_1000[i]= h_pT_100_1000_2016->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2016_pT_100_1000[i]= Sigma2016_pT_100_1000[i]/Mean2016_pT_100_1000[i];
         h_pT_100_1000_2016->GetFunction("gaus")->SetLineColor(kRed);
         h_pT_100_1000_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_100_1000_2017->Fit("gaus","","",xmin2017_pT_100_1000[i],xmax2017_pT_100_1000[i]);
+        Mean2017_pT_100_1000[i]= h_pT_100_1000_2017->GetFunction("gaus")->GetParameter(1);
+        Sigma2017_pT_100_1000[i]= h_pT_100_1000_2017->GetFunction("gaus")->GetParameter(2);
+        MeanOverSigma2017_pT_100_1000[i]= Sigma2017_pT_100_1000[i]/Mean2017_pT_100_1000[i];
         h_pT_100_1000_2017->GetFunction("gaus")->SetLineColor(kBlue);
         h_pT_100_1000_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
@@ -264,7 +319,15 @@ void EMTFpTResolution2017()
         C4->Write();
         
         myPlot.Close();
-        cout<<"Finished processing this file..."<<endl;
+        cout<<"===print out"<<endl;
+        cout<<"===Mode "<<MODE[i]<<endl;
+        cout<<"***********************************************************************************************************"<<endl;
+        cout<<"* GEN pT Range[GeV] * 2016 Mean * 2017 Mean * 2016 Sigma * 2017 Sigma * 2016 Sigma/Mean * 2017 Sigma/Mean *"<<endl;
+        cout<<"*    (0, 10]        * "<<Mean2016_pT_0_10[i]<<" * "<<Mean2017_pT_0_10[i]<<" * "<<Sigma2016_pT_0_10[i]<<" * "<<Sigma2017_pT_0_10[i]<<" * "<<MeanOverSigma2016_pT_0_10[i]<<" * "<<MeanOverSigma2017_pT_0_10[i]<<" *"<<endl;
+        cout<<"*    (10, 30]       * "<<Mean2016_pT_10_30[i]<<" * "<<Mean2017_pT_10_30[i]<<" * "<<Sigma2016_pT_10_30[i]<<" * "<<Sigma2017_pT_10_30[i]<<" * "<<MeanOverSigma2016_pT_10_30[i]<<" * "<<MeanOverSigma2017_pT_10_30[i]<<" *"<<endl;
+        cout<<"*    (30, 100]      * "<<Mean2016_pT_30_100[i]<<" * "<<Mean2017_pT_30_100[i]<<" * "<<Sigma2016_pT_30_100[i]<<" * "<<Sigma2017_pT_30_100[i]<<" * "<<MeanOverSigma2016_pT_30_100[i]<<" * "<<MeanOverSigma2017_pT_30_100[i]<<" *"<<endl;
+        cout<<"*    (100, 1000]    * "<<Mean2016_pT_100_1000[i]<<" * "<<Mean2017_pT_100_1000[i]<<" * "<<Sigma2016_pT_100_1000[i]<<" * "<<Sigma2017_pT_100_1000[i]<<" * "<<MeanOverSigma2016_pT_100_1000[i]<<" * "<<MeanOverSigma2017_pT_100_1000[i]<<" *"<<endl;
+        cout<<"***********************************************************************************************************"<<endl;
     }//end loop over modes
 
     cout<<"Write to all files."<<endl;
