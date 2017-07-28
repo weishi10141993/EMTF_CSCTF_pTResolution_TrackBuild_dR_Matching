@@ -191,12 +191,16 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
+        h_pT_100_1000_2016->SetStats(1);
+        TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
+        st4->SetY1NDC(0.55);
+        st4->SetY2NDC(0.2);
         hs4->Add(h_pT_100_1000_2016);
         hs4->Add(h_pT_100_1000_2017);
         hs4->Draw("nostack");
         hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C4->Modified();
-        TLegend* L4 = new TLegend(0.6,0.7,0.9,0.9);
+        TLegend* L4 = new TLegend(0.6,0.05,0.9,0.2);
         L4->AddEntry(h_pT_100_1000_2016,"2016");
         L4->AddEntry(h_pT_100_1000_2017,"2017");
         L4->Draw();
