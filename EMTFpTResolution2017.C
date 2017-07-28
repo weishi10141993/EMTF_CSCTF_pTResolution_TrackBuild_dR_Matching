@@ -191,9 +191,9 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
-        h_pT_30_100_2016->Fit("gaus","","",0,2.50);
+        h_pT_100_1000_2016->Fit("gaus","","",0,2.50);
         gStyle->SetOptFit(1);
-        h_pT_30_100_2017->Fit("gaus","","",0,2.50);
+        h_pT_100_1000_2017->Fit("gaus","","",0,2.50);
         gStyle->SetOptFit(1);
         TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
         st4->SetY1NDC(0.2);
