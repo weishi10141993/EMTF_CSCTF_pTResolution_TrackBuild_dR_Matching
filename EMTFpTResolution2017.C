@@ -134,16 +134,19 @@ void EMTFpTResolution2017()
         THStack *hs4 = new THStack(MODE[i]+"hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
         
         C1->cd();
-        h_pT_0_10_2016->Fit("gaus");
+        h_pT_0_10_2016->Fit("gaus","","",0.75,1.55);
         gStyle->SetOptFit(1);
-        h_pT_0_10_2017->Fit("gaus");
+        h_pT_0_10_2017->Fit("gaus","","",0,1.25);
         gStyle->SetOptFit(1);
+        TPaveStats *st1 = (TPaveStats*)h_pT_0_10_2017->FindObject("stats")
+        st1->SetY1NDC(0.6);
+        st1->SetY2NDC(0.4);
         hs1->Add(h_pT_0_10_2016);
         hs1->Add(h_pT_0_10_2017);
         hs1->Draw("nostack");
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
-        TLegend* L1 = new TLegend(0.6,0.7,0.9,0.9);
+        TLegend* L1 = new TLegend(0.6,0.2,0.9,0.4);
         L1->AddEntry(h_pT_0_10_2016,"2016");
         L1->AddEntry(h_pT_0_10_2017,"2017");
         L1->Draw();
