@@ -26,8 +26,27 @@ using namespace std;
 //=**************************************************************************************
 void EMTFpTResolution2017()
 {
-    //TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
-    TString MODE[1]={"15"};
+    TString MODE[9]={"15","14","13","11","7","9","6","5","3"};
+    //TString MODE[1]={"15"};
+    //gauss fit range 2016
+    Double_t xmin2016_pT_0_10[9]={0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75};
+    Double_t xmax2016_pT_0_10[9]={1.55,1.55,1.55,1.55,1.55,1.55,1.55,1.55,1.55};
+    Double_t xmin2016_pT_10_30[9]={0.70,0.75,0.70,0.70,0.70,0.70,0.70,0.70,0.70};
+    Double_t xmax2016_pT_10_30[9]={1.50,1.45,1.50,1.50,1.50,1.50,1.50,1.50,1.50};
+    Double_t xmin2016_pT_30_100[9]={0.50,0.50,0.50,0.50,0.50,0.50,0.50,0.50,0.50};
+    Double_t xmax2016_pT_30_100[9]={1.50,1.50,1.50,1.50,1.50,1.50,1.50,1.50,1.50};
+    Double_t xmin2016_pT_100_1000[9]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t xmax2016_pT_100_1000[9]={2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50};
+    //2017 fit ratio range
+    Double_t xmin2017_pT_0_10[9]={0.65,0.70,0.65,0.65,0.65,0.65,0.80,0.75,0.75};
+    Double_t xmax2017_pT_0_10[9]={1.20,1.20,1.25,1.25,1.25,1.25,1.20,1.20,1.20};
+    Double_t xmin2017_pT_10_30[9]={0.60,0.45,0.45,0.40,0.30,0.30,0.20,0.20,0.20};
+    Double_t xmax2017_pT_10_30[9]={1.10,1.15,1.15,1.15,0.85,0.90,0.65,0.65,0.65};
+    Double_t xmin2017_pT_30_100[9]={0.30,0.30,0.30,0.30,0.05,0.10,0.00,0.00,0.05};
+    Double_t xmax2017_pT_30_100[9]={1.10,1.15,1.10,1.00,0.45,0.85,0.30,0.15,0.20};
+    Double_t xmin2017_pT_100_1000[9]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t xmax2017_pT_100_1000[9]={2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50};
+    
     int MODES;
     MODES = sizeof(MODE) / sizeof(TString);
     //loop through all modes
@@ -134,9 +153,9 @@ void EMTFpTResolution2017()
         THStack *hs4 = new THStack(MODE[i]+"hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
         
         C1->cd();
-        h_pT_0_10_2016->Fit("gaus","","",0.75,1.55);
+        h_pT_0_10_2016->Fit("gaus","","",xmin2016_pT_0_10[i],xmax2016_pT_0_10[i]);
         gStyle->SetOptFit(1);
-        h_pT_0_10_2017->Fit("gaus","","",0,1.25);
+        h_pT_0_10_2017->Fit("gaus","","",xmin2017_pT_0_10[i],xmax2017_pT_0_10[i]);
         gStyle->SetOptFit(1);
         TPaveStats *st1 = (TPaveStats*)h_pT_0_10_2017->FindObject("stats");
         st1->SetY1NDC(0.2);
@@ -153,9 +172,9 @@ void EMTFpTResolution2017()
         C1->Write();
         
         C2->cd();
-        h_pT_10_30_2016->Fit("gaus","","",0.70,1.50);
+        h_pT_10_30_2016->Fit("gaus","","",xmin2016_pT_10_30[i],xmax2016_pT_10_30[i]);
         gStyle->SetOptFit(1);
-        h_pT_10_30_2017->Fit("gaus","","",0,1.25);
+        h_pT_10_30_2017->Fit("gaus","","",xmin2017_pT_10_30[i],xmax2017_pT_10_30[i]);
         gStyle->SetOptFit(1);
         TPaveStats *st2 = (TPaveStats*)h_pT_10_30_2017->FindObject("stats");
         st2->SetY1NDC(0.2);
@@ -172,9 +191,9 @@ void EMTFpTResolution2017()
         C2->Write();
         
         C3->cd();
-        h_pT_30_100_2016->Fit("gaus","","",0.50,1.50);
+        h_pT_30_100_2016->Fit("gaus","","",xmin2016_pT_30_100[i],xmax2016_pT_30_100[i]);
         gStyle->SetOptFit(1);
-        h_pT_30_100_2017->Fit("gaus","","",0,1.10);
+        h_pT_30_100_2017->Fit("gaus","","",xmin2017_pT_30_100[i],xmax2017_pT_30_100[i]);
         gStyle->SetOptFit(1);
         TPaveStats *st3 = (TPaveStats*)h_pT_30_100_2017->FindObject("stats");
         st3->SetY1NDC(0.2);
@@ -191,9 +210,9 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
-        h_pT_100_1000_2016->Fit("gaus","","",0,2.50);
+        h_pT_100_1000_2016->Fit("gaus","","",xmin2016_pT_100_1000[i],xmax2016_pT_100_1000[i]);
         gStyle->SetOptFit(1);
-        h_pT_100_1000_2017->Fit("gaus","","",0,2.50);
+        h_pT_100_1000_2017->Fit("gaus","","",xmin2017_pT_100_1000[i],xmax2017_pT_100_1000[i]);
         gStyle->SetOptFit(1);
         TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
         st4->SetY1NDC(0.2);
