@@ -26,8 +26,9 @@ using namespace std;
 //=**************************************************************************************
 void EMTFpTResolution2017()
 {
-    TString MODE[9]={"15","14","13","11","7","9","6","5","3"};
-    //TString MODE[1]={"15"};
+    //TString MODE[9]={"15","14","13","11","7","9","6","5","3"};
+    TString MODE[1]={"15"};
+    /*
     //gauss fit range 2016
     Double_t xmin2016_pT_0_10[9]={0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75};
     Double_t xmax2016_pT_0_10[9]={1.55,1.55,1.55,1.55,1.55,1.55,1.55,1.55,1.55};
@@ -46,6 +47,24 @@ void EMTFpTResolution2017()
     Double_t xmax2017_pT_30_100[9]={1.10,1.15,1.10,1.00,0.45,0.85,0.30,0.15,0.20};
     Double_t xmin2017_pT_100_1000[9]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t xmax2017_pT_100_1000[9]={2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50};
+    */
+    Double_t xmin2016_pT_0_10[1]={0.65};
+    Double_t xmax2016_pT_0_10[1]={1.20};
+    Double_t xmin2016_pT_10_30[1]={0.60};
+    Double_t xmax2016_pT_10_30[1]={1.10};
+    Double_t xmin2016_pT_30_100[1]={0.30};
+    Double_t xmax2016_pT_30_100[1]={1.10};
+    Double_t xmin2016_pT_100_1000[1]={0.00};
+    Double_t xmax2016_pT_100_1000[1]={2.50};
+    
+    Double_t xmin2017_pT_0_10[1]={0.65};
+    Double_t xmax2017_pT_0_10[1]={1.20};
+    Double_t xmin2017_pT_10_30[1]={0.60};
+    Double_t xmax2017_pT_10_30[1]={1.10};
+    Double_t xmin2017_pT_30_100[1]={0.30};
+    Double_t xmax2017_pT_30_100[1]={1.10};
+    Double_t xmin2017_pT_100_1000[1]={0.00};
+    Double_t xmax2017_pT_100_1000[1]={2.50};
     
     int MODES;
     MODES = sizeof(MODE) / sizeof(TString);
@@ -101,7 +120,7 @@ void EMTFpTResolution2017()
             //load the i-th event
             myTree->GetEntry(iEntry);
             
-            Float_t Ratio2016= EMTF_pt/GEN_pt;
+            Float_t Ratio2016= EMTF_pt/(GEN_pt*1.4);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
             
             
@@ -154,8 +173,12 @@ void EMTFpTResolution2017()
         
         C1->cd();
         h_pT_0_10_2016->Fit("gaus","","",xmin2016_pT_0_10[i],xmax2016_pT_0_10[i]);
+        h_pT_0_10_2016->GetFunction("gaus")->SetLineColor(kRed);
+        h_pT_0_10_2016->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         gStyle->SetOptFit(1);
         h_pT_0_10_2017->Fit("gaus","","",xmin2017_pT_0_10[i],xmax2017_pT_0_10[i]);
+        h_pT_0_10_2017->GetFunction("gaus")->SetLineColor(kBlue);
+        h_pT_0_10_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         TPaveStats *st1 = (TPaveStats*)h_pT_0_10_2017->FindObject("stats");
         st1->SetY1NDC(0.2);
@@ -173,8 +196,12 @@ void EMTFpTResolution2017()
         
         C2->cd();
         h_pT_10_30_2016->Fit("gaus","","",xmin2016_pT_10_30[i],xmax2016_pT_10_30[i]);
+        h_pT_10_30_2016->GetFunction("gaus")->SetLineColor(kRed);
+        h_pT_10_30_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_10_30_2017->Fit("gaus","","",xmin2017_pT_10_30[i],xmax2017_pT_10_30[i]);
+        h_pT_10_30_2017->GetFunction("gaus")->SetLineColor(kBlue);
+        h_pT_10_30_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         TPaveStats *st2 = (TPaveStats*)h_pT_10_30_2017->FindObject("stats");
         st2->SetY1NDC(0.2);
@@ -192,8 +219,12 @@ void EMTFpTResolution2017()
         
         C3->cd();
         h_pT_30_100_2016->Fit("gaus","","",xmin2016_pT_30_100[i],xmax2016_pT_30_100[i]);
+        h_pT_30_100_2016->GetFunction("gaus")->SetLineColor(kRed);
+        h_pT_30_100_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_30_100_2017->Fit("gaus","","",xmin2017_pT_30_100[i],xmax2017_pT_30_100[i]);
+        h_pT_30_100_2017->GetFunction("gaus")->SetLineColor(kBlue);
+        h_pT_30_100_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         TPaveStats *st3 = (TPaveStats*)h_pT_30_100_2017->FindObject("stats");
         st3->SetY1NDC(0.2);
@@ -211,8 +242,12 @@ void EMTFpTResolution2017()
         
         C4->cd();
         h_pT_100_1000_2016->Fit("gaus","","",xmin2016_pT_100_1000[i],xmax2016_pT_100_1000[i]);
+        h_pT_100_1000_2016->GetFunction("gaus")->SetLineColor(kRed);
+        h_pT_100_1000_2016->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         h_pT_100_1000_2017->Fit("gaus","","",xmin2017_pT_100_1000[i],xmax2017_pT_100_1000[i]);
+        h_pT_100_1000_2017->GetFunction("gaus")->SetLineColor(kBlue);
+        h_pT_100_1000_2017->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptFit(1);
         TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
         st4->SetY1NDC(0.2);
