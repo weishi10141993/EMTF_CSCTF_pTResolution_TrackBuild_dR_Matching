@@ -63,7 +63,7 @@ void EMTFpTResolution2017()
         //GEN pT 30-100 GeV
         TH1F *h_pT_30_100_2016 = new TH1F("2016 mode "+MODE[i]+" 30<GEN pT<100","2016 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
-        TH1F *h_pT_100_1000_2016 = new TH1F("2016 mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
+        TH1F *h_pT_100_1000_2016 = new TH1F("2016 mode "+MODE[i]+" 100<GEN pT<1000","2016 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 2.5);
         //**2017**
         //GEN pT 0-10 GeV
         TH1F *h_pT_0_10_2017 = new TH1F("2017 mode "+MODE[i]+" 0<GEN pT<10","2017 pT Resolution mode "+MODE[i]+" 0<GEN pT<10", 100, 0, 5);
@@ -72,7 +72,7 @@ void EMTFpTResolution2017()
         //GEN pT 30-100 GeV
         TH1F *h_pT_30_100_2017 = new TH1F("2017 mode "+MODE[i]+" 30<GEN pT<100","2017 pT Resolution mode "+MODE[i]+" 30<GEN pT<100", 100, 0, 5);
         //GEN pT >100 GeV muon shower
-        TH1F *h_pT_100_1000_2017 = new TH1F("2017 mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 5);
+        TH1F *h_pT_100_1000_2017 = new TH1F("2017 mode "+MODE[i]+" 100<GEN pT<1000","2017 pT Resolution mode "+MODE[i]+" 100<GEN pT<1000", 100, 0, 2.5);
         
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
@@ -191,7 +191,10 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
-        //h_pT_100_1000_2016->SetStats(1);
+        h_pT_30_100_2016->Fit("gaus","","",0,2.50);
+        gStyle->SetOptFit(1);
+        h_pT_30_100_2017->Fit("gaus","","",0,2.50);
+        gStyle->SetOptFit(1);
         TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
         st4->SetY1NDC(0.2);
         st4->SetY2NDC(0.55);
