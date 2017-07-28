@@ -5,6 +5,7 @@ using namespace std;
 #include "TTree.h"
 #include "TH1.h"
 #include "TH2.h"
+#include "TF1.h"
 #include "TAttFill.h"
 #include "TCanvas.h"
 #include <vector>
@@ -25,8 +26,8 @@ using namespace std;
 //=**************************************************************************************
 void EMTFpTResolution2017()
 {
-    TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
-    //TString MODE[1]={"15"};
+    //TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
+    TString MODE[1]={"15"};
     int MODES;
     MODES = sizeof(MODE) / sizeof(TString);
     //loop through all modes
@@ -133,7 +134,10 @@ void EMTFpTResolution2017()
         THStack *hs4 = new THStack(MODE[i]+"hs4","Mode "+MODE[i]+" pT Resolution 100<GEN pT<1000 GeV");
         
         C1->cd();
-        gStyle->SetOptStat("e");//optionally print only the entries in statistics box
+        h_pT_0_10_2016->Fit("gaus");
+        gStyle->SetOptFit(1);
+        h_pT_0_10_2017->Fit("gaus");
+        gStyle->SetOptFit(1);
         hs1->Add(h_pT_0_10_2016);
         hs1->Add(h_pT_0_10_2017);
         hs1->Draw("nostack");
@@ -146,7 +150,6 @@ void EMTFpTResolution2017()
         C1->Write();
         
         C2->cd();
-        gStyle->SetOptStat("e");//optionally print only the entries in statistics box
         hs2->Add(h_pT_10_30_2016);
         hs2->Add(h_pT_10_30_2017);
         hs2->Draw("nostack");
@@ -159,7 +162,6 @@ void EMTFpTResolution2017()
         C2->Write();
         
         C3->cd();
-        gStyle->SetOptStat("e");//optionally print only the entries in statistics box 
         hs3->Add(h_pT_30_100_2016);
         hs3->Add(h_pT_30_100_2017);
         hs3->Draw("nostack");
@@ -172,7 +174,6 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
-        gStyle->SetOptStat("e");//optionally print only the entries in statistics box
         hs4->Add(h_pT_100_1000_2016);
         hs4->Add(h_pT_100_1000_2017);
         hs4->Draw("nostack");
