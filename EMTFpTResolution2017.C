@@ -139,8 +139,8 @@ void EMTFpTResolution2017()
         h_pT_0_10_2017->Fit("gaus","","",0,1.25);
         gStyle->SetOptFit(1);
         TPaveStats *st1 = (TPaveStats*)h_pT_0_10_2017->FindObject("stats");
-        st1->SetY1NDC(0.55);
-        st1->SetY2NDC(0.2);
+        st1->SetY1NDC(0.2);
+        st1->SetY2NDC(0.55);
         hs1->Add(h_pT_0_10_2016);
         hs1->Add(h_pT_0_10_2017);
         hs1->Draw("nostack");
@@ -158,8 +158,8 @@ void EMTFpTResolution2017()
         h_pT_10_30_2017->Fit("gaus","","",0,1.25);
         gStyle->SetOptFit(1);
         TPaveStats *st2 = (TPaveStats*)h_pT_10_30_2017->FindObject("stats");
-        st2->SetY1NDC(0.55);
-        st2->SetY2NDC(0.2);
+        st2->SetY1NDC(0.2);
+        st2->SetY2NDC(0.55);
         hs2->Add(h_pT_10_30_2016);
         hs2->Add(h_pT_10_30_2017);
         hs2->Draw("nostack");
@@ -177,8 +177,8 @@ void EMTFpTResolution2017()
         h_pT_30_100_2017->Fit("gaus","","",0,1.10);
         gStyle->SetOptFit(1);
         TPaveStats *st3 = (TPaveStats*)h_pT_30_100_2017->FindObject("stats");
-        st3->SetY1NDC(0.55);
-        st3->SetY2NDC(0.2);
+        st3->SetY1NDC(0.2);
+        st3->SetY2NDC(0.55);
         hs3->Add(h_pT_30_100_2016);
         hs3->Add(h_pT_30_100_2017);
         hs3->Draw("nostack");
@@ -191,10 +191,10 @@ void EMTFpTResolution2017()
         C3->Write();
         
         C4->cd();
-        h_pT_100_1000_2016->SetStats(1);
+        //h_pT_100_1000_2016->SetStats(1);
         TPaveStats *st4 = (TPaveStats*)h_pT_100_1000_2017->FindObject("stats");
-        st4->SetY1NDC(0.55);
-        st4->SetY2NDC(0.2);
+        st4->SetY1NDC(0.2);
+        st4->SetY2NDC(0.55);
         hs4->Add(h_pT_100_1000_2016);
         hs4->Add(h_pT_100_1000_2017);
         hs4->Draw("nostack");
