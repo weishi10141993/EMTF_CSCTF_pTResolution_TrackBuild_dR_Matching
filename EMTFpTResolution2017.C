@@ -54,8 +54,8 @@ void EMTFpTResolution2017()
     Double_t xmax2017_pT_bin_1[11]={1.20,1.20,1.25,1.25,1.25,1.25,1.25,1.25,1.20,1.20,1.20};
     Double_t xmin2017_pT_bin_2[11]={0.60,0.45,0.45,0.40,0.30,0.30,0.30,0.30,0.20,0.25,0.25};
     Double_t xmax2017_pT_bin_2[11]={1.10,1.15,1.15,1.15,0.85,0.85,0.85,0.90,0.60,0.55,0.55};
-    Double_t xmin2017_pT_bin_3[11]={0.30,0.30,0.30,0.25,0.10,0.10,0.10,0.10,0.05,0.00,0.05};
-    Double_t xmax2017_pT_bin_3[11]={1.10,1.15,1.10,0.85,0.35,0.35,0.35,0.85,0.20,0.15,0.20};
+    Double_t xmin2017_pT_bin_3[11]={0.30,0.30,0.30,0.25,0.10,0.10,0.10,0.10,0.00,0.00,0.50};
+    Double_t xmax2017_pT_bin_3[11]={1.10,1.15,1.10,0.85,0.35,0.35,0.35,0.85,1.50,1.50,1.20};
     Double_t xmin2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t xmax2017_pT_bin_4[11]={2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50,2.50};
     
@@ -192,7 +192,8 @@ void EMTFpTResolution2017()
         MeanOverSigma2016_pT_bin_1[i]= Sigma2016_pT_bin_1[i]/Mean2016_pT_bin_1[i];// sigma/mean metric
         h2016_pT_bin_1->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);//dash"----"
-        gStyle->SetOptFit(1);
+        //gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
         h2017_pT_bin_1->SetLineColor(kBlue);
         h2017_pT_bin_1->SetLineWidth(2);
@@ -202,11 +203,12 @@ void EMTFpTResolution2017()
         MeanOverSigma2017_pT_bin_1[i]= Sigma2017_pT_bin_1[i]/Mean2017_pT_bin_1[i];
         h2017_pT_bin_1->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);
-        gStyle->SetOptFit(1);
+        //gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
-        TPaveStats *st1 = (TPaveStats*)h2017_pT_bin_1->FindObject("stats");
-        st1->SetY1NDC(0.2);
-        st1->SetY2NDC(0.55);
+        //TPaveStats *st1 = (TPaveStats*)h2017_pT_bin_1->FindObject("stats");
+        //st1->SetY1NDC(0.2);
+        //st1->SetY2NDC(0.55);
         hs1->Add(h2016_pT_bin_1);
         hs1->Add(h2017_pT_bin_1);
         hs1->Draw("nostack");
@@ -227,7 +229,8 @@ void EMTFpTResolution2017()
         MeanOverSigma2016_pT_bin_2[i]= Sigma2016_pT_bin_2[i]/Mean2016_pT_bin_2[i];// sigma/mean metric
         h2016_pT_bin_2->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_2->GetFunction("gaus")->SetLineStyle(2);//dash"----"
-        gStyle->SetOptFit(1);
+        //gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
         h2017_pT_bin_2->SetLineColor(kBlue);
         h2017_pT_bin_2->SetLineWidth(2);
@@ -237,11 +240,12 @@ void EMTFpTResolution2017()
         MeanOverSigma2017_pT_bin_2[i]= Sigma2017_pT_bin_2[i]/Mean2017_pT_bin_2[i];
         h2017_pT_bin_2->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_2->GetFunction("gaus")->SetLineStyle(2);
-        gStyle->SetOptFit(1);
+        //gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
-        TPaveStats *st2 = (TPaveStats*)h2017_pT_bin_2->FindObject("stats");
-        st2->SetY1NDC(0.2);
-        st2->SetY2NDC(0.55);
+        //TPaveStats *st2 = (TPaveStats*)h2017_pT_bin_2->FindObject("stats");
+        //st2->SetY1NDC(0.2);
+        //st2->SetY2NDC(0.55);
         hs2->Add(h2016_pT_bin_2);
         hs2->Add(h2017_pT_bin_2);
         hs2->Draw("nostack");
@@ -262,7 +266,8 @@ void EMTFpTResolution2017()
         MeanOverSigma2016_pT_bin_3[i]= Sigma2016_pT_bin_3[i]/Mean2016_pT_bin_3[i];// sigma/mean metric
         h2016_pT_bin_3->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_3->GetFunction("gaus")->SetLineStyle(2);//dash"----"
-        gStyle->SetOptFit(1);
+        //gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
         h2017_pT_bin_3->SetLineColor(kBlue);
         h2017_pT_bin_3->SetLineWidth(2);
@@ -272,11 +277,11 @@ void EMTFpTResolution2017()
         MeanOverSigma2017_pT_bin_3[i]= Sigma2017_pT_bin_3[i]/Mean2017_pT_bin_3[i];
         h2017_pT_bin_3->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_3->GetFunction("gaus")->SetLineStyle(2);
-        gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
-        TPaveStats *st3 = (TPaveStats*)h2017_pT_bin_3->FindObject("stats");
-        st3->SetY1NDC(0.2);
-        st3->SetY2NDC(0.55);
+        //TPaveStats *st3 = (TPaveStats*)h2017_pT_bin_3->FindObject("stats");
+        //st3->SetY1NDC(0.2);
+        //st3->SetY2NDC(0.55);
         hs3->Add(h2016_pT_bin_3);
         hs3->Add(h2017_pT_bin_3);
         hs3->Draw("nostack");
@@ -297,7 +302,7 @@ void EMTFpTResolution2017()
         MeanOverSigma2016_pT_bin_4[i]= Sigma2016_pT_bin_4[i]/Mean2016_pT_bin_4[i];// sigma/mean metric
         h2016_pT_bin_4->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_4->GetFunction("gaus")->SetLineStyle(2);//dash"----"
-        gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
         h2017_pT_bin_4->SetLineColor(kBlue);
         h2017_pT_bin_4->SetLineWidth(2);
@@ -307,11 +312,11 @@ void EMTFpTResolution2017()
         MeanOverSigma2017_pT_bin_4[i]= Sigma2017_pT_bin_4[i]/Mean2017_pT_bin_4[i];
         h2017_pT_bin_4->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_4->GetFunction("gaus")->SetLineStyle(2);
-        gStyle->SetOptFit(1);
+        gStyle->SetOptStat(0);
         
-        TPaveStats *st4 = (TPaveStats*)h2017_pT_bin_4->FindObject("stats");
-        st4->SetY1NDC(0.2);
-        st4->SetY2NDC(0.55);
+        //TPaveStats *st4 = (TPaveStats*)h2017_pT_bin_4->FindObject("stats");
+        //st4->SetY1NDC(0.2);
+        //st4->SetY2NDC(0.55);
         hs4->Add(h2016_pT_bin_4);
         hs4->Add(h2017_pT_bin_4);
         hs4->Draw("nostack");
