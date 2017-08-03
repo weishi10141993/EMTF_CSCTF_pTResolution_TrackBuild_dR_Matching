@@ -31,6 +31,8 @@ void EMTFpTResolution2017()
 {
     TString MODE[11]={"15","14","13","11","7","12","10","9","6","5","3"};
     //TString MODE[1]={"15"};
+    TString PT[5]={"1","4","8","16","32"};//interest pt bin
+    
     
     //gauss fit range 2016
     Double_t xmin2016_pT_0_10[11]={0.65,0.70,0.55,0.65,0.50,0.50,0.50,0.65,0.60,0.55,0.55};
@@ -92,17 +94,23 @@ void EMTFpTResolution2017()
         
         cout<<"Accessing file:"<<fileName<<endl;
         
-        
         Float_t GEN_pt;
         Float_t EMTF_pt;
         Float_t BDTG_AWB_Sq;
+        Float_t EMTF_mode;
+        Float_t TRK_mode;
+        Float_t EMTF_mode_RPC;
+        Float_t TRK_mode_RPC;
 
         //event info: Pull variables from nTuple
         myTree->SetBranchAddress("GEN_pt",&GEN_pt);//GEN pT
         myTree->SetBranchAddress("EMTF_pt",&EMTF_pt);//2016 EMTF
         myTree->SetBranchAddress("BDTG_AWB_Sq",&BDTG_AWB_Sq);//2017: 1/BDTG pT
-        
-        
+        myTree->SetBranchAddress("EMTF_mode",&EMTF_mode);
+        myTree->SetBranchAddress("TRK_mode",&TRK_mode);
+        myTree->SetBranchAddress("EMTF_mode_RPC",&EMTF_mode_RPC);
+        myTree->SetBranchAddress("TRK_mode_RPC",&TRK_mode_RPC);
+                                 
         //=*************************
         //=make histograms in modes*
         //=*************************
