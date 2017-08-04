@@ -248,7 +248,7 @@ void EMTFpTResolution2017()
         hs1->Draw("nostack");
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
-        TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
+        TLegend* L1 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_1="";
         S2016_bin_1= S2016_bin_1 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]);//add from left to right
         TString FitS2016_bin_1="";
@@ -301,7 +301,7 @@ void EMTFpTResolution2017()
         hs2->Draw("nostack");
         hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C2->Modified();
-        TLegend* L2 = new TLegend(0.4,0.7,0.6,0.9);
+        TLegend* L2 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_2="";
         S2016_bin_2= S2016_bin_2 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_2[i])+" RMS "+Form("%f", RMS2016_pT_bin_2[i]);//add from left to right
         TString FitS2016_bin_2="";
@@ -353,7 +353,7 @@ void EMTFpTResolution2017()
         hs3->Draw("nostack");
         hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C3->Modified();
-        TLegend* L3 = new TLegend(0.4,0.7,0.6,0.9);
+        TLegend* L3 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_3="";
         S2016_bin_3= S2016_bin_3 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_3[i])+" RMS "+Form("%f", RMS2016_pT_bin_3[i]);//add from left to right
         TString FitS2016_bin_3="";
@@ -404,7 +404,7 @@ void EMTFpTResolution2017()
         hs4->Draw("nostack");
         hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C4->Modified();
-        TLegend* L4 = new TLegend(0.4,0.7,0.6,0.9);
+        TLegend* L4 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_4="";
         S2016_bin_4= S2016_bin_4 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_4[i])+" RMS "+Form("%f", RMS2016_pT_bin_4[i]);//add from left to right
         TString FitS2016_bin_4="";
