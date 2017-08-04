@@ -216,7 +216,9 @@ void EMTFpTResolution2017()
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
         L1->AddEntry(h2016_pT_bin_1,"2016");
+        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 fit");
         L1->AddEntry(h2017_pT_bin_1,"2017");
+        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 fit");
         L1->Draw();
         C1->Write();
         
