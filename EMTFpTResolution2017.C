@@ -216,9 +216,9 @@ void EMTFpTResolution2017()
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
         L1->AddEntry(h2016_pT_bin_1,"2016");
-        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 fit");
+        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit");
         L1->AddEntry(h2017_pT_bin_1,"2017");
-        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 fit");
+        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit");
         L1->Draw();
         C1->Write();
         
@@ -255,7 +255,9 @@ void EMTFpTResolution2017()
         C2->Modified();
         TLegend* L2 = new TLegend(0.4,0.7,0.6,0.9);
         L2->AddEntry(h2016_pT_bin_2,"2016");
+        L2->AddEntry(h2016_pT_bin_2->GetFunction("gaus"),"2016 Gaussian Fit");
         L2->AddEntry(h2017_pT_bin_2,"2017");
+        L2->AddEntry(h2017_pT_bin_2->GetFunction("gaus"),"2017 Gaussian Fit");
         L2->Draw();
         C2->Write();
         
@@ -291,7 +293,9 @@ void EMTFpTResolution2017()
         C3->Modified();
         TLegend* L3 = new TLegend(0.4,0.7,0.6,0.9);
         L3->AddEntry(h2016_pT_bin_3,"2016");
+        L3->AddEntry(h2016_pT_bin_3->GetFunction("gaus"),"2016 Gaussian Fit");
         L3->AddEntry(h2017_pT_bin_3,"2017");
+        L3->AddEntry(h2017_pT_bin_3->GetFunction("gaus"),"2017 Gaussian Fit");
         L3->Draw();
         C3->Write();
         
@@ -326,7 +330,9 @@ void EMTFpTResolution2017()
         C4->Modified();
         TLegend* L4 = new TLegend(0.4,0.7,0.6,0.9);
         L4->AddEntry(h2016_pT_bin_4,"2016");
+        L4->AddEntry(h2016_pT_bin_4->GetFunction("gaus"),"2016 Gaussian Fit");
         L4->AddEntry(h2017_pT_bin_4,"2017");
+        L4->AddEntry(h2017_pT_bin_4->GetFunction("gaus"),"2017 Gaussian Fit");
         L4->Draw();
         C4->Write();
         
