@@ -249,9 +249,12 @@ void EMTFpTResolution2017()
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
-        TString S2016= "2016: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]);
-        cout<<"Line 252"<<endl;
-        cout<<S2016<<endl;
+        TString S2016;
+        cout<<"Line 253: "<<S2016<<endl;
+        S2016.Form("%f", Mean2016_pT_bin_1[i]);
+        cout<<"Line 255: "<<S2016<<endl;
+        S2016="2017: "+"Mean "+S2016;
+        cout<<"Line 257: "<<S2016<<endl;
         L1->AddEntry(h2016_pT_bin_1, S2016);
         cout<<"Line 254"<<endl;
         L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_1[i] ) );
