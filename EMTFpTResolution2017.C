@@ -218,28 +218,37 @@ void EMTFpTResolution2017()
         FitMean2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
         FitSigma2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
         FitMeanOverSigma2016_pT_bin_1[i]= FitSigma2016_pT_bin_1[i]/FitMean2016_pT_bin_1[i];// sigma/mean metric
+        cout<<"Line 221"<<endl;
         Mean2016_pT_bin_1[i]= h2016_pT_bin_1->GetMean();
+        cout<<"Line 223"<<endl;
         RMS2016_pT_bin_1[i]= h2016_pT_bin_1->GetRMS();
+        cout<<"Line 225"<<endl;
         MeanOverRMS2016_pT_bin_1[i] = RMS2016_pT_bin_1[i]/Mean2016_pT_bin_1[i];
+        cout<<"Line 227"<<endl;
         h2016_pT_bin_1->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);//dash"----"
+        cout<<"Line 230"<<endl;
         //gStyle->SetOptFit(1);
         gStyle->SetOptStat(0);
-        
+        cout<<"Line 233"<<endl;
         h2017_pT_bin_1->SetLineColor(kBlue);
         h2017_pT_bin_1->SetLineWidth(2);
         h2017_pT_bin_1->Fit("gaus","","",xmin2017_pT_bin_1[i],xmax2017_pT_bin_1[i]);
         FitMean2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(1);
         FitSigma2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(2);
         FitMeanOverSigma2017_pT_bin_1[i]= FitSigma2017_pT_bin_1[i]/FitMean2017_pT_bin_1[i];
+        cout<<"Line 240"<<endl;
         Mean2017_pT_bin_1[i]= h2017_pT_bin_1->GetMean();
+        cout<<"Line 242"<<endl;
         RMS2017_pT_bin_1[i]= h2017_pT_bin_1->GetRMS();
+        cout<<"Line 244"<<endl;
         MeanOverRMS2017_pT_bin_1[i] = RMS2017_pT_bin_1[i]/Mean2017_pT_bin_1[i];
+        cout<<"Line 246"<<endl;
         h2017_pT_bin_1->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);
         //gStyle->SetOptFit(1);
         gStyle->SetOptStat(0);
-        
+        cout<<"Line 251"<<endl;
         //TPaveStats *st1 = (TPaveStats*)h2017_pT_bin_1->FindObject("stats");
         //st1->SetY1NDC(0.2);
         //st1->SetY2NDC(0.55);
@@ -249,10 +258,12 @@ void EMTFpTResolution2017()
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
+        cout<<"Line 261"<<endl;
         L1->AddEntry(h2016_pT_bin_1,"2016: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]) );
         L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_1[i] ) );
         L1->AddEntry(h2017_pT_bin_1,"2017: "+"Mean "+Form("%f", Mean2017_pT_bin_1[i])+" RMS "+Form("%f", RMS2017_pT_bin_1[i]) );
         L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", FitMean2017_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2017_pT_bin_1[i] ) );
+        cout<<"Line 266"<<endl;
         L1->Draw();
         C1->Write();
         
