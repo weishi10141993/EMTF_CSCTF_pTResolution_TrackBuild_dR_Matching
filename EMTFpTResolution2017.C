@@ -215,10 +215,10 @@ void EMTFpTResolution2017()
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
-        L1->AddEntry(h2016_pT_bin_1,"2016");
-        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit");
-        L1->AddEntry(h2017_pT_bin_1,"2017");
-        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit");
+        L1->AddEntry(h2016_pT_bin_1,"2016: "+"Mean "+Form("%f", h2016_pT_bin_1->GetMean() )+" RMS "+Form("%f", h2016_pT_bin_1->GetRMS() ) );
+        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i] )+" Sigma "+Form("%f", Sigma2016_pT_bin_1[i] ) );
+        L1->AddEntry(h2017_pT_bin_1,"2017: "+"Mean "+Form("%f", h2017_pT_bin_1->GetMean() )+" RMS "+Form("%f", h2017_pT_bin_1->GetRMS() ) );
+        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", Mean2017_pT_bin_1[i] )+" Sigma "+Form("%f", Sigma2017_pT_bin_1[i] ) );
         L1->Draw();
         C1->Write();
         
