@@ -59,33 +59,61 @@ void EMTFpTResolution2017()
     Double_t xmin2017_pT_bin_4[11]={0.45,0.40,0.40,0.40,0.05,0.40,0.40,0.40,0.40,0.40,0.40};
     Double_t xmax2017_pT_bin_4[11]={1.10,1.10,1.10,1.10,1.05,1.10,1.10,1.10,1.10,1.10,1.10};
     
-    //extract the mean, sigma and their ratio from the fit
+    //Histogram mean, RMS, mean/RMS
     //2016
     Double_t Mean2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     //2017
     Double_t Mean2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     Double_t Mean2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t Sigma2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
-    Double_t MeanOverSigma2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t RMS2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t MeanOverRMS2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    
+    //extract the mean, sigma and their ratio from the fit
+    //2016
+    Double_t FitMean2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2016_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2016_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2016_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2016_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    //2017
+    Double_t FitMean2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2017_pT_bin_1[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2017_pT_bin_2[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2017_pT_bin_3[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMean2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitSigma2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
+    Double_t FitMeanOverSigma2017_pT_bin_4[11]={0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00};
     
     //loop through all modes
     for (int i=0;i<MODES;i++){
@@ -187,9 +215,12 @@ void EMTFpTResolution2017()
         h2016_pT_bin_1->SetLineColor(kRed);
         h2016_pT_bin_1->SetLineWidth(2);
         h2016_pT_bin_1->Fit("gaus","","",xmin2016_pT_bin_1[i],xmax2016_pT_bin_1[i]);
-        Mean2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
-        Sigma2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
-        MeanOverSigma2016_pT_bin_1[i]= Sigma2016_pT_bin_1[i]/Mean2016_pT_bin_1[i];// sigma/mean metric
+        FitMean2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
+        FitSigma2016_pT_bin_1[i]= h2016_pT_bin_1->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
+        FitMeanOverSigma2016_pT_bin_1[i]= FitSigma2016_pT_bin_1[i]/FitMean2016_pT_bin_1[i];// sigma/mean metric
+        Mean2016_pT_bin_1[i]= h2016_pT_bin_1->GetMean();
+        RMS2016_pT_bin_1[i]= h2016_pT_bin_1->GetRMS();
+        MeanOverRMS2016_pT_bin_1[i] = RMS2016_pT_bin_1[i]/Mean2016_pT_bin_1[i];
         h2016_pT_bin_1->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         //gStyle->SetOptFit(1);
@@ -198,9 +229,12 @@ void EMTFpTResolution2017()
         h2017_pT_bin_1->SetLineColor(kBlue);
         h2017_pT_bin_1->SetLineWidth(2);
         h2017_pT_bin_1->Fit("gaus","","",xmin2017_pT_bin_1[i],xmax2017_pT_bin_1[i]);
-        Mean2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(1);
-        Sigma2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(2);
-        MeanOverSigma2017_pT_bin_1[i]= Sigma2017_pT_bin_1[i]/Mean2017_pT_bin_1[i];
+        FitMean2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(1);
+        FitSigma2017_pT_bin_1[i]= h2017_pT_bin_1->GetFunction("gaus")->GetParameter(2);
+        FitMeanOverSigma2017_pT_bin_1[i]= FitSigma2017_pT_bin_1[i]/FitMean2017_pT_bin_1[i];
+        Mean2017_pT_bin_1[i]= h2017_pT_bin_1->GetMean();
+        RMS2017_pT_bin_1[i]= h2017_pT_bin_1->GetRMS();
+        MeanOverRMS2017_pT_bin_1[i] = RMS2017_pT_bin_1[i]/Mean2017_pT_bin_1[i];
         h2017_pT_bin_1->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_1->GetFunction("gaus")->SetLineStyle(2);
         //gStyle->SetOptFit(1);
@@ -215,10 +249,10 @@ void EMTFpTResolution2017()
         hs1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.7,0.6,0.9);
-        L1->AddEntry(h2016_pT_bin_1,"2016: "+"Mean "+Form("%f", h2016_pT_bin_1->GetMean() )+" RMS "+Form("%f", h2016_pT_bin_1->GetRMS() ) );
-        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i] )+" Sigma "+Form("%f", Sigma2016_pT_bin_1[i] ) );
-        L1->AddEntry(h2017_pT_bin_1,"2017: "+"Mean "+Form("%f", h2017_pT_bin_1->GetMean() )+" RMS "+Form("%f", h2017_pT_bin_1->GetRMS() ) );
-        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", Mean2017_pT_bin_1[i] )+" Sigma "+Form("%f", Sigma2017_pT_bin_1[i] ) );
+        L1->AddEntry(h2016_pT_bin_1,"2016: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]) );
+        L1->AddEntry(h2016_pT_bin_1->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_1[i] ) );
+        L1->AddEntry(h2017_pT_bin_1,"2017: "+"Mean "+Form("%f", Mean2017_pT_bin_1[i])+" RMS "+Form("%f", RMS2017_pT_bin_1[i]) );
+        L1->AddEntry(h2017_pT_bin_1->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", FitMean2017_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2017_pT_bin_1[i] ) );
         L1->Draw();
         C1->Write();
         
@@ -226,9 +260,12 @@ void EMTFpTResolution2017()
         h2016_pT_bin_2->SetLineColor(kRed);
         h2016_pT_bin_2->SetLineWidth(2);
         h2016_pT_bin_2->Fit("gaus","","",xmin2016_pT_bin_2[i],xmax2016_pT_bin_2[i]);
-        Mean2016_pT_bin_2[i]= h2016_pT_bin_2->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
-        Sigma2016_pT_bin_2[i]= h2016_pT_bin_2->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
-        MeanOverSigma2016_pT_bin_2[i]= Sigma2016_pT_bin_2[i]/Mean2016_pT_bin_2[i];// sigma/mean metric
+        FitMean2016_pT_bin_2[i]= h2016_pT_bin_2->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
+        FitSigma2016_pT_bin_2[i]= h2016_pT_bin_2->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
+        FitMeanOverSigma2016_pT_bin_2[i]= FitSigma2016_pT_bin_2[i]/FitMean2016_pT_bin_2[i];// sigma/mean metric
+        Mean2016_pT_bin_2[i]= h2016_pT_bin_2->GetMean();
+        RMS2016_pT_bin_2[i]= h2016_pT_bin_2->GetRMS();
+        MeanOverRMS2016_pT_bin_2[i] = RMS2016_pT_bin_2[i]/Mean2016_pT_bin_2[i];
         h2016_pT_bin_2->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_2->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         //gStyle->SetOptFit(1);
@@ -237,9 +274,12 @@ void EMTFpTResolution2017()
         h2017_pT_bin_2->SetLineColor(kBlue);
         h2017_pT_bin_2->SetLineWidth(2);
         h2017_pT_bin_2->Fit("gaus","","",xmin2017_pT_bin_2[i],xmax2017_pT_bin_2[i]);
-        Mean2017_pT_bin_2[i]= h2017_pT_bin_2->GetFunction("gaus")->GetParameter(1);
-        Sigma2017_pT_bin_2[i]= h2017_pT_bin_2->GetFunction("gaus")->GetParameter(2);
-        MeanOverSigma2017_pT_bin_2[i]= Sigma2017_pT_bin_2[i]/Mean2017_pT_bin_2[i];
+        FitMean2017_pT_bin_2[i]= h2017_pT_bin_2->GetFunction("gaus")->GetParameter(1);
+        FitSigma2017_pT_bin_2[i]= h2017_pT_bin_2->GetFunction("gaus")->GetParameter(2);
+        FitMeanOverSigma2017_pT_bin_2[i]= FitSigma2017_pT_bin_2[i]/FitMean2017_pT_bin_2[i];
+        Mean2017_pT_bin_2[i]= h2017_pT_bin_2->GetMean();
+        RMS2017_pT_bin_2[i]= h2017_pT_bin_2->GetRMS();
+        MeanOverRMS2017_pT_bin_2[i] = RMS2017_pT_bin_2[i]/Mean2017_pT_bin_2[i];
         h2017_pT_bin_2->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_2->GetFunction("gaus")->SetLineStyle(2);
         //gStyle->SetOptFit(1);
@@ -254,10 +294,10 @@ void EMTFpTResolution2017()
         hs2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C2->Modified();
         TLegend* L2 = new TLegend(0.4,0.7,0.6,0.9);
-        L2->AddEntry(h2016_pT_bin_2,"2016");
-        L2->AddEntry(h2016_pT_bin_2->GetFunction("gaus"),"2016 Gaussian Fit");
-        L2->AddEntry(h2017_pT_bin_2,"2017");
-        L2->AddEntry(h2017_pT_bin_2->GetFunction("gaus"),"2017 Gaussian Fit");
+        L2->AddEntry(h2016_pT_bin_2,"2016: "+"Mean "+Form("%f", Mean2016_pT_bin_2[i])+" RMS "+Form("%f", RMS2016_pT_bin_2[i]) );
+        L2->AddEntry(h2016_pT_bin_2->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_2[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_2[i] ) );
+        L2->AddEntry(h2017_pT_bin_2,"2017: "+"Mean "+Form("%f", Mean2017_pT_bin_2[i])+" RMS "+Form("%f", RMS2017_pT_bin_2[i]) );
+        L2->AddEntry(h2017_pT_bin_2->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", FitMean2017_pT_bin_2[i] )+" Sigma "+Form("%f", FitSigma2017_pT_bin_2[i] ) );
         L2->Draw();
         C2->Write();
         
@@ -265,9 +305,12 @@ void EMTFpTResolution2017()
         h2016_pT_bin_3->SetLineColor(kRed);
         h2016_pT_bin_3->SetLineWidth(2);
         h2016_pT_bin_3->Fit("gaus","","",xmin2016_pT_bin_3[i],xmax2016_pT_bin_3[i]);
-        Mean2016_pT_bin_3[i]= h2016_pT_bin_3->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
-        Sigma2016_pT_bin_3[i]= h2016_pT_bin_3->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
-        MeanOverSigma2016_pT_bin_3[i]= Sigma2016_pT_bin_3[i]/Mean2016_pT_bin_3[i];// sigma/mean metric
+        FitMean2016_pT_bin_3[i]= h2016_pT_bin_3->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
+        FitSigma2016_pT_bin_3[i]= h2016_pT_bin_3->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
+        FitMeanOverSigma2016_pT_bin_3[i]= FitSigma2016_pT_bin_3[i]/FitMean2016_pT_bin_3[i];// sigma/mean metric
+        Mean2016_pT_bin_3[i]= h2016_pT_bin_3->GetMean();
+        RMS2016_pT_bin_3[i]= h2016_pT_bin_3->GetRMS();
+        MeanOverRMS2016_pT_bin_3[i] = RMS2016_pT_bin_3[i]/Mean2016_pT_bin_3[i];
         h2016_pT_bin_3->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_3->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         //gStyle->SetOptFit(1);
@@ -276,9 +319,12 @@ void EMTFpTResolution2017()
         h2017_pT_bin_3->SetLineColor(kBlue);
         h2017_pT_bin_3->SetLineWidth(2);
         h2017_pT_bin_3->Fit("gaus","","",xmin2017_pT_bin_3[i],xmax2017_pT_bin_3[i]);
-        Mean2017_pT_bin_3[i]= h2017_pT_bin_3->GetFunction("gaus")->GetParameter(1);
-        Sigma2017_pT_bin_3[i]= h2017_pT_bin_3->GetFunction("gaus")->GetParameter(2);
-        MeanOverSigma2017_pT_bin_3[i]= Sigma2017_pT_bin_3[i]/Mean2017_pT_bin_3[i];
+        FitMean2017_pT_bin_3[i]= h2017_pT_bin_3->GetFunction("gaus")->GetParameter(1);
+        FitSigma2017_pT_bin_3[i]= h2017_pT_bin_3->GetFunction("gaus")->GetParameter(2);
+        FitMeanOverSigma2017_pT_bin_3[i]= FitSigma2017_pT_bin_3[i]/FitMean2017_pT_bin_3[i];
+        Mean2017_pT_bin_3[i]= h2017_pT_bin_3->GetMean();
+        RMS2017_pT_bin_3[i]= h2017_pT_bin_3->GetRMS();
+        MeanOverRMS2017_pT_bin_3[i] = RMS2017_pT_bin_3[i]/Mean2017_pT_bin_3[i];
         h2017_pT_bin_3->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_3->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptStat(0);
@@ -292,10 +338,10 @@ void EMTFpTResolution2017()
         hs3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C3->Modified();
         TLegend* L3 = new TLegend(0.4,0.7,0.6,0.9);
-        L3->AddEntry(h2016_pT_bin_3,"2016");
-        L3->AddEntry(h2016_pT_bin_3->GetFunction("gaus"),"2016 Gaussian Fit");
-        L3->AddEntry(h2017_pT_bin_3,"2017");
-        L3->AddEntry(h2017_pT_bin_3->GetFunction("gaus"),"2017 Gaussian Fit");
+        L3->AddEntry(h2016_pT_bin_3,"2016: "+"Mean "+Form("%f", Mean2016_pT_bin_3[i])+" RMS "+Form("%f", RMS2016_pT_bin_3[i]) );
+        L3->AddEntry(h2016_pT_bin_3->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_3[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_3[i] ) );
+        L3->AddEntry(h2017_pT_bin_3,"2017: "+"Mean "+Form("%f", Mean2017_pT_bin_3[i])+" RMS "+Form("%f", RMS2017_pT_bin_3[i]) );
+        L3->AddEntry(h2017_pT_bin_3->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", FitMean2017_pT_bin_3[i] )+" Sigma "+Form("%f", FitSigma2017_pT_bin_3[i] ) );
         L3->Draw();
         C3->Write();
         
@@ -303,9 +349,12 @@ void EMTFpTResolution2017()
         h2016_pT_bin_4->SetLineColor(kRed);
         h2016_pT_bin_4->SetLineWidth(2);
         h2016_pT_bin_4->Fit("gaus","","",xmin2016_pT_bin_4[i],xmax2016_pT_bin_4[i]);
-        Mean2016_pT_bin_4[i]= h2016_pT_bin_4->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
-        Sigma2016_pT_bin_4[i]= h2016_pT_bin_4->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
-        MeanOverSigma2016_pT_bin_4[i]= Sigma2016_pT_bin_4[i]/Mean2016_pT_bin_4[i];// sigma/mean metric
+        FitMean2016_pT_bin_4[i]= h2016_pT_bin_4->GetFunction("gaus")->GetParameter(1);//get 2nd parameter Mean
+        FitSigma2016_pT_bin_4[i]= h2016_pT_bin_4->GetFunction("gaus")->GetParameter(2);//get 3rd parameter Sigma
+        FitMeanOverSigma2016_pT_bin_4[i]= FitSigma2016_pT_bin_4[i]/FitMean2016_pT_bin_4[i];// sigma/mean metric
+        Mean2016_pT_bin_4[i]= h2016_pT_bin_4->GetMean();
+        RMS2016_pT_bin_4[i]= h2016_pT_bin_4->GetRMS();
+        MeanOverRMS2016_pT_bin_4[i] = RMS2016_pT_bin_4[i]/Mean2016_pT_bin_4[i];
         h2016_pT_bin_4->GetFunction("gaus")->SetLineColor(kRed);
         h2016_pT_bin_4->GetFunction("gaus")->SetLineStyle(2);//dash"----"
         gStyle->SetOptStat(0);
@@ -313,9 +362,12 @@ void EMTFpTResolution2017()
         h2017_pT_bin_4->SetLineColor(kBlue);
         h2017_pT_bin_4->SetLineWidth(2);
         h2017_pT_bin_4->Fit("gaus","","",xmin2017_pT_bin_4[i],xmax2017_pT_bin_4[i]);
-        Mean2017_pT_bin_4[i]= h2017_pT_bin_4->GetFunction("gaus")->GetParameter(1);
-        Sigma2017_pT_bin_4[i]= h2017_pT_bin_4->GetFunction("gaus")->GetParameter(2);
-        MeanOverSigma2017_pT_bin_4[i]= Sigma2017_pT_bin_4[i]/Mean2017_pT_bin_4[i];
+        FitMean2017_pT_bin_4[i]= h2017_pT_bin_4->GetFunction("gaus")->GetParameter(1);
+        FitSigma2017_pT_bin_4[i]= h2017_pT_bin_4->GetFunction("gaus")->GetParameter(2);
+        FitMeanOverSigma2017_pT_bin_4[i]= FitSigma2017_pT_bin_4[i]/FitMean2017_pT_bin_4[i];
+        Mean2017_pT_bin_4[i]= h2017_pT_bin_4->GetMean();
+        RMS2017_pT_bin_4[i]= h2017_pT_bin_4->GetRMS();
+        MeanOverRMS2017_pT_bin_4[i] = RMS2017_pT_bin_4[i]/Mean2017_pT_bin_4[i];
         h2017_pT_bin_4->GetFunction("gaus")->SetLineColor(kBlue);
         h2017_pT_bin_4->GetFunction("gaus")->SetLineStyle(2);
         gStyle->SetOptStat(0);
@@ -329,22 +381,31 @@ void EMTFpTResolution2017()
         hs4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
         C4->Modified();
         TLegend* L4 = new TLegend(0.4,0.7,0.6,0.9);
-        L4->AddEntry(h2016_pT_bin_4,"2016");
-        L4->AddEntry(h2016_pT_bin_4->GetFunction("gaus"),"2016 Gaussian Fit");
-        L4->AddEntry(h2017_pT_bin_4,"2017");
-        L4->AddEntry(h2017_pT_bin_4->GetFunction("gaus"),"2017 Gaussian Fit");
+        L4->AddEntry(h2016_pT_bin_4,"2016: "+"Mean "+Form("%f", Mean2016_pT_bin_4[i])+" RMS "+Form("%f", RMS2016_pT_bin_4[i]) );
+        L4->AddEntry(h2016_pT_bin_4->GetFunction("gaus"),"2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_4[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_4[i] ) );
+        L4->AddEntry(h2017_pT_bin_4,"2017: "+"Mean "+Form("%f", Mean2017_pT_bin_4[i])+" RMS "+Form("%f", RMS2017_pT_bin_4[i]) );
+        L4->AddEntry(h2017_pT_bin_4->GetFunction("gaus"),"2017 Gaussian Fit: "+"Mean "+Form("%f", FitMean2017_pT_bin_4[i] )+" Sigma "+Form("%f", FitSigma2017_pT_bin_4[i] ) );
         L4->Draw();
         C4->Write();
         
         myPlot.Close();
-        cout<<"===print out"<<endl;
-        cout<<"===Mode "<<MODE[i]<<endl;
+        cout<<"***print out***"<<endl;
+        cout<<"Mode "<<MODE[i]<<endl;
+        cout<<"===Hist Info=="<<endl;
+        cout<<"***************************************************************************************************"<<endl;
+        cout<<"* GEN pT Range[GeV] * 2016 Mean * 2017 Mean * 2016 RMS * 2017 RMS * 2016 RMS/Mean * 2017 RMS/Mean *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[0]<<", "<<setw(7)<<setprecision(2)<<PT[1]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_1[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_1[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_1[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_1[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_1[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_1[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[1]<<", "<<setw(7)<<setprecision(2)<<PT[2]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_2[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_2[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_2[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_2[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_2[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_2[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[2]<<", "<<setw(7)<<setprecision(2)<<PT[3]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_3[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_3[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_3[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_3[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_3[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_3[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[3]<<", "<<setw(7)<<setprecision(2)<<PT[4]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_4[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_4[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_4[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_4[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_4[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_4[i]<<" *"<<endl;
+        cout<<"***************************************************************************************************"<<endl;
+        cout<<"===Fit Info=="<<endl;
         cout<<"***********************************************************************************************************"<<endl;
         cout<<"* GEN pT Range[GeV] * 2016 Mean * 2017 Mean * 2016 Sigma * 2017 Sigma * 2016 Sigma/Mean * 2017 Sigma/Mean *"<<endl;
-        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[0]<<", "<<setw(7)<<setprecision(2)<<PT[1]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_1[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_1[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2016_pT_bin_1[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2017_pT_bin_1[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2016_pT_bin_1[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2017_pT_bin_1[i]<<" *"<<endl;
-        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[1]<<", "<<setw(7)<<setprecision(2)<<PT[2]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_2[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_2[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2016_pT_bin_2[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2017_pT_bin_2[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2016_pT_bin_2[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2017_pT_bin_2[i]<<" *"<<endl;
-        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[2]<<", "<<setw(7)<<setprecision(2)<<PT[3]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_3[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_3[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2016_pT_bin_3[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2017_pT_bin_3[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2016_pT_bin_3[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2017_pT_bin_3[i]<<" *"<<endl;
-        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[3]<<", "<<setw(7)<<setprecision(2)<<PT[4]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_4[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_4[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2016_pT_bin_4[i]<<" * "<<setw(10)<<setprecision(3)<<Sigma2017_pT_bin_4[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2016_pT_bin_4[i]<<" * "<<setw(15)<<setprecision(3)<<MeanOverSigma2017_pT_bin_4[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[0]<<", "<<setw(7)<<setprecision(2)<<PT[1]<<"] * "<<setw(9)<<setprecision(3)<<FitMean2016_pT_bin_1[i]<<" * "<<setw(9)<<setprecision(3)<<FitMean2017_pT_bin_1[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2016_pT_bin_1[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2017_pT_bin_1[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2016_pT_bin_1[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2017_pT_bin_1[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[1]<<", "<<setw(7)<<setprecision(2)<<PT[2]<<"] * "<<setw(9)<<setprecision(3)<<FitMean2016_pT_bin_2[i]<<" * "<<setw(9)<<setprecision(3)<<FitMean2017_pT_bin_2[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2016_pT_bin_2[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2017_pT_bin_2[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2016_pT_bin_2[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2017_pT_bin_2[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[2]<<", "<<setw(7)<<setprecision(2)<<PT[3]<<"] * "<<setw(9)<<setprecision(3)<<FitMean2016_pT_bin_3[i]<<" * "<<setw(9)<<setprecision(3)<<FitMean2017_pT_bin_3[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2016_pT_bin_3[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2017_pT_bin_3[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2016_pT_bin_3[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2017_pT_bin_3[i]<<" *"<<endl;
+        cout<<"* ("<<setw(6)<<setprecision(2)<<PT[3]<<", "<<setw(7)<<setprecision(2)<<PT[4]<<"] * "<<setw(9)<<setprecision(3)<<FitMean2016_pT_bin_4[i]<<" * "<<setw(9)<<setprecision(3)<<FitMean2017_pT_bin_4[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2016_pT_bin_4[i]<<" * "<<setw(10)<<setprecision(3)<<FitSigma2017_pT_bin_4[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2016_pT_bin_4[i]<<" * "<<setw(15)<<setprecision(3)<<FitMeanOverSigma2017_pT_bin_4[i]<<" *"<<endl;
         cout<<"***********************************************************************************************************"<<endl;
     }//end loop over modes
 
