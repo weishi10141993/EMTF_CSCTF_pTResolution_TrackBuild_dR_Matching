@@ -45,6 +45,9 @@ void SingleMuResolution()
     Double_t pt[5]={1,  4,  8,  16,  32};
     TString ETA[5]={"1.2","1.55","1.85","2.1","2.4"};//interest eta bin for mode 15
     Double_t eta[5]={1.2,  1.55,  1.85,  2.1,  2.4};
+    TString TRACK_MODE_RPC[5]={"0","1","2","4","8"};
+    Double_t track_mode_rpc[5]={0,  1,  2,  4,  8};
+    Double_t scale_factor_2016=1.4;//2016 pT scale
  
     int MODES;//number of modes
     MODES = sizeof(MODE) / sizeof(TString);
@@ -65,6 +68,7 @@ void SingleMuResolution()
         cout<<"Accessing file:"<<fileName<<endl;
         
         Float_t GEN_pt;
+        Float_t GEN_eta;
         Float_t EMTF_pt;
         Float_t BDTG_AWB_Sq;
         Float_t EMTF_mode;
@@ -74,6 +78,7 @@ void SingleMuResolution()
 
         //event info: Pull variables from nTuple
         myTree->SetBranchAddress("GEN_pt",&GEN_pt);//GEN pT
+        myTree->SetBranchAddress("GEN_eta",&GEN_eta);//GEN eta
         myTree->SetBranchAddress("EMTF_pt",&EMTF_pt);//2016 EMTF
         myTree->SetBranchAddress("BDTG_AWB_Sq",&BDTG_AWB_Sq);//2017: 1/BDTG pT
         myTree->SetBranchAddress("EMTF_mode",&EMTF_mode);
@@ -84,6 +89,151 @@ void SingleMuResolution()
         //=****************
         //=make histograms*
         //=****************
+        //mode 15: 2016
+        TH1F *h2016_pT_bin_1_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2016_pT_bin_1_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2016_pT_bin_1_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2016_pT_bin_1_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2016_pT_bin_2_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2016_pT_bin_2_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2016_pT_bin_2_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2016_pT_bin_2_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2016_pT_bin_3_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2016_pT_bin_3_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2016_pT_bin_3_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2016_pT_bin_3_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2016_pT_bin_4_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2016_pT_bin_4_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2016_pT_bin_4_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2016_pT_bin_4_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        //mode 15: 2017
+        TH1F *h2017_pT_bin_1_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_2_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_3_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_4_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        
+        //mode 15 compare RPC in different stations 2017 only
+        TH1F *h2017_pT_bin_1_ = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        
+        Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
+        cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
+        cout<<numEvents<<" events to process..."<<endl;
+        
+        for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
+            //load the i-th event
+            myTree->GetEntry(iEntry);
+            
+            Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
+            Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
+            
+            //mode 15 CSC only four pT* four eta bins
+            if(EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
+                //pt bin 1
+                if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
+                    //eta bin 1
+                    if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[1] ){
+                        h2016_pT_bin_1_eta_bin_1->Fill(Ratio2016);
+                        h2017_pT_bin_1_eta_bin_1->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[1] && fabs(GEN_eta) <= eta[2] ){
+                        h2016_pT_bin_1_eta_bin_2->Fill(Ratio2016);
+                        h2017_pT_bin_1_eta_bin_2->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[2] && fabs(GEN_eta) <= eta[3] ){
+                        h2016_pT_bin_1_eta_bin_3->Fill(Ratio2016);
+                        h2017_pT_bin_1_eta_bin_3->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[3] && fabs(GEN_eta) <= eta[4] ){
+                        h2016_pT_bin_1_eta_bin_4->Fill(Ratio2016);
+                        h2017_pT_bin_1_eta_bin_4->Fill(Ratio2017);
+                    }
+                }//end pt bin 1
+                if(GEN_pt > pt[1] && GEN_pt <= pt[2]){
+                    //eta bin 1
+                    if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[1] ){
+                        h2016_pT_bin_2_eta_bin_1->Fill(Ratio2016);
+                        h2017_pT_bin_2_eta_bin_1->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[1] && fabs(GEN_eta) <= eta[2] ){
+                        h2016_pT_bin_2_eta_bin_2->Fill(Ratio2016);
+                        h2017_pT_bin_2_eta_bin_2->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[2] && fabs(GEN_eta) <= eta[3] ){
+                        h2016_pT_bin_2_eta_bin_3->Fill(Ratio2016);
+                        h2017_pT_bin_2_eta_bin_3->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[3] && fabs(GEN_eta) <= eta[4] ){
+                        h2016_pT_bin_2_eta_bin_4->Fill(Ratio2016);
+                        h2017_pT_bin_2_eta_bin_4->Fill(Ratio2017);
+                    }
+                }
+                if(GEN_pt > pt[2] && GEN_pt <= pt[3]){
+                    //eta bin 1
+                    if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[1] ){
+                        h2016_pT_bin_3_eta_bin_1->Fill(Ratio2016);
+                        h2017_pT_bin_3_eta_bin_1->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[1] && fabs(GEN_eta) <= eta[2] ){
+                        h2016_pT_bin_3_eta_bin_2->Fill(Ratio2016);
+                        h2017_pT_bin_3_eta_bin_2->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[2] && fabs(GEN_eta) <= eta[3] ){
+                        h2016_pT_bin_3_eta_bin_3->Fill(Ratio2016);
+                        h2017_pT_bin_3_eta_bin_3->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[3] && fabs(GEN_eta) <= eta[4] ){
+                        h2016_pT_bin_3_eta_bin_4->Fill(Ratio2016);
+                        h2017_pT_bin_3_eta_bin_4->Fill(Ratio2017);
+                    }
+                }
+                if(GEN_pt > pt[3] && GEN_pt <= pt[4]){
+                    //eta bin 1
+                    if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[1] ){
+                        h2016_pT_bin_4_eta_bin_1->Fill(Ratio2016);
+                        h2017_pT_bin_4_eta_bin_1->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[1] && fabs(GEN_eta) <= eta[2] ){
+                        h2016_pT_bin_4_eta_bin_2->Fill(Ratio2016);
+                        h2017_pT_bin_4_eta_bin_2->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[2] && fabs(GEN_eta) <= eta[3] ){
+                        h2016_pT_bin_4_eta_bin_3->Fill(Ratio2016);
+                        h2017_pT_bin_4_eta_bin_3->Fill(Ratio2017);
+                    }
+                    if( fabs(GEN_eta) > eta[3] && fabs(GEN_eta) <= eta[4] ){
+                        h2016_pT_bin_4_eta_bin_4->Fill(Ratio2016);
+                        h2017_pT_bin_4_eta_bin_4->Fill(Ratio2017);
+                    }
+                }//end if
+                
+            }//end if: trk mode selection
+            
+            //mode 15 compare RPC in different stations 2017 only
+            if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[2] ){
+            
+            }//end if mode 15 compare RPC in different stations 2017 only
+            
+        }//end loop over events
+        
+        //output
         
     }//end loop over modes
     
