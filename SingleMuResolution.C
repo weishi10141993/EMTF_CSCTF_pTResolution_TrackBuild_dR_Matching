@@ -131,7 +131,29 @@ void SingleMuResolution()
         TH1F *h2017_pT_bin_4_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
         //mode 15 compare RPC in different stations 2017 only
-        TH1F *h2017_pT_bin_1_ = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_1_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_2_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_2_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_3_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_3_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+        
+        TH1F *h2017_pT_bin_4_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+        TH1F *h2017_pT_bin_4_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
@@ -144,8 +166,8 @@ void SingleMuResolution()
             Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
             
-            //mode 15 CSC only four pT* four eta bins
-            if(EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
+            //ONLY: mode 15, CSC only four pT* four eta bins
+            if(TRK_mode == mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
                 //pt bin 1
                 if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
                     //eta bin 1
@@ -224,12 +246,82 @@ void SingleMuResolution()
                     }
                 }//end if
                 
-            }//end if: trk mode selection
+            }//end if: trk mode selection ONLY MODE 15
             
-            //mode 15 compare RPC in different stations 2017 only
-            if( fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[2] ){
+            //ONLY: mode 15, compare RPC in different stations 2017 only
+            if(TRK_mode == mode[0] && fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[2] ){
+                //pT bin 1
+                if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
+                    if(TRK_mode_RPC == track_mode_rpc[0]){
+                        h2017_pT_bin_1_RPC_0->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[1]){
+                        h2017_pT_bin_1_RPC_1->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[2]){
+                        h2017_pT_bin_1_RPC_2->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[3]){
+                        h2017_pT_bin_1_RPC_3->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[4]){
+                        h2017_pT_bin_1_RPC_4->Fill(Ratio2017);
+                    }
+                }//end pT bin 1
+                //pT bin2
+                if(GEN_pt > pt[1] && GEN_pt <= pt[2]){
+                    if(TRK_mode_RPC == track_mode_rpc[0]){
+                        h2017_pT_bin_2_RPC_0->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[1]){
+                        h2017_pT_bin_2_RPC_1->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[2]){
+                        h2017_pT_bin_2_RPC_2->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[3]){
+                        h2017_pT_bin_2_RPC_3->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[4]){
+                        h2017_pT_bin_2_RPC_4->Fill(Ratio2017);
+                    }
+                }
+                if(GEN_pt > pt[2] && GEN_pt <= pt[3]){
+                    if(TRK_mode_RPC == track_mode_rpc[0]){
+                        h2017_pT_bin_3_RPC_0->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[1]){
+                        h2017_pT_bin_3_RPC_1->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[2]){
+                        h2017_pT_bin_3_RPC_2->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[3]){
+                        h2017_pT_bin_3_RPC_3->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[4]){
+                        h2017_pT_bin_3_RPC_4->Fill(Ratio2017);
+                    }
+                }
+                if(GEN_pt > pt[3] && GEN_pt <= pt[4]){
+                    if(TRK_mode_RPC == track_mode_rpc[0]){
+                        h2017_pT_bin_4_RPC_0->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[1]){
+                        h2017_pT_bin_4_RPC_1->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[2]){
+                        h2017_pT_bin_4_RPC_2->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[3]){
+                        h2017_pT_bin_4_RPC_3->Fill(Ratio2017);
+                    }
+                    if(TRK_mode_RPC == track_mode_rpc[4]){
+                        h2017_pT_bin_4_RPC_4->Fill(Ratio2017);
+                    }
+                }//end pT bin 4
             
-            }//end if mode 15 compare RPC in different stations 2017 only
+            }//end if ONLY mode 15 compare RPC in different stations 2017 only
             
         }//end loop over events
         
