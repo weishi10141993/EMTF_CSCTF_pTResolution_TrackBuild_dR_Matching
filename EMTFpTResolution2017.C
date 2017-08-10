@@ -250,7 +250,7 @@ void EMTFpTResolution2017()
         C1->Modified();
         TLegend* L1 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_1="";
-        S2016_bin_1= S2016_bin_1 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]);//add from left to right
+        S2016_bin_1= S2016_bin_1 + "2016: "+"Mean "+Form("%f", Mean2016_pT_bin_1[i])+" RMS "+Form("%f", RMS2016_pT_bin_1[i]);//add from left to right
         TString FitS2016_bin_1="";
         FitS2016_bin_1= FitS2016_bin_1 + "2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_1[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_1[i] );
         TString S2017_bin_1="";
@@ -303,7 +303,7 @@ void EMTFpTResolution2017()
         C2->Modified();
         TLegend* L2 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_2="";
-        S2016_bin_2= S2016_bin_2 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_2[i])+" RMS "+Form("%f", RMS2016_pT_bin_2[i]);//add from left to right
+        S2016_bin_2= S2016_bin_2 + "2016: "+"Mean "+Form("%f", Mean2016_pT_bin_2[i])+" RMS "+Form("%f", RMS2016_pT_bin_2[i]);//add from left to right
         TString FitS2016_bin_2="";
         FitS2016_bin_2= FitS2016_bin_2 + "2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_2[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_2[i] );
         TString S2017_bin_2="";
@@ -355,7 +355,7 @@ void EMTFpTResolution2017()
         C3->Modified();
         TLegend* L3 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_3="";
-        S2016_bin_3= S2016_bin_3 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_3[i])+" RMS "+Form("%f", RMS2016_pT_bin_3[i]);//add from left to right
+        S2016_bin_3= S2016_bin_3 + "2016: "+"Mean "+Form("%f", Mean2016_pT_bin_3[i])+" RMS "+Form("%f", RMS2016_pT_bin_3[i]);//add from left to right
         TString FitS2016_bin_3="";
         FitS2016_bin_3= FitS2016_bin_3 + "2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_3[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_3[i] );
         TString S2017_bin_3="";
@@ -406,7 +406,7 @@ void EMTFpTResolution2017()
         C4->Modified();
         TLegend* L4 = new TLegend(0.4,0.4,0.9,0.9);
         TString S2016_bin_4="";
-        S2016_bin_4= S2016_bin_4 + "2017: "+"Mean "+Form("%f", Mean2016_pT_bin_4[i])+" RMS "+Form("%f", RMS2016_pT_bin_4[i]);//add from left to right
+        S2016_bin_4= S2016_bin_4 + "2016: "+"Mean "+Form("%f", Mean2016_pT_bin_4[i])+" RMS "+Form("%f", RMS2016_pT_bin_4[i]);//add from left to right
         TString FitS2016_bin_4="";
         FitS2016_bin_4= FitS2016_bin_4 + "2016 Gaussian Fit: "+"Mean "+Form("%f", FitMean2016_pT_bin_4[i] )+" Sigma "+Form("%f", FitSigma2016_pT_bin_4[i] );
         TString S2017_bin_4="";
