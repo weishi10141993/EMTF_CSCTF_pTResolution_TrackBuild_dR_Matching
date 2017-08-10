@@ -71,6 +71,8 @@ void SingleMuResolution()
         Float_t GEN_eta;
         Float_t EMTF_pt;
         Float_t BDTG_AWB_Sq;
+        Float_t BDTG_AWB_Huber;
+        Float_t BDTG_AWB;
         Float_t EMTF_mode;
         Float_t TRK_mode;
         Float_t EMTF_mode_RPC;
@@ -81,6 +83,8 @@ void SingleMuResolution()
         myTree->SetBranchAddress("GEN_eta",&GEN_eta);//GEN eta
         myTree->SetBranchAddress("EMTF_pt",&EMTF_pt);//2016 EMTF
         myTree->SetBranchAddress("BDTG_AWB_Sq",&BDTG_AWB_Sq);//2017: 1/BDTG pT
+        myTree->SetBranchAddress("BDTG_AWB_Huber",&BDTG_AWB_Huber);
+        myTree->SetBranchAddress("BDTG_AWB",&BDTG_AWB);
         myTree->SetBranchAddress("EMTF_mode",&EMTF_mode);
         myTree->SetBranchAddress("TRK_mode",&TRK_mode);
         myTree->SetBranchAddress("EMTF_mode_RPC",&EMTF_mode_RPC);
@@ -90,6 +94,7 @@ void SingleMuResolution()
         //=make histograms*
         //=****************
         //mode 15: 2016
+        if(TRK_mode == mode[0]){
         TH1F *h2016_pT_bin_1_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
         TH1F *h2016_pT_bin_1_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
         TH1F *h2016_pT_bin_1_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
@@ -154,6 +159,29 @@ void SingleMuResolution()
         TH1F *h2017_pT_bin_4_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
         TH1F *h2017_pT_bin_4_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
         TH1F *h2017_pT_bin_4_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+        }
+        //mode 14 and 7
+        if(TRK_mode == mode[1] || TRK_mode == mode[1]){
+            TH1F *h2016_pT_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" LeastSquares", 100, 0, 5);
+            TH1F *h2017_pT_bin_1_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" Huber", 100, 0, 5);
+            TH1F *h2017_pT_bin_1_AbsDev = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" AbsDev", 100, 0, 5);
+            
+            TH1F *h2016_pT_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" LeastSquares", 100, 0, 5);
+            TH1F *h2017_pT_bin_2_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" Huber", 100, 0, 5);
+            TH1F *h2017_pT_bin_2_AbsDev = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" AbsDev", 100, 0, 5);
+            
+            TH1F *h2016_pT_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" LeastSquares", 100, 0, 5);
+            TH1F *h2017_pT_bin_3_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" Huber", 100, 0, 5);
+            TH1F *h2017_pT_bin_3_AbsDev = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" AbsDev", 100, 0, 5);
+            
+            TH1F *h2016_pT_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" LeastSquares", 100, 0, 5);
+            TH1F *h2017_pT_bin_4_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" Huber", 100, 0, 5);
+            TH1F *h2017_pT_bin_4_AbsDev = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" AbsDev", 100, 0, 5);
+        }
         
         Long64_t numEvents = myTree->GetEntries();//read the number of entries in myTree
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
