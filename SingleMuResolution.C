@@ -161,7 +161,7 @@ void SingleMuResolution()
         TH1F *h2017_pT_bin_4_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         }
         //mode 14 and 7
-        if(TRK_mode == mode[1] || TRK_mode == mode[1]){
+        if(TRK_mode == mode[1] || TRK_mode == mode[2]){
             TH1F *h2016_pT_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], 100, 0, 5);
             TH1F *h2017_pT_bin_1_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" LeastSquares", 100, 0, 5);
             TH1F *h2017_pT_bin_1_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" Huber", 100, 0, 5);
@@ -193,6 +193,8 @@ void SingleMuResolution()
             
             Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
+            Float_t Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
+            Float_t Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
             
             //ONLY: mode 15, CSC only four pT* four eta bins
             if(TRK_mode == mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
@@ -350,10 +352,41 @@ void SingleMuResolution()
                 }//end pT bin 4
             
             }//end if ONLY mode 15 compare RPC in different stations 2017 only
+ 
+            //mode 14,7 
+            if(TRK_mode == mode[1] || TRK_mode == mode[2]){
+                //pT bin 1
+                if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
+                    h2016_pT_bin_1->Fill(Ratio2016);
+                    h2017_pT_bin_1_Sq->Fill(Ratio2017);
+                    h2017_pT_bin_1_Huber->Fill(Ratio2017Huber);
+                    h2017_pT_bin_1_AbsDev->Fill(Ratio2017AbsDev);
+                }
+                if(GEN_pt > pt[1] && GEN_pt <= pt[2]){
+                    h2016_pT_bin_2->Fill(Ratio2016);
+                    h2017_pT_bin_2_Sq->Fill(Ratio2017);
+                    h2017_pT_bin_2_Huber->Fill(Ratio2017Huber);
+                    h2017_pT_bin_2_AbsDev->Fill(Ratio2017AbsDev);
+                }
+                if(GEN_pt > pt[2] && GEN_pt <= pt[3]){
+                    h2016_pT_bin_3->Fill(Ratio2016);
+                    h2017_pT_bin_3_Sq->Fill(Ratio2017);
+                    h2017_pT_bin_3_Huber->Fill(Ratio2017Huber);
+                    h2017_pT_bin_3_AbsDev->Fill(Ratio2017AbsDev);
+                }
+                if(GEN_pt > pt[3] && GEN_pt <= pt[4]){
+                    h2016_pT_bin_4->Fill(Ratio2016);
+                    h2017_pT_bin_4_Sq->Fill(Ratio2017);
+                    h2017_pT_bin_4_Huber->Fill(Ratio2017Huber);
+                    h2017_pT_bin_4_AbsDev->Fill(Ratio2017AbsDev);
+                }
+            }//end mode 14,7
             
         }//end loop over events
         
         //output
+        TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/SingleMuResolution_Mode_"+MODE[i]+".root";
+        TFile myPlot(output,"RECREATE");
         
     }//end loop over modes
     
