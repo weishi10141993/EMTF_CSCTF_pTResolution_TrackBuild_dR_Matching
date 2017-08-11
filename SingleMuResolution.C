@@ -193,9 +193,11 @@ void SingleMuResolution()
             myTree->GetEntry(iEntry);
             Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
-            if(TRK_mode != mode[0]){
-                Float_t Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
-                Float_t Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
+            Float_t Ratio2017Huber=-1;
+            Float_t Ratio2017AbsDev=-1;
+            if(MODE[i] != MODE[0]){
+                Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
+                Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
             }
             //ONLY: mode 15, CSC only four pT* four eta bins
             if(TRK_mode == mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
@@ -791,7 +793,7 @@ void SingleMuResolution()
             TLegend* LD4 = new TLegend(0.4,0.4,0.9,0.9);
             TString S2016_bin_D4="";
             S2016_bin_D4= S2016_bin_D4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetRMS());
-            TString S2017_bin_A4="";
+            TString S2017_bin_D4="";
             S2017_bin_D4= S2017_bin_D4 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_4_eta_bin_4->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_eta_bin_4->GetRMS());
             LD4->AddEntry(h2016_pT_bin_4_eta_bin_4, S2016_bin_D4);
             LD4->AddEntry(h2017_pT_bin_4_eta_bin_4, S2017_bin_D4);
