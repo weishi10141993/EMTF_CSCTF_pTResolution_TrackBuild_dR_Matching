@@ -69,7 +69,7 @@ void SingleMuResolution()
         Float_t GEN_eta;
         Float_t EMTF_pt;
         Float_t BDTG_AWB_Sq;
-        Float_t BDTG_AWB_Huber;
+        Float_t BDTG_AWB_Hub;
         Float_t BDTG_AWB;
         Float_t EMTF_mode;
         Float_t TRK_mode;
@@ -87,7 +87,7 @@ void SingleMuResolution()
         myTree->SetBranchAddress("TRK_mode_RPC",&TRK_mode_RPC);
         //mode 14 and 7
         if(MODE[i] != MODE[0]){
-            myTree->SetBranchAddress("BDTG_AWB_Huber",&BDTG_AWB_Huber);
+            myTree->SetBranchAddress("BDTG_AWB_Hub",&BDTG_AWB_Hub);
             myTree->SetBranchAddress("BDTG_AWB",&BDTG_AWB);
         }
                                  
@@ -196,7 +196,7 @@ void SingleMuResolution()
             Float_t Ratio2017Huber=-1;
             Float_t Ratio2017AbsDev=-1;
             if(MODE[i] != MODE[0]){
-                Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
+                Ratio2017Huber= 1/(BDTG_AWB_Hub*GEN_pt);//2017 huber loss function
                 Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
             }
             //ONLY: mode 15, CSC only four pT* four eta bins
