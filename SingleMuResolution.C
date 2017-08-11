@@ -81,12 +81,15 @@ void SingleMuResolution()
         myTree->SetBranchAddress("GEN_eta",&GEN_eta);//GEN eta
         myTree->SetBranchAddress("EMTF_pt",&EMTF_pt);//2016 EMTF
         myTree->SetBranchAddress("BDTG_AWB_Sq",&BDTG_AWB_Sq);//2017: 1/BDTG pT
-        myTree->SetBranchAddress("BDTG_AWB_Huber",&BDTG_AWB_Huber);
-        myTree->SetBranchAddress("BDTG_AWB",&BDTG_AWB);
         myTree->SetBranchAddress("EMTF_mode",&EMTF_mode);
         myTree->SetBranchAddress("TRK_mode",&TRK_mode);
         myTree->SetBranchAddress("EMTF_mode_RPC",&EMTF_mode_RPC);
         myTree->SetBranchAddress("TRK_mode_RPC",&TRK_mode_RPC);
+        //mode 14 and 7
+        if(MODE[i] != MODE[0]){
+            myTree->SetBranchAddress("BDTG_AWB_Huber",&BDTG_AWB_Huber);
+            myTree->SetBranchAddress("BDTG_AWB",&BDTG_AWB);
+        }
                                  
         //=****************
         //=make histograms*
@@ -191,8 +194,10 @@ void SingleMuResolution()
             
             Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
-            Float_t Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
-            Float_t Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
+            if(TRK_mode != mode[0]){
+                Float_t Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
+                Float_t Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
+            }
             
             //ONLY: mode 15, CSC only four pT* four eta bins
             if(TRK_mode == mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
