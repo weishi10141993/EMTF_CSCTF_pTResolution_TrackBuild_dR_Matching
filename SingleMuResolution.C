@@ -388,6 +388,436 @@ void SingleMuResolution()
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/SingleMuResolution_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
         
+        //Customize for mode 15
+        if(TRK_mode == mode[0]){
+            //pt bin1 eta bin1
+            TCanvas *A1=new TCanvas(MODE[i]+"A1",MODE[i]+"A1",700,500);
+            //eta bin2
+            TCanvas *A2=new TCanvas(MODE[i]+"A2",MODE[i]+"A2",700,500);
+            TCanvas *A3=new TCanvas(MODE[i]+"A3",MODE[i]+"A3",700,500);
+            TCanvas *A4=new TCanvas(MODE[i]+"A4",MODE[i]+"A4",700,500);
+            //pt bin2
+            TCanvas *B1=new TCanvas(MODE[i]+"B1",MODE[i]+"B1",700,500);
+            TCanvas *B2=new TCanvas(MODE[i]+"B2",MODE[i]+"B2",700,500);
+            TCanvas *B3=new TCanvas(MODE[i]+"B3",MODE[i]+"B3",700,500);
+            TCanvas *B4=new TCanvas(MODE[i]+"B4",MODE[i]+"B4",700,500);
+            //pt bin3
+            TCanvas *C1=new TCanvas(MODE[i]+"C1",MODE[i]+"C1",700,500);
+            TCanvas *C2=new TCanvas(MODE[i]+"C2",MODE[i]+"C2",700,500);
+            TCanvas *C3=new TCanvas(MODE[i]+"C3",MODE[i]+"C3",700,500);
+            TCanvas *C4=new TCanvas(MODE[i]+"C4",MODE[i]+"C4",700,500);
+            //pt bin4
+            TCanvas *D1=new TCanvas(MODE[i]+"D1",MODE[i]+"D1",700,500);
+            TCanvas *D2=new TCanvas(MODE[i]+"D2",MODE[i]+"D2",700,500);
+            TCanvas *D3=new TCanvas(MODE[i]+"D3",MODE[i]+"D3",700,500);
+            TCanvas *D4=new TCanvas(MODE[i]+"D4",MODE[i]+"D4",700,500);
+            //different RPCs in mode 15 
+            TCanvas *E1=new TCanvas(MODE[i]+"E1",MODE[i]+"E1",700,500);
+            TCanvas *E2=new TCanvas(MODE[i]+"E2",MODE[i]+"E2",700,500);
+            TCanvas *E3=new TCanvas(MODE[i]+"E3",MODE[i]+"E3",700,500);
+            TCanvas *E4=new TCanvas(MODE[i]+"E4",MODE[i]+"E4",700,500);
+           
+            THStack *hsA1 = new THStack(MODE[i]+"hsA1","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV "+ETA[0]+"<GEN eta<"+ETA[1]);
+            THStack *hsA2 = new THStack(MODE[i]+"hsA2","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV "+ETA[1]+"<GEN eta<"+ETA[2]);
+            THStack *hsA3 = new THStack(MODE[i]+"hsA3","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV "+ETA[2]+"<GEN eta<"+ETA[3]);
+            THStack *hsA4 = new THStack(MODE[i]+"hsA4","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV "+ETA[3]+"<GEN eta<"+ETA[4]);
+        
+            THStack *hsB1 = new THStack(MODE[i]+"hsB1","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV "+ETA[0]+"<GEN eta<"+ETA[1]);
+            THStack *hsB2 = new THStack(MODE[i]+"hsB2","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV "+ETA[1]+"<GEN eta<"+ETA[2]);
+            THStack *hsB3 = new THStack(MODE[i]+"hsB3","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV "+ETA[2]+"<GEN eta<"+ETA[3]);
+            THStack *hsB4 = new THStack(MODE[i]+"hsB4","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV "+ETA[3]+"<GEN eta<"+ETA[4]);
+            
+            THStack *hsC1 = new THStack(MODE[i]+"hsC1","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV "+ETA[0]+"<GEN eta<"+ETA[1]);
+            THStack *hsC2 = new THStack(MODE[i]+"hsC2","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV "+ETA[1]+"<GEN eta<"+ETA[2]);
+            THStack *hsC3 = new THStack(MODE[i]+"hsC3","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV "+ETA[2]+"<GEN eta<"+ETA[3]);
+            THStack *hsC4 = new THStack(MODE[i]+"hsC4","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV "+ETA[3]+"<GEN eta<"+ETA[4]);
+            
+            THStack *hsD1 = new THStack(MODE[i]+"hsD1","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV "+ETA[0]+"<GEN eta<"+ETA[1]);
+            THStack *hsD2 = new THStack(MODE[i]+"hsD2","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV "+ETA[1]+"<GEN eta<"+ETA[2]);
+            THStack *hsD3 = new THStack(MODE[i]+"hsD3","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV "+ETA[2]+"<GEN eta<"+ETA[3]);
+            THStack *hsD4 = new THStack(MODE[i]+"hsD4","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV "+ETA[3]+"<GEN eta<"+ETA[4]);
+            //different RPCs in mode 15 
+            THStack *hsE1 = new THStack(MODE[i]+"hsE1","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV "+ETA[0]+"<GEN eta<"+ETA[2]);
+            THStack *hsE2 = new THStack(MODE[i]+"hsE2","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV "+ETA[0]+"<GEN eta<"+ETA[2]);
+            THStack *hsE3 = new THStack(MODE[i]+"hsE3","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV "+ETA[0]+"<GEN eta<"+ETA[2]);
+            THStack *hsE4 = new THStack(MODE[i]+"hsE4","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV "+ETA[0]+"<GEN eta<"+ETA[2]);
+            //pT bin1
+            A1->cd();
+            h2016_pT_bin_1_eta_bin_1->SetLineColor(kRed);
+            h2016_pT_bin_1_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_1_eta_bin_1->SetLineColor(kBlue);
+            h2017_pT_bin_1_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            hsA1->Add(h2016_pT_bin_1_eta_bin_1);
+            hsA1->Add(h2017_pT_bin_1_eta_bin_1);
+            hsA1->Draw("nostack");
+            hsA1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            A1->Modified();
+            TLegend* LA1 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_A1="";
+            S2016_bin_A1= S2016_bin_A1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_1->GetRMS());
+            TString S2017_bin_A1="";
+            S2017_bin_A1= S2017_bin_A1 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_1_eta_bin_1->GetMean())+" RMS "+Form("%f", h2017_pT_bin_1_eta_bin_1->GetRMS());
+            LA1->AddEntry(h2016_pT_bin_1_eta_bin_1, S2016_bin_A1);
+            LA1->AddEntry(h2017_pT_bin_1_eta_bin_1, S2017_bin_A1);
+            LA1->Draw();
+            A1->Write();
+            
+            A2->cd();
+            h2016_pT_bin_1_eta_bin_2->SetLineColor(kRed);
+            h2016_pT_bin_1_eta_bin_2->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_1_eta_bin_2->SetLineColor(kBlue);
+            h2017_pT_bin_1_eta_bin_2->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsA2->Add(h2016_pT_bin_1_eta_bin_2);
+            hsA2->Add(h2017_pT_bin_1_eta_bin_2);
+            hsA2->Draw("nostack");
+            hsA2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            A2->Modified();
+            TLegend* LA2 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_A2="";
+            S2016_bin_A2= S2016_bin_A2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_2->GetRMS());
+            TString S2017_bin_A2="";
+            S2017_bin_A2= S2017_bin_A2 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_1_eta_bin_2->GetMean())+" RMS "+Form("%f", h2017_pT_bin_1_eta_bin_2->GetRMS());
+            LA2->AddEntry(h2016_pT_bin_1_eta_bin_2, S2016_bin_A2);
+            LA2->AddEntry(h2017_pT_bin_1_eta_bin_2, S2017_bin_A2);
+            LA2->Draw();
+            A2->Write();
+            
+            A3->cd();
+            h2016_pT_bin_1_eta_bin_3->SetLineColor(kRed);
+            h2016_pT_bin_1_eta_bin_3->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_1_eta_bin_3->SetLineColor(kBlue);
+            h2017_pT_bin_1_eta_bin_3->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsA3->Add(h2016_pT_bin_1_eta_bin_3);
+            hsA3->Add(h2017_pT_bin_1_eta_bin_3);
+            hsA3->Draw("nostack");
+            hsA3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            A3->Modified();
+            TLegend* LA3 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_A3="";
+            S2016_bin_A3= S2016_bin_A3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_3->GetRMS());
+            TString S2017_bin_A3="";
+            S2017_bin_A3= S2017_bin_A3 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_1_eta_bin_3->GetMean())+" RMS "+Form("%f", h2017_pT_bin_1_eta_bin_3->GetRMS());
+            LA3->AddEntry(h2016_pT_bin_1_eta_bin_3, S2016_bin_A3);
+            LA3->AddEntry(h2017_pT_bin_1_eta_bin_3, S2017_bin_A3);
+            LA3->Draw();
+            A3->Write();
+            
+            A4->cd();
+            h2016_pT_bin_1_eta_bin_4->SetLineColor(kRed);
+            h2016_pT_bin_1_eta_bin_4->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_1_eta_bin_4->SetLineColor(kBlue);
+            h2017_pT_bin_1_eta_bin_4->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsA4->Add(h2016_pT_bin_1_eta_bin_4);
+            hsA4->Add(h2017_pT_bin_1_eta_bin_4);
+            hsA4->Draw("nostack");
+            hsA4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            A4->Modified();
+            TLegend* LA4 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_A4="";
+            S2016_bin_A4= S2016_bin_A4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_4->GetRMS());
+            TString S2017_bin_A4="";
+            S2017_bin_A4= S2017_bin_A4 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_1_eta_bin_4->GetMean())+" RMS "+Form("%f", h2017_pT_bin_1_eta_bin_4->GetRMS());
+            LA4->AddEntry(h2016_pT_bin_1_eta_bin_4, S2016_bin_A4);
+            LA4->AddEntry(h2017_pT_bin_1_eta_bin_4, S2017_bin_A4);
+            LA4->Draw();
+            A4->Write();
+            
+            //pT bin2
+            B1->cd();
+            h2016_pT_bin_2_eta_bin_1->SetLineColor(kRed);
+            h2016_pT_bin_2_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_2_eta_bin_1->SetLineColor(kBlue);
+            h2017_pT_bin_2_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            hsB1->Add(h2016_pT_bin_2_eta_bin_1);
+            hsB1->Add(h2017_pT_bin_2_eta_bin_1);
+            hsB1->Draw("nostack");
+            hsB1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            B1->Modified();
+            TLegend* LB1 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_B1="";
+            S2016_bin_B1= S2016_bin_B1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_1->GetRMS());
+            TString S2017_bin_B1="";
+            S2017_bin_B1= S2017_bin_B1 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_2_eta_bin_1->GetMean())+" RMS "+Form("%f", h2017_pT_bin_2_eta_bin_1->GetRMS());
+            LB1->AddEntry(h2016_pT_bin_2_eta_bin_1, S2016_bin_B1);
+            LB1->AddEntry(h2017_pT_bin_2_eta_bin_1, S2017_bin_B1);
+            LB1->Draw();
+            B1->Write();
+            
+            B2->cd();
+            h2016_pT_bin_2_eta_bin_2->SetLineColor(kRed);
+            h2016_pT_bin_2_eta_bin_2->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_2_eta_bin_2->SetLineColor(kBlue);
+            h2017_pT_bin_2_eta_bin_2->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsB2->Add(h2016_pT_bin_2_eta_bin_2);
+            hsB2->Add(h2017_pT_bin_2_eta_bin_2);
+            hsB2->Draw("nostack");
+            hsB2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            B2->Modified();
+            TLegend* LB2 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_B2="";
+            S2016_bin_B2= S2016_bin_B2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_2->GetRMS());
+            TString S2017_bin_B2="";
+            S2017_bin_B2= S2017_bin_B2 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_2_eta_bin_2->GetMean())+" RMS "+Form("%f", h2017_pT_bin_2_eta_bin_2->GetRMS());
+            LB2->AddEntry(h2016_pT_bin_2_eta_bin_2, S2016_bin_B2);
+            LB2->AddEntry(h2017_pT_bin_2_eta_bin_2, S2017_bin_B2);
+            LB2->Draw();
+            B2->Write();
+            
+            B3->cd();
+            h2016_pT_bin_2_eta_bin_3->SetLineColor(kRed);
+            h2016_pT_bin_2_eta_bin_3->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_2_eta_bin_3->SetLineColor(kBlue);
+            h2017_pT_bin_2_eta_bin_3->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsB3->Add(h2016_pT_bin_2_eta_bin_3);
+            hsB3->Add(h2017_pT_bin_2_eta_bin_3);
+            hsB3->Draw("nostack");
+            hsB3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            B3->Modified();
+            TLegend* LB3 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_B3="";
+            S2016_bin_B3= S2016_bin_B3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_3->GetRMS());
+            TString S2017_bin_B3="";
+            S2017_bin_B3= S2017_bin_B3 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_2_eta_bin_3->GetMean())+" RMS "+Form("%f", h2017_pT_bin_2_eta_bin_3->GetRMS());
+            LB3->AddEntry(h2016_pT_bin_2_eta_bin_3, S2016_bin_B3);
+            LB3->AddEntry(h2017_pT_bin_2_eta_bin_3, S2017_bin_B3);
+            LB3->Draw();
+            B3->Write();
+            
+            B4->cd();
+            h2016_pT_bin_2_eta_bin_4->SetLineColor(kRed);
+            h2016_pT_bin_2_eta_bin_4->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_2_eta_bin_4->SetLineColor(kBlue);
+            h2017_pT_bin_2_eta_bin_4->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsB4->Add(h2016_pT_bin_2_eta_bin_4);
+            hsB4->Add(h2017_pT_bin_2_eta_bin_4);
+            hsB4->Draw("nostack");
+            hsB4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            B4->Modified();
+            TLegend* LB4 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_B4="";
+            S2016_bin_B4= S2016_bin_B4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_4->GetRMS());
+            TString S2017_bin_B4="";
+            S2017_bin_B4= S2017_bin_B4 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_2_eta_bin_4->GetMean())+" RMS "+Form("%f", h2017_pT_bin_2_eta_bin_4->GetRMS());
+            LB4->AddEntry(h2016_pT_bin_2_eta_bin_4, S2016_bin_B4);
+            LB4->AddEntry(h2017_pT_bin_2_eta_bin_4, S2017_bin_B4);
+            LB4->Draw();
+            B4->Write();
+            
+            //pT bin3
+            C1->cd();
+            h2016_pT_bin_3_eta_bin_1->SetLineColor(kRed);
+            h2016_pT_bin_3_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_3_eta_bin_1->SetLineColor(kBlue);
+            h2017_pT_bin_3_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            hsC1->Add(h2016_pT_bin_3_eta_bin_1);
+            hsC1->Add(h2017_pT_bin_3_eta_bin_1);
+            hsC1->Draw("nostack");
+            hsC1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            C1->Modified();
+            TLegend* LC1 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_C1="";
+            S2016_bin_C1= S2016_bin_C1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_1->GetRMS());
+            TString S2017_bin_C1="";
+            S2017_bin_C1= S2017_bin_C1 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_3_eta_bin_1->GetMean())+" RMS "+Form("%f", h2017_pT_bin_3_eta_bin_1->GetRMS());
+            LC1->AddEntry(h2016_pT_bin_3_eta_bin_1, S2016_bin_C1);
+            LC1->AddEntry(h2017_pT_bin_3_eta_bin_1, S2017_bin_C1);
+            LC1->Draw();
+            C1->Write();
+            
+            C2->cd();
+            h2016_pT_bin_3_eta_bin_2->SetLineColor(kRed);
+            h2016_pT_bin_3_eta_bin_2->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_3_eta_bin_2->SetLineColor(kBlue);
+            h2017_pT_bin_3_eta_bin_2->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsC2->Add(h2016_pT_bin_3_eta_bin_2);
+            hsC2->Add(h2017_pT_bin_3_eta_bin_2);
+            hsC2->Draw("nostack");
+            hsC2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            C2->Modified();
+            TLegend* LC2 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_C2="";
+            S2016_bin_C2= S2016_bin_C2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_2->GetRMS());
+            TString S2017_bin_C2="";
+            S2017_bin_C2= S2017_bin_C2 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_3_eta_bin_2->GetMean())+" RMS "+Form("%f", h2017_pT_bin_3_eta_bin_2->GetRMS());
+            LC2->AddEntry(h2016_pT_bin_3_eta_bin_2, S2016_bin_C2);
+            LC2->AddEntry(h2017_pT_bin_3_eta_bin_2, S2017_bin_C2);
+            LC2->Draw();
+            C2->Write();
+            
+            C3->cd();
+            h2016_pT_bin_3_eta_bin_3->SetLineColor(kRed);
+            h2016_pT_bin_3_eta_bin_3->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_3_eta_bin_3->SetLineColor(kBlue);
+            h2017_pT_bin_3_eta_bin_3->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsC3->Add(h2016_pT_bin_3_eta_bin_3);
+            hsC3->Add(h2017_pT_bin_3_eta_bin_3);
+            hsC3->Draw("nostack");
+            hsC3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            C3->Modified();
+            TLegend* LC3 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_C3="";
+            S2016_bin_C3= S2016_bin_C3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_3->GetRMS());
+            TString S2017_bin_C3="";
+            S2017_bin_C3= S2017_bin_C3 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_3_eta_bin_3->GetMean())+" RMS "+Form("%f", h2017_pT_bin_3_eta_bin_3->GetRMS());
+            LC3->AddEntry(h2016_pT_bin_3_eta_bin_3, S2016_bin_C3);
+            LC3->AddEntry(h2017_pT_bin_3_eta_bin_3, S2017_bin_C3);
+            LC3->Draw();
+            C3->Write();
+            
+            C4->cd();
+            h2016_pT_bin_3_eta_bin_4->SetLineColor(kRed);
+            h2016_pT_bin_3_eta_bin_4->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_3_eta_bin_4->SetLineColor(kBlue);
+            h2017_pT_bin_3_eta_bin_4->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsC4->Add(h2016_pT_bin_3_eta_bin_4);
+            hsC4->Add(h2017_pT_bin_3_eta_bin_4);
+            hsC4->Draw("nostack");
+            hsC4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            C4->Modified();
+            TLegend* LC4 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_C4="";
+            S2016_bin_C4= S2016_bin_C4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_4->GetRMS());
+            TString S2017_bin_C4="";
+            S2017_bin_C4= S2017_bin_C4 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_3_eta_bin_4->GetMean())+" RMS "+Form("%f", h2017_pT_bin_3_eta_bin_4->GetRMS());
+            LC4->AddEntry(h2016_pT_bin_3_eta_bin_4, S2016_bin_C4);
+            LC4->AddEntry(h2017_pT_bin_3_eta_bin_4, S2017_bin_C4);
+            LC4->Draw();
+            C4->Write();
+            
+            //pT bin4
+            D1->cd();
+            h2016_pT_bin_4_eta_bin_1->SetLineColor(kRed);
+            h2016_pT_bin_4_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_4_eta_bin_1->SetLineColor(kBlue);
+            h2017_pT_bin_4_eta_bin_1->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            hsD1->Add(h2016_pT_bin_4_eta_bin_1);
+            hsD1->Add(h2017_pT_bin_4_eta_bin_1);
+            hsD1->Draw("nostack");
+            hsD1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            D1->Modified();
+            TLegend* LD1 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_D1="";
+            S2016_bin_D1= S2016_bin_D1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_1->GetRMS());
+            TString S2017_bin_D1="";
+            S2017_bin_D1= S2017_bin_D1 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_4_eta_bin_1->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_eta_bin_1->GetRMS());
+            LD1->AddEntry(h2016_pT_bin_4_eta_bin_1, S2016_bin_D1);
+            LD1->AddEntry(h2017_pT_bin_4_eta_bin_1, S2017_bin_D1);
+            LD1->Draw();
+            D1->Write();
+            
+            D2->cd();
+            h2016_pT_bin_4_eta_bin_2->SetLineColor(kRed);
+            h2016_pT_bin_4_eta_bin_2->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_4_eta_bin_2->SetLineColor(kBlue);
+            h2017_pT_bin_4_eta_bin_2->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsD2->Add(h2016_pT_bin_4_eta_bin_2);
+            hsD2->Add(h2017_pT_bin_4_eta_bin_2);
+            hsD2->Draw("nostack");
+            hsD2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            D2->Modified();
+            TLegend* LD2 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_D2="";
+            S2016_bin_D2= S2016_bin_D2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_2->GetRMS());
+            TString S2017_bin_D2="";
+            S2017_bin_D2= S2017_bin_D2 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_4_eta_bin_2->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_eta_bin_2->GetRMS());
+            LD2->AddEntry(h2016_pT_bin_4_eta_bin_2, S2016_bin_D2);
+            LD2->AddEntry(h2017_pT_bin_4_eta_bin_2, S2017_bin_D2);
+            LD2->Draw();
+            D2->Write();
+            
+            D3->cd();
+            h2016_pT_bin_4_eta_bin_3->SetLineColor(kRed);
+            h2016_pT_bin_4_eta_bin_3->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_4_eta_bin_3->SetLineColor(kBlue);
+            h2017_pT_bin_4_eta_bin_3->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsD3->Add(h2016_pT_bin_3_eta_bin_3);
+            hsD3->Add(h2017_pT_bin_3_eta_bin_3);
+            hsD3->Draw("nostack");
+            hsD3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            D3->Modified();
+            TLegend* LD3 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_D3="";
+            S2016_bin_D3= S2016_bin_D3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_3->GetRMS());
+            TString S2017_bin_D3="";
+            S2017_bin_D3= S2017_bin_D3 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_4_eta_bin_3->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_eta_bin_3->GetRMS());
+            LD3->AddEntry(h2016_pT_bin_4_eta_bin_3, S2016_bin_D3);
+            LD3->AddEntry(h2017_pT_bin_4_eta_bin_3, S2017_bin_D3);
+            LD3->Draw();
+            D3->Write();
+            
+            D4->cd();
+            h2016_pT_bin_4_eta_bin_4->SetLineColor(kRed);
+            h2016_pT_bin_4_eta_bin_4->SetLineWidth(2);
+            gStyle->SetOptStat(0);
+            h2017_pT_bin_4_eta_bin_4->SetLineColor(kBlue);
+            h2017_pT_bin_4_eta_bin_4->SetLineWidth(2);            
+            gStyle->SetOptStat(0);
+            hsD4->Add(h2016_pT_bin_4_eta_bin_4);
+            hsD4->Add(h2017_pT_bin_4_eta_bin_4);
+            hsD4->Draw("nostack");
+            hsD4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
+            D4->Modified();
+            TLegend* LD4 = new TLegend(0.4,0.4,0.9,0.9);
+            TString S2016_bin_D4="";
+            S2016_bin_D4= S2016_bin_D4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetRMS());
+            TString S2017_bin_A4="";
+            S2017_bin_D4= S2017_bin_D4 + "2017: "+"Mean "+Form("%f", h2017_pT_bin_4_eta_bin_4->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_eta_bin_4->GetRMS());
+            LD4->AddEntry(h2016_pT_bin_4_eta_bin_4, S2016_bin_D4);
+            LD4->AddEntry(h2017_pT_bin_4_eta_bin_4, S2017_bin_D4);
+            LD4->Draw();
+            D4->Write();
+            
+            //different RPCs
+            E1->cd();
+            
+        }//end if
+        
+        //mode 14 and 7
+        if(TRK_mode != mode[0]){
+            //mode 14 or 7 different loss function
+            TCanvas *F1=new TCanvas(MODE[i]+"F1",MODE[i]+"F1",700,500);
+            TCanvas *F2=new TCanvas(MODE[i]+"F2",MODE[i]+"F2",700,500);
+            TCanvas *F3=new TCanvas(MODE[i]+"F3",MODE[i]+"F3",700,500);
+            TCanvas *F4=new TCanvas(MODE[i]+"F4",MODE[i]+"F4",700,500);
+            
+            //mode 14 or 7 different loss function
+            THStack *hsF1 = new THStack(MODE[i]+"hsF1","Mode "+MODE[i]+" pT Resolution "+PT[0]+"<GEN pT<"+PT[1]+" GeV");
+            THStack *hsF2 = new THStack(MODE[i]+"hsF2","Mode "+MODE[i]+" pT Resolution "+PT[1]+"<GEN pT<"+PT[2]+" GeV");
+            THStack *hsF3 = new THStack(MODE[i]+"hsF3","Mode "+MODE[i]+" pT Resolution "+PT[2]+"<GEN pT<"+PT[3]+" GeV");
+            THStack *hsF4 = new THStack(MODE[i]+"hsF4","Mode "+MODE[i]+" pT Resolution "+PT[3]+"<GEN pT<"+PT[4]+" GeV");
+            
+        } //end if
+        
         myPlot.Close();
         cout<<"***print out***"<<endl;
         cout<<"Mode "<<MODE[i]<<endl;
