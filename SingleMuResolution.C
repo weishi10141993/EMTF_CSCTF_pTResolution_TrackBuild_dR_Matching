@@ -457,7 +457,7 @@ void SingleMuResolution()
             hsA1->Draw("nostack");
             hsA1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             A1->Modified();
-            TLegend* LA1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LA1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_A1="";
             S2016_bin_A1= S2016_bin_A1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_1->GetRMS());
             TString S2017_bin_A1="";
@@ -479,7 +479,7 @@ void SingleMuResolution()
             hsA2->Draw("nostack");
             hsA2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             A2->Modified();
-            TLegend* LA2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LA2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_A2="";
             S2016_bin_A2= S2016_bin_A2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_2->GetRMS());
             TString S2017_bin_A2="";
@@ -501,7 +501,7 @@ void SingleMuResolution()
             hsA3->Draw("nostack");
             hsA3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             A3->Modified();
-            TLegend* LA3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LA3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_A3="";
             S2016_bin_A3= S2016_bin_A3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_3->GetRMS());
             TString S2017_bin_A3="";
@@ -523,7 +523,7 @@ void SingleMuResolution()
             hsA4->Draw("nostack");
             hsA4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             A4->Modified();
-            TLegend* LA4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LA4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_A4="";
             S2016_bin_A4= S2016_bin_A4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1_eta_bin_4->GetRMS());
             TString S2017_bin_A4="";
@@ -546,7 +546,7 @@ void SingleMuResolution()
             hsB1->Draw("nostack");
             hsB1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             B1->Modified();
-            TLegend* LB1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LB1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_B1="";
             S2016_bin_B1= S2016_bin_B1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_1->GetRMS());
             TString S2017_bin_B1="";
@@ -568,7 +568,7 @@ void SingleMuResolution()
             hsB2->Draw("nostack");
             hsB2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             B2->Modified();
-            TLegend* LB2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LB2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_B2="";
             S2016_bin_B2= S2016_bin_B2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_2->GetRMS());
             TString S2017_bin_B2="";
@@ -590,7 +590,7 @@ void SingleMuResolution()
             hsB3->Draw("nostack");
             hsB3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             B3->Modified();
-            TLegend* LB3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LB3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_B3="";
             S2016_bin_B3= S2016_bin_B3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_3->GetRMS());
             TString S2017_bin_B3="";
@@ -612,7 +612,7 @@ void SingleMuResolution()
             hsB4->Draw("nostack");
             hsB4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             B4->Modified();
-            TLegend* LB4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LB4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_B4="";
             S2016_bin_B4= S2016_bin_B4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2_eta_bin_4->GetRMS());
             TString S2017_bin_B4="";
@@ -635,7 +635,7 @@ void SingleMuResolution()
             hsC1->Draw("nostack");
             hsC1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             C1->Modified();
-            TLegend* LC1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LC1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_C1="";
             S2016_bin_C1= S2016_bin_C1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_1->GetRMS());
             TString S2017_bin_C1="";
@@ -657,7 +657,7 @@ void SingleMuResolution()
             hsC2->Draw("nostack");
             hsC2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             C2->Modified();
-            TLegend* LC2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LC2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_C2="";
             S2016_bin_C2= S2016_bin_C2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_2->GetRMS());
             TString S2017_bin_C2="";
@@ -679,7 +679,7 @@ void SingleMuResolution()
             hsC3->Draw("nostack");
             hsC3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             C3->Modified();
-            TLegend* LC3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LC3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_C3="";
             S2016_bin_C3= S2016_bin_C3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_3->GetRMS());
             TString S2017_bin_C3="";
@@ -701,7 +701,7 @@ void SingleMuResolution()
             hsC4->Draw("nostack");
             hsC4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             C4->Modified();
-            TLegend* LC4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LC4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_C4="";
             S2016_bin_C4= S2016_bin_C4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3_eta_bin_4->GetRMS());
             TString S2017_bin_C4="";
@@ -724,7 +724,7 @@ void SingleMuResolution()
             hsD1->Draw("nostack");
             hsD1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             D1->Modified();
-            TLegend* LD1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LD1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_D1="";
             S2016_bin_D1= S2016_bin_D1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_1->GetRMS());
             TString S2017_bin_D1="";
@@ -746,7 +746,7 @@ void SingleMuResolution()
             hsD2->Draw("nostack");
             hsD2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             D2->Modified();
-            TLegend* LD2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LD2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_D2="";
             S2016_bin_D2= S2016_bin_D2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_2->GetRMS());
             TString S2017_bin_D2="";
@@ -768,7 +768,7 @@ void SingleMuResolution()
             hsD3->Draw("nostack");
             hsD3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             D3->Modified();
-            TLegend* LD3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LD3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_D3="";
             S2016_bin_D3= S2016_bin_D3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_3->GetRMS());
             TString S2017_bin_D3="";
@@ -790,7 +790,7 @@ void SingleMuResolution()
             hsD4->Draw("nostack");
             hsD4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             D4->Modified();
-            TLegend* LD4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LD4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_D4="";
             S2016_bin_D4= S2016_bin_D4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4_eta_bin_4->GetRMS());
             TString S2017_bin_D4="";
@@ -811,10 +811,10 @@ void SingleMuResolution()
             h2017_pT_bin_1_RPC_2->SetLineColor(kGreen);
             h2017_pT_bin_1_RPC_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_1_RPC_3->SetLineColor(kYellow);
+            h2017_pT_bin_1_RPC_3->SetLineColor(kCyan);
             h2017_pT_bin_1_RPC_3->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_1_RPC_4->SetLineColor(kPink);
+            h2017_pT_bin_1_RPC_4->SetLineColor(kMagenta);
             h2017_pT_bin_1_RPC_4->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsE1->Add(h2017_pT_bin_1_RPC_0);
@@ -825,7 +825,7 @@ void SingleMuResolution()
             hsE1->Draw("nostack");
             hsE1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             E1->Modified();
-            TLegend* LE1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LE1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2017_bin_E1_0="";
             S2017_bin_E1_0= S2017_bin_E1_0 + "Track_Mode_RPC="+TRACK_MODE_RPC[0]+": "+"Mean "+Form("%f", h2017_pT_bin_1_RPC_0->GetMean())+" RMS "+Form("%f", h2017_pT_bin_1_RPC_0->GetRMS());
             TString S2017_bin_E1_1="";
@@ -854,10 +854,10 @@ void SingleMuResolution()
             h2017_pT_bin_2_RPC_2->SetLineColor(kGreen);
             h2017_pT_bin_2_RPC_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_2_RPC_3->SetLineColor(kYellow);
+            h2017_pT_bin_2_RPC_3->SetLineColor(kCyan);
             h2017_pT_bin_2_RPC_3->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_2_RPC_4->SetLineColor(kPink);
+            h2017_pT_bin_2_RPC_4->SetLineColor(kMagenta);
             h2017_pT_bin_2_RPC_4->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsE2->Add(h2017_pT_bin_2_RPC_0);
@@ -868,7 +868,7 @@ void SingleMuResolution()
             hsE2->Draw("nostack");
             hsE2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             E2->Modified();
-            TLegend* LE2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LE2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2017_bin_E2_0="";
             S2017_bin_E2_0= S2017_bin_E2_0 + "Track_Mode_RPC="+TRACK_MODE_RPC[0]+": "+"Mean "+Form("%f", h2017_pT_bin_2_RPC_0->GetMean())+" RMS "+Form("%f", h2017_pT_bin_2_RPC_0->GetRMS());
             TString S2017_bin_E2_1="";
@@ -897,10 +897,10 @@ void SingleMuResolution()
             h2017_pT_bin_3_RPC_2->SetLineColor(kGreen);
             h2017_pT_bin_3_RPC_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_3_RPC_3->SetLineColor(kYellow);
+            h2017_pT_bin_3_RPC_3->SetLineColor(kCyan);
             h2017_pT_bin_3_RPC_3->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_3_RPC_4->SetLineColor(kPink);
+            h2017_pT_bin_3_RPC_4->SetLineColor(kMagenta);
             h2017_pT_bin_3_RPC_4->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsE3->Add(h2017_pT_bin_3_RPC_0);
@@ -911,7 +911,7 @@ void SingleMuResolution()
             hsE3->Draw("nostack");
             hsE3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             E3->Modified();
-            TLegend* LE3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LE3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2017_bin_E3_0="";
             S2017_bin_E3_0= S2017_bin_E3_0 + "Track_Mode_RPC="+TRACK_MODE_RPC[0]+": "+"Mean "+Form("%f", h2017_pT_bin_3_RPC_0->GetMean())+" RMS "+Form("%f", h2017_pT_bin_3_RPC_0->GetRMS());
             TString S2017_bin_E3_1="";
@@ -940,10 +940,10 @@ void SingleMuResolution()
             h2017_pT_bin_4_RPC_2->SetLineColor(kGreen);
             h2017_pT_bin_4_RPC_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_4_RPC_3->SetLineColor(kYellow);
+            h2017_pT_bin_4_RPC_3->SetLineColor(kCyank);
             h2017_pT_bin_4_RPC_3->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_4_RPC_4->SetLineColor(kPink);
+            h2017_pT_bin_4_RPC_4->SetLineColor(kMagenta);
             h2017_pT_bin_4_RPC_4->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsE4->Add(h2017_pT_bin_4_RPC_0);
@@ -954,7 +954,7 @@ void SingleMuResolution()
             hsE4->Draw("nostack");
             hsE4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             E4->Modified();
-            TLegend* LE4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LE4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2017_bin_E4_0="";
             S2017_bin_E4_0= S2017_bin_E4_0 + "Track_Mode_RPC="+TRACK_MODE_RPC[0]+": "+"Mean "+Form("%f", h2017_pT_bin_4_RPC_0->GetMean())+" RMS "+Form("%f", h2017_pT_bin_4_RPC_0->GetRMS());
             TString S2017_bin_E4_1="";
@@ -991,6 +991,7 @@ void SingleMuResolution()
             
             //pT bin1 loss funcs
             F1->cd();
+            gPad->SetLogy();
             h2016_pT_bin_1->SetLineColor(kRed);
             h2016_pT_bin_1->SetLineWidth(2);
             gStyle->SetOptStat(0);
@@ -1000,7 +1001,7 @@ void SingleMuResolution()
             h2017_pT_bin_1_Huber->SetLineColor(kGreen);
             h2017_pT_bin_1_Huber->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_1_AbsDev->SetLineColor(kPink);
+            h2017_pT_bin_1_AbsDev->SetLineColor(kMagenta);
             h2017_pT_bin_1_AbsDev->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsF1->Add(h2016_pT_bin_1);
@@ -1010,7 +1011,7 @@ void SingleMuResolution()
             hsF1->Draw("nostack");
             hsF1->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             F1->Modified();
-            TLegend* LF1 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LF1 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_F1="";
             S2016_bin_F1= S2016_bin_F1 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_1->GetMean())+" RMS "+Form("%f", h2016_pT_bin_1->GetRMS());
             TString S2017_bin_F1_Sq="";
@@ -1027,6 +1028,7 @@ void SingleMuResolution()
             F1->Write();
             
             F2->cd();
+            gPad->SetLogy();
             h2016_pT_bin_2->SetLineColor(kRed);
             h2016_pT_bin_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
@@ -1036,7 +1038,7 @@ void SingleMuResolution()
             h2017_pT_bin_2_Huber->SetLineColor(kGreen);
             h2017_pT_bin_2_Huber->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_2_AbsDev->SetLineColor(kPink);
+            h2017_pT_bin_2_AbsDev->SetLineColor(kMagenta);
             h2017_pT_bin_2_AbsDev->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsF2->Add(h2016_pT_bin_2);
@@ -1046,7 +1048,7 @@ void SingleMuResolution()
             hsF2->Draw("nostack");
             hsF2->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             F2->Modified();
-            TLegend* LF2 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LF2 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_F2="";
             S2016_bin_F2= S2016_bin_F2 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_2->GetMean())+" RMS "+Form("%f", h2016_pT_bin_2->GetRMS());
             TString S2017_bin_F2_Sq="";
@@ -1072,7 +1074,7 @@ void SingleMuResolution()
             h2017_pT_bin_3_Huber->SetLineColor(kGreen);
             h2017_pT_bin_3_Huber->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_3_AbsDev->SetLineColor(kPink);
+            h2017_pT_bin_3_AbsDev->SetLineColor(kMagenta);
             h2017_pT_bin_3_AbsDev->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsF3->Add(h2016_pT_bin_3);
@@ -1082,7 +1084,7 @@ void SingleMuResolution()
             hsF3->Draw("nostack");
             hsF3->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             F3->Modified();
-            TLegend* LF3 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LF3 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_F3="";
             S2016_bin_F3= S2016_bin_F3 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_3->GetMean())+" RMS "+Form("%f", h2016_pT_bin_3->GetRMS());
             TString S2017_bin_F3_Sq="";
@@ -1108,7 +1110,7 @@ void SingleMuResolution()
             h2017_pT_bin_4_Huber->SetLineColor(kGreen);
             h2017_pT_bin_4_Huber->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_4_AbsDev->SetLineColor(kPink);
+            h2017_pT_bin_4_AbsDev->SetLineColor(kMagenta);
             h2017_pT_bin_4_AbsDev->SetLineWidth(2);
             gStyle->SetOptStat(0);
             hsF4->Add(h2016_pT_bin_4);
@@ -1118,7 +1120,7 @@ void SingleMuResolution()
             hsF4->Draw("nostack");
             hsF4->GetXaxis()->SetTitle("Trigger pT/GEN pT");
             F4->Modified();
-            TLegend* LF4 = new TLegend(0.4,0.4,0.9,0.9);
+            TLegend* LF4 = new TLegend(0.3,0.65,0.9,0.9);
             TString S2016_bin_F4="";
             S2016_bin_F4= S2016_bin_F4 + "2016: "+"Mean "+Form("%f", h2016_pT_bin_4->GetMean())+" RMS "+Form("%f", h2016_pT_bin_4->GetRMS());
             TString S2017_bin_F4_Sq="";
