@@ -940,7 +940,7 @@ void SingleMuResolution()
             h2017_pT_bin_4_RPC_2->SetLineColor(kGreen);
             h2017_pT_bin_4_RPC_2->SetLineWidth(2);
             gStyle->SetOptStat(0);
-            h2017_pT_bin_4_RPC_3->SetLineColor(kCyank);
+            h2017_pT_bin_4_RPC_3->SetLineColor(kCyan);
             h2017_pT_bin_4_RPC_3->SetLineWidth(2);
             gStyle->SetOptStat(0);
             h2017_pT_bin_4_RPC_4->SetLineColor(kMagenta);
