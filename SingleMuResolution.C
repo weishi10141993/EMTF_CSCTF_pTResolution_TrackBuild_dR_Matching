@@ -390,7 +390,7 @@ void SingleMuResolution()
         TFile myPlot(output,"RECREATE");
         
         //Customize for mode 15
-        if(TRK_mode == mode[0]){
+        if(MODE[i] == MODE[0]){
             //pt bin1 eta bin1
             TCanvas *A1=new TCanvas(MODE[i]+"A1",MODE[i]+"A1",700,500);
             //eta bin2
@@ -974,7 +974,7 @@ void SingleMuResolution()
         }//end if mode 15
         
         //mode 14 and 7
-        if(TRK_mode != mode[0]){
+        if(MODE[i] != MODE[0]){
             //mode 14 or 7 different loss function
             TCanvas *F1=new TCanvas(MODE[i]+"F1",MODE[i]+"F1",700,500);
             TCanvas *F2=new TCanvas(MODE[i]+"F2",MODE[i]+"F2",700,500);
