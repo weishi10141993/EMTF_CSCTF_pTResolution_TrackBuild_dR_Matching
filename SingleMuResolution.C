@@ -95,74 +95,74 @@ void SingleMuResolution()
         //=make histograms*
         //=****************
         //mode 15: 2016
-        if(TRK_mode == mode[0]){
-        TH1F *h2016_pT_bin_1_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2016_pT_bin_1_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2016_pT_bin_1_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2016_pT_bin_1_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+        if(MODE[i] == MODE[0]){
+            TH1F *h2016_pT_bin_1_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2016_pT_bin_1_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2016_pT_bin_1_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2016_pT_bin_1_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2016_pT_bin_2_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2016_pT_bin_2_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2016_pT_bin_2_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2016_pT_bin_2_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2016_pT_bin_2_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2016_pT_bin_2_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2016_pT_bin_2_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2016_pT_bin_2_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2016_pT_bin_3_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2016_pT_bin_3_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2016_pT_bin_3_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2016_pT_bin_3_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2016_pT_bin_3_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2016_pT_bin_3_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2016_pT_bin_3_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2016_pT_bin_3_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2016_pT_bin_4_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2016_pT_bin_4_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2016_pT_bin_4_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2016_pT_bin_4_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
-        //mode 15: 2017
-        TH1F *h2017_pT_bin_1_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2016_pT_bin_4_eta_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2016_pT_bin_4_eta_bin_2 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2016_pT_bin_4_eta_bin_3 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2016_pT_bin_4_eta_bin_4 = new TH1F("2016 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2016 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            //mode 15: 2017
+            TH1F *h2017_pT_bin_1_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_2_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_3_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_4_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_eta_bin_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_eta_bin_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[1]+"<GEN eta<"+ETA[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_eta_bin_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[2]+"<GEN eta<"+ETA[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_eta_bin_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[3]+"<GEN eta<"+ETA[4], 100, 0, 5);
         
-        //mode 15 compare RPC in different stations 2017 only
-        TH1F *h2017_pT_bin_1_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_1_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+            //mode 15 compare RPC in different stations 2017 only
+            TH1F *h2017_pT_bin_1_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_1_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_2_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_2_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_2_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[1]+"<GEN pT<"+PT[2]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_3_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_3_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_3_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[2]+"<GEN pT<"+PT[3]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         
-        TH1F *h2017_pT_bin_4_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
-        TH1F *h2017_pT_bin_4_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_RPC_0 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[0], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_RPC_1 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[1], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_RPC_2 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[2], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_RPC_3 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[3], 100, 0, 5);
+            TH1F *h2017_pT_bin_4_RPC_4 = new TH1F("2017 mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], "2017 pT Resolution mode "+MODE[i]+" "+PT[3]+"<GEN pT<"+PT[4]+" "+ETA[0]+"<GEN eta<"+ETA[2]+" Track_Mode_RPC"+TRACK_MODE_RPC[4], 100, 0, 5);
         }
         //mode 14 and 7
-        if(TRK_mode != mode[0]){
+        if(MODE[i] != MODE[0]){
             TH1F *h2016_pT_bin_1 = new TH1F("2016 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], "2016 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1], 100, 0, 5);
             TH1F *h2017_pT_bin_1_Sq = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" Sq", "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" LeastSquares", 100, 0, 5);
             TH1F *h2017_pT_bin_1_Huber = new TH1F("2017 mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" Huber", "2017 pT Resolution mode "+MODE[i]+" "+PT[0]+"<GEN pT<"+PT[1]+" Huber", 100, 0, 5);
@@ -191,17 +191,14 @@ void SingleMuResolution()
         for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
             //load the i-th event
             myTree->GetEntry(iEntry);
-            cout<<"Get i"<<iEntry<<" events"<<endl;
             Float_t Ratio2016= EMTF_pt/(GEN_pt*scale_factor_2016);//divide the 2016 scale factor 1.4
             Float_t Ratio2017= 1/(BDTG_AWB_Sq*GEN_pt);
             if(TRK_mode != mode[0]){
                 Float_t Ratio2017Huber= 1/(BDTG_AWB_Huber*GEN_pt);//2017 huber loss function
                 Float_t Ratio2017AbsDev= 1/(BDTG_AWB*GEN_pt);//2017 absolute deviation loss func
             }
-            cout<<"Calculate Ratio.."<<endl;
             //ONLY: mode 15, CSC only four pT* four eta bins
             if(TRK_mode == mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
-                cout<<"mode 15 pT,eta, 2016 vs 2017"<<endl;
                 //pt bin 1
                 if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
                     //eta bin 1
@@ -285,7 +282,6 @@ void SingleMuResolution()
             //ONLY: mode 15, compare RPC in different stations 2017 only
             if(TRK_mode == mode[0] && fabs(GEN_eta) > eta[0] && fabs(GEN_eta) <= eta[2] ){
                 //pT bin 1
-                cout<<"mode 15 RPCs"<<endl;
                 if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
                     if(TRK_mode_RPC == track_mode_rpc[0]){
                         h2017_pT_bin_1_RPC_0->Fill(Ratio2017);
@@ -361,7 +357,6 @@ void SingleMuResolution()
             //mode 14,7 : involve 2016, use CSC only
             if(TRK_mode != mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
                 //pT bin 1
-                cout<<"mode 14 loss funcs"<<endl;
                 if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
                     h2016_pT_bin_1->Fill(Ratio2016);
                     h2017_pT_bin_1_Sq->Fill(Ratio2017);
