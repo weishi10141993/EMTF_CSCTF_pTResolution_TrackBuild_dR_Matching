@@ -353,8 +353,8 @@ void SingleMuResolution()
             
             }//end if ONLY mode 15 compare RPC in different stations 2017 only
  
-            //mode 14,7 
-            if(TRK_mode == mode[1] || TRK_mode == mode[2]){
+            //mode 14,7 : involve 2016, use CSC only
+            if(TRK_mode != mode[0] && EMTF_mode == TRK_mode && EMTF_mode_RPC == track_mode_rpc[0] && TRK_mode_RPC == track_mode_rpc[0]){
                 //pT bin 1
                 if(GEN_pt > pt[0] && GEN_pt <= pt[1]){
                     h2016_pT_bin_1->Fill(Ratio2016);
@@ -387,6 +387,12 @@ void SingleMuResolution()
         //output
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/SingleMuResolution_Mode_"+MODE[i]+".root";
         TFile myPlot(output,"RECREATE");
+        
+        myPlot.Close();
+        cout<<"***print out***"<<endl;
+        cout<<"Mode "<<MODE[i]<<endl;
+        cout<<"===Hist Info=="<<endl;
+        
         
     }//end loop over modes
     
