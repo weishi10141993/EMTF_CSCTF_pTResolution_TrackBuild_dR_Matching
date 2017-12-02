@@ -29,30 +29,23 @@ using namespace std;
 //****************************************************************************************
 //*Each track has up to 6 dTheta values between stations: 1-2, 1-3, 1-4, 2-3, 2-4, and 3-4.  As you can see from some old studies of mine [1], the dTheta bending between stations is quite small, even for fairly-low-pT muons.  In general, the dTheta(1-X) bending can be a bit larger than the dTheta(X-Y) bending, where X > 1.  Right now the maximum allowed dTheta values in a track are <= 8, which is about 2°.  
 //*This is a very large window; it was widened last year from <= 4 because the RPC resolution in theta is only about ±2° in station 1.  However, we could easily imagine tightening the window, at least in the "ring 1" region (|eta| > 1.6 or so) where we have the most pileup.  So the idea of the study is this:
-
 // 1) Select unpacked 3- and 4-station EMTF tracks from the ZeroBias8b4e "Skim" file below, with pT >= 22 GeV
 //    * Tracks must be in BX+1, 0, or -1, to make sure we have all the hits associated with the track
 //    * For this study, select only CSC-only tracks, i.e. unp_trk_nRPC == 0
 //    * Also require that the unpacker found all the hits belonging to the track, i.e. unp_trk_found_hits == 1
-
 //2) For each track, compute the maximum absolute value of dTheta(1-X) and dTheta(X-Y) among the station pairs, where X > 1
-
 //3) Determine whether dTheta(1-X) <= cut1 and dTheta(X-Y) <= cut2
 //    * For 0 <= cut1 <= 16 and 0 <= cut2 <= 8
-
 //4) Fill a histogram with the number of events passing each pair of cuts, with cut1 on the x-axis, and cut2 on the y-axis
 //    * The x and y axes should also have a "no cut" bin
 //    * So the "no cut - no cut" bin will have all the tracks with pT >= 22, and the other bins will have a smaller number, based on how many tracks pass both dTheta(1-X) <= cut1 and dTheta(X-Y) <= cut2
 //    * Make separate histograms for 4-station tracks and 3-station tracks.  This is because the 4-station tracks may only be demoted, but still pass the SingleMu trigger, while all 3-station tracks that fail the cut would no longer be SingleMu-quality if one of the hits was removed.
-
-This will give us a nice estimate of how much rate reduction we can achieve by tightening the dTheta windows, without running 16 x 8 = 128 different options in the emulator.
+//This will give us a nice estimate of how much rate reduction we can achieve by tightening the dTheta windows, without running 16 x 8 = 128 different options in the emulator.
 void dThetaWindow()
 {
         //USER modify here ONLY//
         //================================================================
         Int_t PT_CUT = 22;
-        Float_t EFF_REF = 0.95;//the eff beyond which classifier cut stops
-        Int_t Bins=100;//bins on class cut
         Int_t lxplus=1;//machine: lxplus(1) or bonner(0)?
         //================================================================
         TString Cluster="";
@@ -70,27 +63,28 @@ void dThetaWindow()
         cout<<"Accessing file:"<<fileName<<endl;
         cout<<"Accessing directory:"<<directoryName<<endl;
         
-        TBranch *GEN_pt_br = myTree->GetBranch("GEN_pt");
-        TBranch *GEN_charge_br = myTree->GetBranch("GEN_charge");
-        TBranch *BDTG_br = myTree->GetBranch("BDTG");
-        TBranch *TRK_mode_RPC_br = myTree->GetBranch("TRK_mode_RPC");
+        vector<float> *Unp_trk_eta;
+        vector<float> *Unp_trk_pt;
+        vector<int> *Unp_trk_mode;
+        vector<int> *Unp_trk_BX;
+        vector<int> *Unp_trk_nRPC;
+        vector<int> *Unp_trk_found_hits;
+        vector<int> *Unp_trk_nHits;
+        vector<int> *Unp_trk_dTheta_int;
         
-        double a=1.0;
-        double b=0.0;//b is defined but not used in the cut, b==1-a;
-        double BIT=0.000001;//in case b become very small positive number
-        Long64_t MinRATE=9999;
-        Long64_t RATE16=0;//reg pT cut 16 GeV rate
-        double OptA=a;//best cut with min rate while high efficiency(>reference eff)
-        double OptB=b;
-        Int_t fill=0;//only fill 2 classes topology one time
-        Int_t flag=1;//mark to stop increase b after reach EFF_REF
+        myTree->SetBranchAddress("unp_trk_eta",&Unp_trk_eta);
+        myTree->SetBranchAddress("unp_trk_pt",&Unp_trk_pt);
+        myTree->SetBranchAddress("unp_trk_mode",&Unp_trk_mode);
+        myTree->SetBranchAddress("unp_trk_BX",&Unp_trk_BX);
+        myTree->SetBranchAddress("unp_trk_nRPC",&Unp_trk_nRPC);
+        myTree->SetBranchAddress("unp_trk_found_hits",&Unp_trk_found_hits);
+        myTree->SetBranchAddress("unp_trk_nHits",&Unp_trk_nHits);
+        myTree->SetBranchAddress("unp_trk_dTheta_int",&Unp_trk_dTheta_int);
         
-        auto ROC = new TProfile("ROC","ROC Curve",100,0,1,0,1);
-        auto EFFvsCUTs = new TProfile("Efficiency","Signal Efficiency vs Cuts",Bins,0,1,0,1);
-        TString RATEvsCUTsTitle="";
-        RATEvsCUTsTitle = RATEvsCUTsTitle + "RATE vs Cuts (Eff > "+Form("%0.2lf", EFF_REF) + ")";
-        auto RATEvsCUTs = new TProfile("RATE", RATEvsCUTsTitle, Bins, 0, 1, 0, 10000);
-        TH2F *Topology = new TH2F("Topology", "Class2 vs Class1", 100, 0, 1, 100, 0, 1);
+        double a=0; //dTheta(1-X) <= cut1: 0 <= cut1 <= 16 
+        double b=0; //dTheta(X-Y) <= cut2: 0 <= cut2 <= 8
+      
+        TH2F *CutTopology = new TH2F("CutTopology", "dTh cuts", 16, 0, 16, 8, 0, 8);
         
         Long64_t numEvents = myTree->GetEntries();
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
