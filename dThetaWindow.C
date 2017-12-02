@@ -61,7 +61,7 @@ void dThetaWindow()
         else{
                 Cluster = "/home/ws13/";//bonner
         }
-        TString fileName = Cluster + "NTuple_ZeroBias8b4e_FlatNtuple_Skim_Run_302674_2017_09_30.root";
+        TString fileName = Cluster + "/NTuple_ZeroBias8b4e_FlatNtuple_Skim_Run_302674_2017_09_30.root";
         TString directoryName = "ntuple/tree";
         TFile* myFile = new TFile(fileName);
         TTree* myTree = (TTree*) myFile->Get(directoryName);
