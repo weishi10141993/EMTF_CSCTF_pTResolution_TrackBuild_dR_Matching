@@ -69,6 +69,7 @@ void dThetaWindow()
         cout<<"Accessing file:"<<fileName<<endl;
         cout<<"Accessing directory:"<<directoryName<<endl;
         
+        Int_t NUnpTracks;
         vector<float> *Unp_trk_eta;
         vector<float> *Unp_trk_pt;
         vector<int> *Unp_trk_mode;
@@ -80,6 +81,7 @@ void dThetaWindow()
         vector<int> *Hit_theta;
         vector<int> *Hit_station;
         
+        myTree->SetBranchAddress("nUnpTracks",&NUnpTracks);
         myTree->SetBranchAddress("unp_trk_eta",&Unp_trk_eta);
         myTree->SetBranchAddress("unp_trk_pt",&Unp_trk_pt);
         myTree->SetBranchAddress("unp_trk_mode",&Unp_trk_mode);
@@ -99,14 +101,15 @@ void dThetaWindow()
         cout<<numEvents<<" events to process..."<<endl;
       
         //loop over cut on dTheta(1-X)
-        for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+        //for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
                 
-                for(Int_t j=CUT2_LOW;i<=CUT2_UP;i++){
+               // for(Int_t j=CUT2_LOW;i<=CUT2_UP;i++){
                         
-                        for(Long64_t iEntry = 0; iEntry <numEvents; iEntry++){
+                        for(Long64_t iEntry = 0; iEntry <100; iEntry++){
               
                         myTree->GetEntry(iEntry);
                     
+                        Int_t nUnpTracks = NUnpTracks;
                         vector<float> unp_trk_eta = *Unp_trk_eta;
                         vector<float> unp_trk_pt = *Unp_trk_pt;
                         vector<int> unp_trk_mode = *Unp_trk_mode;
@@ -117,21 +120,19 @@ void dThetaWindow()
                         vector<vector<int> > unp_trk_iHit = *Unp_trk_iHit;   
                         vector<int> hit_theta = *Hit_theta;
                         vector<int> hit_station = *Hit_station;
-                
-                        if(unp_trk_BX >= -1 && unp_trk_BX<=1 && unp_trk_nHits >= 3 && unp_trk_pt >= PT_CUT && unp_trk_nRPC == 0 && unp_trk_found_hits == 1 && unp_trk_eta>=ETA_LOW && unp_trk_eta<=ETA_UP){
-                                //4-station track
-                                if(unp_trk_nHits == 4){
-                                        CutTopology4->Fill(i,j);
-                                }
-                                else{//3-station track
-                                        CutTopology3->Fill(i,j);
-                                }
+                               
+                        cout<<"@@@"<<iEntry<<" nUnpTracks:"<<nUnpTracks<<endl;
                                 
-                        }//end if
+                        for (int itrack = 0; itrack < nUnpTracks; itrack++) {
+                                if(unp_trk_BX[itrack] >= -1 && unp_trk_BX[itrack]<=1 && unp_trk_nHits[itrack] >= 3 && unp_trk_pt[itrack] >= PT_CUT && unp_trk_nRPC[itrack] == 0 && unp_trk_found_hits[itrack] == 1 && unp_trk_eta[itrack] >= ETA_LOW && unp_trk_eta[itrack] <= ETA_UP){
+                                        cout<<"@ track"<<itrack<<" BX:"<<unp_trk_BX[itrack]<<" nHits:"<<unp_trk_nHits[itrack]<<" pt:"<<unp_trk_pt[itrack]<<" nRPC:"<<unp_trk_nRPC[itrack]<<" foundhits:"<<unp_trk_found_hits[itrack]<<" eta:"<<unp_trk_eta[itrack]<<endl;
+                                }//end if
                                 
+                        }//end for itrack
+   
                         }//end loop over events
-                }//end cut2
-        }//end on cut1
+               // }//end cut2
+        //}//end on cut1
         
         //write to output file
         TString outFile = Cluster + "dThetaWindow_" + Form("%d", PT_CUT) + ".root";
