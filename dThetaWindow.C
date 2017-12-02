@@ -48,9 +48,9 @@ void dThetaWindow()
         Int_t PT_CUT = 22;
         Float_t ETA_UP = 2.4;
         Float_t ETA_LOW = 1.6;
-        Int_t CUT1_UP = 16;
+        Int_t CUT1_UP = 16;//dTheta(1-X)
         Int_t CUT1_LOW = 0;
-        Int_t CUT2_UP = 8;
+        Int_t CUT2_UP = 8;//dTheta(X-Y)
         Int_t CUT2_LOW = 0;
         Int_t lxplus=1;//machine: lxplus(1) or bonner(0)?
         //================================================================
@@ -87,9 +87,6 @@ void dThetaWindow()
         myTree->SetBranchAddress("unp_trk_nHits",&Unp_trk_nHits);
         myTree->SetBranchAddress("unp_trk_dTheta_int",&Unp_trk_dTheta_int);
         
-        double a=0; //dTheta(1-X) <= cut1: 0 <= cut1 <= 16 
-        double b=0; //dTheta(X-Y) <= cut2: 0 <= cut2 <= 8
-      
         TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", 16, 0, 16, 8, 0, 8);
         TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", 16, 0, 16, 8, 0, 8);
         
