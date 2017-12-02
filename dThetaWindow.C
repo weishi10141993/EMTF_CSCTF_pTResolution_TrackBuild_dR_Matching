@@ -69,6 +69,7 @@ void dThetaWindow()
         cout<<"Accessing file:"<<fileName<<endl;
         cout<<"Accessing directory:"<<directoryName<<endl;
         
+        gInterpreter->GenerateDictionary("vector<vector<int> >","vector");
         Int_t NUnpTracks;
         vector<float> *Unp_trk_eta;
         vector<float> *Unp_trk_pt;
