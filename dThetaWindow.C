@@ -76,7 +76,9 @@ void dThetaWindow()
         vector<int> *Unp_trk_nRPC;
         vector<int> *Unp_trk_found_hits;
         vector<int> *Unp_trk_nHits;
-        vector<int> *Unp_trk_dTheta_int;
+        vector<vector<int> > *Unp_trk_iHit;//store the hit index in a track i, total unp_trk_nHits in a track.
+        vector<int> *Hit_theta;
+        vector<int> *Hit_station;
         
         myTree->SetBranchAddress("unp_trk_eta",&Unp_trk_eta);
         myTree->SetBranchAddress("unp_trk_pt",&Unp_trk_pt);
@@ -85,7 +87,9 @@ void dThetaWindow()
         myTree->SetBranchAddress("unp_trk_nRPC",&Unp_trk_nRPC);
         myTree->SetBranchAddress("unp_trk_found_hits",&Unp_trk_found_hits);
         myTree->SetBranchAddress("unp_trk_nHits",&Unp_trk_nHits);
-        myTree->SetBranchAddress("unp_trk_dTheta_int",&Unp_trk_dTheta_int);
+        myTree->SetBranchAddress("unp_trk_iHit",&Unp_trk_iHit);
+        myTree->SetBranchAddress("hit_theta",&Hit_theta);
+        myTree->SetBranchAddress("hit_station",&Hit_station);
         
         TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", 16, 0, 16, 8, 0, 8);
         TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", 16, 0, 16, 8, 0, 8);
@@ -110,7 +114,9 @@ void dThetaWindow()
                         vector<int> unp_trk_nRPC = *Unp_trk_nRPC;
                         vector<int> unp_trk_found_hits = *Unp_trk_found_hits;
                         vector<int> unp_trk_nHits = *Unp_trk_nHits;
-                        vector<int> unp_trk_dTheta_int = *Unp_trk_dTheta_int;
+                        vector<vector<int> > unp_trk_iHit = *Unp_trk_iHit;   
+                        vector<int> hit_theta = *Hit_theta;
+                        vector<int> hit_station = *Hit_station;
                 
                         if(unp_trk_BX >= -1 && unp_trk_BX<=1 && unp_trk_nHits >= 3 && unp_trk_pt >= PT_CUT && unp_trk_nRPC == 0 && unp_trk_found_hits == 1 && unp_trk_eta>=ETA_LOW && unp_trk_eta<=ETA_UP){
                                 //4-station track
@@ -131,9 +137,13 @@ void dThetaWindow()
         TString outFile = Cluster + "dThetaWindow_" + Form("%d", PT_CUT) + ".root";
         TFile myPlot(outFile,"RECREATE");
         
-        Topology->GetXaxis()->SetTitle("dTheta(1-X)");
-        Topology->GetYaxis()->SetTitle("dTheta(X-Y)");
-        Topology->Write();
+        CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
+        CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
+        CutTopology4->Write();
+        
+        CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
+        CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
+        CutTopology3->Write();
         
         myPlot.Close();
           
