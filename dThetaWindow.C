@@ -128,6 +128,7 @@ void dThetaWindow()
                                 for (int itrack = 0; itrack < nUnpTracks; itrack++) {
                                         if(unp_trk_BX[itrack] >= -1 && unp_trk_BX[itrack]<=1 && unp_trk_nHits[itrack] >= 3 && unp_trk_pt[itrack] >= PT_CUT && unp_trk_nRPC[itrack] == 0 && unp_trk_found_hits[itrack] == 1 && unp_trk_eta[itrack] >= ETA_LOW && unp_trk_eta[itrack] <= ETA_UP){
                                                 cout<<"@ track"<<itrack<<" BX:"<<unp_trk_BX[itrack]<<" nHits:"<<unp_trk_nHits[itrack]<<" pt:"<<unp_trk_pt[itrack]<<" nRPC:"<<unp_trk_nRPC[itrack]<<" foundhits:"<<unp_trk_found_hits[itrack]<<" eta:"<<unp_trk_eta[itrack]<<endl;
+                                                CutTopology4->Fill(unp_trk_nHits[itrack],unp_trk_eta[itrack]);
                                         }//end if
                                 
                                 }//end for itrack
