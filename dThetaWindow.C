@@ -90,7 +90,8 @@ void dThetaWindow()
         double a=0; //dTheta(1-X) <= cut1: 0 <= cut1 <= 16 
         double b=0; //dTheta(X-Y) <= cut2: 0 <= cut2 <= 8
       
-        TH2F *CutTopology = new TH2F("CutTopology", "dTh cuts", 16, 0, 16, 8, 0, 8);
+        TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", 16, 0, 16, 8, 0, 8);
+        TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", 16, 0, 16, 8, 0, 8);
         
         Long64_t numEvents = myTree->GetEntries();
         cout<<">>>>>>>>>>>>>>>>>>>>>"<<endl;
@@ -115,8 +116,16 @@ void dThetaWindow()
                         vector<int> unp_trk_dTheta_int = *Unp_trk_dTheta_int;
                 
                         if(unp_trk_BX >= -1 && unp_trk_BX<=1 && unp_trk_nHits >= 3 && unp_trk_pt >= PT_CUT && unp_trk_nRPC == 0 && unp_trk_found_hits == 1 && unp_trk_eta>=ETA_LOW && unp_trk_eta<=ETA_UP){
-                                Topology->Fill(BDTG_class1,BDTG_class2);//sanity check off diagnoal: class2=1-class1
-                        }
+                                //4-station track
+                                if(unp_trk_nHits == 4){
+                                        CutTopology4->Fill(i,j);
+                                }
+                                else{//3-station track
+                                        CutTopology3->Fill(i,j);
+                                }
+                                
+                        }//end if
+                                
                         }//end loop over events
                 }//end cut2
         }//end on cut1
