@@ -69,7 +69,7 @@ void dThetaWindow()
         cout<<"Accessing file:"<<fileName<<endl;
         cout<<"Accessing directory:"<<directoryName<<endl;
         
-        gInterpreter->GenerateDictionary("vector<vector<int> >","vector");
+        //gInterpreter->GenerateDictionary("vector<vector<int> >","vector");
         Int_t NUnpTracks;
         vector<float> *Unp_trk_eta;
         vector<float> *Unp_trk_pt;
@@ -78,7 +78,7 @@ void dThetaWindow()
         vector<int> *Unp_trk_nRPC;
         vector<int> *Unp_trk_found_hits;
         vector<int> *Unp_trk_nHits;
-        vector<vector<int> > *Unp_trk_iHit;//store the hit index in a track i, total unp_trk_nHits in a track.
+        //vector<vector<int> > *Unp_trk_iHit;//store the hit index in a track i, total unp_trk_nHits in a track.
         vector<int> *Hit_theta;
         vector<int> *Hit_station;
         
@@ -104,7 +104,7 @@ void dThetaWindow()
         //loop over cut on dTheta(1-X)
         for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
                 
-                for(Int_t j=CUT2_LOW;i<=CUT2_UP;i++){
+                for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
                         
                         for(Long64_t iEntry = 0; iEntry <100; iEntry++){
                                 myTree->GetEntry(iEntry);
@@ -119,7 +119,7 @@ void dThetaWindow()
                                 vector<int> unp_trk_nRPC = *Unp_trk_nRPC;
                                 vector<int> unp_trk_found_hits = *Unp_trk_found_hits;
                                 vector<int> unp_trk_nHits = *Unp_trk_nHits;
-                                vector<vector<int> > unp_trk_iHit = *Unp_trk_iHit;   
+                                //vector<vector<int> > unp_trk_iHit = *Unp_trk_iHit;   
                                 vector<int> hit_theta = *Hit_theta;
                                 vector<int> hit_station = *Hit_station;
                                
