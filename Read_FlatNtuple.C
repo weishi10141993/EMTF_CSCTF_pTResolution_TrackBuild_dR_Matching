@@ -71,13 +71,6 @@ void Read_FlatNtuple() {
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
-  
-  //loop over cut on dTheta(1-X)
-  for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-	  //loop over cut on dTheta(X-Y)
-	  for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-	  }//end cut2
-  }//end cut1
 	
   std::cout << "\n******* About to loop over the events *******" << std::endl;
   int nEvents = in_chain->GetEntries();
@@ -143,25 +136,86 @@ void Read_FlatNtuple() {
 			    dTh1X=dTh1X>dTh14?dTh1X:dTh14;
 			    dThXY=dTh23>dTh24?dTh23:dTh24;
 			    dThXY=dThXY>dTh34?dThXY:dTh34;
-			    if(dTh1X<=i&&dThXY<=j){
-				    CutTopology4->Fill(i,j);
-			    }
-		    }
+			    //loop over cut on dTheta(1-X)
+                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+				    //loop over cut on dTheta(X-Y)
+  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+					    if(dTh1X<=i && dThXY<=j){
+						    CutTopology4->Fill(i,j);
+					    }
+	  			    }//end cut2
+  			    }//end cut1
+			    
+		    }//end mode 15
 		    //station 123
 		    if (I("unp_trk_mode", itrack) == 14){
+			    dTh12=fabs(th1-th2);
+			    dTh13=fabs(th1-th3);
+			    dTh23=fabs(th2-th3);
+			    dTh1X=dTh12>dTh13?dTh12:dTh13;
+			    dThXY=dTh23;
+			    //loop over cut on dTheta(1-X)
+                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+				    //loop over cut on dTheta(X-Y)
+  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+					    if(dTh1X<=i && dThXY<=j){
+						    CutTopology3->Fill(i,j);
+					    }
+	  			    }//end cut2
+  			    }//end cut1
 			    
 		    }
 		    //station 124
 		    if (I("unp_trk_mode", itrack) == 13){
+			    dTh12=fabs(th1-th2);
+			    dTh14=fabs(th1-th4);
+	                    dTh24=fabs(th2-th4);
+			    dTh1X=dTh12>dTh14?dTh12:dTh14;
+			    dThXY=dTh24;
+			    //loop over cut on dTheta(1-X)
+                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+				    //loop over cut on dTheta(X-Y)
+  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+					    if(dTh1X<=i && dThXY<=j){
+						    CutTopology3->Fill(i,j);
+					    }
+	  			    }//end cut2
+  			    }//end cut1
 			    
 		    }
 		    //station 134
 		    if (I("unp_trk_mode", itrack) == 11){
-			    
+			    dTh13=fabs(th1-th3);
+			    dTh14=fabs(th1-th4);
+	                    dTh34=fabs(th3-th4);
+			    dTh1X=dTh13>dTh14?dTh13:dTh14;
+			    dThXY=dTh34;
+			    //loop over cut on dTheta(1-X)
+                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+				    //loop over cut on dTheta(X-Y)
+  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+					    if(dTh1X<=i && dThXY<=j){
+						    CutTopology3->Fill(i,j);
+					    }
+	  			    }//end cut2
+  			    }//end cut1
 		    }
 		    //station 234
 		    if (I("unp_trk_mode", itrack) == 7){
-			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+			    dTh23=fabs(th2-th3);
+	                    dTh24=fabs(th2-th4);
+	                    dTh34=fabs(th3-th4);
+			    dThXY=dTh23>dTh24?dTh23:dTh24;
+			    dThXY=dThXY>dTh34?dThXY:dTh34;
+			    //loop over cut on dTheta(1-X)
+                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+				    //loop over cut on dTheta(X-Y)
+  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+					    if(dThXY<=j){
+						    CutTopology3->Fill(i,j);
+					    }
+	  			    }//end cut2
+  			    }//end cut1
 		    }
 		    
 		    
