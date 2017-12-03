@@ -95,6 +95,19 @@ void Read_FlatNtuple() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
+	    
+	    float th1=-99;
+	    float th2=-99;
+	    float th3=-99;
+	    float th4=-99;
+	    float dTh12=-99;
+	    float dTh13=-99;
+	    float dTh14=-99;
+	    float dTh23=-99;
+	    float dTh24=-99;
+	    float dTh34=-99;
+	    float dTh1X=-99;
+	    float dThXY=-99;
 
 	    if(I("unp_trk_BX", itrack) >= -1 && I("unp_trk_BX", itrack)<=1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && F("unp_trk_eta",itrack) >= ETA_LOW && F("unp_trk_eta",itrack) <= ETA_UP){
 		    
@@ -120,19 +133,31 @@ void Read_FlatNtuple() {
 		    }//end loop over hits in selected unpacked track
 		    //4-station
 		    if (I("unp_trk_mode", itrack) == 15){
-			    
+			    dTh12=fabs(th1-th2);
+			    dTh13=fabs(th1-th3);
+			    dTh14=fabs(th1-th4);
+			    dTh23=fabs(th2-th3);
+	                    dTh24=fabs(th2-th4);
+	                    dTh34=fabs(th3-th4);
+			    dTh1X=dTh12>dTh13?dTh12:dTh13;
+			    dTh1X=dTh1X>dTh14?dTh1X:dTh14;
+			    dThXY=dTh23>dTh24?dTh23:dTh24;
+			    dThXY=dThXY>dTh34?dThXY:dTh34;
+			    if(dTh1X<=i&&dThXY<=j){
+				    CutTopology4->Fill(i,j);
+			    }
 		    }
 		    //station 123
 		    if (I("unp_trk_mode", itrack) == 14){
-			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+			    
 		    }
 		    //station 124
 		    if (I("unp_trk_mode", itrack) == 13){
-			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+			    
 		    }
 		    //station 134
 		    if (I("unp_trk_mode", itrack) == 11){
-			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+			    
 		    }
 		    //station 234
 		    if (I("unp_trk_mode", itrack) == 7){
