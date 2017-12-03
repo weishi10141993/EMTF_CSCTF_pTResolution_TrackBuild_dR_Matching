@@ -95,17 +95,17 @@ void Read_FlatNtuple() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked EMTF tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
-	    
+
 	    if(I("unp_trk_BX", itrack) >= -1 && I("unp_trk_BX", itrack)<=1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && F("unp_trk_eta",itrack) >= ETA_LOW && F("unp_trk_eta",itrack) <= ETA_UP){
+		    
+		    if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", max dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
 		    
 		    for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
 			    int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the selected track
-			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
+			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) <<", theta = "<< F("hit_theta", iHit)<< std::endl; 
 		    }//end loop over hits in selected unpacked track
 		    
 	    }//end selection on track
-      
-            if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", maximum dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
 	     
     }//end loop over unpacked tracks
     
