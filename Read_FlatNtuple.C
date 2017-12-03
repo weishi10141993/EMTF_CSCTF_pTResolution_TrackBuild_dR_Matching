@@ -11,21 +11,31 @@
 #include "TChain.h"
 #include "TTree.h"
 #include "TBranch.h"
+#include "TH2.h"
 
 #include "Read_FlatNtuple.h" // List of input branches and functions to return values
 
+//USER modify here ONLY//
+//================================================================
 const int MAX_FILES = 1;   // Max number of files to process
 const int MAX_EVT   = 100;   // Max number of events to process
 const int PRT_EVT   =  1;   // Print every N events
-const bool verbose  = true; // Print information about the event and RECO and L1T muons
-
+const bool verbose  = true; // Print information about the event and RECO and L1T muon
+const int PT_CUT = 22;
+const float ETA_UP = 2.4;
+const float ETA_LOW = 1.6;
+const int CUT1_UP = 16;//dTheta(1-X)
+const int CUT1_LOW = 0;
+const int CUT2_UP = 8;//dTheta(X-Y)
+const int CUT2_LOW = 0;
+//================================================================
 
 ///////////////////////////////////////////
 ///  Main function to read the NTuples  ///
 ///////////////////////////////////////////
 
 void Read_FlatNtuple() {
-
+   
   // Initialize empty file to access each file in the list
   TFile *file_tmp(0);
 
@@ -38,12 +48,6 @@ void Read_FlatNtuple() {
   file_name.Form("%s/%s/NTuple_ZeroBias8b4e_FlatNtuple_Skim_Run_302674_2017_09_30.root", store.Data(), in_dir.Data());
   std::cout << "Adding file " << file_name.Data() << std::endl;
   in_file_names.push_back(file_name.Data());
-  
-  // for (int i = 1; i < MAX_FILES+1; i++) {
-  //   file_name.Form("%s/%s/tuple_%d.root", store.Data(), in_dir.Data(), i);
-  //   std::cout << "Adding file " << file_name.Data() << std::endl;
-  //   in_file_names.push_back(file_name.Data());
-  // }
 
   // Open all input files
   for (int i = 0; i < in_file_names.size(); i++) {
@@ -60,12 +64,20 @@ void Read_FlatNtuple() {
   for (int i = 0; i < in_file_names.size(); i++) {
     in_chain->Add( in_file_names.at(i) );
   }
-
+  
+  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", 16, 0, 16, 8, 0, 8);
+  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", 16, 0, 16, 8, 0, 8);
+  
   InitializeMaps();
   SetBranchAddresses(in_chain);
-
-  // if (verbose) in_chain->GetListOfBranches()->Print();
   
+  //loop over cut on dTheta(1-X)
+  for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
+	  //loop over cut on dTheta(X-Y)
+	  for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
+	  }//end cut2
+  }//end cut1
+	
   std::cout << "\n******* About to loop over the events *******" << std::endl;
   int nEvents = in_chain->GetEntries();
   for (int iEvt = 0; iEvt < nEvents; iEvt++) {
@@ -79,43 +91,17 @@ void Read_FlatNtuple() {
     in_chain->GetEntry(iEvt);
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
-    if (verbose) std::cout << "\nRun = " << I("evt_run") << ", LS = " << I("evt_LS") << ", event = " << I("evt_event") << std::endl;
-    
-    // Print info for emulated EMTF hits
-    if (verbose) std::cout << "\n" << I("nHits") << " emulated EMTF hits in the event" << std::endl;
-    for (int i = 0; i < I("nHits"); i++) {
-
-      if        (I("hit_isCSC", i) == 1) {
-    	if (verbose) std::cout << " * CSC LCT with BX = " << I("hit_BX", i) << ", endcap = " << I("hit_endcap", i)
-    			       << ", station = " << I("hit_station", i) << ", ring = " << I("hit_ring", i) << std::endl; 
-      } else if (I("hit_isRPC", i) == 1) {
-    	if (verbose) std::cout << " * RPC hit with BX = " << I("hit_BX", i) << ", endcap = " << I("hit_endcap", i)
-    			       << ", station = " << I("hit_station", i) << ", ring = " << I("hit_ring", i) << std::endl; 
-      }
-    }
-    
-    // Print info for emulated EMTF tracks
-    if (verbose) std::cout << "\n" << I("nTracks") << " emulated EMTF tracks in the event" << std::endl;
-    if ( I("nTracks") != VF("trk_pt")->size() )  // From Read_FlatNtuple.h, can use 'VF("branch_name")' to get a vector of floats
-      throw std::out_of_range("nTracks does not equal size of vector of tracks");
-    for (int i = 0; i < I("nTracks"); i++) {
-      // // From Read_FlatNtuple.h, can use '("branch_name", i)' to get the ith element of a vector of ints
-      if (verbose) std::cout << " * Mode " << I("trk_mode", i) << " track with BX = " << I("trk_BX", i) 
-    			     << ", pT = " << F("trk_pt", i) << ", eta = " << F("trk_eta", i) << ", phi = " << F("trk_phi", i)
-			     << ", maximum dPhi_int among hits = " << I("trk_dPhi_int", i) << std::endl;
-    }
-    
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked EMTF tracks in the event" << std::endl;
-    for (int i = 0; i < I("nUnpTracks"); i++) {
+    for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
       
-      if (verbose) std::cout << " * Mode " << I("unp_trk_mode", i) << " track with BX = " << I("unp_trk_BX", i) 
-    			     << ", pT = " << F("unp_trk_pt", i) << ", eta = " << F("unp_trk_eta", i) << ", phi = " << F("unp_trk_phi", i)
-			     << ", maximum dPhi_int among hits = " << I("unp_trk_dPhi_int", i) << std::endl;
+      if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " track with BX = " << I("unp_trk_BX", itrack) 
+    			     << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", i)
+			     << ", maximum dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
       
-      for (int j = 0; j < I("unp_trk_nHits", i); j++) {
-	if (I("unp_trk_found_hits", i) != 1) continue;  // For a very small fraction of unpacked tracks, can't find all hits (mostly BX != 0)
-	int iHit = I("unp_trk_iHit", i, j);  // Access the index of each hit in the track
+      for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
+	if (I("unp_trk_found_hits", itrack) != 1) continue;  // For a very small fraction of unpacked tracks, can't find all hits (mostly BX != 0)
+	int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the track
 	if        (I("hit_isCSC", iHit) == 1) {
 	  if (verbose) std::cout << "  - CSC LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit)
 				 << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
@@ -123,15 +109,28 @@ void Read_FlatNtuple() {
 	  if (verbose) std::cout << "  - RPC hit with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit)
 				 << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
 	}
-      }
+      }//end loop over hits in an unpacked track
 	     
-    }
+    }//end loop over unpacked tracks
     
   } // End loop: for (int iEvt = 0; iEvt < in_chain->GetEntries(); iEvt++)
   std::cout << "\n******* Finished looping over the events *******" << std::endl;
 
   delete in_chain;
-
   std::cout << "\nDone with Read_FlatNtuple(). Exiting.\n" << std::endl;
+	
+  //write to output file
+  TString outFile = Cluster + "dThetaWindow_" + Form("%d", PT_CUT) + ".root";
+  TFile myPlot(outFile,"RECREATE");
+        
+  CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
+  CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
+  CutTopology4->Write();
+        
+  CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
+  CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
+  CutTopology3->Write();
+        
+  myPlot.Close();
   
 } // End function: void Read_FlatNtuple()
