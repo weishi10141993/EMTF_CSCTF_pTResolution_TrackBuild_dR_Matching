@@ -249,10 +249,12 @@ void Read_FlatNtuple() {
         
   CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
   CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
+  CutTopology4->Draw("TEXT SAME");
   CutTopology4->Write();
         
   CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
   CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
+  CutTopology3->Draw("TEXT SAME");
   CutTopology3->Write();
         
   myPlot.Close();
