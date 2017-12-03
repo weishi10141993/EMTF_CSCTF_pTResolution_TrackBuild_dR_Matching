@@ -69,8 +69,8 @@ void Read_FlatNtuple() {
   Topology4Title = Topology4Title + "dTh cuts 4-station tracks: pT>="+ Form("%d", PT_CUT) +"GeV, eta ["+Form("%.1f", ETA_LOW)+","+ Form("%.1f", ETA_UP)+"]";
   TString Topology3Title="";
   Topology3Title = Topology3Title + "dTh cuts 3-station tracks: pT>="+ Form("%d", PT_CUT) +"GeV, eta ["+Form("%.1f", ETA_LOW)+","+ Form("%.1f", ETA_UP)+"]";
-  TH2F *CutTopology4 = new TH2F("CutTopology4", Topology4Title, CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", Topology3Title, CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
+  TH2F *CutTopology4 = new TH2F("CutTopology4", Topology4Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
+  TH2F *CutTopology3 = new TH2F("CutTopology3", Topology3Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
@@ -139,6 +139,8 @@ void Read_FlatNtuple() {
 			    dTh1X=dTh1X>dTh14?dTh1X:dTh14;
 			    dThXY=dTh23>dTh24?dTh23:dTh24;
 			    dThXY=dThXY>dTh34?dThXY:dTh34;
+			    //no cut bin
+			    CutTopology4->Fill(CUT1_LOW-1,CUT2_LOW-1);
 			    //loop over cut on dTheta(1-X)
                             for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
 				    //loop over cut on dTheta(X-Y)
@@ -157,6 +159,8 @@ void Read_FlatNtuple() {
 			    dTh23=fabs(th2-th3);
 			    dTh1X=dTh12>dTh13?dTh12:dTh13;
 			    dThXY=dTh23;
+			    //no cut bin
+			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
 			    //loop over cut on dTheta(1-X)
                             for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
 				    //loop over cut on dTheta(X-Y)
@@ -175,6 +179,8 @@ void Read_FlatNtuple() {
 	                    dTh24=fabs(th2-th4);
 			    dTh1X=dTh12>dTh14?dTh12:dTh14;
 			    dThXY=dTh24;
+			    //no cut bin
+			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
 			    //loop over cut on dTheta(1-X)
                             for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
 				    //loop over cut on dTheta(X-Y)
@@ -193,6 +199,8 @@ void Read_FlatNtuple() {
 	                    dTh34=fabs(th3-th4);
 			    dTh1X=dTh13>dTh14?dTh13:dTh14;
 			    dThXY=dTh34;
+			    //no cut bin
+			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
 			    //loop over cut on dTheta(1-X)
                             for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
 				    //loop over cut on dTheta(X-Y)
@@ -210,6 +218,8 @@ void Read_FlatNtuple() {
 	                    dTh34=fabs(th3-th4);
 			    dThXY=dTh23>dTh24?dTh23:dTh24;
 			    dThXY=dThXY>dTh34?dThXY:dTh34;
+			    //no cut bin
+			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
 			    //loop over cut on dTheta(1-X)
                             for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
 				    //loop over cut on dTheta(X-Y)
