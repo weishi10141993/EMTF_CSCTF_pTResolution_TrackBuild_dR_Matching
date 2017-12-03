@@ -231,7 +231,7 @@ void Read_FlatNtuple() {
 	
   //write to output file
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_pt_";
-  outFile = outFile + Form("%d", PT_CUT) +"_eta_"+Form("%f", ETA_LOW)+"_"+ Form("%f", ETA_UP)+ ".root";
+  outFile = outFile + Form("%d", PT_CUT) +"_eta_"+Form("%.1f", ETA_LOW)+"_"+ Form("%.1f", ETA_UP)+ ".root";
   TFile myPlot(outFile,"RECREATE");
         
   CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
