@@ -93,17 +93,52 @@ void Read_FlatNtuple() {
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     // Print info for unpacked EMTF tracks
-    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked EMTF tracks in the event" << std::endl;
+    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
 
 	    if(I("unp_trk_BX", itrack) >= -1 && I("unp_trk_BX", itrack)<=1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && F("unp_trk_eta",itrack) >= ETA_LOW && F("unp_trk_eta",itrack) <= ETA_UP){
 		    
-		    if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", max dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
+		    if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " nHits:"<<I("unp_trk_nHits",itrack)<< " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", max dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
 		    
-		    for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
+	            for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
+			    
 			    int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the selected track
 			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) <<", theta = "<< F("hit_theta", iHit)<< std::endl; 
+				    
+			    if( I("hit_station", iHit) ==1 ){
+				    th1=F("hit_theta", iHit);
+		            }
+			    else if ( I("hit_station", iHit) == 2 ){
+			            th2=F("hit_theta", iHit);
+			    }
+			    else if ( I("hit_station", iHit) == 3 ){
+				    th3=F("hit_theta", iHit);
+			    }
+		            else if ( I("hit_station", iHit) == 4 ){
+			            th4=F("hit_theta", iHit);
+			    }
 		    }//end loop over hits in selected unpacked track
+		    //4-station
+		    if (I("unp_trk_mode", itrack) == 15){
+			    
+		    }
+		    //station 123
+		    if (I("unp_trk_mode", itrack) == 14){
+			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+		    }
+		    //station 124
+		    if (I("unp_trk_mode", itrack) == 13){
+			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+		    }
+		    //station 134
+		    if (I("unp_trk_mode", itrack) == 11){
+			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+		    }
+		    //station 234
+		    if (I("unp_trk_mode", itrack) == 7){
+			    if (verbose) std::cout << " nHits:"<<I("unp_trk_nHits",itrack)<<endl;
+		    }
+		    
 		    
 	    }//end selection on track
 	     
@@ -116,7 +151,7 @@ void Read_FlatNtuple() {
   std::cout << "\nDone with Read_FlatNtuple(). Exiting.\n" << std::endl;
 	
   //write to output file
-  TString outFile = Cluster + "dThetaWindow_" + Form("%d", PT_CUT) + ".root";
+  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_" + Form("%d", PT_CUT) + ".root";
   TFile myPlot(outFile,"RECREATE");
         
   CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
