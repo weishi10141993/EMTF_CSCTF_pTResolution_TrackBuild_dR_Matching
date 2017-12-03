@@ -19,7 +19,7 @@
 //USER modify here ONLY//
 //================================================================
 const int MAX_FILES = 1;   // Max number of files to process
-const int MAX_EVT   = 100;   // Max number of events to process
+const int MAX_EVT   = 1000000;   // Max number of events to process
 const int PRT_EVT   =  1;   // Print every N events
 const bool verbose  = true; // Print information about the event and RECO and L1T muon
 const int PT_CUT = 22;
@@ -66,8 +66,8 @@ void Read_FlatNtuple() {
     in_chain->Add( in_file_names.at(i) );
   }
   
-  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", 16, 0, 16, 8, 0, 8);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", 16, 0, 16, 8, 0, 8);
+  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", CUT1_UP-CUT1_LOW, CUT1_LOW, CUT1_UP, CUT2_UP-CUT2_LOW, CUT2_LOW, CUT2_UP);
+  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", CUT1_UP-CUT1_LOW, CUT1_LOW, CUT1_UP, CUT2_UP-CUT2_LOW, CUT2_LOW, CUT2_UP);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
@@ -230,7 +230,7 @@ void Read_FlatNtuple() {
   std::cout << "\nDone with Read_FlatNtuple(). Exiting.\n" << std::endl;
 	
   //write to output file
-  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_" + Form("%d", PT_CUT) + ".root";
+  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_pt_" + Form("%d", PT_CUT) +"_eta_"+Form("%f", ETA_LOW)+"_"+ Form("%f", ETA_UP)+ ".root";
   TFile myPlot(outFile,"RECREATE");
         
   CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
