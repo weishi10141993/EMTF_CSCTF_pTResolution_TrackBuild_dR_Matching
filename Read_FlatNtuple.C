@@ -97,21 +97,15 @@ void Read_FlatNtuple() {
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
 	    
 	    if(I("unp_trk_BX", itrack) >= -1 && I("unp_trk_BX", itrack)<=1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && F("unp_trk_eta",itrack) >= ETA_LOW && F("unp_trk_eta",itrack) <= ETA_UP){
+		    
+		    for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
+			    int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the selected track
+			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
+		    }//end loop over hits in selected unpacked track
+		    
 	    }//end selection on track
       
             if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", maximum dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
-      
-      for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
-	if (I("unp_trk_found_hits", itrack) != 1) continue;  // For a very small fraction of unpacked tracks, can't find all hits (mostly BX != 0)
-	      
-	int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the track   
-	if        (I("hit_isCSC", iHit) == 1) {
-	  if (verbose) std::cout << "  - CSC LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
-	} else if (I("hit_isRPC", iHit) == 1) {
-	  if (verbose) std::cout << "  - RPC hit with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) << std::endl; 
-	}
-	      
-      }//end loop over hits in an unpacked track
 	     
     }//end loop over unpacked tracks
     
