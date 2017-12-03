@@ -67,8 +67,10 @@ void Read_FlatNtuple() {
   }
   TString Topology4Title="";
   Topology4Title = Topology4Title + "dTh cuts 4-station tracks: pT>="+ Form("%d", PT_CUT) +"GeV, eta ["+Form("%.1f", ETA_LOW)+","+ Form("%.1f", ETA_UP)+"]";
-  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
+  TString Topology3Title="";
+  Topology3Title = Topology3Title + "dTh cuts 3-station tracks: pT>="+ Form("%d", PT_CUT) +"GeV, eta ["+Form("%.1f", ETA_LOW)+","+ Form("%.1f", ETA_UP)+"]";
+  TH2F *CutTopology4 = new TH2F("CutTopology4", Topology4Title, CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
+  TH2F *CutTopology3 = new TH2F("CutTopology3", Topology3Title, CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
