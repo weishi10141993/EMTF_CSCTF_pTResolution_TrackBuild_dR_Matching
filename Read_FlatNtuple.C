@@ -66,8 +66,8 @@ void Read_FlatNtuple() {
     in_chain->Add( in_file_names.at(i) );
   }
   
-  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", CUT1_UP-CUT1_LOW, CUT1_LOW, CUT1_UP, CUT2_UP-CUT2_LOW, CUT2_LOW, CUT2_UP);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", CUT1_UP-CUT1_LOW, CUT1_LOW, CUT1_UP, CUT2_UP-CUT2_LOW, CUT2_LOW, CUT2_UP);
+  TH2F *CutTopology4 = new TH2F("CutTopology4", "dTh cuts 4-station tracks", CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
+  TH2F *CutTopology3 = new TH2F("CutTopology3", "dTh cuts 3-station tracks", CUT1_UP-CUT1_LOW+1, CUT1_LOW, CUT1_UP+1, CUT2_UP-CUT2_LOW+1, CUT2_LOW, CUT2_UP+1);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
