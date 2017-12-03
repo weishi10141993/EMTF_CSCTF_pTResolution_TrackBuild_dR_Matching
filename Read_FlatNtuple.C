@@ -105,7 +105,7 @@ void Read_FlatNtuple() {
 	    float dTh1X=-99;
 	    float dThXY=-99;
 
-	    if(I("unp_trk_BX", itrack) >= -1 && I("unp_trk_BX", itrack)<=1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && F("unp_trk_eta",itrack) >= ETA_LOW && F("unp_trk_eta",itrack) <= ETA_UP){
+	    if(fabs(I("unp_trk_BX", itrack)) <= 1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && fabs(F("unp_trk_eta",itrack)) >= ETA_LOW && fabs(F("unp_trk_eta",itrack)) <= ETA_UP){
 		    
 		    if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " nHits:"<<I("unp_trk_nHits",itrack)<< " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", max dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
 		    
@@ -249,12 +249,10 @@ void Read_FlatNtuple() {
         
   CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
   CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology4->Draw("TEXT SAME");
   CutTopology4->Write();
         
   CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
   CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology3->Draw("TEXT SAME");
   CutTopology3->Write();
         
   myPlot.Close();
