@@ -92,18 +92,18 @@ void Read_FlatNtuple() {
     if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
 	    
-	    float th1=-99;
-	    float th2=-99;
-	    float th3=-99;
-	    float th4=-99;
-	    float dTh12=-99;
-	    float dTh13=-99;
-	    float dTh14=-99;
-	    float dTh23=-99;
-	    float dTh24=-99;
-	    float dTh34=-99;
-	    float dTh1X=-99;
-	    float dThXY=-99;
+	    int th1=-99;
+	    int th2=-99;
+	    int th3=-99;
+	    int th4=-99;
+	    int dTh12=-99;
+	    int dTh13=-99;
+	    int dTh14=-99;
+	    int dTh23=-99;
+	    int dTh24=-99;
+	    int dTh34=-99;
+	    int dTh1X=-99;
+	    int dThXY=-99;
 
 	    if(fabs(I("unp_trk_BX", itrack)) <= 1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && fabs(F("unp_trk_eta",itrack)) >= ETA_LOW && fabs(F("unp_trk_eta",itrack)) <= ETA_UP){
 		    
@@ -112,19 +112,19 @@ void Read_FlatNtuple() {
 	            for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
 			    
 			    int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the selected track
-			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) <<", theta = "<< F("hit_theta", iHit)<< std::endl; 
+			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) <<", theta = "<< I("hit_theta_int", iHit);<< std::endl; 
 				    
 			    if( I("hit_station", iHit) ==1 ){
-				    th1=F("hit_theta", iHit);
+				    th1=I("hit_theta_int", iHit);
 		            }
 			    else if ( I("hit_station", iHit) == 2 ){
-			            th2=F("hit_theta", iHit);
+			            th2=I("hit_theta_int", iHit);
 			    }
 			    else if ( I("hit_station", iHit) == 3 ){
-				    th3=F("hit_theta", iHit);
+				    th3=I("hit_theta_int", iHit);
 			    }
 		            else if ( I("hit_station", iHit) == 4 ){
-			            th4=F("hit_theta", iHit);
+			            th4=I("hit_theta_int", iHit);
 			    }
 		    }//end loop over hits in selected unpacked track
 		    //4-station
