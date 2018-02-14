@@ -70,7 +70,7 @@ void XmlScan()
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
                                 std::string s(findVarStart);
-                                strncpy (Var, strlen(findVarStart)-strlen(findVarEnd)-6, findVarStart+6 );
+                                s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, findVarStart+6 );
                                 puts (Var);
                         }
                         
@@ -78,7 +78,7 @@ void XmlScan()
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
                                 std::string s(findCutStart);
-                                strncpy (Cut, strlen(findCutStart)-strlen(findCutEnd)-5, findCutStart+5 );
+                                s.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, findCutStart+5 );
                                 puts (Cut);
                         }
                         
