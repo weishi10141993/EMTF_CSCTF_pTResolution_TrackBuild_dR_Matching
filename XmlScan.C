@@ -61,8 +61,9 @@ void XmlScan()
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
                         if(findWeightStart && findWeightEnd){
-                                std::string s(findWeightStart);
-                                s.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, 13 );
+                                std::string r(findWeightStart);
+                                std::size_t rlength = r.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, 13 );
+                                Weight[rlength]='\0';
                                 puts (Weight);
                         }    
                         
@@ -70,15 +71,17 @@ void XmlScan()
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
                                 std::string s(findVarStart);
-                                s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
+                                std::size_t slength = s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
+                                Var[rlength]='\0';
                                 puts (Var);
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
-                                std::string s(findCutStart);
-                                s.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
+                                std::string t(findCutStart);
+                                std::size_t tlength = t.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
+                                Cut[rlength]='\0';
                                 puts (Cut);
                         }
                         
