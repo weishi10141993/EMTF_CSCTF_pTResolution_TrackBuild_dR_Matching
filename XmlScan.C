@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include "Getline.h"
 using namespace std;
 #include "TFile.h"
 #include "TTree.h"
@@ -38,7 +39,7 @@ void XmlScan()
         for(int i=0;i<1;i++){
                 float boostWeight=-1;
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
-                TString line;
+                string line;
                 int getlinecount = 1;
                 std::ifstream f( fileName );
                 if (!f.good( )) { // file not found --> Error
@@ -46,7 +47,8 @@ void XmlScan()
                         return;
                 }
                 //Reading line by line
-                while(getline(f, line)) {
+                while(!f.eof()) {
+                        getline(f,line);
                         cout << "data line " << getlinecount << ": " << line << endl;
                         getlinecount++;
                 }
