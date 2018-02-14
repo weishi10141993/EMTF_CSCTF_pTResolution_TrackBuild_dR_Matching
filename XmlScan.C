@@ -35,7 +35,7 @@ void XmlScan()
                 Cluster = "/home/ws13/TMVA/TMVA/";//bonner
         }
         
-        for(i=0;i<400;i++){
+        for(int i=0;i<400;i++){
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 std::ifstream fin( fileName );
                 if (!fin.good( )) { // file not found --> Error
