@@ -33,12 +33,8 @@ void XmlScan()
         if(lxplus==1){
                 Cluster = "/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/f_MODE_15_invPtTarg_invPtWgt_bitCompr_RPC_BDTG_AWB_Sq.weights/";
         }
-        else{
-                Cluster = "/home/ws13/TMVA/TMVA/";//bonner
-        }
         
         for(int i=0;i<1;i++){
-                float boostWeight=-1;
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 string line;
                 int getlinecount = 1;
@@ -65,21 +61,24 @@ void XmlScan()
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
                         if(findWeightStart && findWeightEnd){
-                                strncpy (Weight, findWeightStart+13, strlen(findWeightStart)-strlen(findWeightEnd)-13 );
+                                std::string s(findWeightStart);
+                                s.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, findWeightStart+13 );
                                 puts (Weight);
                         }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
-                                strncpy (Var, findVarStart+6, strlen(findVarStart)-strlen(findVarEnd)-6);
+                                std::string s(findVarStart);
+                                strncpy (Var, strlen(findVarStart)-strlen(findVarEnd)-6, findVarStart+6 );
                                 puts (Var);
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
-                                strncpy (Cut, findCutStart+5, strlen(findCutStart)-strlen(findCutEnd)-5 );
+                                std::string s(findCutStart);
+                                strncpy (Cut, strlen(findCutStart)-strlen(findCutEnd)-5, findCutStart+5 );
                                 puts (Cut);
                         }
                         
