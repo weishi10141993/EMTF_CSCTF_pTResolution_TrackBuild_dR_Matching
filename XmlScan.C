@@ -51,7 +51,7 @@ void XmlScan()
                         getline(f,line);
                         cout << "data line " << getlinecount << ": " << line << endl;
                         char *ret;
-                        ret = strstr(line, "boostWeight="");
+                        ret = strstr(line, "boostWeight=\"");
                         printf("The substring is: %s\n", ret);
                         getlinecount++;
                 }
