@@ -62,7 +62,7 @@ void XmlScan()
                         findWeightEnd = strstr(myline, "\" itree");
                         if(findWeightStart && findWeightEnd){
                                 std::string s(findWeightStart);
-                                s.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, findWeightStart+13 );
+                                s.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, 13 );
                                 puts (Weight);
                         }    
                         
@@ -70,7 +70,7 @@ void XmlScan()
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
                                 std::string s(findVarStart);
-                                s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, findVarStart+6 );
+                                s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
                                 puts (Var);
                         }
                         
@@ -78,7 +78,7 @@ void XmlScan()
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
                                 std::string s(findCutStart);
-                                s.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, findCutStart+5 );
+                                s.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
                                 puts (Cut);
                         }
                         
