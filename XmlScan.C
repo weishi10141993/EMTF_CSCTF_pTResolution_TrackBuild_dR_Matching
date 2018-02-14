@@ -34,12 +34,17 @@ void XmlScan()
                 Cluster = "/home/ws13/TMVA/TMVA/";//bonner
         }
         
-        TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
-        
-        std::ifstream fin( fileName );
-        if (!fin.good( )) { // file not found --> Error
-                cout << "*** ERROR: Weight file: " << fWfile << " does not exist" << endl;
-                return;
-        }
+        for(i=0;i<400;i++){
+                TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
+                std::ifstream fin( fileName );
+                if (!fin.good( )) { // file not found --> Error
+                        cout << "*** ERROR: Weight file: " << fileName << " does not exist" << endl;
+                        return;
+                }
+                else{
+                        cout << "*** Weight file: " << fileName << " exist" << endl;
+                        return;
+                }
+        }//loop over all xmls
         
 }
