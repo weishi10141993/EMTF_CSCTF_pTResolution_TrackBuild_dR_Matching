@@ -26,12 +26,20 @@ void XmlScan()
 {
         Int_t lxplus=1;
         TString Cluster="";
+        
         if(lxplus==1){
                 Cluster = "/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/f_MODE_15_invPtTarg_invPtWgt_bitCompr_RPC_BDTG_AWB_Sq.weights/";
         }
         else{
                 Cluster = "/home/ws13/TMVA/TMVA/";//bonner
         }
+        
         TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
-        TFile* myFile = new TFile(fileName);
+        
+        std::ifstream fin( fileName );
+        if (!fin.good( )) { // file not found --> Error
+                cout << "*** ERROR: Weight file: " << fWfile << " does not exist" << endl;
+                return;
+        }
+        
 }
