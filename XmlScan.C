@@ -50,13 +50,13 @@ void XmlScan()
                         const char *myline = line.c_str();
                         const char *findWeightStart;
                         const char *findWeightEnd;
-                        char *Weight;
+                        char Weight[30];
                         const char *findVarStart;
                         const char *findVarEnd;
-                        char *Var;
+                        char Var[30];
                         const char *findCutStart;
                         const char *findCutEnd;
-                        char *Cut;
+                        char Cut[30];
                         
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
