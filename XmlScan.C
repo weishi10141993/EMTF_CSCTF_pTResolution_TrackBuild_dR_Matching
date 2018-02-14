@@ -53,21 +53,34 @@ void XmlScan()
                         const char *myline = line.c_str();
                         char *findWeightStart;
                         char *findWeightEnd;
+                        char *Weight;
                         char *findVarStart;
                         char *findVarEnd;
+                        char *Var;
                         char *findCutStart;
                         char *findCutEnd;
+                        char *Cut;
+                        
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
-                        printf("The Weight is: %s\n", findWeightStart-findWeightEnd);
+                        if(findWeightStart && findWeightEnd){
+                                memmove(Weight, findWeightStart+13, sizeof(findWeightStart)-sizeof(findWeightEnd) );
+                                printf("The Weight is: %s\n", Weight);
+                        }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
                         findVarEnd = strstr(myline, "\" Cut");
-                        printf("The VarId is: %s\n", findVarStart-findVarEnd);
+                        if(findVarStart && findVarEnd){
+                                memmove(Var, findVarStart+6, sizeof(findVarStart)-sizeof(findVarEnd) );
+                                printf("The VarId is: %s\n", Var);
+                        }
                         
                         findCutStart = strstr(myline, "Cut=\"");
                         findCutEnd = strstr(myline, "\" cType");
-                        printf("The Cut is: %s\n", findCutStart-findCutEnd);
+                        if(findCutStart && findCutEnd){
+                                memmove(Cut, findCutStart+5, sizeof(findCutStart)-sizeof(findCutEnd) );
+                                printf("The Cut is: %s\n", Cut);
+                        }
                         
                         getlinecount++;
                 }
