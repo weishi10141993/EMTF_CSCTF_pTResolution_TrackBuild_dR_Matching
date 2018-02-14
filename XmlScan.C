@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 #include "TFile.h"
 #include "TTree.h"
@@ -38,11 +39,11 @@ void XmlScan()
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 std::ifstream fin( fileName );
                 if (!fin.good( )) { // file not found --> Error
-                        cout << "*** ERROR: Weight file: " << fileName << " does not exist" << endl;
+                        std::cout << "*** ERROR: Weight file: " << fileName << " does not exist" << std::endl;
                         return;
                 }
                 else{
-                        cout << "*** Weight file: " << fileName << " exist" << endl;
+                        std::cout << "*** Weight file: " << fileName << " exist" << std::endl;
                         return;
                 }
         }//loop over all xmls
