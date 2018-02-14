@@ -72,7 +72,7 @@ void XmlScan()
                         if(findVarStart && findVarEnd){
                                 std::string s(findVarStart);
                                 std::size_t slength = s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
-                                Var[rlength]='\0';
+                                Var[slength]='\0';
                                 puts (Var);
                         }
                         
@@ -81,7 +81,7 @@ void XmlScan()
                         if(findCutStart && findCutEnd){
                                 std::string t(findCutStart);
                                 std::size_t tlength = t.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
-                                Cut[rlength]='\0';
+                                Cut[tlength]='\0';
                                 puts (Cut);
                         }
                         
