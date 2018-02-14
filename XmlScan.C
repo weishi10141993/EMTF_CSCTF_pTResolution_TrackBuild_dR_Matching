@@ -51,35 +51,35 @@ void XmlScan()
                         getline(f,line);
                         cout << "data line " << getlinecount << ": " << line << endl;
                         const char *myline = line.c_str();
-                        char *findWeightStart;
-                        char *findWeightEnd;
+                        const char *findWeightStart;
+                        const char *findWeightEnd;
                         char *Weight;
-                        char *findVarStart;
-                        char *findVarEnd;
+                        const char *findVarStart;
+                        const char *findVarEnd;
                         char *Var;
-                        char *findCutStart;
-                        char *findCutEnd;
+                        const char *findCutStart;
+                        const char *findCutEnd;
                         char *Cut;
                         
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
                         if(findWeightStart && findWeightEnd){
-                                memmove(Weight, findWeightStart+13, strlen(findWeightStart)-strlen(findWeightEnd)-13 );
-                                printf("The Weight is: %s\n", Weight);
+                                strncpy (Weight, findWeightStart+13, strlen(findWeightStart)-strlen(findWeightEnd)-13 );
+                                puts (Weight);
                         }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
-                                memmove(Var, findVarStart+6, strlen(findVarStart)-strlen(findVarEnd)-6 );
-                                printf("The VarId is: %s\n", Var);
+                                strncpy (Var, findVarStart+6, strlen(findVarStart)-strlen(findVarEnd)-6);
+                                puts (Var);
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
-                                memmove(Cut, findCutStart+5, strlen(findCutStart)-strlen(findCutEnd)-5 );
-                                printf("The Cut is: %s\n", Cut);
+                                strncpy (Cut, findCutStart+5, strlen(findCutStart)-strlen(findCutEnd)-5 );
+                                puts (Cut);
                         }
                         
                         getlinecount++;
