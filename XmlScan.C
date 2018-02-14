@@ -50,10 +50,16 @@ void XmlScan()
                 while(!f.eof()) {
                         getline(f,line);
                         cout << "data line " << getlinecount << ": " << line << endl;
-                        char myline[] = line;
-                        char *ret;
-                        ret = strstr(myline, "boostWeight=\"");
-                        printf("The substring is: %s\n", ret);
+                        const char *myline = line.c_str();
+                        char *findWeight;
+                        char *findVar;
+                        char *findCut;
+                        findWeight = strstr(myline, "boostWeight=\"");
+                        printf("The substring is: %s\n", findWeight);
+                        findVar = strstr(myline, "IVar=\"");
+                        printf("The substring is: %s\n", findVar);
+                        findCut = strstr(myline, "Cut=\"");
+                        printf("The substring is: %s\n", findCut);
                         getlinecount++;
                 }
        
