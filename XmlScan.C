@@ -36,23 +36,22 @@ void XmlScan()
         }
         
         for(int i=0;i<1;i++){
-                float boostWeight=1;
+                float boostWeight=-1;
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
-                std::ifstream fin( fileName );
-                if (!fin.good( )) { // file not found --> Error
+                TString line;
+                int getlinecount = 1;
+                std::ifstream f( fileName );
+                if (!f.good( )) { // file not found --> Error
                         std::cout << "*** ERROR: Weight file: " << fileName << " does not exist" << std::endl;
                         return;
                 }
                 //Reading line by line
-                TString dummy = "";     
-                fin >> dummy; 
-                std::cout << "*** fin: " << dummy << std::endl;
-                std::cout << "*** dummy: " << dummy << std::endl;
-                if(dummy.Contains("boostWeight=")) {
-                        boostWeight = 1.0000000000000000e+00;
+                while(getline(f, line)) {
+                        cout << "data line " << getlinecount << ": " << line << endl;
+                        getlinecount++;
                 }
-                std::cout << "*** weight: " << boostWeight << std::endl;
-                fin.close();
+       
+                f.close();
                 
         }//loop over all xmls
         
