@@ -2,6 +2,10 @@
 #include <iomanip>
 #include <fstream>
 #include "Getline.h"
+#include <stdio.h>
+#include <string.h>
+#include <vector>
+#include <stdlib.h>
 using namespace std;
 #include "TFile.h"
 #include "TTree.h"
@@ -10,9 +14,6 @@ using namespace std;
 #include "TF1.h"
 #include "TAttFill.h"
 #include "TCanvas.h"
-#include <vector>
-#include "stdio.h"
-#include <stdlib.h>
 #include "math.h"
 #include "TMath.h"
 #include "TGraph.h"
