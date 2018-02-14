@@ -53,32 +53,32 @@ void XmlScan()
                         const char *myline = line.c_str();
                         char *findWeightStart;
                         char *findWeightEnd;
-                        char *Weight;
+                        char Weight[]="";
                         char *findVarStart;
                         char *findVarEnd;
-                        char *Var;
+                        char Var[]="";
                         char *findCutStart;
                         char *findCutEnd;
-                        char *Cut;
+                        char Cut[]="";
                         
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
                         if(findWeightStart && findWeightEnd){
-                                memmove(Weight, findWeightStart+13, sizeof(findWeightStart)-sizeof(findWeightEnd) );
+                                memmove(Weight, findWeightStart+13, sizeof(findWeightStart)-sizeof(findWeightEnd)-13 );
                                 printf("The Weight is: %s\n", Weight);
                         }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
                         findVarEnd = strstr(myline, "\" Cut");
                         if(findVarStart && findVarEnd){
-                                memmove(Var, findVarStart+6, sizeof(findVarStart)-sizeof(findVarEnd) );
+                                memmove(Var, findVarStart+6, sizeof(findVarStart)-sizeof(findVarEnd)-6 );
                                 printf("The VarId is: %s\n", Var);
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
                         findCutEnd = strstr(myline, "\" cType");
                         if(findCutStart && findCutEnd){
-                                memmove(Cut, findCutStart+5, sizeof(findCutStart)-sizeof(findCutEnd) );
+                                memmove(Cut, findCutStart+5, sizeof(findCutStart)-sizeof(findCutEnd)-5 );
                                 printf("The Cut is: %s\n", Cut);
                         }
                         
