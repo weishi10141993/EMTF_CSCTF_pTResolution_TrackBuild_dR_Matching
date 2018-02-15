@@ -117,8 +117,7 @@ void XmlScan()
                                 std::string r(findWeightStart);
                                 std::size_t rlength = r.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, 13 );
                                 Weight[rlength]='\0';
-                                weight = atof(Weight);
-                                printf("%f\n",weight);
+                                weight = atof(Weight);    
                         }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
@@ -127,8 +126,7 @@ void XmlScan()
                                 std::string s(findVarStart);
                                 std::size_t slength = s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
                                 Var[slength]='\0';
-                                varId = atoi(Var);    
-                                printf("%d\n",varId);
+                                varId = atoi(Var);        
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
@@ -138,8 +136,11 @@ void XmlScan()
                                 std::size_t tlength = t.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
                                 Cut[tlength]='\0';
                                 cut = atof(Cut);
-                                printf("%f\n",cut);
                         }
+                        
+                        printf("%f\n",weight);
+                        printf("%d\n",varId);
+                        printf("%f\n",cut);
                         
                         //Fill variables
                         switch (varId) {//15 modes
@@ -245,5 +246,48 @@ void XmlScan()
         
         TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/XmlScan.root";
         TFile myPlot(output,"RECREATE");
+        
+        Var_n->Write();
+        WVar_n->Write();
+        Var_0->Write();
+        WVar_0->Write();
+        Var_1->Write();
+        WVar_1->Write();
+        Var_2->Write();
+        WVar_2->Write();
+        Var_3->Write();
+        WVar_3->Write();
+        Var_4->Write();
+        WVar_4->Write();
+        Var_5->Write();
+        WVar_5->Write();
+        Var_6->Write();
+        WVar_6->Write();
+        Var_7->Write();
+        WVar_7->Write();
+        Var_8->Write();
+        WVar_8->Write();
+        Var_9->Write();
+        WVar_9->Write();
+        Var_10->Write();
+        WVar_10->Write();
+        Var_11->Write();
+        WVar_12->Write();
+        Var_13->Write();
+        WVar_13->Write();
+        Var_14->Write();
+        WVar_14->Write();
+        Var_15->Write();
+        WVar_15->Write();
+        Var_16->Write();
+        WVar_16->Write();
+        Var_17->Write();
+        WVar_17->Write();
+        Var_18->Write();
+        WVar_18->Write();
+        Var_19->Write();
+        WVar_19->Write();
+        Var_20->Write();
+        WVar_20->Write();
         
 }
