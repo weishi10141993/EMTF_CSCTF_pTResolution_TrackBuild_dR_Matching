@@ -34,6 +34,9 @@ void XmlScan()
                 Cluster = "/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/f_MODE_15_invPtTarg_invPtWgt_bitCompr_RPC_BDTG_AWB_Sq.weights/";
         }
         
+        TH1F *Var = new TH1F("VarId=", "VarId=1 cuts weighted", 100, 0, 5);
+        
+        
         for(int i=0;i<1;i++){
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 string line;
@@ -97,5 +100,8 @@ void XmlScan()
                 f.close();
                 
         }//loop over all xmls
+        
+        TString output="/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/XmlScan.root";
+        TFile myPlot(output,"RECREATE");
         
 }
