@@ -141,6 +141,101 @@ void XmlScan()
                                 printf("%f\n",cut);
                         }
                         
+                        //Fill variables
+                        switch (varId) {//15 modes
+                            
+                        case -1:
+                            Var_n->Fill(cut); 
+                            WVar_n->Fill(cut,weight);
+                            break;
+                        case 0:
+                            Var_0->Fill(cut); 
+                            WVar_0->Fill(cut,weight);
+                            break;
+                        case 1:
+                            Var_1->Fill(cut); 
+                            WVar_1->Fill(cut,weight);
+                            break;
+                        case 2:
+                            Var_2->Fill(cut); 
+                            WVar_2->Fill(cut,weight);
+                            break;
+                        case 3:
+                            Var_3->Fill(cut); 
+                            WVar_3->Fill(cut,weight);
+                            break;
+                        case 4:
+                            Var_4->Fill(cut); 
+                            WVar_4->Fill(cut,weight);
+                            break;
+                        case 5:
+                            Var_5->Fill(cut); 
+                            WVar_5->Fill(cut,weight);
+                            break;
+                        case 6:
+                            Var_6->Fill(cut); 
+                            WVar_6->Fill(cut,weight);
+                            break;
+                        case 7:
+                            Var_7->Fill(cut); 
+                            WVar_7->Fill(cut,weight);
+                            break;
+                        case 8:
+                            Var_8->Fill(cut); 
+                            WVar_8->Fill(cut,weight);
+                            break;
+                        case 9:
+                            Var_9->Fill(cut); 
+                            WVar_9->Fill(cut,weight);
+                            break;
+                        case 10:
+                            Var_10->Fill(cut); 
+                            WVar_10->Fill(cut,weight);
+                            break;
+                        case 11:
+                            Var_11->Fill(cut); 
+                            WVar_11->Fill(cut,weight);
+                            break;
+                        case 12:
+                            Var_12->Fill(cut); 
+                            WVar_12->Fill(cut,weight);
+                            break;
+                        case 13:
+                            Var_13->Fill(cut); 
+                            WVar_13->Fill(cut,weight);
+                            break;
+                        case 14:
+                            Var_14->Fill(cut); 
+                            WVar_14->Fill(cut,weight);
+                            break;
+                        case 15:
+                            Var_15->Fill(cut); 
+                            WVar_15->Fill(cut,weight);
+                            break;
+                        case 16:
+                            Var_16->Fill(cut); 
+                            WVar_16->Fill(cut,weight);
+                            break;
+                        case 17:
+                            Var_17->Fill(cut); 
+                            WVar_17->Fill(cut,weight);
+                            break;
+                        case 18:
+                            Var_18->Fill(cut); 
+                            WVar_18->Fill(cut,weight);
+                            break;
+                        case 19:
+                            Var_19->Fill(cut); 
+                            WVar_19->Fill(cut,weight);
+                            break;
+                        case 20:
+                            Var_20->Fill(cut); 
+                            WVar_20->Fill(cut,weight);
+                            break;
+                        default:
+                            break;           
+                        }//end fill
+                        
                         getlinecount++;
                 }
        
