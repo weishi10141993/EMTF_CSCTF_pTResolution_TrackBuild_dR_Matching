@@ -38,6 +38,7 @@ void XmlScan()
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 string line;
                 int getlinecount = 1;
+                float weight = 1.0;
                 std::ifstream f( fileName );
                 if (!f.good( )) { // file not found --> Error
                         std::cout << "*** ERROR: Weight file: " << fileName << " does not exist" << std::endl;
@@ -54,9 +55,11 @@ void XmlScan()
                         const char *findVarStart;
                         const char *findVarEnd;
                         char Var[30];
+                        int varId = -2;
                         const char *findCutStart;
                         const char *findCutEnd;
                         char Cut[30];
+                        float cut = 0.0;
                         
                         findWeightStart = strstr(myline, "boostWeight=\"");
                         findWeightEnd = strstr(myline, "\" itree");
@@ -64,7 +67,8 @@ void XmlScan()
                                 std::string r(findWeightStart);
                                 std::size_t rlength = r.copy(Weight, strlen(findWeightStart)-strlen(findWeightEnd)-13, 13 );
                                 Weight[rlength]='\0';
-                                puts (Weight);
+                                weight = atof(Weight);
+                                printf("%f\n",weight);
                         }    
                         
                         findVarStart = strstr(myline, "IVar=\"");
@@ -73,7 +77,8 @@ void XmlScan()
                                 std::string s(findVarStart);
                                 std::size_t slength = s.copy(Var, strlen(findVarStart)-strlen(findVarEnd)-6, 6 );
                                 Var[slength]='\0';
-                                puts (Var);
+                                varId = atoi(Var);    
+                                printf("%d\n",varId);
                         }
                         
                         findCutStart = strstr(myline, "Cut=\"");
@@ -82,7 +87,8 @@ void XmlScan()
                                 std::string t(findCutStart);
                                 std::size_t tlength = t.copy(Cut, strlen(findCutStart)-strlen(findCutEnd)-5, 5 );
                                 Cut[tlength]='\0';
-                                puts (Cut);
+                                cut = atof(Cut);
+                                printf("%f\n",cut);
                         }
                         
                         getlinecount++;
