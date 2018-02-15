@@ -272,6 +272,8 @@ void XmlScan()
         Var_10->Write();
         WVar_10->Write();
         Var_11->Write();
+        WVar_11->Write();
+        Var_12->Write();
         WVar_12->Write();
         Var_13->Write();
         WVar_13->Write();
