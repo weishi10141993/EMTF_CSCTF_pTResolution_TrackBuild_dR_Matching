@@ -92,7 +92,7 @@ void XmlScan()
                         return;
                 }
                 else{
-                        std::cout << "Entering file: " << fileName << std::endl;
+                        std::cout << ">>> Entering file "<<i<<": " << fileName << std::endl;
                 }
                 //Reading line by line
                 while(!f.eof()) {
@@ -138,9 +138,7 @@ void XmlScan()
                                 cut = atof(Cut);
                         }
                         
-                        printf("%f\n",weight);
-                        printf("%d\n",varId);
-                        printf("%f\n",cut);
+                        printf("%f %d %f\n", weight, varId, cut);
                         
                         //Fill variables
                         switch (varId) {//15 modes
