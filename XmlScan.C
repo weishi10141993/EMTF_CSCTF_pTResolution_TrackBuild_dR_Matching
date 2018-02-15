@@ -85,7 +85,7 @@ void XmlScan()
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 string line;
                 int getlinecount = 1;
-                float weight = 1.0;
+                float weight = 0.0;
                 std::ifstream f( fileName );
                 if (!f.good( )) { // file not found --> Error
                         std::cout << "*** ERROR: Weight file: " << fileName << " does not exist" << std::endl;
