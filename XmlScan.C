@@ -34,8 +34,28 @@ void XmlScan()
                 Cluster = "/afs/cern.ch/work/w/wshi/public/EMTFpTResolution/f_MODE_15_invPtTarg_invPtWgt_bitCompr_RPC_BDTG_AWB_Sq.weights/";
         }
         
-        TH1F *Var = new TH1F("VarId=", "VarId=1 cuts weighted", 100, 0, 5);
-        
+        TH1F *Var_n = new TH1F("VarId=-1", "VarId=-1 cuts weighted", 20, -10, 10);//?
+        TH1F *Var_0 = new TH1F("VarId=0", "VarId=0 cuts weighted", 14, 0, 14);//theta
+        TH1F *Var_1 = new TH1F("VarId=1", "VarId=1 cuts weighted", 2, 0, 2);//St1 ring2
+        TH1F *Var_2 = new TH1F("VarId=2", "VarId=2 cuts weighted", 500, 0, 500);//dPhi 12
+        TH1F *Var_3 = new TH1F("VarId=3", "VarId=3 cuts weighted", 280, -140, 140);//dPhi 23
+        TH1F *Var_4 = new TH1F("VarId=4", "VarId=4 cuts weighted", 280, -140, 140);//dPhi 34
+        TH1F *Var_5 = new TH1F("VarId=5", "VarId=5 cuts weighted", 800, -150, 650);//dPhi 13
+        TH1F *Var_6 = new TH1F("VarId=6", "VarId=6 cuts weighted", 1000, -300, 700);//dPhi 14
+        TH1F *Var_7 = new TH1F("VarId=7", "VarId=7 cuts weighted", 600, -300, 300);//dphi 24
+        TH1F *Var_8 = new TH1F("VarId=8", "VarId=8 cuts weighted", 2, 0, 2);//FR1
+        TH1F *Var_9 = new TH1F("VarId=9", "VarId=9 cuts weighted", 4, 0, 4);//Bend1
+        TH1F *Var_10 = new TH1F("VarId=10", "VarId=10 cuts weighted", 3500, -1000, 2500);//dPhiSum4
+        TH1F *Var_11 = new TH1F("VarId=11", "VarId=11 cuts weighted", 2500, 0, 2500);//dPhiSum4A
+        TH1F *Var_12 = new TH1F("VarId=12", "VarId=12 cuts weighted", 1200, -600, 600);//dPhiSum3
+        TH1F *Var_13 = new TH1F("VarId=13", "VarId=13 cuts weighted", 600, 0, 600);//dPhiSum3A
+        TH1F *Var_14 = new TH1F("VarId=14", "VarId=14 cuts weighted", 5, 0, 5);//outStPhi
+        TH1F *Var_15 = new TH1F("VarId=15", "VarId=15 cuts weighted", 4, 0, 4);//dTh14
+        TH1F *Var_16 = new TH1F("VarId=16", "VarId=16 cuts weighted", 2, 0, 2);//RPC1
+        TH1F *Var_17 = new TH1F("VarId=17", "VarId=17 cuts weighted", 2, 0, 2);//RPC2
+        TH1F *Var_18 = new TH1F("VarId=18", "VarId=18 cuts weighted", 2, 0, 2);//RPC3
+        TH1F *Var_19 = new TH1F("VarId=19", "VarId=19 cuts weighted", 2, 0, 2);//RPC4
+        TH1F *Var_20 = new TH1F("VarId=20", "VarId=20 cuts weighted", 50, 0, 1);//inv_GEN_pt_trg
         
         for(int i=0;i<1;i++){
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
@@ -46,6 +66,9 @@ void XmlScan()
                 if (!f.good( )) { // file not found --> Error
                         std::cout << "*** ERROR: Weight file: " << fileName << " does not exist" << std::endl;
                         return;
+                }
+                else{
+                        std::cout << "Entering file: " << fileName << std::endl;
                 }
                 //Reading line by line
                 while(!f.eof()) {
