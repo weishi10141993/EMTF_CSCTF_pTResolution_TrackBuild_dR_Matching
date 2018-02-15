@@ -97,7 +97,7 @@ void XmlScan()
                 //Reading line by line
                 while(!f.eof()) {
                         getline(f,line);
-                        cout << "data line " << getlinecount << ": " << line << endl;
+                        //cout << "data line " << getlinecount << ": " << line << endl;
                         const char *myline = line.c_str();
                         const char *findWeightStart;
                         const char *findWeightEnd;
@@ -138,7 +138,7 @@ void XmlScan()
                                 cut = atof(Cut);
                         }
                         
-                        printf("%f %d %f\n", weight, varId, cut);
+                        printf("weight: %f, varId: %d, cut: %f\n", weight, varId, cut);
                         
                         //Fill variables
                         switch (varId) {//15 modes
