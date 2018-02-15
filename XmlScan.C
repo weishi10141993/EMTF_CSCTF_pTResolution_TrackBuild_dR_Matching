@@ -81,7 +81,7 @@ void XmlScan()
         TH1F *WVar_19 = new TH1F("WVarId=19", "VarId=19 cuts weighted", 2, 0, 2);//RPC4
         TH1F *WVar_20 = new TH1F("WVarId=20", "VarId=20 cuts weighted", 50, 0, 1);//inv_GEN_pt_trg
         
-        for(int i=0;i<1;i++){
+        for(int i=0;i<400;i++){
                 TString fileName = Cluster + Form("%d", i) + ".xml";//i: 0-399
                 string line;
                 int getlinecount = 1;
