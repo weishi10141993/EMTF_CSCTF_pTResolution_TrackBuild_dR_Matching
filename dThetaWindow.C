@@ -240,7 +240,7 @@ void dThetaWindow() {
   std::cout << "\n******* Finished looping over the events *******" << std::endl;
 
   delete in_chain;
-  std::cout << "\nDone with Read_FlatNtuple(). Exiting.\n" << std::endl;
+  std::cout << "\nDone with dThetaWindow(). Exiting.\n" << std::endl;
 	
   //write to output file
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_pt_";
