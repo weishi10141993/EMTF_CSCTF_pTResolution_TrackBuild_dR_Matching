@@ -45,7 +45,8 @@ std::vector<TString> vInt = {{
     "unp_trk_pt_int", "unp_trk_eta_int", "unp_trk_theta_int", "unp_trk_phi_int", "unp_trk_BX","unp_trk_endcap",
     "unp_trk_sector", "unp_trk_sector_index", "unp_trk_mode", "unp_trk_mode_CSC", "unp_trk_mode_RPC", "unp_trk_mode_neighbor",
     "unp_trk_charge", "unp_trk_nHits", "unp_trk_nRPC", "unp_trk_nNeighbor", "unp_trk_found_hits",
-    "unp_trk_dBX", "unp_trk_dPhi_int", "unp_trk_dTheta_int"
+    "unp_trk_dBX", "unp_trk_dPhi_int", "unp_trk_dTheta_int",
+    "unp_trk_emu_match_dBX", "unp_trk_emu_match_exact", "unp_trk_emu_match_iEmu", "unp_trk_emu_match_unique"
   }};
 std::vector<TString> vvInt = {{
     "trk_iHit",
