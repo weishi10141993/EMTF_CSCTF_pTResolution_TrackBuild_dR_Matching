@@ -35,7 +35,7 @@ const int CUT2_LOW = 0;
 ///  Main function to read the NTuples  ///
 ///////////////////////////////////////////
 
-void Read_FlatNtuple() {
+void dThetaWindow() {
    
   // Initialize empty file to access each file in the list
   TFile *file_tmp(0);
@@ -257,4 +257,4 @@ void Read_FlatNtuple() {
         
   myPlot.Close();
   
-} // End function: void Read_FlatNtuple()
+} // End function: void dThetaWindow()
