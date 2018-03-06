@@ -1,3 +1,4 @@
+//up to date with March 6 EMTF Ntuple.
 std::vector<TString> ints = {{
     "evt_run", "evt_LS", "evt_BX",
     "nHits", "nHitsCSC", "nHitsRPC", "nHitsBX0", "nHitsCSCBX0", "nHitsRPCBX0",
@@ -10,6 +11,7 @@ std::vector<TString> longs = {{
   }};
 std::vector<TString> vFlt = {{
     "hit_eta", "hit_theta", "hit_phi", "hit_phi_loc",
+    "sim_hit_eta", "sim_hit_theta", "sim_hit_phi", "sim_hit_phi_loc",
     "trk_pt", "trk_eta", "trk_theta", "trk_phi", "trk_phi_loc",
     "unp_trk_pt", "unp_trk_eta", "unp_trk_theta", "unp_trk_phi", "unp_trk_phi_loc"
   }};
@@ -18,7 +20,10 @@ std::vector<TString> vInt = {{
     "hit_ring", "hit_CSC_ID", "hit_chamber", "hit_FR", "hit_pattern", "hit_quality", "hit_roll", "hit_subsector",
     "hit_isCSC", "hit_isRPC", "hit_valid", "hit_BX", "hit_strip", "hit_strip_hi", "hit_strip_low", "hit_wire", "hit_neighbor","hit_match_iSimHit",
 
-    
+    "sim_hit_eta_int", "sim_hit_theta_int", "sim_hit_phi_int", "sim_hit_endcap", "sim_hit_sector", "sim_hit_sector_index", "sim_hit_station",
+    "sim_hit_ring", "sim_hit_CSC_ID", "sim_hit_chamber", "sim_hit_FR", "sim_hit_pattern", "sim_hit_alct_quality", "sim_hit_clct_quality", "sim_hit_quality", "sim_hit_roll", "sim_hit_subsector",
+    "sim_hit_isCSC", "sim_hit_isRPC", "sim_hit_valid", "sim_hit_BX", "sim_hit_strip", "sim_hit_strip_hi", "sim_hit_strip_low", "sim_hit_wire", "sim_hit_neighbor","sim_hit_match_iHit",
+	
     "trk_pt_int", "trk_eta_int", "trk_theta_int", "trk_phi_int", "trk_BX", "trk_endcap",
     "trk_sector", "trk_sector_index", "trk_mode", "trk_mode_CSC", "trk_mode_RPC", "trk_mode_neighbor",
     "trk_charge", "trk_nHits", "trk_nRPC", "trk_nNeighbor",
