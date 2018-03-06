@@ -4,7 +4,8 @@ std::vector<TString> ints = {{
     "nHits", "nHitsCSC", "nHitsRPC", "nHitsBX0", "nHitsCSCBX0", "nHitsRPCBX0",
     "nSimHits", "nSimHitsCSC", "nSimHitsRPC", "nSimHitsBX0", "nSimHitsCSCBX0", "nSimHitsRPCBX0",
     "nTracks", "nTracksBX0",
-    "nUnpTracks", "nUnpTracksBX0"
+    "nUnpTracks", "nUnpTracksBX0",
+    "nRecoMuons", "nRecoMuonsFwd"
   }};
 std::vector<TString> longs = {{
     "evt_event", "evt_orbit"
@@ -14,7 +15,10 @@ std::vector<TString> vFlt = {{
     "sim_hit_eta", "sim_hit_theta", "sim_hit_phi", "sim_hit_phi_loc",
     "trk_pt", "trk_eta", "trk_theta", "trk_phi", "trk_phi_loc", "trk_dR_match_dPhi", "trk_dR_match_dEta", "trk_dR_match_dR",
     "trk_unp_match_dEta", "trk_unp_match_dPhi", "trk_unp_match_dR",
-    "unp_trk_pt", "unp_trk_eta", "unp_trk_theta", "unp_trk_phi", "unp_trk_phi_loc"
+    "unp_trk_pt", "unp_trk_eta", "unp_trk_theta", "unp_trk_phi", "unp_trk_phi_loc",
+    "reco_d0_BS", "reco_d0_PV", "reco_dR_match_dEta", "reco_dR_match_dPhi", "reco_dR_match_dR", "reco_dZ_BS", "reco_dZ_PV",
+    "reco_eta", "reco_eta_St1", "reco_eta_St2", "reco_iso", "reco_phi", "reco_phi_St1", "reco_phi_St2", 
+    "reco_pt", "reco_theta", "reco_theta_St1", "reco_theta_St2"
   }};
 std::vector<TString> vInt = {{
     "hit_eta_int", "hit_theta_int", "hit_phi_int", "hit_endcap", "hit_sector", "hit_sector_index", "hit_station",
