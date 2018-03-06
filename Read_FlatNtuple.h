@@ -1,4 +1,3 @@
-// Input variables, taken from EMTFAnalyzer/NTupleMaker/interface/FlatNtupleBranches.h
 std::vector<TString> ints = {{
     "evt_run", "evt_LS", "evt_BX",
     "nHits", "nHitsCSC", "nHitsRPC", "nHitsBX0", "nHitsCSCBX0", "nHitsRPCBX0",
