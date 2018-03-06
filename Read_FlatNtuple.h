@@ -12,7 +12,8 @@ std::vector<TString> longs = {{
 std::vector<TString> vFlt = {{
     "hit_eta", "hit_theta", "hit_phi", "hit_phi_loc",
     "sim_hit_eta", "sim_hit_theta", "sim_hit_phi", "sim_hit_phi_loc",
-    "trk_pt", "trk_eta", "trk_theta", "trk_phi", "trk_phi_loc",
+    "trk_pt", "trk_eta", "trk_theta", "trk_phi", "trk_phi_loc", "trk_dR_match_dPhi", "trk_dR_match_dEta", "trk_dR_match_dR",
+    "trk_unp_match_dEta", "trk_unp_match_dPhi", "trk_unp_match_dR",
     "unp_trk_pt", "unp_trk_eta", "unp_trk_theta", "unp_trk_phi", "unp_trk_phi_loc"
   }};
 std::vector<TString> vInt = {{
