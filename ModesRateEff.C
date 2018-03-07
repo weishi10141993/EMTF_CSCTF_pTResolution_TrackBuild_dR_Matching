@@ -87,16 +87,17 @@ void ModesRateEff() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
-	
+  //SingluMu quality: Q>=12
   TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode 15" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode 14" + SMRecoPtTitleMode15, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode 14" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode 13" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode 11" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode 10" + SMRecoPtTitle, 0, 30, 30);
-	
+  //DoubleMu quality: Q>=8
   TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode 12" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode 9" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode 10" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode 7" + SMRecoPtTitle, 0, 30, 30);
+  //MuOpen quality: Q>=4
+  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode 9" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode 6" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode 5" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode 3" + SMRecoPtTitle, 0, 30, 30);
@@ -129,10 +130,37 @@ void ModesRateEff() {
 			switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
                             
                         case 15:
-                            Var_n->Fill(cut); 
+                            SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) ); 
                             break; 
 			case 14:
-                            Var_20->Fill(cut); 
+                            SMRecoPtMatchMode14->Fill( F("reco_pt", ireco) ); 
+                            break;
+		        case 13:
+                            SMRecoPtMatchMode13->Fill( F("reco_pt", ireco) ); 
+                            break; 
+			case 11:
+                            SMRecoPtMatchMode11->Fill( F("reco_pt", ireco) ); 
+                            break;
+			case 12:
+                            SMRecoPtMatchMode12->Fill( F("reco_pt", ireco) ); 
+                            break; 
+			case 10:
+                            SMRecoPtMatchMode10->Fill( F("reco_pt", ireco) ); 
+                            break;
+			case 7:
+                            SMRecoPtMatchMode7->Fill( F("reco_pt", ireco) ); 
+                            break; 
+			case 9:
+                            SMRecoPtMatchMode9->Fill( F("reco_pt", ireco) ); 
+                            break;
+			case 6:
+                            SMRecoPtMatchMode6->Fill( F("reco_pt", ireco) ); 
+                            break; 
+			case 5:
+                            SMRecoPtMatchMode5->Fill( F("reco_pt", ireco) ); 
+                            break;
+			case 3:
+                            SMRecoPtMatchMode3->Fill( F("reco_pt", ireco) ); 
                             break;
                         default:
                             break;           
