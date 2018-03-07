@@ -87,6 +87,17 @@ void ModesRateEff() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
   
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
@@ -107,9 +118,25 @@ void ModesRateEff() {
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
-    for (int irecomu = 0; irecomu < I("nRecoMuons"); irecomu++) {
-	    if( F("reco_pt", irecomu) >= PT_LOW && F("reco_pt", irecomu) <= PT_UP && I("reco_ID_loose", irecomu) == 1 && I("reco_ID_station", irecomu) == 1 && fabs(F("reco_eta_St2",irecomu)) >= ETA_LOW && fabs(F("reco_eta_St2", irecomu) ) <= ETA_UP){
-		   SMRecoPt->Fill( F("reco_pt", irecomu) ); 
+    for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
+	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
+		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
+		    
+		   //reco mu has a EMTF trk match
+		   if( I("reco_dR_match_unique", ireco) == 1 ){
+			switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
+                            
+                        case 15:
+                            Var_n->Fill(cut); 
+                            break; 
+			case 14:
+                            Var_20->Fill(cut); 
+                            break;
+                        default:
+                            break;           
+                        }//end switch
+		   }//matched to EMTF trks
+		    
 	    }//selection on reco mu
     }//end loop over reco muons
     
