@@ -4,8 +4,9 @@
 #include "TTree.h"
 #include "TBranch.h"
 #include "TH2.h"
+// List of input branches and functions to return values
+#include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
 
-#include "Read_FlatNtuple.h" // List of input branches and functions to return values
 
 //USER modify here ONLY//
 //================================================================
