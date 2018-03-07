@@ -444,6 +444,9 @@ void ModesRateEff() {
   CBadMatchEff->cd();
   TH1F *SMRecoPtNoMatchClone = (TH1F*)SMRecoPtNoMatch->Clone("SMRecoPtNoMatchClone");
   TH1F *SMRecoPtNoUniqueMatchClone = (TH1F*)SMRecoPtNoUniqueMatch->Clone("SMRecoPtNoUniqueMatchClone");
+  SMRecoPtNoMatchClone->SetLineColor(1);//red
+  SMRecoPtNoUniqueMatchClone->SetLineColor(2);//blk
+  gStyle->SetOptStat(0);
   SMRecoPtNoMatchClone->Divide(SMRecoPt);
   SMRecoPtNoUniqueMatchClone->Divide(SMRecoPt);
   SBadMatchEff->Add(SMRecoPtNoMatchClone);
@@ -455,9 +458,9 @@ void ModesRateEff() {
         
   TLegend* LBadMatchEff = new TLegend(0.1,0.7,0.7,0.9);
   TString LNoMatch = "";
-  LNoMatch = LNoMatch + "Regression:trigger pT>=16GeV" + " Rate:"+ Form("%lld", RATE16);
+  LNoMatch = LNoMatch + "RecoMu No Match";
   TString LNoUniqueMatch = "";
-  LNoUniqueMatch = LNoUniqueMatch + "Classifier:class1>=" + Form("%0.4lf", OptA) + " Rate:"+ Form("%lld", MinRATE);
+  LNoUniqueMatch = LNoUniqueMatch + "RecoMu No Unique Match";
   LBadMatchEff->AddEntry(SMRecoPtNoMatchClone,LNoMatch);
   LBadMatchEff->AddEntry(SMRecoPtNoUniqueMatchClone, LNoUniqueMatch);
   LBadMatchEff->SetFillStyle(0);
