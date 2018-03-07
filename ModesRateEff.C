@@ -413,7 +413,127 @@ void ModesRateEff() {
 					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
 						 CountMode15RecoOnly[i]++;   
 					    }
-                            	            break; 
+                            	            break;
+				    case 14:
+					    CountMode14[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode14dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode14RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode14RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 13:
+					    CountMode13[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode13dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode13RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode13RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 11:
+					    CountMode11[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode11dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode11RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode11RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 12:
+					    CountMode12[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode12dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode12RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode12RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 10:
+					    CountMode10[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode10dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode10RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode10RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 7:
+					    CountMode7[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode7dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode7RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode7RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 9:
+					    CountMode9[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode9dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode9RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode9RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 6:
+					    CountMode6[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode6dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode6RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode6RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 5:
+					    CountMode5[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode5dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode5RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode5RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 3:
+					    CountMode3[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode3dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode3RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode3RecoOnly[i]++;   
+					    }
+                            	            break;
 			            default:
                                             break; 
 			           }//end switch mode
