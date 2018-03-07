@@ -87,6 +87,9 @@ void ModesRateEff() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 0, 30, 30);
+  
   //SingluMu quality: Q>=12
   TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, 0, 30, 30);
@@ -169,6 +172,14 @@ void ModesRateEff() {
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
 	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
+		    
+		   if( I("reco_dR_match_nTrk", ireco) == 0 ){
+			SMRecoPtNoMatch->Fill( F("reco_pt", ireco) ); 
+		   }//no matched EMTF trk
+		    
+		   if( I("reco_dR_match_nTrk", ireco) > 0 && I("reco_dR_match_unique", ireco) == 0 ){
+			SMRecoPtNoUniqueMatch->Fill( F("reco_pt", ireco) );   
+		   }//no unique matched EMTF trk
 		    
 		   //reco mu has a EMTF trk match
 		   if( I("reco_dR_match_unique", ireco) == 1 ){
@@ -338,7 +349,7 @@ void ModesRateEff() {
 			}//require trk_BX=0
 			   
 		   }//matched to unique EMTF trk
-		    
+		   
 	    }//selection on reco mu
     }//end loop over reco muons
     
@@ -377,6 +388,8 @@ void ModesRateEff() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode14->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode13->GetXaxis()->SetTitle("RECO pT[GeV]");
