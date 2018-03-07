@@ -165,6 +165,49 @@ void ModesRateEff() {
                         default:
                             break;           
                         }//end switch
+			
+			if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
+				switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
+                            
+                        	case 15:
+					SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) ); 
+                            	        break; 
+				case 14:
+                           		SMRecoPtMatchMode14->Fill( F("reco_pt", ireco) ); 
+                            		break;
+		        	case 13:
+	                                SMRecoPtMatchMode13->Fill( F("reco_pt", ireco) ); 
+                            		break; 
+				case 11:
+                            		SMRecoPtMatchMode11->Fill( F("reco_pt", ireco) ); 
+                            		break;
+				case 12:
+                            		SMRecoPtMatchMode12->Fill( F("reco_pt", ireco) ); 
+                            		break; 
+				case 10:
+                            		SMRecoPtMatchMode10->Fill( F("reco_pt", ireco) ); 
+                            		break;
+				case 7:
+                            		SMRecoPtMatchMode7->Fill( F("reco_pt", ireco) ); 
+                            		break; 
+				case 9:
+                            		SMRecoPtMatchMode9->Fill( F("reco_pt", ireco) ); 
+                            		break;
+				case 6:
+                            		SMRecoPtMatchMode6->Fill( F("reco_pt", ireco) ); 
+                            		break; 
+				case 5:
+                            		SMRecoPtMatchMode5->Fill( F("reco_pt", ireco) ); 
+                            		break;
+				case 3:
+                            		SMRecoPtMatchMode3->Fill( F("reco_pt", ireco) ); 
+                            		break;
+                        	default:
+                            		break;           
+                        	}//end switch
+				
+			}//require trk_BX=0
+			   
 		   }//matched to EMTF trks
 		    
 	    }//selection on reco mu
