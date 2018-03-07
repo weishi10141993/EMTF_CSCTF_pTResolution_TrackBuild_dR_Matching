@@ -7,7 +7,6 @@
 // List of input branches and functions to return values
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
 
-
 //USER modify here ONLY//
 //================================================================
 const bool verbose  = true; // Print information
@@ -437,6 +436,51 @@ void ModesRateEff() {
   SMRecoPtMatchMode6BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode5BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+
+  SMRecoPt->Write();
+  //divide histograms for all modes
+  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
+  THStack *SMode15 = new THStack("SMode15","Mode15");
+  CMode15->cd();
+  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
+  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
+  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
+  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
+  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
+  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
+  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
+  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
+  gStyle->SetOptStat(0);
+  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
+  SMode15->Add(SMRecoPtMatchMode15Clone);
+  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
+  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
+  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
+  SMode15->Draw("nostack");
+  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMode15->GetYaxis()->SetTitle("efficiency");
+  CMode15->Modified();
+        
+  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LMatchMode15 = "";
+  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
+  TString LMatchMode15BX0 = "";
+  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LMatchMode15BX0dBX0 = "";
+  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LMatchMode15BX0Plateau = "";
+  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
+  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
+  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
+  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
+  LMode15->SetFillStyle(0);
+  LMode15->SetBorderSize(0);
+  LMode15->Draw(); 
+  CMode15->Write();
 	
   //divide histograms for eff
   TCanvas *CBadMatchEff = new TCanvas("CBadMatchEff","CBadMatchEff",700,500);
@@ -456,7 +500,7 @@ void ModesRateEff() {
   SBadMatchEff->GetYaxis()->SetTitle("efficiency");
   CBadMatchEff->Modified();
         
-  TLegend* LBadMatchEff = new TLegend(0.1,0.7,0.7,0.9);
+  TLegend* LBadMatchEff = new TLegend(0.6,0.6,0.9,0.9);
   TString LNoMatch = "";
   LNoMatch = LNoMatch + "RecoMu No Match";
   TString LNoUniqueMatch = "";
@@ -469,7 +513,6 @@ void ModesRateEff() {
   CBadMatchEff->Write();
 
   //intermidiate plots
-  SMRecoPt->Write();
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
   SMRecoPtMatchMode15->Write();
@@ -482,43 +525,43 @@ void ModesRateEff() {
   SMRecoPtMatchMode9->Write();
   SMRecoPtMatchMode6->Write();
   SMRecoPtMatchMode5->Write();
-  SMRecoPtMatchMode3->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode3->Write();
 	
-  SMRecoPtMatchMode15BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode14BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode13BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode11BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode12BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode10BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode7BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode9BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode6BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode5BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode3BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode15BX0->Write();
+  SMRecoPtMatchMode14BX0->Write();
+  SMRecoPtMatchMode13BX0->Write();
+  SMRecoPtMatchMode11BX0->Write();
+  SMRecoPtMatchMode12BX0->Write();
+  SMRecoPtMatchMode10BX0->Write();
+  SMRecoPtMatchMode7BX0->Write();
+  SMRecoPtMatchMode9BX0->Write();
+  SMRecoPtMatchMode6BX0->Write();
+  SMRecoPtMatchMode5BX0->Write();
+  SMRecoPtMatchMode3BX0->Write();
 	
-  SMRecoPtMatchMode15BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode14BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode13BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode11BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode12BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode10BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode7BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode9BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode6BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode5BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode3BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode15BX0dBX0->Write();
+  SMRecoPtMatchMode14BX0dBX0->Write();
+  SMRecoPtMatchMode13BX0dBX0->Write();
+  SMRecoPtMatchMode11BX0dBX0->Write();
+  SMRecoPtMatchMode12BX0dBX0->Write();
+  SMRecoPtMatchMode10BX0dBX0->Write();
+  SMRecoPtMatchMode7BX0dBX0->Write();
+  SMRecoPtMatchMode9BX0dBX0->Write();
+  SMRecoPtMatchMode6BX0dBX0->Write();
+  SMRecoPtMatchMode5BX0dBX0->Write();
+  SMRecoPtMatchMode3BX0dBX0->Write();
 	
-  SMRecoPtMatchMode15BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode14BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode13BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode11BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode12BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode10BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode7BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode9BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode6BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode5BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode15BX0Plateau->Write();
+  SMRecoPtMatchMode14BX0Plateau->Write();
+  SMRecoPtMatchMode13BX0Plateau->Write();
+  SMRecoPtMatchMode11BX0Plateau->Write();
+  SMRecoPtMatchMode12BX0Plateau->Write();
+  SMRecoPtMatchMode10BX0Plateau->Write();
+  SMRecoPtMatchMode7BX0Plateau->Write();
+  SMRecoPtMatchMode9BX0Plateau->Write();
+  SMRecoPtMatchMode6BX0Plateau->Write();
+  SMRecoPtMatchMode5BX0Plateau->Write();
+  SMRecoPtMatchMode3BX0Plateau->Write();
         
   myPlot.Close();
   
