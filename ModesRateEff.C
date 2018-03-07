@@ -88,19 +88,34 @@ void ModesRateEff() {
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
   //SingluMu quality: Q>=12
-  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode 15" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode 14" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode 13" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode 11" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode13" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode11" + SMRecoPtTitle, 0, 30, 30);
   //DoubleMu quality: Q>=8
-  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode 12" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode 10" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode 7" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode12" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode10" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode7" + SMRecoPtTitle, 0, 30, 30);
   //MuOpen quality: Q>=4
-  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode 9" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode 6" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode 5" + SMRecoPtTitle, 0, 30, 30);
-  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode 3" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode9" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode6" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode5" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode3" + SMRecoPtTitle, 0, 30, 30);
+
+  //SingluMu quality: Q>=12
+  TH1F *SMRecoPtMatchMode15BX0 = new TH1F("SMRecoPtMatchMode15BX0", "Match Mode15BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode14BX0 = new TH1F("SMRecoPtMatchMode14BX0", "Match Mode14BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode13BX0 = new TH1F("SMRecoPtMatchMode13BX0", "Match Mode13BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode11BX0 = new TH1F("SMRecoPtMatchMode11BX0", "Match Mode11BX0" + SMRecoPtTitle, 0, 30, 30);
+  //DoubleMu quality: Q>=8
+  TH1F *SMRecoPtMatchMode12BX0 = new TH1F("SMRecoPtMatchMode12BX0", "Match Mode12BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode10BX0 = new TH1F("SMRecoPtMatchMode10BX0", "Match Mode10BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode7BX0 = new TH1F("SMRecoPtMatchMode7BX0", "Match Mode7BX0" + SMRecoPtTitle, 0, 30, 30);
+  //MuOpen quality: Q>=4
+  TH1F *SMRecoPtMatchMode9BX0 = new TH1F("SMRecoPtMatchMode9BX0", "Match Mode9BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode6BX0 = new TH1F("SMRecoPtMatchMode6BX0", "Match Mode6BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode5BX0 = new TH1F("SMRecoPtMatchMode5BX0", "Match Mode5BX0" + SMRecoPtTitle, 0, 30, 30);
+  TH1F *SMRecoPtMatchMode3BX0 = new TH1F("SMRecoPtMatchMode3BX0", "Match Mode3BX0" + SMRecoPtTitle, 0, 30, 30);
   
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
@@ -170,37 +185,37 @@ void ModesRateEff() {
 				switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
                             
                         	case 15:
-					SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) ); 
+					SMRecoPtMatchMode15BX0->Fill( F("reco_pt", ireco) ); 
                             	        break; 
 				case 14:
-                           		SMRecoPtMatchMode14->Fill( F("reco_pt", ireco) ); 
+                           		SMRecoPtMatchMode14BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
 		        	case 13:
-	                                SMRecoPtMatchMode13->Fill( F("reco_pt", ireco) ); 
+	                                SMRecoPtMatchMode13BX0->Fill( F("reco_pt", ireco) ); 
                             		break; 
 				case 11:
-                            		SMRecoPtMatchMode11->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode11BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
 				case 12:
-                            		SMRecoPtMatchMode12->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode12BX0->Fill( F("reco_pt", ireco) ); 
                             		break; 
 				case 10:
-                            		SMRecoPtMatchMode10->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode10BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
 				case 7:
-                            		SMRecoPtMatchMode7->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode7BX0->Fill( F("reco_pt", ireco) ); 
                             		break; 
 				case 9:
-                            		SMRecoPtMatchMode9->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode9BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
 				case 6:
-                            		SMRecoPtMatchMode6->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode6BX0->Fill( F("reco_pt", ireco) ); 
                             		break; 
 				case 5:
-                            		SMRecoPtMatchMode5->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode5BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
 				case 3:
-                            		SMRecoPtMatchMode3->Fill( F("reco_pt", ireco) ); 
+                            		SMRecoPtMatchMode3BX0->Fill( F("reco_pt", ireco) ); 
                             		break;
                         	default:
                             		break;           
