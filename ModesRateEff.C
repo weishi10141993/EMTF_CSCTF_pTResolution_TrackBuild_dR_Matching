@@ -142,16 +142,11 @@ void ModesRateEff() {
 	
   //write to output file
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/ModesRateEff";
-  outFile = outFile + "_eta_" + Form("%.1f", ETA_LOW) + "_" + Form("%.1f", ETA_UP) + ".root";
+  outFile = outFile + "_eta_" + Form("%.2f", ETA_LOW) + "_" + Form("%.2f", ETA_UP) + ".root";
   TFile myPlot(outFile,"RECREATE");
         
-  CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
-  CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology4->Write();
-        
-  CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
-  CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology3->Write();
+  SMRecoPt->GetXaxis()->SetTitle("RECO pT");
+  SMRecoPt->Write();
         
   myPlot.Close();
   
