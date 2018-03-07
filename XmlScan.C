@@ -142,7 +142,7 @@ void XmlScan()
                         printf("weight: %f, varId: %d, cut: %f\n", weight, varId, cut);
                         
                         //Fill variables
-                        switch (varId) {//15 modes
+                        switch (varId) {
                             
                         case -1:
                             Var_n->Fill(cut); 
