@@ -369,10 +369,10 @@ void ModesRateEff() {
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     // Print info for unpacked EMTF tracks
-    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
-    for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
+    if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
+    for (int itrack = 0; itrack < I("nTracks"); itrack++) {
 	     
-    }//end loop over unpacked tracks
+    }//end loop over tracks
     
   } // End loop events
   std::cout << "\n******* Finished looping over the Zerobias events *******" << std::endl;
