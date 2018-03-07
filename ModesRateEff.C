@@ -11,7 +11,9 @@
 //USER modify here ONLY//
 //================================================================
 const bool verbose  = true; // Print information
-const float ETA_UP = 2.4;
+const int PT_UP = 30;//Reco pT range
+const int PT_LOW = 0;
+const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
 const int MAX_EVT   = 1000000;   // Max number of events to process
 const int PRT_EVT   =  1;   // Print every N events
@@ -82,12 +84,9 @@ void ModesRateEff() {
     ZB_in_chain->Add( ZB_in_file_names.at(i) );
   }
 	
-  TString Topology4Title="";
-  Topology4Title = Topology4Title + "dTh cuts 4-station tracks: pT >= "+ Form("%d", PT_CUT) +"GeV, abs(eta) ["+Form("%.1f", ETA_LOW)+", "+ Form("%.1f", ETA_UP)+"]";
-  TString Topology3Title="";
-  Topology3Title = Topology3Title + "dTh cuts 3-station tracks: pT >= "+ Form("%d", PT_CUT) +"GeV, abs(eta) ["+Form("%.1f", ETA_LOW)+", "+ Form("%.1f", ETA_UP)+"]";
-  TH2F *CutTopology4 = new TH2F("CutTopology4", Topology4Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", Topology3Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
+  TString SMRecoPtTitle="";
+  SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
+  TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 0, 30, 30);
   
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
