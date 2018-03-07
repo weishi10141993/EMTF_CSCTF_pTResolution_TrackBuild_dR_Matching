@@ -278,6 +278,48 @@ void ModesRateEff() {
 					
 				}//require trk_dBX=0
 				
+				if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
+					switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
+                            
+                        			case 15:
+							SMRecoPtMatchMode15BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            	        		break; 
+						case 14:
+                           				SMRecoPtMatchMode14BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+		        			case 13:
+	                                		SMRecoPtMatchMode13BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break; 
+						case 11:
+                            				SMRecoPtMatchMode11BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+						case 12:
+                            				SMRecoPtMatchMode12BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break; 
+						case 10:
+                            				SMRecoPtMatchMode10BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+						case 7:
+                            				SMRecoPtMatchMode7BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break; 
+						case 9:
+                            				SMRecoPtMatchMode9BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+						case 6:
+                            				SMRecoPtMatchMode6BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break; 
+						case 5:
+                            				SMRecoPtMatchMode5BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+						case 3:
+                            				SMRecoPtMatchMode3BX0dBX0->Fill( F("reco_pt", ireco) ); 
+                            				break;
+                        			default:
+                            				break;           
+                        			}//end switch
+					
+				}//require trk_pt > reco_pt * (7/8)
+				
 			}//require trk_BX=0
 			   
 		   }//matched to EMTF trks
