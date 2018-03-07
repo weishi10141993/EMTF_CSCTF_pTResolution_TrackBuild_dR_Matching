@@ -437,7 +437,35 @@ void ModesRateEff() {
   SMRecoPtMatchMode6BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode5BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-	  
+	
+  //divide histograms for eff
+  TCanvas *CBadMatchEff = new TCanvas("CBadMatchEff","CBadMatchEff",700,500);
+  THStack *SBadMatchEff = new THStack("SBadMatchEff","SBadMatchEff");
+  CBadMatchEff->cd();
+  TH1F *SMRecoPtNoMatchClone = (TH1F*)SMRecoPtNoMatch->Clone("SMRecoPtNoMatchClone");
+  TH1F *SMRecoPtNoUniqueMatchClone = (TH1F*)SMRecoPtNoUniqueMatch->Clone("SMRecoPtNoUniqueMatchClone");
+  SMRecoPtNoMatchClone->Divide(SMRecoPt);
+  SMRecoPtNoUniqueMatchClone->Divide(SMRecoPt);
+  SBadMatchEff->Add(SMRecoPtNoMatchClone);
+  SBadMatchEff->Add(SMRecoPtNoUniqueMatchClone);
+  SBadMatchEff->Draw("nostack");
+  SBadMatchEff->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SBadMatchEff->GetYaxis()->SetTitle("efficiency");
+  CBadMatchEff->Modified();
+        
+  TLegend* LBadMatchEff = new TLegend(0.1,0.7,0.7,0.9);
+  TString LNoMatch = "";
+  LNoMatch = LNoMatch + "Regression:trigger pT>=16GeV" + " Rate:"+ Form("%lld", RATE16);
+  TString LNoUniqueMatch = "";
+  LNoUniqueMatch = LNoUniqueMatch + "Classifier:class1>=" + Form("%0.4lf", OptA) + " Rate:"+ Form("%lld", MinRATE);
+  LBadMatchEff->AddEntry(SMRecoPtNoMatchClone,LNoMatch);
+  LBadMatchEff->AddEntry(SMRecoPtNoUniqueMatchClone, LNoUniqueMatch);
+  LBadMatchEff->SetFillStyle(0);
+  LBadMatchEff->SetBorderSize(0);
+  LBadMatchEff->Draw(); 
+  CBadMatchEff->Write();
+
+  //intermidiate plots
   SMRecoPt->Write();
         
   myPlot.Close();
