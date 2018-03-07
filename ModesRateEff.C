@@ -470,6 +470,55 @@ void ModesRateEff() {
 
   //intermidiate plots
   SMRecoPt->Write();
+  SMRecoPtNoMatch->Write();
+  SMRecoPtNoUniqueMatch->Write();
+  SMRecoPtMatchMode15->Write();
+  SMRecoPtMatchMode14->Write();
+  SMRecoPtMatchMode13->Write();
+  SMRecoPtMatchMode11->Write();
+  SMRecoPtMatchMode12->Write();
+  SMRecoPtMatchMode10->Write();
+  SMRecoPtMatchMode7->Write();
+  SMRecoPtMatchMode9->Write();
+  SMRecoPtMatchMode6->Write();
+  SMRecoPtMatchMode5->Write();
+  SMRecoPtMatchMode3->GetXaxis()->SetTitle("RECO pT[GeV]");
+	
+  SMRecoPtMatchMode15BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode14BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode13BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode11BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode12BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode10BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode7BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode9BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode6BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode5BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode3BX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+	
+  SMRecoPtMatchMode15BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode14BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode13BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode11BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode12BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode10BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode7BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode9BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode6BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode5BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode3BX0dBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+	
+  SMRecoPtMatchMode15BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode14BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode13BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode11BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode12BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode10BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode7BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode9BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode6BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode5BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
         
   myPlot.Close();
   
