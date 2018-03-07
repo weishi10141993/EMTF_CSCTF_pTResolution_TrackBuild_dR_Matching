@@ -942,6 +942,64 @@ void ModesRateEff() {
   LBadMatchEff->Draw(); 
   CBadMatchEff->Write();
 
+  //Rate plots from ZB data
+  TGraph *Rate = new TGraph(30, TrigPT, Count); 
+  
+  TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); 
+  TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); 
+  TGraph *RateMode15RecoSoft = new TGraph(30, TrigPT, CountMode15RecoSoft); 
+  TGraph *RateMode15RecoOnly = new TGraph(30, TrigPT, CountMode15RecoOnly); 
+	
+  TGraph *RateMode14 = new TGraph(30, TrigPT, CountMode14); 
+  TGraph *RateMode14dBX0 = new TGraph(30, TrigPT, CountMode14dBX0); 
+  TGraph *RateMode14RecoSoft = new TGraph(30, TrigPT, CountMode14RecoSoft); 
+  TGraph *RateMode14RecoOnly = new TGraph(30, TrigPT, CountMode14RecoOnly); 
+ 
+  TGraph *RateMode13 = new TGraph(30, TrigPT, CountMode13); 
+  TGraph *RateMode13dBX0 = new TGraph(30, TrigPT, CountMode13dBX0); 
+  TGraph *RateMode13RecoSoft = new TGraph(30, TrigPT, CountMode13RecoSoft); 
+  TGraph *RateMode13RecoOnly = new TGraph(30, TrigPT, CountMode13RecoOnly); 
+  
+  TGraph *RateMode11 = new TGraph(30, TrigPT, CountMode11); 
+  TGraph *RateMode11dBX0 = new TGraph(30, TrigPT, CountMode11dBX0); 
+  TGraph *RateMode11RecoSoft = new TGraph(30, TrigPT, CountMode11RecoSoft); 
+  TGraph *RateMode11RecoOnly = new TGraph(30, TrigPT, CountMode11RecoOnly); 
+	
+  TGraph *RateMode12 = new TGraph(30, TrigPT, CountMode12); 
+  TGraph *RateMode12dBX0 = new TGraph(30, TrigPT, CountMode12dBX0); 
+  TGraph *RateMode12RecoSoft = new TGraph(30, TrigPT, CountMode12RecoSoft); 
+  TGraph *RateMode12RecoOnly = new TGraph(30, TrigPT, CountMode12RecoOnly); 
+
+  TGraph *RateMode10 = new TGraph(30, TrigPT, CountMode10); 
+  TGraph *RateMode10dBX0 = new TGraph(30, TrigPT, CountMode10dBX0); 
+  TGraph *RateMode10RecoSoft = new TGraph(30, TrigPT, CountMode10RecoSoft); 
+  TGraph *RateMode10RecoOnly = new TGraph(30, TrigPT, CountMode10RecoOnly); 
+  
+  TGraph *RateMode7 = new TGraph(30, TrigPT, CountMode7); 
+  TGraph *RateMode7dBX0 = new TGraph(30, TrigPT, CountMode7dBX0); 
+  TGraph *RateMode7RecoSoft = new TGraph(30, TrigPT, CountMode7RecoSoft); 
+  TGraph *RateMode7RecoOnly = new TGraph(30, TrigPT, CountMode7RecoOnly); 
+	
+  TGraph *RateMode9 = new TGraph(30, TrigPT, CountMode9); 
+  TGraph *RateMode9dBX0 = new TGraph(30, TrigPT, CountMode9dBX0); 
+  TGraph *RateMode9RecoSoft = new TGraph(30, TrigPT, CountMode9RecoSoft); 
+  TGraph *RateMode9RecoOnly = new TGraph(30, TrigPT, CountMode9RecoOnly); 
+ 
+  TGraph *RateMode6 = new TGraph(30, TrigPT, CountMode6); 
+  TGraph *RateMode6dBX0 = new TGraph(30, TrigPT, CountMode6dBX0); 
+  TGraph *RateMode6RecoSoft = new TGraph(30, TrigPT, CountMode6RecoSoft); 
+  TGraph *RateMode6RecoOnly = new TGraph(30, TrigPT, CountMode6RecoOnly); 
+  
+  TGraph *RateMode5 = new TGraph(30, TrigPT, CountMode5); 
+  TGraph *RateMode5dBX0 = new TGraph(30, TrigPT, CountMode5dBX0); 
+  TGraph *RateMode5RecoSoft = new TGraph(30, TrigPT, CountMode5RecoSoft); 
+  TGraph *RateMode5RecoOnly = new TGraph(30, TrigPT, CountMode5RecoOnly); 
+	
+  TGraph *RateMode3 = new TGraph(30, TrigPT, CountMode3); 
+  TGraph *RateMode3dBX0 = new TGraph(30, TrigPT, CountMode3dBX0); 
+  TGraph *RateMode3RecoSoft = new TGraph(30, TrigPT, CountMode3RecoSoft); 
+  TGraph *RateMode3RecoOnly = new TGraph(30, TrigPT, CountMode3RecoOnly); 
+
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
