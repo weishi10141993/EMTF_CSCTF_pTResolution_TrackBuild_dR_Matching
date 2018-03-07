@@ -149,7 +149,54 @@ void ModesRateEff() {
   TH1F *SMRecoPtMatchMode5BX0Plateau = new TH1F("SMRecoPtMatchMode5BX0Plateau", "Match Mode5BX0Plateau" + SMRecoPtTitle, 0, 30, 30);
   TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Match Mode3BX0Plateau" + SMRecoPtTitle, 0, 30, 30);
 
-  //Initialize 
+  //Initialize variables for rate
+  int TrigPt[30]={0};
+  Long64_t Count[30]={0};
+  
+  Long64_t CountMode15[30]={0};
+  Long64_t CountMode15BX0[30]={0};
+  Long64_t CountMode15RecoSoft[30]={0};
+  Long64_t CountMode15RecoOnly[30]={0};
+  Long64_t CountMode14[30]={0};
+  Long64_t CountMode14BX0[30]={0};
+  Long64_t CountMode14RecoSoft[30]={0};
+  Long64_t CountMode14RecoOnly[30]={0};
+  Long64_t CountMode13[30]={0};
+  Long64_t CountMode13BX0[30]={0};
+  Long64_t CountMode13RecoSoft[30]={0};
+  Long64_t CountMode13RecoOnly[30]={0};
+  Long64_t CountMode11[30]={0};
+  Long64_t CountMode11BX0[30]={0};
+  Long64_t CountMode11RecoSoft[30]={0};
+  Long64_t CountMode11RecoOnly[30]={0};
+  Long64_t CountMode12[30]={0};
+  Long64_t CountMode12BX0[30]={0};
+  Long64_t CountMode12RecoSoft[30]={0};
+  Long64_t CountMode12RecoOnly[30]={0};
+  Long64_t CountMode10[30]={0};
+  Long64_t CountMode10BX0[30]={0};
+  Long64_t CountMode10RecoSoft[30]={0};
+  Long64_t CountMode10RecoOnly[30]={0};
+  Long64_t CountMode7[30]={0};
+  Long64_t CountMode7BX0[30]={0};
+  Long64_t CountMode7RecoSoft[30]={0};
+  Long64_t CountMode7RecoOnly[30]={0};
+  Long64_t CountMode9[30]={0};
+  Long64_t CountMode9BX0[30]={0};
+  Long64_t CountMode9RecoSoft[30]={0};
+  Long64_t CountMode9RecoOnly[30]={0};
+  Long64_t CountMode6[30]={0};
+  Long64_t CountMode6BX0[30]={0};
+  Long64_t CountMode6RecoSoft[30]={0};
+  Long64_t CountMode6RecoOnly[30]={0};
+  Long64_t CountMode5[30]={0};
+  Long64_t CountMode5BX0[30]={0};
+  Long64_t CountMode5RecoSoft[30]={0};
+  Long64_t CountMode5RecoOnly[30]={0};
+  Long64_t CountMode3[30]={0};
+  Long64_t CountMode3BX0[30]={0};
+  Long64_t CountMode3RecoSoft[30]={0};
+  Long64_t CountMode3RecoOnly[30]={0};
 	
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
