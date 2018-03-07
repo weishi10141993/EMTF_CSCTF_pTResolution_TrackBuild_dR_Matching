@@ -407,7 +407,7 @@ void ModesRateEff() {
 					    if( I("trk_dBX", itrack) == 0 ){
 						 CountMode15dBX0[i]++;   
 					    }
-					    if( I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack) >= 1 ){
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
 						 CountMode15RecoSoft[i]++;   
 					    }
 					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
