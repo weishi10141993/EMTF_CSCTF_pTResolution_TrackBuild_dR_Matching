@@ -482,91 +482,91 @@ void ModesRateEff() {
   LMode15->Draw(); 
   CMode15->Write();
 
-  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
-  THStack *SMode15 = new THStack("SMode15","Mode15");
-  CMode15->cd();
-  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
-  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
-  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
-  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
-  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CMode14 = new TCanvas("CMode14","Mode14",700,500);
+  THStack *SMode14 = new THStack("SMode14","Mode14");
+  CMode14->cd();
+  TH1F *SMRecoPtMatchMode14Clone = (TH1F*)SMRecoPtMatchMode14->Clone("SMRecoPtMatchMode14Clone");
+  TH1F *SMRecoPtMatchMode14BX0Clone = (TH1F*)SMRecoPtMatchMode14BX0->Clone("SMRecoPtMatchMode14BX0Clone");
+  TH1F *SMRecoPtMatchMode14BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode14BX0dBX0->Clone("SMRecoPtMatchMode14BX0dBX0Clone");
+  TH1F *SMRecoPtMatchMode14BX0PlateauClone = (TH1F*)SMRecoPtMatchMode14BX0Plateau->Clone("SMRecoPtMatchMode14BX0PlateauClone");
+  SMRecoPtMatchMode14Clone->SetLineColor(1);//blk
+  SMRecoPtMatchMode14BX0Clone->SetLineColor(2);//red
+  SMRecoPtMatchMode14BX0dBX0Clone->SetLineColor(3);//green
+  SMRecoPtMatchMode14BX0PlateauClone->SetLineColor(4);//blue
   gStyle->SetOptStat(0);
-  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
-  SMode15->Add(SMRecoPtMatchMode15Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
-  SMode15->Draw("nostack");
-  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("efficiency");
-  CMode15->Modified();
+  SMRecoPtMatchMode14Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode14BX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode14BX0dBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode14BX0PlateauClone->Divide(SMRecoPt);
+  SMode14->Add(SMRecoPtMatchMode14Clone);
+  SMode14->Add(SMRecoPtMatchMode14BX0Clone);
+  SMode14->Add(SMRecoPtMatchMode14BX0dBX0Clone);
+  SMode14->Add(SMRecoPtMatchMode14BX0PlateauClone);
+  SMode14->Draw("nostack");
+  SMode14->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMode14->GetYaxis()->SetTitle("efficiency");
+  CMode14->Modified();
         
-  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMode15 = "";
-  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
-  TString LMatchMode15BX0 = "";
-  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMode15BX0dBX0 = "";
-  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
-  TString LMatchMode15BX0Plateau = "";
-  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
-  LMode15->SetFillStyle(0);
-  LMode15->SetBorderSize(0);
-  LMode15->Draw(); 
-  CMode15->Write();
+  TLegend* LMode14 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LMatchMode14 = "";
+  LMatchMode14 = LMatchMode14 + "RecoMu Unique Match";
+  TString LMatchMode14BX0 = "";
+  LMatchMode14BX0 = LMatchMode14BX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LMatchMode14BX0dBX0 = "";
+  LMatchMode14BX0dBX0 = LMatchMode14BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LMatchMode14BX0Plateau = "";
+  LMatchMode14BX0Plateau = LMatchMode14BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LMode14->AddEntry(SMRecoPtMatchMode14Clone, LMatchMode14);
+  LMode14->AddEntry(SMRecoPtMatchMode14BX0Clone, LMatchMode14BX0);
+  LMode14->AddEntry(SMRecoPtMatchMode14BX0dBX0Clone, LMatchMode14BX0dBX0);
+  LMode14->AddEntry(SMRecoPtMatchMode14BX0PlateauClone, LMatchMode14BX0Plateau);
+  LMode14->SetFillStyle(0);
+  LMode14->SetBorderSize(0);
+  LMode14->Draw(); 
+  CMode14->Write();
 	
-  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
-  THStack *SMode15 = new THStack("SMode15","Mode15");
-  CMode15->cd();
-  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
-  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
-  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
-  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
-  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CMode13 = new TCanvas("CMode13","Mode13",700,500);
+  THStack *SMode13 = new THStack("SMode13","Mode13");
+  CMode13->cd();
+  TH1F *SMRecoPtMatchMode13Clone = (TH1F*)SMRecoPtMatchMode13->Clone("SMRecoPtMatchMode13Clone");
+  TH1F *SMRecoPtMatchMode13BX0Clone = (TH1F*)SMRecoPtMatchMode13BX0->Clone("SMRecoPtMatchMode13BX0Clone");
+  TH1F *SMRecoPtMatchMode13BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode13BX0dBX0->Clone("SMRecoPtMatchMode13BX0dBX0Clone");
+  TH1F *SMRecoPtMatchMode13BX0PlateauClone = (TH1F*)SMRecoPtMatchMode13BX0Plateau->Clone("SMRecoPtMatchMode13BX0PlateauClone");
+  SMRecoPtMatchMode13Clone->SetLineColor(1);//blk
+  SMRecoPtMatchMode13BX0Clone->SetLineColor(2);//red
+  SMRecoPtMatchMode13BX0dBX0Clone->SetLineColor(3);//green
+  SMRecoPtMatchMode13BX0PlateauClone->SetLineColor(4);//blue
   gStyle->SetOptStat(0);
-  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
-  SMode15->Add(SMRecoPtMatchMode15Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
-  SMode15->Draw("nostack");
-  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("efficiency");
-  CMode15->Modified();
+  SMRecoPtMatchMode13Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode13BX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode13BX0dBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMode13BX0PlateauClone->Divide(SMRecoPt);
+  SMode13->Add(SMRecoPtMatchMode13Clone);
+  SMode13->Add(SMRecoPtMatchMode13BX0Clone);
+  SMode13->Add(SMRecoPtMatchMode13BX0dBX0Clone);
+  SMode13->Add(SMRecoPtMatchMode13BX0PlateauClone);
+  SMode13->Draw("nostack");
+  SMode13->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMode13->GetYaxis()->SetTitle("efficiency");
+  CMode13->Modified();
         
-  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMode15 = "";
-  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
-  TString LMatchMode15BX0 = "";
-  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMode15BX0dBX0 = "";
-  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
-  TString LMatchMode15BX0Plateau = "";
-  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
-  LMode15->SetFillStyle(0);
-  LMode15->SetBorderSize(0);
-  LMode15->Draw(); 
-  CMode15->Write();
+  TLegend* LMode13 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LMatchMode13 = "";
+  LMatchMode13 = LMatchMode13 + "RecoMu Unique Match";
+  TString LMatchMode13BX0 = "";
+  LMatchMode13BX0 = LMatchMode13BX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LMatchMode13BX0dBX0 = "";
+  LMatchMode13BX0dBX0 = LMatchMode13BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LMatchMode13BX0Plateau = "";
+  LMatchMode13BX0Plateau = LMatchMode13BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LMode13->AddEntry(SMRecoPtMatchMode13Clone, LMatchMode13);
+  LMode13->AddEntry(SMRecoPtMatchMode13BX0Clone, LMatchMode13BX0);
+  LMode13->AddEntry(SMRecoPtMatchMode13BX0dBX0Clone, LMatchMode13BX0dBX0);
+  LMode13->AddEntry(SMRecoPtMatchMode13BX0PlateauClone, LMatchMode13BX0Plateau);
+  LMode13->SetFillStyle(0);
+  LMode13->SetBorderSize(0);
+  LMode13->Draw(); 
+  CMode13->Write();
 
   TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
   THStack *SMode15 = new THStack("SMode15","Mode15");
