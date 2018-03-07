@@ -106,10 +106,12 @@ void ModesRateEff() {
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     // Print info for unpacked EMTF tracks
-    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
-    for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
-	     
-    }//end loop over unpacked tracks
+    if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
+    for (int irecomu = 0; irecomu < I("nRecoMuons"); irecomu++) {
+	    if( F("reco_pt", irecomu) >= PT_LOW && F("reco_pt", irecomu) <= PT_UP && I("reco_ID_loose", irecomu) == 1 && I("reco_ID_station", irecomu) == 1 && fabs(F("reco_eta_St2",irecomu)) >= ETA_LOW && fabs(F("reco_eta_St2", irecomu) ) <= ETA_UP){
+		   SMRecoPt->Fill( F("reco_pt", irecomu) ); 
+	    }//selection on reco mu
+    }//end loop over reco muons
     
   } // End loop events
   std::cout << "\n******* Finished looping over the SingleMu events *******" << std::endl;
