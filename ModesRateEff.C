@@ -912,49 +912,6 @@ void ModesRateEff() {
   LMode15->Draw(); 
   CMode15->Write();
 	
-  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
-  THStack *SMode15 = new THStack("SMode15","Mode15");
-  CMode15->cd();
-  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
-  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
-  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
-  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
-  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
-  SMode15->Add(SMRecoPtMatchMode15Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
-  SMode15->Draw("nostack");
-  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("efficiency");
-  CMode15->Modified();
-        
-  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMode15 = "";
-  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
-  TString LMatchMode15BX0 = "";
-  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMode15BX0dBX0 = "";
-  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
-  TString LMatchMode15BX0Plateau = "";
-  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
-  LMode15->SetFillStyle(0);
-  LMode15->SetBorderSize(0);
-  LMode15->Draw(); 
-  CMode15->Write();
-	
   //divide histograms for eff
   TCanvas *CBadMatchEff = new TCanvas("CBadMatchEff","CBadMatchEff",700,500);
   THStack *SBadMatchEff = new THStack("SBadMatchEff","SBadMatchEff");
