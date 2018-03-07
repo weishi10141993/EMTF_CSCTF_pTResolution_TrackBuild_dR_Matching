@@ -151,50 +151,53 @@ void ModesRateEff() {
 
   //Initialize variables for rate
   int TrigPt[30]={0};
+  for(int i=0;i<30;i++){
+	  TrigPt[i]=i;
+  }
   Long64_t Count[30]={0};
   
   Long64_t CountMode15[30]={0};
-  Long64_t CountMode15BX0[30]={0};
+  Long64_t CountMode15dBX0[30]={0};
   Long64_t CountMode15RecoSoft[30]={0};
   Long64_t CountMode15RecoOnly[30]={0};
   Long64_t CountMode14[30]={0};
-  Long64_t CountMode14BX0[30]={0};
+  Long64_t CountMode14dBX0[30]={0};
   Long64_t CountMode14RecoSoft[30]={0};
   Long64_t CountMode14RecoOnly[30]={0};
   Long64_t CountMode13[30]={0};
-  Long64_t CountMode13BX0[30]={0};
+  Long64_t CountMode13dBX0[30]={0};
   Long64_t CountMode13RecoSoft[30]={0};
   Long64_t CountMode13RecoOnly[30]={0};
   Long64_t CountMode11[30]={0};
-  Long64_t CountMode11BX0[30]={0};
+  Long64_t CountMode11dBX0[30]={0};
   Long64_t CountMode11RecoSoft[30]={0};
   Long64_t CountMode11RecoOnly[30]={0};
   Long64_t CountMode12[30]={0};
-  Long64_t CountMode12BX0[30]={0};
+  Long64_t CountMode12dBX0[30]={0};
   Long64_t CountMode12RecoSoft[30]={0};
   Long64_t CountMode12RecoOnly[30]={0};
   Long64_t CountMode10[30]={0};
-  Long64_t CountMode10BX0[30]={0};
+  Long64_t CountMode10dBX0[30]={0};
   Long64_t CountMode10RecoSoft[30]={0};
   Long64_t CountMode10RecoOnly[30]={0};
   Long64_t CountMode7[30]={0};
-  Long64_t CountMode7BX0[30]={0};
+  Long64_t CountMode7dBX0[30]={0};
   Long64_t CountMode7RecoSoft[30]={0};
   Long64_t CountMode7RecoOnly[30]={0};
   Long64_t CountMode9[30]={0};
-  Long64_t CountMode9BX0[30]={0};
+  Long64_t CountMode9dBX0[30]={0};
   Long64_t CountMode9RecoSoft[30]={0};
   Long64_t CountMode9RecoOnly[30]={0};
   Long64_t CountMode6[30]={0};
-  Long64_t CountMode6BX0[30]={0};
+  Long64_t CountMode6dBX0[30]={0};
   Long64_t CountMode6RecoSoft[30]={0};
   Long64_t CountMode6RecoOnly[30]={0};
   Long64_t CountMode5[30]={0};
-  Long64_t CountMode5BX0[30]={0};
+  Long64_t CountMode5dBX0[30]={0};
   Long64_t CountMode5RecoSoft[30]={0};
   Long64_t CountMode5RecoOnly[30]={0};
   Long64_t CountMode3[30]={0};
-  Long64_t CountMode3BX0[30]={0};
+  Long64_t CountMode3dBX0[30]={0};
   Long64_t CountMode3RecoSoft[30]={0};
   Long64_t CountMode3RecoOnly[30]={0};
 	
@@ -393,7 +396,30 @@ void ModesRateEff() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	     
+	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW ){
+		    for(int i=0;i<30;i++){
+			    
+			    if( F("trk_pt", itrack)> TrigPt[i]){
+				   count[i]++; 
+				   switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
+				    case 15:
+					    CountMode15[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode15dBX0[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack) >= 1 ){
+						 CountMode15RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode15RecoOnly[i]++;   
+					    }
+                            	            break; 
+			            default:
+                                            break; 
+			           }//end switch mode
+			    }       
+		    }//loop over trig pT  
+	    }//select over trks
     }//end loop over tracks
     
   } // End loop events
