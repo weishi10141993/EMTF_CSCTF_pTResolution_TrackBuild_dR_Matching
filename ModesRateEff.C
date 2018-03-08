@@ -15,7 +15,7 @@ const int PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
 const int MAX_EVT   = 1000000;   // Max number of events to process
-const int PRT_EVT   =  100;   // Print every N events
+const int PRT_EVT   =  10000;   // Print every N events
 //================================================================
 
 void ModesRateEff() {
