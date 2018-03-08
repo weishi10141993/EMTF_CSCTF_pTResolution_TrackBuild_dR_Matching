@@ -400,7 +400,7 @@ void ModesRateEff() {
 		    for(int i=0;i<30;i++){
 			    
 			    if( F("trk_pt", itrack)> TrigPt[i]){
-				   count[i]++; 
+				   Count[i]++; 
 				   switch ( I("trk_mode", itrack ) ) {//all trk modes
 				    case 15:
 					    CountMode15[i]++; 
