@@ -1265,6 +1265,406 @@ void ModesRateEff() {
   LRateMode15->Draw(); 
   CRateMode15->Write();	
 
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+  
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+  
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+ 
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+	
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+	
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+  
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+	
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+	
+  TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
+  mgMode15->Draw();
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
+
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
