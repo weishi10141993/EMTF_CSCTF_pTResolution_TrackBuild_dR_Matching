@@ -1226,12 +1226,22 @@ void ModesRateEff() {
   TCanvas *CRateMode3=new TCanvas("CRateMode3","Mode3",700,500);
 	
   TMultiGraph *mgMode15=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
+	  RatioMode15dBX0[i] = 1.0*CountMode15dBX0[i]/Count[i];
+          RatioMode15RecoSoft[i] = 1.0*CountMode15RecoSoft[i]/Count[i];
+          RatioMode15RecoOnly[i] = 1.0*CountMode15RecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMode15 = new TGraph(30, TrigPT, RatioMode15); RateRatioMode15->SetMarkerStyle(22); RateRatioMode15->SetLineColor(1);
+  TGraph *RateRatioMode15dBX0 = new TGraph(30, TrigPT, RatioMode15dBX0); RateRatioMode15dBX0->SetMarkerStyle(22); RateRatioMode15dBX0->SetLineColor(2);
+  TGraph *RateRatioMode15RecoSoft = new TGraph(30, TrigPT, RatioMode15RecoSoft); RateRatioMode15RecoSoft->SetMarkerStyle(22); RateRatioMode15RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode15RecoOnly = new TGraph(30, TrigPT, RatioMode15RecoOnly); RateRatioMode15RecoOnly->SetMarkerStyle(22); RateRatioMode15RecoOnly->SetLineColor(4);
   CRateMode15->cd();
   mgMode15->SetTitle("Mode 15");
-  mgMode15->Add();
-  mgMode15->Add();
-  mgMode15->Add();
-  mgMode15->Add();
+  mgMode15->Add(RateRatioMode15);
+  mgMode15->Add(RateRatioMode15dBX0);
+  mgMode15->Add(RateRatioMode15RecoSoft);
+  mgMode15->Add(RateRatioMode15RecoOnly);
   mgMode15->Draw();
   mgMode15->Write();
 	
