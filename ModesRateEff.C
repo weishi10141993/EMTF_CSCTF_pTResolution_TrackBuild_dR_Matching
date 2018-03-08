@@ -1493,7 +1493,7 @@ void ModesRateEff() {
   LRatioMode7 = LRatioMode7 + "Mode 7";
   TString LRatioMode7dBX0 = "";
   LRatioMode7dBX0 = LRatioMode7dBX0 + "Mode 7, TrkBX=0";
-  TString LRatioMode14RecoSoft = "";
+  TString LRatioMode7RecoSoft = "";
   LRatioMode7RecoSoft = LRatioMode7RecoSoft + "Mode 7, Reco+Soft";
   TString LRatioMode7RecoOnly = "";
   LRatioMode7RecoOnly = LRatioMode7RecoOnly + "Mode 7, Reco only";
