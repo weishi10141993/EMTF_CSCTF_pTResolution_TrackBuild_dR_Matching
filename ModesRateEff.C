@@ -396,7 +396,7 @@ void ModesRateEff() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW ){
+	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW && I("trk_dR_match_unique", itrack) == 1 ){
 		    for(int i=0;i<30;i++){
 			    
 			    if( F("trk_pt", itrack)> TrigPt[i]){
@@ -1212,7 +1212,8 @@ void ModesRateEff() {
   double RatioMode3dBX0[30]={0};
   double RatioMode3RecoSoft[30]={0};
   double RatioMode3RecoOnly[30]={0};
-	
+  
+  Rate->Write();
   TCanvas *CRateMode15=new TCanvas("CRateMode15","Mode15",700,500);
   TCanvas *CRateMode14=new TCanvas("CRateMode14","Mode14",700,500);
   TCanvas *CRateMode13=new TCanvas("CRateMode13","Mode13",700,500);
@@ -1565,7 +1566,7 @@ void ModesRateEff() {
   mgMode6->Draw();
   mgMode6->GetXaxis()->SetTitle("Trig pT[GeV]");
   mgMode6->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode14->Modified();
+  CRateMode6->Modified();
         
   TLegend* LRateMode6 = new TLegend(0.6,0.6,0.9,0.9);
   TString LRatioMode6 = "";
@@ -1715,7 +1716,63 @@ void ModesRateEff() {
   SMRecoPtMatchMode6BX0Plateau->Write();
   SMRecoPtMatchMode5BX0Plateau->Write();
   SMRecoPtMatchMode3BX0Plateau->Write();
-        
+  
+  //rate
+  RateMode15->Write(); 
+  RateMode15dBX0->Write();
+  RateMode15RecoSoft->Write();
+  RateMode15RecoOnly->Write();
+	
+  RateMode14->Write();
+  RateMode14dBX0->Write();
+  RateMode14RecoSoft->Write();
+  RateMode14RecoOnly->Write();
+ 
+  RateMode13->Write();
+  RateMode13dBX0->Write();
+  RateMode13RecoSoft->Write();
+  RateMode13RecoOnly->Write();
+  
+  RateMode11->Write();
+  RateMode11dBX0->Write();
+  RateMode11RecoSoft->Write();
+  RateMode11RecoOnly->Write();
+	
+  RateMode12->Write();
+  RateMode12dBX0->Write(); 
+  RateMode12RecoSoft->Write();
+  RateMode12RecoOnly->Write();
+
+  RateMode10->Write();
+  RateMode10dBX0->Write();
+  RateMode10RecoSoft->Write();
+  RateMode10RecoOnly->Write();
+  
+  RateMode7->Write();
+  RateMode7dBX0->Write();
+  RateMode7RecoSoft->Write();
+  RateMode7RecoOnly->Write();
+	
+  RateMode9->Write(); 
+  RateMode9dBX0->Write();
+  RateMode9RecoSoft->Write();
+  RateMode9RecoOnly->Write();
+ 
+  RateMode6->Write();
+  RateMode6dBX0->Write();
+  RateMode6RecoSoft->Write();
+  RateMode6RecoOnly->Write();
+  
+  RateMode5->Write();
+  RateMode5dBX0->Write();
+  RateMode5RecoSoft->Write();
+  RateMode5RecoOnly->Write();
+	
+  RateMode3->Write();
+  RateMode3dBX0->Write();
+  RateMode3RecoSoft->Write();
+  RateMode3RecoOnly->Write();
+  
   myPlot.Close();
   
 } // End function: void 
