@@ -1168,6 +1168,29 @@ void ModesRateEff() {
   TGraph *RateMode3RecoSoft = new TGraph(30, TrigPT, CountMode3RecoSoft); 
   TGraph *RateMode3RecoOnly = new TGraph(30, TrigPT, CountMode3RecoOnly); 
 
+  TCanvas *CRateMode15=new TCanvas("CRateMode15","Mode15",700,500);
+  TCanvas *CRateMode14=new TCanvas("CRateMode14","Mode14",700,500);
+  TCanvas *CRateMode13=new TCanvas("CRateMode13","Mode13",700,500);
+  TCanvas *CRateMode11=new TCanvas("CRateMode11","Mode11",700,500);
+  TCanvas *CRateMode12=new TCanvas("CRateMode12","Mode12",700,500);
+  TCanvas *CRateMode10=new TCanvas("CRateMode10","Mode10",700,500);
+  TCanvas *CRateMode7=new TCanvas("CRateMode7","Mode7",700,500);
+  TCanvas *CRateMode9=new TCanvas("CRateMode9","Mode9",700,500);
+  TCanvas *CRateMode6=new TCanvas("CRateMode6","Mode6",700,500);
+  TCanvas *CRateMode5=new TCanvas("CRateMode5","Mode5",700,500);
+  TCanvas *CRateMode3=new TCanvas("CRateMode3","Mode3",700,500);
+	
+  TMultiGraph *mgMode15=new TMultiGraph();
+  CRateMode15->cd();
+  mgMode15->SetTitle("Mode 15");
+  mgMode15->Add();
+  mgMode15->Add();
+  mgMode15->Add();
+  mgMode15->Add();
+  mgMode15->Draw();
+  mgMode15->Write();
+	
+
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
