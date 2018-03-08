@@ -14,7 +14,7 @@ const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
-const int MAX_EVT   = 1000000;   // Max number of events to process
+const int MAX_EVT   = 10000;   // Max number of events to process
 const int PRT_EVT   =  100;   // Print every N events
 //================================================================
 
@@ -1244,11 +1244,12 @@ void ModesRateEff() {
   mgMode15->Add(RateRatioMode15RecoSoft);
   mgMode15->Add(RateRatioMode15RecoOnly);
   mgMode15->Draw();
-  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode15->Modified();
+  mgMode15->Write();//added
+  //mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  //mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  //CRateMode15->Modified();
         
-  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  /*TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
   TString LRatioMode15 = "";
   LRatioMode15 = LRatioMode15 + "Mode 15";
   TString LRatioMode15dBX0 = "";
@@ -1264,8 +1265,8 @@ void ModesRateEff() {
   LRateMode15->SetFillStyle(0);
   LRateMode15->SetBorderSize(0);
   LRateMode15->Draw(); 
-  CRateMode15->Write();	
-
+  CRateMode15->Write();*/	
+/*
   TMultiGraph *mgMode14=new TMultiGraph();
   for(int i=0;i<30;i++){
 	  RatioMode14[i] = 1.0*CountMode14[i]/Count[i];
@@ -1665,7 +1666,7 @@ void ModesRateEff() {
   LRateMode3->SetBorderSize(0);
   LRateMode3->Draw(); 
   CRateMode3->Write();	
- 
+ */
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
