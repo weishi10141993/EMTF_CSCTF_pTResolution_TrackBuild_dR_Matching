@@ -150,9 +150,9 @@ void ModesRateEff() {
   TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Match Mode3BX0Plateau" + SMRecoPtTitle, 0, 30, 30);
 
   //Initialize variables for rate
-  int TrigPT[30]={0};
+  double TrigPT[30]={0};
   for(int i=0;i<30;i++){
-	  TrigPT[i]=i;
+	  TrigPT[i]=i*1.0;
   }
   Long64_t Count[30]={0};
   
