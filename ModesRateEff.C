@@ -9,7 +9,7 @@
 
 //USER modify here ONLY//
 //================================================================
-const bool verbose  = true; // Print information
+const bool verbose  = false; // Print information
 const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
