@@ -1305,17 +1305,17 @@ void ModesRateEff() {
   LRateMode14->Draw(); 
   CRateMode14->Write();	
   
-  TMultiGraph *mgMode14=new TMultiGraph();
+  TMultiGraph *mgMode13=new TMultiGraph();
   for(int i=0;i<30;i++){
-	  RatioMode14[i] = 1.0*CountMode14[i]/Count[i];
-	  RatioMode14dBX0[i] = 1.0*CountMode14dBX0[i]/Count[i];
-          RatioMode14RecoSoft[i] = 1.0*CountMode14RecoSoft[i]/Count[i];
-          RatioMode14RecoOnly[i] = 1.0*CountMode14RecoOnly[i]/Count[i];
+	  RatioMode13[i] = 1.0*CountMode13[i]/Count[i];
+	  RatioMode13dBX0[i] = 1.0*CountMode13dBX0[i]/Count[i];
+          RatioMode13RecoSoft[i] = 1.0*CountMode13RecoSoft[i]/Count[i];
+          RatioMode13RecoOnly[i] = 1.0*CountMode13RecoOnly[i]/Count[i];
   }
-  TGraph *RateRatioMode14 = new TGraph(30, TrigPT, RatioMode14); RateRatioMode14->SetMarkerStyle(22); RateRatioMode14->SetLineColor(1);
-  TGraph *RateRatioMode14dBX0 = new TGraph(30, TrigPT, RatioMode14dBX0); RateRatioMode14dBX0->SetMarkerStyle(22); RateRatioMode14dBX0->SetLineColor(2);
-  TGraph *RateRatioMode14RecoSoft = new TGraph(30, TrigPT, RatioMode14RecoSoft); RateRatioMode14RecoSoft->SetMarkerStyle(22); RateRatioMode14RecoSoft->SetLineColor(3);
-  TGraph *RateRatioMode14RecoOnly = new TGraph(30, TrigPT, RatioMode14RecoOnly); RateRatioMode14RecoOnly->SetMarkerStyle(22); RateRatioMode14RecoOnly->SetLineColor(4);
+  TGraph *RateRatioMode13 = new TGraph(30, TrigPT, RatioMode13); RateRatioMode13->SetMarkerStyle(22); RateRatioMode13->SetLineColor(1);
+  TGraph *RateRatioMode13dBX0 = new TGraph(30, TrigPT, RatioMode13dBX0); RateRatioMode13dBX0->SetMarkerStyle(22); RateRatioMode1dBX0->SetLineColor(2);
+  TGraph *RateRatioMode13RecoSoft = new TGraph(30, TrigPT, RatioMode13RecoSoft); RateRatioMode13RecoSoft->SetMarkerStyle(22); RateRatioMode14RecoSoft->SetLineColor(3);
+  TGraph *RateRatioMode13RecoOnly = new TGraph(30, TrigPT, RatioMode13RecoOnly); RateRatioMode13RecoOnly->SetMarkerStyle(22); RateRatioMode14RecoOnly->SetLineColor(4);
   CRateMode14->cd();
   mgMode14->SetTitle("Mode 14");
   mgMode14->Add(RateRatioMode14);
