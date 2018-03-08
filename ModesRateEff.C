@@ -150,9 +150,9 @@ void ModesRateEff() {
   TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Match Mode3BX0Plateau" + SMRecoPtTitle, 0, 30, 30);
 
   //Initialize variables for rate
-  int TrigPt[30]={0};
+  int TrigPT[30]={0};
   for(int i=0;i<30;i++){
-	  TrigPt[i]=i;
+	  TrigPT[i]=i;
   }
   Long64_t Count[30]={0};
   
@@ -399,7 +399,7 @@ void ModesRateEff() {
 	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW && I("trk_dR_match_unique", itrack) == 1 ){
 		    for(int i=0;i<30;i++){
 			    
-			    if( F("trk_pt", itrack)> TrigPt[i]){
+			    if( F("trk_pt", itrack)> TrigPT[i]){
 				   Count[i]++; 
 				   switch ( I("trk_mode", itrack ) ) {//all trk modes
 				    case 15:
