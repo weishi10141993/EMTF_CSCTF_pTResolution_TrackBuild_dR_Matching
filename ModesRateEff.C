@@ -1243,8 +1243,27 @@ void ModesRateEff() {
   mgMode15->Add(RateRatioMode15RecoSoft);
   mgMode15->Add(RateRatioMode15RecoOnly);
   mgMode15->Draw();
-  mgMode15->Write();
-	
+  mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
+  mgMode15->GetYaxis()->SetTitle("Rate Ratio");
+  CRateMode15->Modified();
+        
+  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  TString LRatioMode15 = "";
+  LRatioMode15 = LRatioMode15 + "RecoMu Unique Match";
+  TString LRatioMode15dBX0 = "";
+  LRatioMode15dBX0 = LRatioMode15dBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LRatioMode15RecoSoft = "";
+  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LRatioMode15RecoOnly = "";
+  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
+  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
+  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
+  LRateMode15->SetFillStyle(0);
+  LRateMode15->SetBorderSize(0);
+  LRateMode15->Draw(); 
+  CRateMode15->Write();	
 
   //intermidiate plots
   SMRecoPtNoMatch->Write();
