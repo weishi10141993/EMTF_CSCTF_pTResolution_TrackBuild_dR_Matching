@@ -206,12 +206,12 @@ void ModesRateEff() {
   SetBranchAddresses(ZB_in_chain);
 	
   std::cout << "\n******* About to loop over the SingleMu events *******" << std::endl;
-  int nEvents = SM_in_chain->GetEntries();
-  for (int iEvt = 0; iEvt < nEvents; iEvt++) {
+  int nSMEvents = SM_in_chain->GetEntries();
+  for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
     if (iEvt > MAX_EVT) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
-      std::cout << "Looking at event " << iEvt << " out of " << nEvents << std::endl;
+      std::cout << "Looking at event " << iEvt << " out of " << nSMEvents << std::endl;
       std::cout << "*************************************" << std::endl;
     }
 
@@ -381,12 +381,12 @@ void ModesRateEff() {
   std::cout << "\n******* Finished looping over the SingleMu events *******" << std::endl;
   
   std::cout << "\n******* About to loop over the Zerobias events *******" << std::endl;
-  int nEvents = ZB_in_chain->GetEntries();
-  for (int iEvt = 0; iEvt < nEvents; iEvt++) {
+  int nZBEvents = ZB_in_chain->GetEntries();
+  for (int iEvt = 0; iEvt < nZBEvents; iEvt++) {
     if (iEvt > MAX_EVT) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
-      std::cout << "Looking at event " << iEvt << " out of " << nEvents << std::endl;
+      std::cout << "Looking at event " << iEvt << " out of " << nZBEvents << std::endl;
       std::cout << "*************************************" << std::endl;
     }
 
