@@ -1243,7 +1243,7 @@ void ModesRateEff() {
   mgMode15->Add(RateRatioMode15dBX0);
   mgMode15->Add(RateRatioMode15RecoSoft);
   mgMode15->Add(RateRatioMode15RecoOnly);
-  mgMode15->Draw();
+  mgMode15->Draw("LP");
   //mgMode15->Write();//added
   //mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
   //mgMode15->GetYaxis()->SetTitle("Rate Ratio");
