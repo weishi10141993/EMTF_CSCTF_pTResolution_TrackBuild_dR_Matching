@@ -1246,24 +1246,7 @@ void ModesRateEff() {
   mgMode15->Draw("LP");
   mgMode15->Write();
         
-  /*TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode15 = "";
-  LRatioMode15 = LRatioMode15 + "Mode 15";
-  TString LRatioMode15dBX0 = "";
-  LRatioMode15dBX0 = LRatioMode15dBX0 + "Mode 15, TrkBX=0";
-  TString LRatioMode15RecoSoft = "";
-  LRatioMode15RecoSoft = LRatioMode15RecoSoft + "Mode 15, Reco+Soft";
-  TString LRatioMode15RecoOnly = "";
-  LRatioMode15RecoOnly = LRatioMode15RecoOnly + "Mode 15, Reco only";
-  LRateMode15->AddEntry(RateRatioMode15, LRatioMode15, "lp");
-  LRateMode15->AddEntry(RateRatioMode15dBX0, LRatioMode15dBX0, "lp");
-  LRateMode15->AddEntry(RateRatioMode15RecoSoft, LRatioMode15RecoSoft, "lp");
-  LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
-  LRateMode15->SetFillStyle(0);
-  LRateMode15->SetBorderSize(0);
-  LRateMode15->Draw(); */
-  //CRateMode15->Write();	
-/*
+  
   TMultiGraph *mgMode14=new TMultiGraph();
   for(int i=0;i<30;i++){
 	  RatioMode14[i] = 1.0*CountMode14[i]/Count[i];
@@ -1281,28 +1264,8 @@ void ModesRateEff() {
   mgMode14->Add(RateRatioMode14dBX0);
   mgMode14->Add(RateRatioMode14RecoSoft);
   mgMode14->Add(RateRatioMode14RecoOnly);
-  mgMode14->Draw();
-  mgMode14->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode14->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode14->Modified();
-        
-  TLegend* LRateMode14 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode14 = "";
-  LRatioMode14 = LRatioMode14 + "Mode 14";
-  TString LRatioMode14dBX0 = "";
-  LRatioMode14dBX0 = LRatioMode14dBX0 + "Mode 14, TrkBX=0";
-  TString LRatioMode14RecoSoft = "";
-  LRatioMode14RecoSoft = LRatioMode14RecoSoft + "Mode 14, Reco+Soft";
-  TString LRatioMode14RecoOnly = "";
-  LRatioMode14RecoOnly = LRatioMode14RecoOnly + "Mode 14, Reco only";
-  LRateMode14->AddEntry(RateRatioMode14, LRatioMode14, "lp");
-  LRateMode14->AddEntry(RateRatioMode14dBX0, LRatioMode14dBX0, "lp");
-  LRateMode14->AddEntry(RateRatioMode14RecoSoft, LRatioMode14RecoSoft, "lp");
-  LRateMode14->AddEntry(RateRatioMode14RecoOnly, LRatioMode14RecoOnly, "lp");
-  LRateMode14->SetFillStyle(0);
-  LRateMode14->SetBorderSize(0);
-  LRateMode14->Draw(); 
-  CRateMode14->Write();	
+  mgMode14->Draw("LP");
+  mgMode14->Write();
   
   TMultiGraph *mgMode13=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1321,29 +1284,9 @@ void ModesRateEff() {
   mgMode13->Add(RateRatioMode13dBX0);
   mgMode13->Add(RateRatioMode13RecoSoft);
   mgMode13->Add(RateRatioMode13RecoOnly);
-  mgMode13->Draw();
-  mgMode13->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode13->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode13->Modified();
-        
-  TLegend* LRateMode13 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode13 = "";
-  LRatioMode13 = LRatioMode13 + "Mode 13";
-  TString LRatioMode13dBX0 = "";
-  LRatioMode13dBX0 = LRatioMode13dBX0 + "Mode 13, TrkBX=0";
-  TString LRatioMode13RecoSoft = "";
-  LRatioMode13RecoSoft = LRatioMode13RecoSoft + "Mode 13, Reco+Soft";
-  TString LRatioMode13RecoOnly = "";
-  LRatioMode13RecoOnly = LRatioMode13RecoOnly + "Mode 13, Reco only";
-  LRateMode13->AddEntry(RateRatioMode13, LRatioMode13, "lp");
-  LRateMode13->AddEntry(RateRatioMode13dBX0, LRatioMode13dBX0, "lp");
-  LRateMode13->AddEntry(RateRatioMode13RecoSoft, LRatioMode13RecoSoft, "lp");
-  LRateMode13->AddEntry(RateRatioMode13RecoOnly, LRatioMode13RecoOnly, "lp");
-  LRateMode13->SetFillStyle(0);
-  LRateMode13->SetBorderSize(0);
-  LRateMode13->Draw(); 
-  CRateMode13->Write();	
-  
+  mgMode13->Draw("LP");
+  mgMode13->Write();
+	
   TMultiGraph *mgMode11=new TMultiGraph();
   for(int i=0;i<30;i++){
 	  RatioMode11[i] = 1.0*CountMode11[i]/Count[i];
@@ -1361,28 +1304,8 @@ void ModesRateEff() {
   mgMode11->Add(RateRatioMode11dBX0);
   mgMode11->Add(RateRatioMode11RecoSoft);
   mgMode11->Add(RateRatioMode11RecoOnly);
-  mgMode11->Draw();
-  mgMode11->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode11->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode11->Modified();
-        
-  TLegend* LRateMode11 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode11 = "";
-  LRatioMode11 = LRatioMode11 + "Mode 11";
-  TString LRatioMode11dBX0 = "";
-  LRatioMode11dBX0 = LRatioMode11dBX0 + "Mode 11, TrkBX=0";
-  TString LRatioMode11RecoSoft = "";
-  LRatioMode11RecoSoft = LRatioMode11RecoSoft + "Mode 11, Reco+Soft";
-  TString LRatioMode11RecoOnly = "";
-  LRatioMode11RecoOnly = LRatioMode11RecoOnly + "Mode 11, Reco only";
-  LRateMode11->AddEntry(RateRatioMode11, LRatioMode11, "lp");
-  LRateMode11->AddEntry(RateRatioMode11dBX0, LRatioMode11dBX0, "lp");
-  LRateMode11->AddEntry(RateRatioMode11RecoSoft, LRatioMode11RecoSoft, "lp");
-  LRateMode11->AddEntry(RateRatioMode11RecoOnly, LRatioMode11RecoOnly, "lp");
-  LRateMode11->SetFillStyle(0);
-  LRateMode11->SetBorderSize(0);
-  LRateMode11->Draw(); 
-  CRateMode11->Write();	
+  mgMode11->Draw("LP");
+  mgMode11->Write();
 	
   TMultiGraph *mgMode12=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1401,28 +1324,8 @@ void ModesRateEff() {
   mgMode12->Add(RateRatioMode12dBX0);
   mgMode12->Add(RateRatioMode12RecoSoft);
   mgMode12->Add(RateRatioMode12RecoOnly);
-  mgMode12->Draw();
-  mgMode12->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode12->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode12->Modified();
-        
-  TLegend* LRateMode12 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode12 = "";
-  LRatioMode12 = LRatioMode12 + "Mode 12";
-  TString LRatioMode12dBX0 = "";
-  LRatioMode12dBX0 = LRatioMode12dBX0 + "Mode 12, TrkBX=0";
-  TString LRatioMode12RecoSoft = "";
-  LRatioMode12RecoSoft = LRatioMode12RecoSoft + "Mode 12, Reco+Soft";
-  TString LRatioMode12RecoOnly = "";
-  LRatioMode12RecoOnly = LRatioMode12RecoOnly + "Mode 12, Reco only";
-  LRateMode12->AddEntry(RateRatioMode12, LRatioMode12, "lp");
-  LRateMode12->AddEntry(RateRatioMode12dBX0, LRatioMode12dBX0, "lp");
-  LRateMode12->AddEntry(RateRatioMode12RecoSoft, LRatioMode12RecoSoft, "lp");
-  LRateMode12->AddEntry(RateRatioMode12RecoOnly, LRatioMode12RecoOnly, "lp");
-  LRateMode12->SetFillStyle(0);
-  LRateMode12->SetBorderSize(0);
-  LRateMode12->Draw(); 
-  CRateMode12->Write();	
+  mgMode12->Draw("LP");
+  mgMode12->Write();
 	
   TMultiGraph *mgMode10=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1441,28 +1344,8 @@ void ModesRateEff() {
   mgMode10->Add(RateRatioMode10dBX0);
   mgMode10->Add(RateRatioMode10RecoSoft);
   mgMode10->Add(RateRatioMode10RecoOnly);
-  mgMode10->Draw();
-  mgMode10->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode10->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode10->Modified();
-        
-  TLegend* LRateMode10 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode10 = "";
-  LRatioMode10 = LRatioMode10 + "Mode 10";
-  TString LRatioMode10dBX0 = "";
-  LRatioMode10dBX0 = LRatioMode10dBX0 + "Mode 10, TrkBX=0";
-  TString LRatioMode10RecoSoft = "";
-  LRatioMode10RecoSoft = LRatioMode10RecoSoft + "Mode 10, Reco+Soft";
-  TString LRatioMode10RecoOnly = "";
-  LRatioMode10RecoOnly = LRatioMode10RecoOnly + "Mode 10, Reco only";
-  LRateMode10->AddEntry(RateRatioMode10, LRatioMode10, "lp");
-  LRateMode10->AddEntry(RateRatioMode10dBX0, LRatioMode10dBX0, "lp");
-  LRateMode10->AddEntry(RateRatioMode10RecoSoft, LRatioMode10RecoSoft, "lp");
-  LRateMode10->AddEntry(RateRatioMode10RecoOnly, LRatioMode10RecoOnly, "lp");
-  LRateMode10->SetFillStyle(0);
-  LRateMode10->SetBorderSize(0);
-  LRateMode10->Draw(); 
-  CRateMode10->Write();	
+  mgMode10->Draw("LP");
+  mgMode10->Write();
 
   TMultiGraph *mgMode7=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1481,28 +1364,8 @@ void ModesRateEff() {
   mgMode7->Add(RateRatioMode7dBX0);
   mgMode7->Add(RateRatioMode7RecoSoft);
   mgMode7->Add(RateRatioMode7RecoOnly);
-  mgMode7->Draw();
-  mgMode7->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode7->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode7->Modified();
-        
-  TLegend* LRateMode7 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode7 = "";
-  LRatioMode7 = LRatioMode7 + "Mode 7";
-  TString LRatioMode7dBX0 = "";
-  LRatioMode7dBX0 = LRatioMode7dBX0 + "Mode 7, TrkBX=0";
-  TString LRatioMode7RecoSoft = "";
-  LRatioMode7RecoSoft = LRatioMode7RecoSoft + "Mode 7, Reco+Soft";
-  TString LRatioMode7RecoOnly = "";
-  LRatioMode7RecoOnly = LRatioMode7RecoOnly + "Mode 7, Reco only";
-  LRateMode7->AddEntry(RateRatioMode7, LRatioMode7, "lp");
-  LRateMode7->AddEntry(RateRatioMode7dBX0, LRatioMode7dBX0, "lp");
-  LRateMode7->AddEntry(RateRatioMode7RecoSoft, LRatioMode7RecoSoft, "lp");
-  LRateMode7->AddEntry(RateRatioMode7RecoOnly, LRatioMode7RecoOnly, "lp");
-  LRateMode7->SetFillStyle(0);
-  LRateMode7->SetBorderSize(0);
-  LRateMode7->Draw(); 
-  CRateMode7->Write();	
+  mgMode7->Draw("LP");
+  mgMode7->Write();
 	
   TMultiGraph *mgMode9=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1521,28 +1384,8 @@ void ModesRateEff() {
   mgMode9->Add(RateRatioMode9dBX0);
   mgMode9->Add(RateRatioMode9RecoSoft);
   mgMode9->Add(RateRatioMode9RecoOnly);
-  mgMode9->Draw();
-  mgMode9->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode9->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode9->Modified();
-        
-  TLegend* LRateMode9 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode9 = "";
-  LRatioMode9 = LRatioMode9 + "Mode 9";
-  TString LRatioMode9dBX0 = "";
-  LRatioMode9dBX0 = LRatioMode9dBX0 + "Mode 9, TrkBX=0";
-  TString LRatioMode9RecoSoft = "";
-  LRatioMode9RecoSoft = LRatioMode9RecoSoft + "Mode 9, Reco+Soft";
-  TString LRatioMode9RecoOnly = "";
-  LRatioMode9RecoOnly = LRatioMode9RecoOnly + "Mode 9, Reco only";
-  LRateMode9->AddEntry(RateRatioMode9, LRatioMode9, "lp");
-  LRateMode9->AddEntry(RateRatioMode9dBX0, LRatioMode9dBX0, "lp");
-  LRateMode9->AddEntry(RateRatioMode9RecoSoft, LRatioMode9RecoSoft, "lp");
-  LRateMode9->AddEntry(RateRatioMode9RecoOnly, LRatioMode9RecoOnly, "lp");
-  LRateMode9->SetFillStyle(0);
-  LRateMode9->SetBorderSize(0);
-  LRateMode9->Draw(); 
-  CRateMode9->Write();	
+  mgMode9->Draw("LP");
+  mgMode9->Write();
 	
   TMultiGraph *mgMode6=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1561,28 +1404,8 @@ void ModesRateEff() {
   mgMode6->Add(RateRatioMode6dBX0);
   mgMode6->Add(RateRatioMode6RecoSoft);
   mgMode6->Add(RateRatioMode6RecoOnly);
-  mgMode6->Draw();
-  mgMode6->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode6->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode6->Modified();
-        
-  TLegend* LRateMode6 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode6 = "";
-  LRatioMode6 = LRatioMode6 + "Mode 6";
-  TString LRatioMode6dBX0 = "";
-  LRatioMode6dBX0 = LRatioMode6dBX0 + "Mode 6, TrkBX=0";
-  TString LRatioMode6RecoSoft = "";
-  LRatioMode6RecoSoft = LRatioMode6RecoSoft + "Mode 6, Reco+Soft";
-  TString LRatioMode6RecoOnly = "";
-  LRatioMode6RecoOnly = LRatioMode6RecoOnly + "Mode 6, Reco only";
-  LRateMode6->AddEntry(RateRatioMode6, LRatioMode6, "lp");
-  LRateMode6->AddEntry(RateRatioMode6dBX0, LRatioMode6dBX0, "lp");
-  LRateMode6->AddEntry(RateRatioMode6RecoSoft, LRatioMode6RecoSoft, "lp");
-  LRateMode6->AddEntry(RateRatioMode6RecoOnly, LRatioMode6RecoOnly, "lp");
-  LRateMode6->SetFillStyle(0);
-  LRateMode6->SetBorderSize(0);
-  LRateMode6->Draw(); 
-  CRateMode6->Write();	
+  mgMode6->Draw("LP");
+  mgMode6->Write();
 	
   TMultiGraph *mgMode5=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1601,28 +1424,8 @@ void ModesRateEff() {
   mgMode5->Add(RateRatioMode5dBX0);
   mgMode5->Add(RateRatioMode5RecoSoft);
   mgMode5->Add(RateRatioMode5RecoOnly);
-  mgMode5->Draw();
-  mgMode5->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode5->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode5->Modified();
-        
-  TLegend* LRateMode5 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode5 = "";
-  LRatioMode5 = LRatioMode5 + "Mode 5";
-  TString LRatioMode5dBX0 = "";
-  LRatioMode5dBX0 = LRatioMode5dBX0 + "Mode 5, TrkBX=0";
-  TString LRatioMode5RecoSoft = "";
-  LRatioMode5RecoSoft = LRatioMode5RecoSoft + "Mode 5, Reco+Soft";
-  TString LRatioMode5RecoOnly = "";
-  LRatioMode5RecoOnly = LRatioMode5RecoOnly + "Mode 5, Reco only";
-  LRateMode5->AddEntry(RateRatioMode5, LRatioMode5, "lp");
-  LRateMode5->AddEntry(RateRatioMode5dBX0, LRatioMode5dBX0, "lp");
-  LRateMode5->AddEntry(RateRatioMode5RecoSoft, LRatioMode5RecoSoft, "lp");
-  LRateMode5->AddEntry(RateRatioMode5RecoOnly, LRatioMode5RecoOnly, "lp");
-  LRateMode5->SetFillStyle(0);
-  LRateMode5->SetBorderSize(0);
-  LRateMode5->Draw(); 
-  CRateMode5->Write();	
+  mgMode5->Draw("LP");
+  mgMode5->Write();
 	
   TMultiGraph *mgMode3=new TMultiGraph();
   for(int i=0;i<30;i++){
@@ -1641,29 +1444,9 @@ void ModesRateEff() {
   mgMode3->Add(RateRatioMode3dBX0);
   mgMode3->Add(RateRatioMode3RecoSoft);
   mgMode3->Add(RateRatioMode3RecoOnly);
-  mgMode3->Draw();
-  mgMode3->GetXaxis()->SetTitle("Trig pT[GeV]");
-  mgMode3->GetYaxis()->SetTitle("Rate Ratio");
-  CRateMode3->Modified();
-        
-  TLegend* LRateMode3 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LRatioMode3 = "";
-  LRatioMode3 = LRatioMode3 + "Mode 3";
-  TString LRatioMode3dBX0 = "";
-  LRatioMode3dBX0 = LRatioMode3dBX0 + "Mode 3, TrkBX=0";
-  TString LRatioMode3RecoSoft = "";
-  LRatioMode3RecoSoft = LRatioMode3RecoSoft + "Mode 3, Reco+Soft";
-  TString LRatioMode3RecoOnly = "";
-  LRatioMode3RecoOnly = LRatioMode3RecoOnly + "Mode 3, Reco only";
-  LRateMode3->AddEntry(RateRatioMode3, LRatioMode3, "lp");
-  LRateMode3->AddEntry(RateRatioMode3dBX0, LRatioMode3dBX0, "lp");
-  LRateMode3->AddEntry(RateRatioMode3RecoSoft, LRatioMode3RecoSoft, "lp");
-  LRateMode3->AddEntry(RateRatioMode3RecoOnly, LRatioMode3RecoOnly, "lp");
-  LRateMode3->SetFillStyle(0);
-  LRateMode3->SetBorderSize(0);
-  LRateMode3->Draw(); 
-  CRateMode3->Write();	
- */
+  mgMode3->Draw("LP");
+  mgMode3->Write();
+ 
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
