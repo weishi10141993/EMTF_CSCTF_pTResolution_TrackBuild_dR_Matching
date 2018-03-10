@@ -1244,12 +1244,12 @@ void ModesRateEff() {
   mgMode15->Add(RateRatioMode15RecoSoft);
   mgMode15->Add(RateRatioMode15RecoOnly);
   mgMode15->Draw();
-  mgMode15->Write();//added
+  //mgMode15->Write();//added
   //mgMode15->GetXaxis()->SetTitle("Trig pT[GeV]");
   //mgMode15->GetYaxis()->SetTitle("Rate Ratio");
-  //CRateMode15->Modified();
+  CRateMode15->BuildLegend();
         
-  TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
+  /*TLegend* LRateMode15 = new TLegend(0.6,0.6,0.9,0.9);
   TString LRatioMode15 = "";
   LRatioMode15 = LRatioMode15 + "Mode 15";
   TString LRatioMode15dBX0 = "";
@@ -1264,8 +1264,8 @@ void ModesRateEff() {
   LRateMode15->AddEntry(RateRatioMode15RecoOnly, LRatioMode15RecoOnly, "lp");
   LRateMode15->SetFillStyle(0);
   LRateMode15->SetBorderSize(0);
-  LRateMode15->Draw(); 
-  //CRateMode15->Write();	
+  LRateMode15->Draw(); */
+  CRateMode15->Write();	
 /*
   TMultiGraph *mgMode14=new TMultiGraph();
   for(int i=0;i<30;i++){
