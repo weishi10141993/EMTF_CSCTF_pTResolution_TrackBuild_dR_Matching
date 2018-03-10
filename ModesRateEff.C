@@ -1111,62 +1111,62 @@ void ModesRateEff() {
   CBadMatchEff->Write();
 
   //Rate plots from ZB data
-  TGraph *Rate = new TGraph(30, TrigPT, Count); 
+  TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Rate");
   
-  TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); 
-  TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); 
-  TGraph *RateMode15RecoSoft = new TGraph(30, TrigPT, CountMode15RecoSoft); 
-  TGraph *RateMode15RecoOnly = new TGraph(30, TrigPT, CountMode15RecoOnly); 
+  TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); RateMode15->SetTitle("Rate Mode15");
+  TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); RateMode15dBX0->SetTitle("Rate Mode15 dBX0");
+  TGraph *RateMode15RecoSoft = new TGraph(30, TrigPT, CountMode15RecoSoft); RateMode15RecoSoft->SetTitle("Rate Mode15 RECO + Soft");
+  TGraph *RateMode15RecoOnly = new TGraph(30, TrigPT, CountMode15RecoOnly); RateMode15RecoOnly->SetTitle("Rate Mode15 RECO + Only");
 	
-  TGraph *RateMode14 = new TGraph(30, TrigPT, CountMode14); 
-  TGraph *RateMode14dBX0 = new TGraph(30, TrigPT, CountMode14dBX0); 
-  TGraph *RateMode14RecoSoft = new TGraph(30, TrigPT, CountMode14RecoSoft); 
-  TGraph *RateMode14RecoOnly = new TGraph(30, TrigPT, CountMode14RecoOnly); 
+  TGraph *RateMode14 = new TGraph(30, TrigPT, CountMode14); RateMode14->SetTitle("Rate Mode14");
+  TGraph *RateMode14dBX0 = new TGraph(30, TrigPT, CountMode14dBX0); RateMode14dBX0->SetTitle("Rate Mode14 dBX0");
+  TGraph *RateMode14RecoSoft = new TGraph(30, TrigPT, CountMode14RecoSoft); RateMode14RecoSoft->SetTitle("Rate Mode14 RECO + Soft");
+  TGraph *RateMode14RecoOnly = new TGraph(30, TrigPT, CountMode14RecoOnly); RateMode14RecoOnly->SetTitle("Rate Mode14 RECO + Only");
  
-  TGraph *RateMode13 = new TGraph(30, TrigPT, CountMode13); 
-  TGraph *RateMode13dBX0 = new TGraph(30, TrigPT, CountMode13dBX0); 
-  TGraph *RateMode13RecoSoft = new TGraph(30, TrigPT, CountMode13RecoSoft); 
-  TGraph *RateMode13RecoOnly = new TGraph(30, TrigPT, CountMode13RecoOnly); 
+  TGraph *RateMode13 = new TGraph(30, TrigPT, CountMode13); RateMode13->SetTitle("Rate Mode13");
+  TGraph *RateMode13dBX0 = new TGraph(30, TrigPT, CountMode13dBX0); RateMode13dBX0->SetTitle("Rate Mode13 dBX0");
+  TGraph *RateMode13RecoSoft = new TGraph(30, TrigPT, CountMode13RecoSoft); RateMode13RecoSoft->SetTitle("Rate Mode13 RECO + Soft");
+  TGraph *RateMode13RecoOnly = new TGraph(30, TrigPT, CountMode13RecoOnly); RateMode13RecoOnly->SetTitle("Rate Mode13 RECO + Only");
   
-  TGraph *RateMode11 = new TGraph(30, TrigPT, CountMode11); 
-  TGraph *RateMode11dBX0 = new TGraph(30, TrigPT, CountMode11dBX0); 
-  TGraph *RateMode11RecoSoft = new TGraph(30, TrigPT, CountMode11RecoSoft); 
-  TGraph *RateMode11RecoOnly = new TGraph(30, TrigPT, CountMode11RecoOnly); 
+  TGraph *RateMode11 = new TGraph(30, TrigPT, CountMode11); RateMode11->SetTitle("Rate Mode11");
+  TGraph *RateMode11dBX0 = new TGraph(30, TrigPT, CountMode11dBX0); RateMode11dBX0->SetTitle("Rate Mode11 dBX0");
+  TGraph *RateMode11RecoSoft = new TGraph(30, TrigPT, CountMode11RecoSoft); RateMode11RecoSoft->SetTitle("Rate Mode11 RECO + Soft");
+  TGraph *RateMode11RecoOnly = new TGraph(30, TrigPT, CountMode11RecoOnly); RateMode11RecoOnly->SetTitle("Rate Mode11 RECO + Only");
 	
-  TGraph *RateMode12 = new TGraph(30, TrigPT, CountMode12); 
-  TGraph *RateMode12dBX0 = new TGraph(30, TrigPT, CountMode12dBX0); 
-  TGraph *RateMode12RecoSoft = new TGraph(30, TrigPT, CountMode12RecoSoft); 
-  TGraph *RateMode12RecoOnly = new TGraph(30, TrigPT, CountMode12RecoOnly); 
+  TGraph *RateMode12 = new TGraph(30, TrigPT, CountMode12); RateMode12->SetTitle("Rate Mode12");
+  TGraph *RateMode12dBX0 = new TGraph(30, TrigPT, CountMode12dBX0); RateMode12dBX0->SetTitle("Rate Mode12 dBX0");
+  TGraph *RateMode12RecoSoft = new TGraph(30, TrigPT, CountMode12RecoSoft); RateMode12RecoSoft->SetTitle("Rate Mode12 RECO + Soft");
+  TGraph *RateMode12RecoOnly = new TGraph(30, TrigPT, CountMode12RecoOnly); RateMode12RecoOnly->SetTitle("Rate Mode12 RECO + Only");
 
-  TGraph *RateMode10 = new TGraph(30, TrigPT, CountMode10); 
-  TGraph *RateMode10dBX0 = new TGraph(30, TrigPT, CountMode10dBX0); 
-  TGraph *RateMode10RecoSoft = new TGraph(30, TrigPT, CountMode10RecoSoft); 
-  TGraph *RateMode10RecoOnly = new TGraph(30, TrigPT, CountMode10RecoOnly); 
+  TGraph *RateMode10 = new TGraph(30, TrigPT, CountMode10); RateMode10->SetTitle("Rate Mode10");
+  TGraph *RateMode10dBX0 = new TGraph(30, TrigPT, CountMode10dBX0); RateMode10dBX0->SetTitle("Rate Mode10 dBX0");
+  TGraph *RateMode10RecoSoft = new TGraph(30, TrigPT, CountMode10RecoSoft); RateMode10RecoSoft->SetTitle("Rate Mode10 RECO + Soft");
+  TGraph *RateMode10RecoOnly = new TGraph(30, TrigPT, CountMode10RecoOnly); RateMode10RecoOnly->SetTitle("Rate Mode10 RECO + Only");
   
-  TGraph *RateMode7 = new TGraph(30, TrigPT, CountMode7); 
-  TGraph *RateMode7dBX0 = new TGraph(30, TrigPT, CountMode7dBX0); 
-  TGraph *RateMode7RecoSoft = new TGraph(30, TrigPT, CountMode7RecoSoft); 
-  TGraph *RateMode7RecoOnly = new TGraph(30, TrigPT, CountMode7RecoOnly); 
+  TGraph *RateMode7 = new TGraph(30, TrigPT, CountMode7); RateMode7->SetTitle("Rate Mode7");
+  TGraph *RateMode7dBX0 = new TGraph(30, TrigPT, CountMode7dBX0); RateMode7dBX0->SetTitle("Rate Mode7 dBX0");
+  TGraph *RateMode7RecoSoft = new TGraph(30, TrigPT, CountMode7RecoSoft); RateMode7RecoSoft->SetTitle("Rate Mode7 RECO + Soft");
+  TGraph *RateMode7RecoOnly = new TGraph(30, TrigPT, CountMode7RecoOnly); RateMode7RecoOnly->SetTitle("Rate Mode7 RECO + Only");
 	
-  TGraph *RateMode9 = new TGraph(30, TrigPT, CountMode9); 
-  TGraph *RateMode9dBX0 = new TGraph(30, TrigPT, CountMode9dBX0); 
-  TGraph *RateMode9RecoSoft = new TGraph(30, TrigPT, CountMode9RecoSoft); 
-  TGraph *RateMode9RecoOnly = new TGraph(30, TrigPT, CountMode9RecoOnly); 
+  TGraph *RateMode9 = new TGraph(30, TrigPT, CountMode9); RateMode9->SetTitle("Rate Mode9");
+  TGraph *RateMode9dBX0 = new TGraph(30, TrigPT, CountMode9dBX0); RateMode9dBX0->SetTitle("Rate Mode9 dBX0");
+  TGraph *RateMode9RecoSoft = new TGraph(30, TrigPT, CountMode9RecoSoft); RateMode9RecoSoft->SetTitle("Rate Mode9 RECO + Soft");
+  TGraph *RateMode9RecoOnly = new TGraph(30, TrigPT, CountMode9RecoOnly); RateMode9RecoOnly->SetTitle("Rate Mode9 RECO + Only");
  
-  TGraph *RateMode6 = new TGraph(30, TrigPT, CountMode6); 
-  TGraph *RateMode6dBX0 = new TGraph(30, TrigPT, CountMode6dBX0); 
-  TGraph *RateMode6RecoSoft = new TGraph(30, TrigPT, CountMode6RecoSoft); 
-  TGraph *RateMode6RecoOnly = new TGraph(30, TrigPT, CountMode6RecoOnly); 
+  TGraph *RateMode6 = new TGraph(30, TrigPT, CountMode6); RateMode9->SetTitle("Rate Mode6");
+  TGraph *RateMode6dBX0 = new TGraph(30, TrigPT, CountMode6dBX0); RateMode6dBX0->SetTitle("Rate Mode6 dBX0");
+  TGraph *RateMode6RecoSoft = new TGraph(30, TrigPT, CountMode6RecoSoft); RateMode6RecoSoft->SetTitle("Rate Mode6 RECO + Soft");
+  TGraph *RateMode6RecoOnly = new TGraph(30, TrigPT, CountMode6RecoOnly); RateMode6RecoOnly->SetTitle("Rate Mode6 RECO + Only");
   
-  TGraph *RateMode5 = new TGraph(30, TrigPT, CountMode5); 
-  TGraph *RateMode5dBX0 = new TGraph(30, TrigPT, CountMode5dBX0); 
-  TGraph *RateMode5RecoSoft = new TGraph(30, TrigPT, CountMode5RecoSoft); 
-  TGraph *RateMode5RecoOnly = new TGraph(30, TrigPT, CountMode5RecoOnly); 
+  TGraph *RateMode5 = new TGraph(30, TrigPT, CountMode5); RateMode5->SetTitle("Rate Mode5");
+  TGraph *RateMode5dBX0 = new TGraph(30, TrigPT, CountMode5dBX0); RateMode5dBX0->SetTitle("Rate Mode5 dBX0");
+  TGraph *RateMode5RecoSoft = new TGraph(30, TrigPT, CountMode5RecoSoft); RateMode5RecoSoft->SetTitle("Rate Mode5 RECO + Soft");
+  TGraph *RateMode5RecoOnly = new TGraph(30, TrigPT, CountMode5RecoOnly); RateMode5RecoOnly->SetTitle("Rate Mode5 RECO + Only");
 	
-  TGraph *RateMode3 = new TGraph(30, TrigPT, CountMode3); 
-  TGraph *RateMode3dBX0 = new TGraph(30, TrigPT, CountMode3dBX0); 
-  TGraph *RateMode3RecoSoft = new TGraph(30, TrigPT, CountMode3RecoSoft); 
-  TGraph *RateMode3RecoOnly = new TGraph(30, TrigPT, CountMode3RecoOnly); 
+  TGraph *RateMode3 = new TGraph(30, TrigPT, CountMode3); RateMode3->SetTitle("Rate Mode3");
+  TGraph *RateMode3dBX0 = new TGraph(30, TrigPT, CountMode3dBX0); RateMode3dBX0->SetTitle("Rate Mode3 dBX0");
+  TGraph *RateMode3RecoSoft = new TGraph(30, TrigPT, CountMode3RecoSoft); RateMode3RecoSoft->SetTitle("Rate Mode3 RECO + Soft");
+  TGraph *RateMode3RecoOnly = new TGraph(30, TrigPT, CountMode3RecoOnly); RateMode3RecoOnly->SetTitle("Rate Mode3 RECO + Only");
 //rate ratio
   double RatioMode15[30]={0};
   double RatioMode15dBX0[30]={0};
