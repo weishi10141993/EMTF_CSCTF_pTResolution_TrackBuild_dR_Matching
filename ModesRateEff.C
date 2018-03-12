@@ -179,6 +179,21 @@ void ModesRateEff() {
   double CountRecoSoft[30]={0};
   double CountRecoOnly[30]={0};
 	
+  double CountSingleMuModes[30]={0};
+  double CountSingleMuModesdBX0[30]={0};
+  double CountSingleMuModesRecoSoft[30]={0};
+  double CountSingleMuModesRecoOnly[30]={0};
+ 
+  double CountDoubleMuModes[30]={0};
+  double CountDoubleMuModesdBX0[30]={0};
+  double CountDoubleMuModesRecoSoft[30]={0};
+  double CountDoubleMuModesRecoOnly[30]={0};
+	
+  double CountMuOpenModes[30]={0};
+  double CountMuOpenModesdBX0[30]={0};
+  double CountMuOpenModesRecoSoft[30]={0};
+  double CountMuOpenModesRecoOnly[30]={0};
+
   double CountMode15[30]={0};
   double CountMode15dBX0[30]={0};
   double CountMode15RecoSoft[30]={0};
