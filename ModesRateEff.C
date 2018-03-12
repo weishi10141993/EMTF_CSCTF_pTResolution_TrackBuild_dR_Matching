@@ -1152,7 +1152,10 @@ void ModesRateEff() {
 
   //Rate plots from ZB data
   TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Number of tracks above threshold");
-  
+  TGraph *RatedBX0 = new TGraph(30, TrigPT, CountdBX0); RatedBX0->SetTitle("Rate dBX0");
+  TGraph *RateRecoSoft = new TGraph(30, TrigPT, CountRecoSoft); RateRecoSoft->SetTitle("Rate RECO + Soft");
+  TGraph *RateRecoOnly = new TGraph(30, TrigPT, CountRecoOnly); RateRecoOnly->SetTitle("Rate RECO + Only");
+	
   TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); RateMode15->SetTitle("Rate Mode15");
   TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); RateMode15dBX0->SetTitle("Rate Mode15 dBX0");
   TGraph *RateMode15RecoSoft = new TGraph(30, TrigPT, CountMode15RecoSoft); RateMode15RecoSoft->SetTitle("Rate Mode15 RECO + Soft");
