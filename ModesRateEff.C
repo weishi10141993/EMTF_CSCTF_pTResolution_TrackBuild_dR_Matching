@@ -1102,7 +1102,7 @@ void ModesRateEff() {
   TString LNoMatch = "";
   LNoMatch = LNoMatch + "RecoMu No Match";
   TString LNoUniqueMatch = "";
-  LNoUniqueMatch = LNoUniqueMatch + "RecoMu No Unique Match";
+  LNoUniqueMatch = LNoUniqueMatch + "RecoMu Not Uniquely Matched";
   LBadMatchEff->AddEntry(SMRecoPtNoMatchClone,LNoMatch);
   LBadMatchEff->AddEntry(SMRecoPtNoUniqueMatchClone, LNoUniqueMatch);
   LBadMatchEff->SetFillStyle(0);
