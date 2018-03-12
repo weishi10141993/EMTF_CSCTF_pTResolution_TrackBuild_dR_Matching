@@ -1151,10 +1151,10 @@ void ModesRateEff() {
   CBadMatchEff->Write();
 
   //Rate plots from ZB data
-  TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Number of tracks above threshold");
-  TGraph *RatedBX0 = new TGraph(30, TrigPT, CountdBX0); RatedBX0->SetTitle("Rate dBX0");
-  TGraph *RateRecoSoft = new TGraph(30, TrigPT, CountRecoSoft); RateRecoSoft->SetTitle("Rate RECO + Soft");
-  TGraph *RateRecoOnly = new TGraph(30, TrigPT, CountRecoOnly); RateRecoOnly->SetTitle("Rate RECO + Only");
+  TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Number of tracks above threshold"); Rate->SetLineColor(1);
+  TGraph *RatedBX0 = new TGraph(30, TrigPT, CountdBX0); RatedBX0->SetTitle("Rate dBX0"); RatedBX0->SetLineColor(2);
+  TGraph *RateRecoSoft = new TGraph(30, TrigPT, CountRecoSoft); RateRecoSoft->SetTitle("Rate RECO + Soft"); RateRecoSoft->SetLineColor(3);
+  TGraph *RateRecoOnly = new TGraph(30, TrigPT, CountRecoOnly); RateRecoOnly->SetTitle("Rate RECO + Only"); RateRecoOnly->SetLineColor(4);
 	
   TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); RateMode15->SetTitle("Rate Mode15");
   TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); RateMode15dBX0->SetTitle("Rate Mode15 dBX0");
@@ -1256,7 +1256,7 @@ void ModesRateEff() {
   double RatioMode3RecoSoft[30]={0};
   double RatioMode3RecoOnly[30]={0};
   
-  Rate->Write();
+  TCanvas *CRate=new TCanvas("CRate","All Modes",700,500);
   TCanvas *CRateMode15=new TCanvas("CRateMode15","Mode15",700,500);
   TCanvas *CRateMode14=new TCanvas("CRateMode14","Mode14",700,500);
   TCanvas *CRateMode13=new TCanvas("CRateMode13","Mode13",700,500);
@@ -1268,6 +1268,16 @@ void ModesRateEff() {
   TCanvas *CRateMode6=new TCanvas("CRateMode6","Mode6",700,500);
   TCanvas *CRateMode5=new TCanvas("CRateMode5","Mode5",700,500);
   TCanvas *CRateMode3=new TCanvas("CRateMode3","Mode3",700,500);
+	
+  TMultiGraph *mg=new TMultiGraph();
+  CRate->cd();
+  mg->SetTitle("All Modes");
+  mg->Add(Rate);
+  mg->Add(RatedBX0);
+  mg->Add(RateRecoSoft);
+  mg->Add(RateRecoOnly);
+  mg->Draw("L");
+  mg->Write();
 	
   TMultiGraph *mgMode15=new TMultiGraph();
   for(int i=0;i<30;i++){
