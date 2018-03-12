@@ -1434,6 +1434,21 @@ void ModesRateEff() {
   TGraph *RatedBX0 = new TGraph(30, TrigPT, CountdBX0); RatedBX0->SetTitle("Rate dBX0"); RatedBX0->SetLineColor(2);
   TGraph *RateRecoSoft = new TGraph(30, TrigPT, CountRecoSoft); RateRecoSoft->SetTitle("Rate RECO + Soft"); RateRecoSoft->SetLineColor(3);
   TGraph *RateRecoOnly = new TGraph(30, TrigPT, CountRecoOnly); RateRecoOnly->SetTitle("Rate RECO + Only"); RateRecoOnly->SetLineColor(4);
+  //SingleMu only
+  TGraph *RateSingleMuModes = new TGraph(30, TrigPT, CountSingleMuModes); RateSingleMuModes->SetTitle("Rate SingleMuModes");
+  TGraph *RateSingleMuModesdBX0 = new TGraph(30, TrigPT, CountSingleMuModesdBX0); RateSingleMuModesdBX0->SetTitle("Rate SingleMuModes dBX0");
+  TGraph *RateSingleMuModesRecoSoft = new TGraph(30, TrigPT, CountSingleMuModesRecoSoft); RateSingleMuModesRecoSoft->SetTitle("Rate SingleMuModes RECO + Soft");
+  TGraph *RateSingleMuModesRecoOnly = new TGraph(30, TrigPT, CountSingleMuModesRecoOnly); RateSingleMuModesRecoOnly->SetTitle("Rate SingleMuModes RECO + Only");
+  //DoubleMu only
+  TGraph *RateDoubleMuModes = new TGraph(30, TrigPT, CountDoubleMuModes); RateDoubleMuModes->SetTitle("Rate DoubleMuModes");
+  TGraph *RateDoubleMuModesdBX0 = new TGraph(30, TrigPT, CountDoubleMuModesdBX0); RateDoubleMuModesdBX0->SetTitle("Rate DoubleMuModes dBX0");
+  TGraph *RateDoubleMuModesRecoSoft = new TGraph(30, TrigPT, CountDoubleMuModesRecoSoft); RateDoubleMuModesRecoSoft->SetTitle("Rate DoubleMuModes RECO + Soft");
+  TGraph *RateDoubleMuModesRecoOnly = new TGraph(30, TrigPT, CountDoubleMuModesRecoOnly); RateDoubleMuModesRecoOnly->SetTitle("Rate DoubleMuModes RECO + Only");
+  //MuOpen only
+  TGraph *RateMuOpenModes = new TGraph(30, TrigPT, CountMuOpenModes); RateMuOpenModes->SetTitle("Rate MuOpenModes");
+  TGraph *RateMuOpenModesdBX0 = new TGraph(30, TrigPT, CountMuOpenModesdBX0); RateMuOpenModesdBX0->SetTitle("Rate MuOpenModes dBX0");
+  TGraph *RateMuOpenModesRecoSoft = new TGraph(30, TrigPT, CountMuOpenModesRecoSoft); RateMuOpenModesRecoSoft->SetTitle("Rate MuOpenModes RECO + Soft");
+  TGraph *RateMuOpenModesRecoOnly = new TGraph(30, TrigPT, CountMuOpenModesRecoOnly); RateMuOpenModesRecoOnly->SetTitle("Rate MuOpenModes RECO + Only");
 	
   TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); RateMode15->SetTitle("Rate Mode15");
   TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); RateMode15dBX0->SetTitle("Rate Mode15 dBX0");
