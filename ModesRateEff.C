@@ -396,7 +396,7 @@ void ModesRateEff() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW && I("trk_dR_match_unique", itrack) == 1 ){
+	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW ){
 		    for(int i=0;i<30;i++){
 			    
 			    if( F("trk_pt", itrack)> TrigPT[i]){
