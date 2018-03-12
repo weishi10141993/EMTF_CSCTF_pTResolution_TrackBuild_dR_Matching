@@ -1505,6 +1505,21 @@ void ModesRateEff() {
   TGraph *RateMode3RecoSoft = new TGraph(30, TrigPT, CountMode3RecoSoft); RateMode3RecoSoft->SetTitle("Rate Mode3 RECO + Soft");
   TGraph *RateMode3RecoOnly = new TGraph(30, TrigPT, CountMode3RecoOnly); RateMode3RecoOnly->SetTitle("Rate Mode3 RECO + Only");
 //rate ratio
+  double RatioSingleMuModes[30]={0};
+  double RatioSingleMuModesdBX0[30]={0};
+  double RatioSingleMuModesRecoSoft[30]={0};
+  double RatioSingleMuModesRecoOnly[30]={0};
+
+  double RatioDoubleMuModes[30]={0};
+  double RatioDoubleMuModesdBX0[30]={0};
+  double RatioDoubleMuModesRecoSoft[30]={0};
+  double RatioDoubleMuModesRecoOnly[30]={0};
+	
+  double RatioMuOpenModes[30]={0};
+  double RatioMuOpenModesdBX0[30]={0};
+  double RatioMuOpenModesRecoSoft[30]={0};
+  double RatioMuOpenModesRecoOnly[30]={0};
+	
   double RatioMode15[30]={0};
   double RatioMode15dBX0[30]={0};
   double RatioMode15RecoSoft[30]={0};
