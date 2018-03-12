@@ -1111,7 +1111,7 @@ void ModesRateEff() {
   CBadMatchEff->Write();
 
   //Rate plots from ZB data
-  TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Rate");
+  TGraph *Rate = new TGraph(30, TrigPT, Count); Rate->SetTitle("Number of tracks above threshold");
   
   TGraph *RateMode15 = new TGraph(30, TrigPT, CountMode15); RateMode15->SetTitle("Rate Mode15");
   TGraph *RateMode15dBX0 = new TGraph(30, TrigPT, CountMode15dBX0); RateMode15dBX0->SetTitle("Rate Mode15 dBX0");
