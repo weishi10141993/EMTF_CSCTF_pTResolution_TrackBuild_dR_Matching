@@ -492,7 +492,54 @@ void ModesRateEff() {
 				   if( I("trk_dR_match_nReco", itrack) >= 1 ){
 				        CountRecoOnly[i]++;   
 			           }
-				    //each trk mode
+				   //SingleMu Only
+				   if( I("trk_mode", itrack ) == 15 || 
+			               I("trk_mode", itrack ) == 14 || 
+			    	       I("trk_mode", itrack ) == 13 || 
+			    	       I("trk_mode", itrack ) == 11){
+					    CountSingleMuModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountSingleMuModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountSingleMuModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountSingleMuModesRecoOnly[i]++;   
+					    }
+				   }
+				   //DoubleMu Only
+				   if( I("trk_mode", itrack ) == 12 || 
+			               I("trk_mode", itrack ) == 10 || 
+			    	       I("trk_mode", itrack ) == 7){
+					    CountDoubleMuModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountDoubleMuModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountDoubleMuModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountDoubleMuModesRecoOnly[i]++;   
+					    }
+				   }
+				   //MuOpen Only
+				   if( I("trk_mode", itrack ) == 9 || 
+			               I("trk_mode", itrack ) == 6 || 
+			    	       I("trk_mode", itrack ) == 5 || 
+			    	       I("trk_mode", itrack ) == 3){
+					    CountMuOpenModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMuOpenModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMuOpenModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMuOpenModesRecoOnly[i]++;   
+					    }
+				   }
+				   //each trk mode
 				   switch ( I("trk_mode", itrack ) ) {
 				    case 15:
 					    CountMode15[i]++; 
