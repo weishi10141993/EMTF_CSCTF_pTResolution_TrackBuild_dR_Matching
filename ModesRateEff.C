@@ -629,7 +629,7 @@ void ModesRateEff() {
   SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
   SMode15->Draw("nostack");
   SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("efficiency");
+  SMode15->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode15->Modified();
         
   TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
@@ -672,7 +672,7 @@ void ModesRateEff() {
   SMode14->Add(SMRecoPtMatchMode14BX0PlateauClone);
   SMode14->Draw("nostack");
   SMode14->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode14->GetYaxis()->SetTitle("efficiency");
+  SMode14->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode14->Modified();
         
   TLegend* LMode14 = new TLegend(0.6,0.6,0.9,0.9);
@@ -715,7 +715,7 @@ void ModesRateEff() {
   SMode13->Add(SMRecoPtMatchMode13BX0PlateauClone);
   SMode13->Draw("nostack");
   SMode13->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode13->GetYaxis()->SetTitle("efficiency");
+  SMode13->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode13->Modified();
         
   TLegend* LMode13 = new TLegend(0.6,0.6,0.9,0.9);
@@ -758,7 +758,7 @@ void ModesRateEff() {
   SMode11->Add(SMRecoPtMatchMode11BX0PlateauClone);
   SMode11->Draw("nostack");
   SMode11->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode11->GetYaxis()->SetTitle("efficiency");
+  SMode11->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode11->Modified();
         
   TLegend* LMode11 = new TLegend(0.6,0.6,0.9,0.9);
@@ -801,7 +801,7 @@ void ModesRateEff() {
   SMode12->Add(SMRecoPtMatchMode12BX0PlateauClone);
   SMode12->Draw("nostack");
   SMode12->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode12->GetYaxis()->SetTitle("efficiency");
+  SMode12->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode12->Modified();
         
   TLegend* LMode12 = new TLegend(0.6,0.6,0.9,0.9);
@@ -844,7 +844,7 @@ void ModesRateEff() {
   SMode10->Add(SMRecoPtMatchMode10BX0PlateauClone);
   SMode10->Draw("nostack");
   SMode10->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode10->GetYaxis()->SetTitle("efficiency");
+  SMode10->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode10->Modified();
         
   TLegend* LMode10 = new TLegend(0.6,0.6,0.9,0.9);
@@ -887,7 +887,7 @@ void ModesRateEff() {
   SMode7->Add(SMRecoPtMatchMode7BX0PlateauClone);
   SMode7->Draw("nostack");
   SMode7->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode7->GetYaxis()->SetTitle("efficiency");
+  SMode7->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode7->Modified();
         
   TLegend* LMode7 = new TLegend(0.6,0.6,0.9,0.9);
@@ -930,7 +930,7 @@ void ModesRateEff() {
   SMode9->Add(SMRecoPtMatchMode9BX0PlateauClone);
   SMode9->Draw("nostack");
   SMode9->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode9->GetYaxis()->SetTitle("efficiency");
+  SMode9->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode9->Modified();
         
   TLegend* LMode9 = new TLegend(0.6,0.6,0.9,0.9);
@@ -973,7 +973,7 @@ void ModesRateEff() {
   SMode6->Add(SMRecoPtMatchMode6BX0PlateauClone);
   SMode6->Draw("nostack");
   SMode6->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode6->GetYaxis()->SetTitle("efficiency");
+  SMode6->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode6->Modified();
         
   TLegend* LMode6 = new TLegend(0.6,0.6,0.9,0.9);
@@ -1016,7 +1016,7 @@ void ModesRateEff() {
   SMode5->Add(SMRecoPtMatchMode5BX0PlateauClone);
   SMode5->Draw("nostack");
   SMode5->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode5->GetYaxis()->SetTitle("efficiency");
+  SMode5->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode5->Modified();
         
   TLegend* LMode5 = new TLegend(0.6,0.6,0.9,0.9);
@@ -1059,7 +1059,7 @@ void ModesRateEff() {
   SMode3->Add(SMRecoPtMatchMode3BX0PlateauClone);
   SMode3->Draw("nostack");
   SMode3->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode3->GetYaxis()->SetTitle("efficiency");
+  SMode3->GetYaxis()->SetTitle("Fraction of RECO muons");
   CMode3->Modified();
         
   TLegend* LMode3 = new TLegend(0.6,0.6,0.9,0.9);
@@ -1095,7 +1095,7 @@ void ModesRateEff() {
   SBadMatchEff->Add(SMRecoPtNoUniqueMatchClone);
   SBadMatchEff->Draw("nostack");
   SBadMatchEff->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SBadMatchEff->GetYaxis()->SetTitle("efficiency");
+  SBadMatchEff->GetYaxis()->SetTitle("Fraction of RECO muons");
   CBadMatchEff->Modified();
         
   TLegend* LBadMatchEff = new TLegend(0.6,0.6,0.9,0.9);
