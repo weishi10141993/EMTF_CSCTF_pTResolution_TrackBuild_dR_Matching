@@ -26,6 +26,7 @@ void ModesRateEff() {
   // List of input files
   std::vector<TString> SM_in_file_names;//SingleMu
   std::vector<TString> ZB_in_file_names;//Zerobias
+  //**bonner dir:/home/ws13/TMVA/TMVA/INPUT/Ntuples
   TString store = "root://eoscms.cern.ch//store/user/abrinke1/EMTF/Emulator/";
   TString in_dir = "ntuples/HADD/";
   TString SM_file_name;
