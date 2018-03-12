@@ -88,6 +88,8 @@ void ModesRateEff() {
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtUniqueMatch = new TH1F("SMRecoPtUniqueMatch", "UniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtUniqueMatchBX0 = new TH1F("SMRecoPtUniqueMatchBX0", "UniqueMatchBX0 "+ SMRecoPtTitle, 30, 0, 30);
   
   //SingluMu quality: Q>=12
   TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, 30, 0, 30);
@@ -234,6 +236,14 @@ void ModesRateEff() {
 		    
 		   //reco mu has a EMTF trk match
 		   if( I("reco_dR_match_unique", ireco) == 1 ){
+			   
+			//Uniquely matched EMTF trk all modes
+			SMRecoPtUniqueMatch->Fill( F("reco_pt", ireco) ); 
+			   
+			if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
+				SMRecoPtUniqueMatchBX0->Fill( F("reco_pt", ireco) );   
+			}//Uniquely matched EMTF trk && trk BX=0
+			   
 			switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {//all trk modes
                             
                         case 15:
