@@ -92,6 +92,23 @@ void ModesRateEff() {
   TH1F *SMRecoPtUniqueMatch = new TH1F("SMRecoPtUniqueMatch", "UniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtUniqueMatchBX0 = new TH1F("SMRecoPtUniqueMatchBX0", "UniqueMatchBX0 "+ SMRecoPtTitle, 30, 0, 30);
 	
+  //SingleMu only, DoubleMu only MuOpen Only
+  TH1F *SMRecoPtMatchSingMuModes = new TH1F("SMRecoPtMatchSingMuModes", "Match SingMu Modes" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchDoubleMuModes = new TH1F("SMRecoPtMatchDoubleMuModes", "Match DoubleMu Modes" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMuOpenModes = new TH1F("SMRecoPtMatchMuOpenModes", "Match MuOpen Modes" + SMRecoPtTitle, 30, 0, 30);
+	
+  TH1F *SMRecoPtMatchSingMuModesBX0 = new TH1F("SMRecoPtMatchSingMuModesBX0", "Match SingMu ModesBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0", "Match DoubleMu ModesBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMuOpenModesBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0", "Match MuOpen ModesBX0" + SMRecoPtTitle, 30, 0, 30);
+	
+  TH1F *SMRecoPtMatchSingMuModesBX0dBX0 = new TH1F("SMRecoPtMatchSingMuModesBX0dBX0", "Match SingMu ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0dBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0dBX0", "Match DoubleMu ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMuOpenModesBX0dBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0dBX0", "Match MuOpen ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+
+  TH1F *SMRecoPtMatchSingMuModesBX0Plateau = new TH1F("SMRecoPtMatchSingMuModesBX0Plateau", "Match SingMu ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0Plateau = new TH1F("SMRecoPtMatchDoubleMuModesBX0Plateau", "Match DoubleMu ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMuOpenModesBX0Plateau = new TH1F("SMRecoPtMatchMuOpenModesBX0Plateau", "Match MuOpen ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+	
   //SingluMu quality: Q>=12
   TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, 30, 0, 30);
