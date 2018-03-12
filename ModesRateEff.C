@@ -411,7 +411,17 @@ void ModesRateEff() {
 			    
 			    if( F("trk_pt", itrack)> TrigPT[i]){
 				   Count[i]++; 
-				   switch ( I("trk_mode", itrack ) ) {//all trk modes
+				   if( I("trk_dBX", itrack) == 0 ){
+					CountdBX0[i]++;   
+			           }
+				   if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+				        CountRecoSoft[i]++;   
+			           }
+				   if( I("trk_dR_match_nReco", itrack) >= 1 ){
+				        CountRecoOnly[i]++;   
+			           }
+				    //each trk mode
+				   switch ( I("trk_mode", itrack ) ) {
 				    case 15:
 					    CountMode15[i]++; 
 					    if( I("trk_dBX", itrack) == 0 ){
