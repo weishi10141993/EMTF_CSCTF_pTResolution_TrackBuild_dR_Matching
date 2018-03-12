@@ -762,92 +762,92 @@ void ModesRateEff() {
   CSingleMuModes->Write();
   
   //DoubleMu
-  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
-  THStack *SMode15 = new THStack("SMode15","Mode15");
-  CMode15->cd();
-  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
-  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
-  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
-  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
-  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CDoubleMuModes = new TCanvas("CDoubleMuModes","DoubleMuModes",700,500);
+  THStack *SDoubleMuModes = new THStack("SDoubleMuModes","DoubleMuModes");
+  CDoubleMuModes->cd();
+  TH1F *SMRecoPtMatchDoubleMuModesClone = (TH1F*)SMRecoPtMatchDoubleMuModes->Clone("SMRecoPtMatchDoubleMuModesClone");
+  TH1F *SMRecoPtMatchDoubleMuModesBX0Clone = (TH1F*)SMRecoPtMatchDoubleMuModesBX0->Clone("SMRecoPtMatchDoubleMuModesBX0Clone");
+  TH1F *SMRecoPtMatchDoubleMuModesBX0dBX0Clone = (TH1F*)SMRecoPtMatchDoubleMuModesBX0dBX0->Clone("SMRecoPtMatchDoubleMuModesBX0dBX0Clone");
+  TH1F *SMRecoPtMatchDoubleMuModesBX0PlateauClone = (TH1F*)SMRecoPtMatchDoubleMuModesBX0Plateau->Clone("SMRecoPtMatchDoubleMuModesBX0PlateauClone");
+  SMRecoPtMatchDoubleMuModesClone->SetLineColor(1);//blk
+  SMRecoPtMatchDoubleMuModesBX0Clone->SetLineColor(2);//red
+  SMRecoPtMatchDoubleMuModesBX0dBX0Clone->SetLineColor(3);//green
+  SMRecoPtMatchDoubleMuModesBX0PlateauClone->SetLineColor(4);//blue
   gStyle->SetOptStat(0);
-  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
-  SMode15->Add(SMRecoPtMatchMode15Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
-  SMode15->Draw("nostack");
-  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("Fraction of RECO muons");
-  CMode15->Modified();
+  SMRecoPtMatchDoubleMuModesClone->Divide(SMRecoPt);
+  SMRecoPtMatchDoubleMuModesBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchDoubleMuModesBX0dBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchDoubleMuModesBX0PlateauClone->Divide(SMRecoPt);
+  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesClone);
+  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesBX0Clone);
+  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesBX0dBX0Clone);
+  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesBX0PlateauClone);
+  SDoubleMuModes->Draw("nostack");
+  SDoubleMuModes->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SDoubleMuModes->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SDoubleMuModes->Modified();
         
-  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMode15 = "";
-  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
-  TString LMatchMode15BX0 = "";
-  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMode15BX0dBX0 = "";
-  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
-  TString LMatchMode15BX0Plateau = "";
-  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
-  LMode15->SetFillStyle(0);
-  LMode15->SetBorderSize(0);
-  LMode15->Draw(); 
-  CMode15->Write();
+  TLegend* LDoubleMuModes = new TLegend(0.6,0.6,0.9,0.9);
+  TString LMatchDoubleMuModes = "";
+  LMatchDoubleMuModes = LMatchDoubleMuModes + "RecoMu Unique Match";
+  TString LMatchDoubleMuModesBX0 = "";
+  LMatchDoubleMuModesBX0 = LMatchDoubleMuModesBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LMatchDoubleMuModesBX0dBX0 = "";
+  LMatchDoubleMuModesBX0dBX0 = LMatchDoubleMuModesBX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LMatchDoubleMuModesBX0Plateau = "";
+  LMatchDoubleMuModesBX0Plateau = LMatchDoubleMuModesBX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesClone, LMatchDoubleMuModes);
+  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesBX0Clone, LMatchDoubleMuModesBX0);
+  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesBX0dBX0Clone, LMatchDoubleMuModesBX0dBX0);
+  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesBX0PlateauClone, LMatchDoubleMuModesBX0Plateau);
+  LDoubleMuModes->SetFillStyle(0);
+  LDoubleMuModes->SetBorderSize(0);
+  LDoubleMuModes->Draw(); 
+  CDoubleMuModes->Write();
   
   //MuOpen
-  TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
-  THStack *SMode15 = new THStack("SMode15","Mode15");
-  CMode15->cd();
-  TH1F *SMRecoPtMatchMode15Clone = (TH1F*)SMRecoPtMatchMode15->Clone("SMRecoPtMatchMode15Clone");
-  TH1F *SMRecoPtMatchMode15BX0Clone = (TH1F*)SMRecoPtMatchMode15BX0->Clone("SMRecoPtMatchMode15BX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0dBX0Clone = (TH1F*)SMRecoPtMatchMode15BX0dBX0->Clone("SMRecoPtMatchMode15BX0dBX0Clone");
-  TH1F *SMRecoPtMatchMode15BX0PlateauClone = (TH1F*)SMRecoPtMatchMode15BX0Plateau->Clone("SMRecoPtMatchMode15BX0PlateauClone");
-  SMRecoPtMatchMode15Clone->SetLineColor(1);//blk
-  SMRecoPtMatchMode15BX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMode15BX0dBX0Clone->SetLineColor(3);//green
-  SMRecoPtMatchMode15BX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CMuOpenModes = new TCanvas("CMuOpenModes","MuOpenModes",700,500);
+  THStack *SMuOpenModes = new THStack("SMuOpenModes","MuOpenModes");
+  CMuOpenModes->cd();
+  TH1F *SMRecoPtMatchMuOpenModesClone = (TH1F*)SMRecoPtMatchMuOpenModes->Clone("SMRecoPtMatchMuOpenModesClone");
+  TH1F *SMRecoPtMatchMuOpenModesBX0Clone = (TH1F*)SMRecoPtMatchMuOpenModesBX0->Clone("SMRecoPtMatchMuOpenModesBX0Clone");
+  TH1F *SMRecoPtMatchMuOpenModesBX0dBX0Clone = (TH1F*)SMRecoPtMatchMuOpenModesBX0dBX0->Clone("SMRecoPtMatchMuOpenModesBX0dBX0Clone");
+  TH1F *SMRecoPtMatchMuOpenModesBX0PlateauClone = (TH1F*)SMRecoPtMatchMuOpenModesBX0Plateau->Clone("SMRecoPtMatchMuOpenModesBX0PlateauClone");
+  SMRecoPtMatchMuOpenModesClone->SetLineColor(1);//blk
+  SMRecoPtMatchMuOpenModesBX0Clone->SetLineColor(2);//red
+  SMRecoPtMatchMuOpenModesBX0dBX0Clone->SetLineColor(3);//green
+  SMRecoPtMatchMuOpenModesBX0PlateauClone->SetLineColor(4);//blue
   gStyle->SetOptStat(0);
-  SMRecoPtMatchMode15Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0dBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMode15BX0PlateauClone->Divide(SMRecoPt);
-  SMode15->Add(SMRecoPtMatchMode15Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0dBX0Clone);
-  SMode15->Add(SMRecoPtMatchMode15BX0PlateauClone);
-  SMode15->Draw("nostack");
-  SMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMode15->GetYaxis()->SetTitle("Fraction of RECO muons");
-  CMode15->Modified();
+  SMRecoPtMatchMuOpenModesClone->Divide(SMRecoPt);
+  SMRecoPtMatchMuOpenModesBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMuOpenModesBX0dBX0Clone->Divide(SMRecoPt);
+  SMRecoPtMatchMuOpenModesBX0PlateauClone->Divide(SMRecoPt);
+  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesClone);
+  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesBX0Clone);
+  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesBX0dBX0Clone);
+  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesBX0PlateauClone);
+  SMuOpenModes->Draw("nostack");
+  SMuOpenModes->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMuOpenModes->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMuOpenModes->Modified();
         
-  TLegend* LMode15 = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMode15 = "";
-  LMatchMode15 = LMatchMode15 + "RecoMu Unique Match";
-  TString LMatchMode15BX0 = "";
-  LMatchMode15BX0 = LMatchMode15BX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMode15BX0dBX0 = "";
-  LMatchMode15BX0dBX0 = LMatchMode15BX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
-  TString LMatchMode15BX0Plateau = "";
-  LMatchMode15BX0Plateau = LMatchMode15BX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMode15->AddEntry(SMRecoPtMatchMode15Clone, LMatchMode15);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0Clone, LMatchMode15BX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0dBX0Clone, LMatchMode15BX0dBX0);
-  LMode15->AddEntry(SMRecoPtMatchMode15BX0PlateauClone, LMatchMode15BX0Plateau);
-  LMode15->SetFillStyle(0);
-  LMode15->SetBorderSize(0);
-  LMode15->Draw(); 
-  CMode15->Write();
+  TLegend* LMuOpenModes = new TLegend(0.6,0.6,0.9,0.9);
+  TString LMatchMuOpenModes = "";
+  LMatchMuOpenModes = LMatchMuOpenModes + "RecoMu Unique Match";
+  TString LMatchMuOpenModesBX0 = "";
+  LMatchMuOpenModesBX0 = LMatchMuOpenModesBX0 + "RecoMu Unique Match && TrkBX=0";
+  TString LMatchMuOpenModesBX0dBX0 = "";
+  LMatchMuOpenModesBX0dBX0 = LMatchMuOpenModesBX0dBX0 + "RecoMu Unique Match && TrkBX=0 && TrkdBX=0";
+  TString LMatchMuOpenModesBX0Plateau = "";
+  LMatchMuOpenModesBX0Plateau = LMatchMuOpenModesBX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
+  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesClone, LMatchMuOpenModes);
+  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesBX0Clone, LMatchMuOpenModesBX0);
+  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesBX0dBX0Clone, LMatchMuOpenModesBX0dBX0);
+  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesBX0PlateauClone, LMatchMuOpenModesBX0Plateau);
+  LMuOpenModes->SetFillStyle(0);
+  LMuOpenModes->SetBorderSize(0);
+  LMuOpenModes->Draw(); 
+  CMuOpenModes->Write();
   
   //each mode
   TCanvas *CMode15 = new TCanvas("CMode15","Mode15",700,500);
