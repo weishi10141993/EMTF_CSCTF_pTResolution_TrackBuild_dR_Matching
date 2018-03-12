@@ -705,6 +705,7 @@ void ModesRateEff() {
   std::cout << "\nDone with macro. Exiting.\n" << std::endl;
 	
   //write to output file
+  //**bonner dir : /home/ws13/TMVA/TMVA/Study
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/ModesRateEff";
   outFile = outFile + "_eta_" + Form("%.2f", ETA_LOW) + "_" + Form("%.2f", ETA_UP) + ".root";
   TFile myPlot(outFile,"RECREATE");
