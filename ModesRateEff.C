@@ -567,6 +567,9 @@ void ModesRateEff() {
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
+	
   SMRecoPtMatchMode15->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode14->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchMode13->GetXaxis()->SetTitle("RECO pT[GeV]");
