@@ -157,7 +157,10 @@ void ModesRateEff() {
 	  TrigPT[i]=i*1.0;
   }
   double Count[30]={0};
-  
+  double CountdBX0[30]={0};
+  double CountRecoSoft[30]={0};
+  double CountRecoOnly[30]={0};
+	
   double CountMode15[30]={0};
   double CountMode15dBX0[30]={0};
   double CountMode15RecoSoft[30]={0};
