@@ -1947,6 +1947,21 @@ void ModesRateEff() {
   SMRecoPtMatchMode3BX0Plateau->Write();
   
   //rate
+  RateSingleMuModes->Write(); 
+  RateSingleMuModesdBX0->Write();
+  RateSingleMuModesRecoSoft->Write();
+  RateSingleMuModesRecoOnly->Write();
+	
+  RateDoubleMuModes->Write(); 
+  RateDoubleMuModesdBX0->Write();
+  RateDoubleMuModesRecoSoft->Write();
+  RateDoubleMuModesRecoOnly->Write();
+
+  RateMuOpenModes->Write(); 
+  RateMuOpenModesdBX0->Write();
+  RateMuOpenModesRecoSoft->Write();
+  RateMuOpenModesRecoOnly->Write();
+	
   RateMode15->Write(); 
   RateMode15dBX0->Write();
   RateMode15RecoSoft->Write();
