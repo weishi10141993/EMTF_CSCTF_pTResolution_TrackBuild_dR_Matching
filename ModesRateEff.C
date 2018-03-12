@@ -1099,13 +1099,21 @@ void ModesRateEff() {
   CBadMatchEff->cd();
   TH1F *SMRecoPtNoMatchClone = (TH1F*)SMRecoPtNoMatch->Clone("SMRecoPtNoMatchClone");
   TH1F *SMRecoPtNoUniqueMatchClone = (TH1F*)SMRecoPtNoUniqueMatch->Clone("SMRecoPtNoUniqueMatchClone");
+  TH1F *SMRecoPtUniqueMatchClone = (TH1F*)SMRecoPtUniqueMatch->Clone("SMRecoPtUniqueMatchClone");
+  TH1F *SMRecoPtUniqueMatchBX0Clone = (TH1F*)SMRecoPtUniqueMatchBX0->Clone("SMRecoPtUniqueMatchBX0Clone");
   SMRecoPtNoMatchClone->SetLineColor(1);//red
   SMRecoPtNoUniqueMatchClone->SetLineColor(2);//blk
+  SMRecoPtUniqueMatchClone->SetLineColor(3);//green
+  SMRecoPtUniqueMatchBX0Clone->SetLineColor(4);//blue
   gStyle->SetOptStat(0);
   SMRecoPtNoMatchClone->Divide(SMRecoPt);
   SMRecoPtNoUniqueMatchClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0Clone->Divide(SMRecoPt);
   SBadMatchEff->Add(SMRecoPtNoMatchClone);
   SBadMatchEff->Add(SMRecoPtNoUniqueMatchClone);
+  SBadMatchEff->Add(SMRecoPtUniqueMatchClone);
+  SBadMatchEff->Add(SMRecoPtUniqueMatchBX0Clone);
   SBadMatchEff->Draw("nostack");
   SBadMatchEff->GetXaxis()->SetTitle("RECO pT[GeV]");
   SBadMatchEff->GetYaxis()->SetTitle("Fraction of RECO muons");
@@ -1116,8 +1124,14 @@ void ModesRateEff() {
   LNoMatch = LNoMatch + "RecoMu No Match";
   TString LNoUniqueMatch = "";
   LNoUniqueMatch = LNoUniqueMatch + "RecoMu Not Uniquely Matched";
-  LBadMatchEff->AddEntry(SMRecoPtNoMatchClone,LNoMatch);
+  TString LUniqueMatch = "";
+  LUniqueMatch = LUniqueMatch + "RecoMu Unique Match";
+  TString LUniqueMatchBX0 = "";
+  LUniqueMatchBX0 = LUniqueMatchBX0 + "RecoMu Unique Match && trk BX=0";
+  LBadMatchEff->AddEntry(SMRecoPtNoMatchClone, LNoMatch);
   LBadMatchEff->AddEntry(SMRecoPtNoUniqueMatchClone, LNoUniqueMatch);
+  LBadMatchEff->AddEntry(SMRecoPtUniqueMatchClone, LUniqueMatch);
+  LBadMatchEff->AddEntry(SMRecoPtUniqueMatchBX0Clone, LUniqueMatchBX0);
   LBadMatchEff->SetFillStyle(0);
   LBadMatchEff->SetBorderSize(0);
   LBadMatchEff->Draw(); 
@@ -1463,6 +1477,9 @@ void ModesRateEff() {
   //intermidiate plots
   SMRecoPtNoMatch->Write();
   SMRecoPtNoUniqueMatch->Write();
+  SMRecoPtUniqueMatch->Write();
+  SMRecoPtUniqueMatchBX0->Write();
+  
   SMRecoPtMatchMode15->Write();
   SMRecoPtMatchMode14->Write();
   SMRecoPtMatchMode13->Write();
