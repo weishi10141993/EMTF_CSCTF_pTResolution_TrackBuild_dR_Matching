@@ -1551,6 +1551,11 @@ void ModesRateEff() {
   double RatioMode3RecoOnly[30]={0};
   
   TCanvas *CRate=new TCanvas("CRate","All Modes",700,500);
+	
+  TCanvas *CRateSingleMuModes=new TCanvas("CRateSingleMuModes","SingleMuModes",700,500);
+  TCanvas *CRateDoubleMuModes=new TCanvas("CRateDoubleMuModes","DoubleMuModes",700,500);
+  TCanvas *CRateMuOpenModes=new TCanvas("CRateMuOpenModes","MuOpenModes",700,500);
+	
   TCanvas *CRateMode15=new TCanvas("CRateMode15","Mode15",700,500);
   TCanvas *CRateMode14=new TCanvas("CRateMode14","Mode14",700,500);
   TCanvas *CRateMode13=new TCanvas("CRateMode13","Mode13",700,500);
@@ -1562,7 +1567,7 @@ void ModesRateEff() {
   TCanvas *CRateMode6=new TCanvas("CRateMode6","Mode6",700,500);
   TCanvas *CRateMode5=new TCanvas("CRateMode5","Mode5",700,500);
   TCanvas *CRateMode3=new TCanvas("CRateMode3","Mode3",700,500);
-	
+//all modes
   TMultiGraph *mg=new TMultiGraph();
   CRate->cd();
   mg->SetTitle("All Modes");
@@ -1572,7 +1577,70 @@ void ModesRateEff() {
   mg->Add(RateRecoOnly);
   mg->Draw("L");
   mg->Write();
+//SingleMu
+  TMultiGraph *mgSingleMuModes=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioSingleMuModes[i] = 1.0*CountSingleMuModes[i]/Count[i];
+	  RatioSingleMuModesdBX0[i] = 1.0*CountSingleMuModesdBX0[i]/Count[i];
+          RatioSingleMuModesRecoSoft[i] = 1.0*CountSingleMuModesRecoSoft[i]/Count[i];
+          RatioSingleMuModesRecoOnly[i] = 1.0*CountSingleMuModesRecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioSingleMuModes = new TGraph(30, TrigPT, RatioSingleMuModes); RateRatioSingleMuModes->SetMarkerStyle(22); RateRatioSingleMuModes->SetLineColor(1);
+  TGraph *RateRatioSingleMuModesdBX0 = new TGraph(30, TrigPT, RatioSingleMuModesdBX0); RateRatioSingleMuModesdBX0->SetMarkerStyle(22); RateRatioSingleMuModesdBX0->SetLineColor(2);
+  TGraph *RateRatioSingleMuModesRecoSoft = new TGraph(30, TrigPT, RatioSingleMuModesRecoSoft); RateRatioSingleMuModesRecoSoft->SetMarkerStyle(22); RateRatioSingleMuModesRecoSoft->SetLineColor(3);
+  TGraph *RateRatioSingleMuModesRecoOnly = new TGraph(30, TrigPT, RatioSingleMuModesRecoOnly); RateRatioSingleMuModesRecoOnly->SetMarkerStyle(22); RateRatioSingleMuModesRecoOnly->SetLineColor(4);
+  CRateSingleMuModes->cd();
+  mgSingleMuModes->SetTitle("SingleMu Modes");
+  mgSingleMuModes->Add(RateRatioSingleMuModes);
+  mgSingleMuModes->Add(RateRatioSingleMuModesdBX0);
+  mgSingleMuModes->Add(RateRatioSingleMuModesRecoSoft);
+  mgSingleMuModes->Add(RateRatioSingleMuModesRecoOnly);
+  mgSingleMuModes->Draw("LP");
+  mgSingleMuModes->Write();
 	
+//DoubleMu
+  TMultiGraph *mgDoubleMuModes=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioDoubleMuModes[i] = 1.0*CountDoubleMuModes[i]/Count[i];
+	  RatioDoubleMuModesdBX0[i] = 1.0*CountDoubleMuModesdBX0[i]/Count[i];
+          RatioDoubleMuModesRecoSoft[i] = 1.0*CountDoubleMuModesRecoSoft[i]/Count[i];
+          RatioDoubleMuModesRecoOnly[i] = 1.0*CountDoubleMuModesRecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioDoubleMuModes = new TGraph(30, TrigPT, RatioDoubleMuModes); RateRatioDoubleMuModes->SetMarkerStyle(22); RateRatioDoubleMuModes->SetLineColor(1);
+  TGraph *RateRatioDoubleMuModesdBX0 = new TGraph(30, TrigPT, RatioDoubleMuModesdBX0); RateRatioDoubleMuModesdBX0->SetMarkerStyle(22); RateRatioDoubleMuModesdBX0->SetLineColor(2);
+  TGraph *RateRatioDoubleMuModesRecoSoft = new TGraph(30, TrigPT, RatioDoubleMuModesRecoSoft); RateRatioDoubleMuModesRecoSoft->SetMarkerStyle(22); RateRatioDoubleMuModesRecoSoft->SetLineColor(3);
+  TGraph *RateRatioDoubleMuModesRecoOnly = new TGraph(30, TrigPT, RatioDoubleMuModesRecoOnly); RateRatioDoubleMuModesRecoOnly->SetMarkerStyle(22); RateRatioDoubleMuModesRecoOnly->SetLineColor(4);
+  CRateDoubleMuModes->cd();
+  mgDoubleMuModes->SetTitle("DoubleMu Modes");
+  mgDoubleMuModes->Add(RateRatioDoubleMuModes);
+  mgDoubleMuModes->Add(RateRatioDoubleMuModesdBX0);
+  mgDoubleMuModes->Add(RateRatioDoubleMuModesRecoSoft);
+  mgDoubleMuModes->Add(RateRatioDoubleMuModesRecoOnly);
+  mgDoubleMuModes->Draw("LP");
+  mgDoubleMuModes->Write();
+	
+//MuOpen
+  TMultiGraph *mgMuOpenModes=new TMultiGraph();
+  for(int i=0;i<30;i++){
+	  RatioMuOpenModes[i] = 1.0*CountMuOpenModes[i]/Count[i];
+	  RatioMuOpenModesdBX0[i] = 1.0*CountMuOpenModesdBX0[i]/Count[i];
+          RatioMuOpenModesRecoSoft[i] = 1.0*CountMuOpenModesRecoSoft[i]/Count[i];
+          RatioMuOpenModesRecoOnly[i] = 1.0*CountMuOpenModesRecoOnly[i]/Count[i];
+  }
+  TGraph *RateRatioMuOpenModes = new TGraph(30, TrigPT, RatioMuOpenModes); RateRatioMuOpenModes->SetMarkerStyle(22); RateRatioMuOpenModes->SetLineColor(1);
+  TGraph *RateRatioMuOpenModesdBX0 = new TGraph(30, TrigPT, RatioMuOpenModesdBX0); RateRatioMuOpenModesdBX0->SetMarkerStyle(22); RateRatioMuOpenModesdBX0->SetLineColor(2);
+  TGraph *RateRatioMuOpenModesRecoSoft = new TGraph(30, TrigPT, RatioMuOpenModesRecoSoft); RateRatioMuOpenModesRecoSoft->SetMarkerStyle(22); RateRatioMuOpenModesRecoSoft->SetLineColor(3);
+  TGraph *RateRatioMuOpenModesRecoOnly = new TGraph(30, TrigPT, RatioMuOpenModesRecoOnly); RateRatioMuOpenModesRecoOnly->SetMarkerStyle(22); RateRatioMuOpenModesRecoOnly->SetLineColor(4);
+  CRateMuOpenModes->cd();
+  mgMuOpenModes->SetTitle("MuOpen Modes");
+  mgMuOpenModes->Add(RateRatioMuOpenModes);
+  mgMuOpenModes->Add(RateRatioMuOpenModesdBX0);
+  mgMuOpenModes->Add(RateRatioMuOpenModesRecoSoft);
+  mgMuOpenModes->Add(RateRatioMuOpenModesRecoOnly);
+  mgMuOpenModes->Draw("LP");
+  mgMuOpenModes->Write();
+	
+//each mode
   TMultiGraph *mgMode15=new TMultiGraph();
   for(int i=0;i<30;i++){
 	  RatioMode15[i] = 1.0*CountMode15[i]/Count[i];
