@@ -10,13 +10,13 @@
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
 //Part I: Rate/eff by track mode
 //================================================================
-const bool verbose  = false; // Print information
+const bool verbose = false; // Print information
 const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
-const int MAX_EVT   = 100000000;   // Max number of events to process
-const int PRT_EVT   =  10000;   // Print every N events
+const int MAX_EVT = 100000000;   // Max number of events to process
+const int PRT_EVT = 10000;   // Print every N events
 //================================================================
 //Part II: EMTF unbiased setting for pT training
 const int Bias_Pt = 26;//SingleMu is collected with IsoMu24
@@ -259,7 +259,7 @@ void ModesRateEff() {
   std::cout << "\n******* About to loop over the SingleMu events *******" << std::endl;
   int nSMEvents = SM_in_chain->GetEntries();
 	
-  //1st Loop: Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training, should expect 1/RECO pT distribution
+  //Loop SingleMu 
   for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
     if (iEvt > MAX_EVT) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
@@ -267,14 +267,21 @@ void ModesRateEff() {
       std::cout << "Looking at event " << iEvt << " out of " << nSMEvents << std::endl;
       std::cout << "*************************************" << std::endl;
     }
-	  
+
     SM_in_chain->GetEntry(iEvt);
-    if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
     
+    // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
+    // Print info for unpacked EMTF tracks
+    if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
+	
     int FirstKindFlag=0;
     int SecondKindFlag=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
 	    
+	    //*** ===========================================================================
+	    //*** Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training,
+	    //*** should expect 1/RECO pT distribution
+	    //*** ===========================================================================
 	    //1st kind of events: >0 RECO mu in barrel(abs(eta) < 1.0), pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
 	    if( FirstKindFlag!=1 && SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) < Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
 		    FirstKindFlag=1;
@@ -305,25 +312,9 @@ void ModesRateEff() {
 		    
 	    }//select 2nd kind of unbiased events
 	    
-    }//end loop RECO mu in the event
-	  
-  }//end 1st loop 
-	
-  //2nd Loop: SingleMu again for normal track study
-  for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
-    if (iEvt > MAX_EVT) break;
-    if ( (iEvt % PRT_EVT) == 0 ) {
-      std::cout << "\n*************************************" << std::endl;
-      std::cout << "Looking at event " << iEvt << " out of " << nSMEvents << std::endl;
-      std::cout << "*************************************" << std::endl;
-    }
-
-    SM_in_chain->GetEntry(iEvt);
-    
-    // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
-    // Print info for unpacked EMTF tracks
-    if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
-    for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
+	    //*** ==================
+	    //*** Normal track study
+	    //*** ==================
 	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
 		    
