@@ -293,7 +293,7 @@ void ModesRateEff() {
 					    SMUnbiasedRecoPt->Fill( F("reco_pt", jreco) ); 
 			            }
 		            }//end loop 
-		    }
+		    }//end if FirstKindFlag==1
 		    
 	    }//select 1st kind of unbiased events
 	    
