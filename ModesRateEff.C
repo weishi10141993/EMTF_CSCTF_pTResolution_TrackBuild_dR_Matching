@@ -23,6 +23,24 @@ const int Bias_Pt = 26;//SingleMu is collected with IsoMu24
 const float Bias_Eta = 1.0;//barrel/endcap distinction
 const float Bias_Iso = 0.25;//reco mu iso
 //================================================================
+//Part III: I/O
+TString store = "/home/ws13/TMVA/TMVA/"; //main dir
+TString in_dir = "INPUT/Ntuples/"; //sub dir
+TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
+TString SingleMu_files[3] = { 
+	  		    "NTuple_SingleMuon_FlatNtuple_Run_306092_2018_03_02_SingleMu.root",
+   			    "NTuple_SingleMuon_FlatNtuple_Run_306135_2018_03_02_SingleMu.root",
+   			    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_03_02_SingleMu.root"
+};   
+TString ZeroBias_files[4] = { 
+	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",
+		            "NTuple_ZeroBias2_FlatNtuple_Run_306091_2018_03_02_ZB2.root",
+		            "NTuple_ZeroBias3_FlatNtuple_Run_306091_2018_03_02_ZB3.root", 
+		 	    "NTuple_ZeroBias4_FlatNtuple_Run_306091_2018_03_02_ZB4.root"
+};
+const int USESingleMu = 3;//# of SM files to use
+const int USEZerobias = 4;//# of ZB files to use
+//================================================================
 
 void ModesRateEff() {
    
@@ -32,29 +50,16 @@ void ModesRateEff() {
   // List of input files
   std::vector<TString> SM_in_file_names;//SingleMu
   std::vector<TString> ZB_in_file_names;//Zerobias
-  //**bonner dir:/home/ws13/TMVA/TMVA/INPUT/Ntuples
-  TString store = "root://eoscms.cern.ch//store/user/abrinke1/EMTF/Emulator/";
-  TString in_dir = "ntuples/HADD/";
   TString SM_file_name;
   TString ZB_file_name;
 
-  TString SingleMu_files[3] = { 
-	  		    "NTuple_SingleMuon_FlatNtuple_Run_306092_2018_03_02_SingleMu.root",
-   			    "NTuple_SingleMuon_FlatNtuple_Run_306135_2018_03_02_SingleMu.root",
-   			    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_03_02_SingleMu.root"
-  };   
-  TString ZeroBias_files[4] = { 
-	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",
-		            "NTuple_ZeroBias2_FlatNtuple_Run_306091_2018_03_02_ZB2.root",
-		            "NTuple_ZeroBias3_FlatNtuple_Run_306091_2018_03_02_ZB3.root", 
-		 	    "NTuple_ZeroBias4_FlatNtuple_Run_306091_2018_03_02_ZB4.root"
-  };
-  for (int i = 0; i < 3; i++) {
+  
+  for (int i = 0; i < USESingleMu; i++) {
 	  SM_file_name.Form( "%s/%s/%s", store.Data(), in_dir.Data(), SingleMu_files[i].Data() );
   	  std::cout << "Adding file " << SM_file_name.Data() << std::endl;
           SM_in_file_names.push_back(SM_file_name.Data());
   }
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < USEZerobias; i++) {
 	  ZB_file_name.Form( "%s/%s/%s", store.Data(), in_dir.Data(), ZeroBias_files[i].Data() );
   	  std::cout << "Adding file " << ZB_file_name.Data() << std::endl;
           ZB_in_file_names.push_back(ZB_file_name.Data());
