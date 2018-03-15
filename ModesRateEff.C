@@ -5,7 +5,7 @@
 #include "TBranch.h"
 #include "TH2.h"
 
-//*** USER modify here ONLY ***//
+//*** USER modify below ONLY ***//
 // List of input branches and functions to return values
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
 //Part I: Rate/eff by track mode
@@ -40,7 +40,7 @@ TString ZeroBias_files[4] = {
 };
 const int USESingleMu = 3;//# of SM files to use
 const int USEZerobias = 4;//# of ZB files to use
-//================================================================
+//*** USER modify above ONLY ***//
 
 void ModesRateEff() {
    
