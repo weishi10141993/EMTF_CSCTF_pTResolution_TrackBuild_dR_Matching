@@ -4,10 +4,11 @@
 #include "TTree.h"
 #include "TBranch.h"
 #include "TH2.h"
+
+//*** USER modify here ONLY ***//
 // List of input branches and functions to return values
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
-
-//USER modify here ONLY//
+//Part I: Rate/eff by track mode
 //================================================================
 const bool verbose  = false; // Print information
 const int PT_UP = 30;//Reco pT range
@@ -16,6 +17,11 @@ const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
 const int MAX_EVT   = 100000000;   // Max number of events to process
 const int PRT_EVT   =  10000;   // Print every N events
+//================================================================
+//Part II: EMTF unbiased setting for pT training
+const int Bias_Pt = 26;//SingleMu is collected with IsoMu24
+const float Bias_Eta = 1.0;//barrel/endcap distinction
+const float Bias_Iso = 0.25;//reco mu iso
 //================================================================
 
 void ModesRateEff() {
@@ -87,7 +93,8 @@ void ModesRateEff() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 30, 0, 30);
-  
+  TH1F *SMUnbiasedRecoPt = new TH1F("SMUnbiasedRecoPt", "Unbiased " + SMRecoPtTitle, 30, 0, 30);
+	
   TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtUniqueMatch = new TH1F("SMRecoPtUniqueMatch", "UniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
@@ -246,6 +253,43 @@ void ModesRateEff() {
 	
   std::cout << "\n******* About to loop over the SingleMu events *******" << std::endl;
   int nSMEvents = SM_in_chain->GetEntries();
+	
+  //1st Loop: Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training, should expect 1/RECO pT distribution
+  for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
+    if (iEvt > MAX_EVT) break;
+    if ( (iEvt % PRT_EVT) == 0 ) {
+      std::cout << "\n*************************************" << std::endl;
+      std::cout << "Looking at event " << iEvt << " out of " << nSMEvents << std::endl;
+      std::cout << "*************************************" << std::endl;
+    }
+	  
+    SM_in_chain->GetEntry(iEvt);
+    if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
+    
+    int FirstKindFlag=-1;
+    int SecondKindFlag=-1;
+    for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
+	    
+	    //1st kind of events: >0 RECO mu in barrel(abs(eta) < 1.0), pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
+	    if( FirstKindFlag!=1 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) < Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
+		    FirstKindFlag=1;
+		    //loop over all RECOmu again to fill pT spectrum
+		    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
+			    //same requirement as track eff study below
+			    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
+				    SMUnbiasedRecoPt->Fill( F("reco_pt", jreco) ); 
+			    }
+		    }//end loop 
+		    
+	    }//select one kind of unbiased events
+	    
+	    //2nd kind of events: >1 RECO mu in endcap(abs(eta) > 1.0), same requirement as 1st kind
+	    
+    }//end loop RECO mu in the event
+	  
+  }//end 1st loop 
+	
+  //2nd Loop: SingleMu again for normal track study
   for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
     if (iEvt > MAX_EVT) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
@@ -473,7 +517,7 @@ void ModesRateEff() {
 		   }//matched to unique EMTF trk
 		   
 	    }//selection on reco mu
-    }//end loop over reco muons
+    }//end 2nd loop over SingleMu
     
   } // End loop events
   std::cout << "\n******* Finished looping over the SingleMu events *******" << std::endl;
@@ -711,6 +755,7 @@ void ModesRateEff() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMUnbiasedRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
@@ -780,6 +825,7 @@ void ModesRateEff() {
   SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
 
   SMRecoPt->Write();
+  SMUnbiasedRecoPt->Write();
   //divide histograms for all modes
   //SingleMu
   TCanvas *CSingleMuModes = new TCanvas("CSingleMuModes","SingleMuModes",700,500);
