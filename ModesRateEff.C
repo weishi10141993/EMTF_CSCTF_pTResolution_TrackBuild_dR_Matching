@@ -284,7 +284,7 @@ void ModesRateEff() {
 	    //*** ===========================================================================
 	    //1st kind of events: >0 RECO mu in barrel(abs(eta) < 1.0), pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
 	    if( FirstKindFlag!=1 && SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) < Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
-		    FirstKindFlag=1;
+		    FirstKindFlag++;
 		    if (FirstKindFlag==1){//the if is not necessary, but put here for generl purpose
 			    //loop over all RECOmu again to fill pT spectrum
 		            for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
@@ -760,8 +760,6 @@ void ModesRateEff() {
   std::cout << "\nDone with macro. Exiting.\n" << std::endl;
 	
   //write to output file
-  //**bonner dir : /home/ws13/TMVA/TMVA/Study
-  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/ModesRateEff";
   outFile = outFile + "_eta_" + Form("%.2f", ETA_LOW) + "_" + Form("%.2f", ETA_UP) + ".root";
   TFile myPlot(outFile,"RECREATE");
         
