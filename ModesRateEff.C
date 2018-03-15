@@ -289,7 +289,7 @@ void ModesRateEff() {
 	    }//select 1st kind of unbiased events
 	    
 	    //2nd kind of events: >1 RECO mu in endcap(abs(eta) > 1.0), same requirement as 1st kind
-	    if( SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) >= Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
+	    if( FirstKindFlag!=1 && SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) >= Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
 		    SecondKindFlag++;;
 		    if (SecondKindFlag==2){
 			    //loop over all RECOmu again to fill pT spectrum
