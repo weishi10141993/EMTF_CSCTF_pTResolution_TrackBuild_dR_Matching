@@ -271,8 +271,8 @@ void ModesRateEff() {
     SM_in_chain->GetEntry(iEvt);
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
     
-    int FirstKindFlag=-1;
-    int SecondKindFlag=-1;
+    int FirstKindFlag=0;
+    int SecondKindFlag=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
 	    
 	    //1st kind of events: >0 RECO mu in barrel(abs(eta) < 1.0), pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
@@ -286,9 +286,22 @@ void ModesRateEff() {
 			    }
 		    }//end loop 
 		    
-	    }//select one kind of unbiased events
+	    }//select 1st kind of unbiased events
 	    
 	    //2nd kind of events: >1 RECO mu in endcap(abs(eta) > 1.0), same requirement as 1st kind
+	    if( SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) >= Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
+		    SecondKindFlag++;;
+		    if (SecondKindFlag==2){
+			    //loop over all RECOmu again to fill pT spectrum
+		            for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
+				    //same requirement as track eff study below
+			    	    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
+					    SMUnbiasedRecoPt->Fill( F("reco_pt", jreco) ); 
+			    	    }
+		            }//end loop 
+		    }//end if SecondKindFlag==2
+		    
+	    }//select 2nd kind of unbiased events
 	    
     }//end loop RECO mu in the event
 	  
