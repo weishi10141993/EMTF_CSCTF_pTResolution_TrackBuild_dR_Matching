@@ -276,15 +276,17 @@ void ModesRateEff() {
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
 	    
 	    //1st kind of events: >0 RECO mu in barrel(abs(eta) < 1.0), pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
-	    if( FirstKindFlag!=1 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) < Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
+	    if( FirstKindFlag!=1 && SecondKindFlag!=2 && F("reco_pt", ireco) >= Bias_Pt && fabs(F("reco_eta",ireco)) < Bias_Eta && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
 		    FirstKindFlag=1;
-		    //loop over all RECOmu again to fill pT spectrum
-		    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
-			    //same requirement as track eff study below
-			    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
-				    SMUnbiasedRecoPt->Fill( F("reco_pt", jreco) ); 
-			    }
-		    }//end loop 
+		    if (FirstKindFlag==1){//the if is not necessary, but put here for generl purpose
+			    //loop over all RECOmu again to fill pT spectrum
+		            for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
+				    //same requirement as track eff study below
+				    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
+					    SMUnbiasedRecoPt->Fill( F("reco_pt", jreco) ); 
+			            }
+		            }//end loop 
+		    }
 		    
 	    }//select 1st kind of unbiased events
 	    
