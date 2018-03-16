@@ -767,7 +767,8 @@ void ModesRateEff() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMUnbiasedRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMUnbiasedRecoPtA->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMUnbiasedRecoPtB->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
@@ -837,7 +838,8 @@ void ModesRateEff() {
   SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
 
   SMRecoPt->Write();
-  SMUnbiasedRecoPt->Write();
+  SMUnbiasedRecoPtA->Write();
+  SMUnbiasedRecoPtB->Write();
   //divide histograms for all modes
   //SingleMu
   TCanvas *CSingleMuModes = new TCanvas("CSingleMuModes","SingleMuModes",700,500);
