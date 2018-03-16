@@ -283,7 +283,7 @@ void ModesRateEff() {
 	    //*** Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training,
 	    //*** should expect 1/RECO pT distribution
 	    //*** ===========================================================================
-	    //RECO mu pT > 26 GeV, Iso < 0.25, match St1 segment, medium ID
+	    //RECO mu pT >  Bias pT, Iso < Bias_Iso, match St1 segment, medium ID
 	    if( F("reco_pt", ireco) >= Bias_Pt && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
 		    //Barrel Reco mu
 		    if(fabs(F("reco_eta",ireco)) < Bias_Eta){
