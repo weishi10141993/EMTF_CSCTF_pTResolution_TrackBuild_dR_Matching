@@ -98,7 +98,8 @@ void ModesRateEff() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMUnbiasedRecoPt = new TH1F("SMUnbiasedRecoPt", "Unbiased " + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMUnbiasedRecoPtA = new TH1F("SMUnbiasedRecoPtA", "A-Unbiased " + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMUnbiasedRecoPtB = new TH1F("SMUnbiasedRecoPtB", "B-Unbiased " + SMRecoPtTitle, 30, 0, 30);
 	
   TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
