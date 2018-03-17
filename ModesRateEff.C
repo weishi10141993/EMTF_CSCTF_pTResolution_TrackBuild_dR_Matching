@@ -24,8 +24,8 @@ const float Bias_Eta = 1.0;//barrel/endcap distinction
 const float Bias_Iso = 0.25;//reco mu iso
 //================================================================
 //Part III: I/O
-TString store = "/home/ws13/TMVA/TMVA/"; //main dir
-TString in_dir = "INPUT/Ntuples/"; //sub dir
+TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
+TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
 TString SingleMu_files[3] = { 
 	  		    "NTuple_SingleMuon_FlatNtuple_Run_306092_2018_03_02_SingleMu.root",
