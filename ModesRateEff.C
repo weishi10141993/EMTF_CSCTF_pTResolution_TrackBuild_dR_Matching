@@ -275,14 +275,13 @@ void ModesRateEff() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
 	
+    //*** ===========================================================================
+    //*** Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training,
+    //*** should expect 1/RECO pT distribution
+    //*** ===========================================================================
     int BarrelRecoMu=0;
     int EndcapRecoMu=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
-	    
-	    //*** ===========================================================================
-	    //*** Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training,
-	    //*** should expect 1/RECO pT distribution
-	    //*** ===========================================================================
 	    //RECO mu pT >  Bias pT, Iso < Bias_Iso, match St1 segment, medium ID
 	    if( F("reco_pt", ireco) >= Bias_Pt && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
 		    //Barrel Reco mu
@@ -293,28 +292,30 @@ void ModesRateEff() {
 		    if(fabs(F("reco_eta",ireco)) >= Bias_Eta){
 			    EndcapRecoMu++;
 		    }
-	    }//select RECO mu 
-	    
-	    //A: remove EMTF bias: >0 in barrel or >2 in endcap
-	    if ( BarrelRecoMu>0 || EndcapRecoMu>1 ){
-		    //loop over all RECOmu again to fill pT spectrum
-		    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
-			    //same requirement as track eff study below
-			    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
-				    SMUnbiasedRecoPtA->Fill( F("reco_pt", jreco) );
-			    }
-		    }//end loop 
-	    }//end if A
+	    }//select RECO mu
+    }//end for ireco
+	  
+    //A: remove EMTF bias: >0 in barrel or >2 in endcap
+    if ( BarrelRecoMu>0 || EndcapRecoMu>1 ){
+	    //loop over all RECOmu again to fill pT spectrum
+	    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
+		    //same requirement as track eff study below
+		    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
+			    SMUnbiasedRecoPtA->Fill( F("reco_pt", jreco) );
+		    }
+	    }//end loop 
+    }//end if A
 	
-	    //B: This should definitely be unbiased, lower statistics than A
-	    if ( BarrelRecoMu>0 && EndcapRecoMu==0 ){
-		    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
-			    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
-				    SMUnbiasedRecoPtB->Fill( F("reco_pt", jreco) );
-			    }
-		    }//end loop 
-	    }//end if 
-	    
+    //B: This should definitely be unbiased, lower statistics than A
+    if ( BarrelRecoMu>0 && EndcapRecoMu==0 ){
+	    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
+		    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
+			    SMUnbiasedRecoPtB->Fill( F("reco_pt", jreco) );
+		    }
+	    }//end loop 
+    }//end if
+	  
+    for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
 	    //*** ==================
 	    //*** Normal track study
 	    //*** ==================
