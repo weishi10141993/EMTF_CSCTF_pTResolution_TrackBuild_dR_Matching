@@ -83,6 +83,22 @@ void NTuple_Analyzer() {
   TH1F *RPCModeBXm1 = new TH1F("RPCModeBXm1", "RPCModeBXm1", 15, 0, 15);
   TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 15, 0, 15);
   TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 15, 0, 15);
+
+  TH1F *CSCHitBXinBX0Trk = new TH1F("CSCHitBXinBX0Trk", "CSCHitBXinBX0Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBX1Trk = new TH1F("CSCHitBXinBX1Trk", "CSCHitBXinBX1Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBX2Trk = new TH1F("CSCHitBXinBX2Trk", "CSCHitBXinBX2Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBX3Trk = new TH1F("CSCHitBXinBX3Trk", "CSCHitBXinBX3Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBXm1Trk = new TH1F("CSCHitBXinBXm1Trk", "CSCHitBXinBXm1Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBXm2Trk = new TH1F("CSCHitBXinBXm2Trk", "CSCHitBXinBXm2Trk", 8, -4, 4);
+  TH1F *CSCHitBXinBXm3Trk = new TH1F("CSCHitBXinBXm3Trk", "CSCHitBXinBXm3Trk", 8, -4, 4);
+	
+  TH1F *RPCHitBXinBX0Trk = new TH1F("RPCHitBXinBX0Trk", "RPCHitBXinBX0Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBX1Trk = new TH1F("RPCHitBXinBX1Trk", "RPCHitBXinBX1Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBX2Trk = new TH1F("RPCHitBXinBX2Trk", "RPCHitBXinBX2Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBX3Trk = new TH1F("RPCHitBXinBX3Trk", "RPCHitBXinBX3Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBXm1Trk = new TH1F("RPCHitBXinBXm1Trk", "RPCHitBXinBXm1Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBXm2Trk = new TH1F("RPCHitBXinBXm2Trk", "RPCHitBXinBXm2Trk", 8, -4, 4);
+  TH1F *RPCHitBXinBXm3Trk = new TH1F("RPCHitBXinBXm3Trk", "RPCHitBXinBXm3Trk", 8, -4, 4);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
@@ -102,50 +118,120 @@ void NTuple_Analyzer() {
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_pt", itrack)> PT_CUT ){
+	    if( I("trk_pt", itrack) > PT_CUT ){
 		    
 		    switch ( I("trk_BX", itrack) ) {
 				    
 		        case 0:
-                            ModeBX0->Fill(I("trk_mode", itrack));
-		            CSCModeBX0->Fill("trk_mode_CSC", itrack);
-		            RPCModeBX0->Fill("trk_mode_RPC", itrack);
+                            ModeBX0->Fill( I("trk_mode", itrack) );
+		            CSCModeBX0->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBX0->Fill( I("trk_mode_RPC", itrack) );
+		            for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBX0Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBX0Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break; 
                         case 1:
                             ModeBX1->Fill(I("trk_mode", itrack));
 		            CSCModeBX1->Fill("trk_mode_CSC", itrack);
 		            RPCModeBX1->Fill("trk_mode_RPC", itrack);
+			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBX1Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBX1Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break; 
 			case 2:
                             ModeBX2->Fill(I("trk_mode", itrack));
 		            CSCModeBX2->Fill("trk_mode_CSC", itrack);
 		            RPCModeBX2->Fill("trk_mode_RPC", itrack);
+		            for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBX2Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBX2Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break;
 			case 3:
 			    ModeBX3->Fill(I("trk_mode", itrack));
 		            CSCModeBX3->Fill("trk_mode_CSC", itrack);
 		            RPCModeBX3->Fill("trk_mode_RPC", itrack);
+			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBX3Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBX3Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break;
 		        case -1:
                             ModeBXm1->Fill(I("trk_mode", itrack));
 		            CSCModeBXm1->Fill("trk_mode_CSC", itrack);
 		            RPCModeBXm1->Fill("trk_mode_RPC", itrack);
+			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBXm1Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBXm1Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break; 
 			case -2:
                             ModeBXm2->Fill(I("trk_mode", itrack));
 		            CSCModeBXm2->Fill("trk_mode_CSC", itrack);
 		            RPCModeBXm2->Fill("trk_mode_RPC", itrack);
+			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBXm2Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBXm2Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break;
 			case -3:
 			    ModeBXm3->Fill(I("trk_mode", itrack));
 		            CSCModeBXm3->Fill("trk_mode_CSC", itrack);
 		            RPCModeBXm3->Fill("trk_mode_RPC", itrack);
+			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
+				    int iHit = I("trk_iHit", itrack, jhit); 
+				    if(I("hit_isCSC", iHit)==1){
+					    CSCHitBXinBXm3Trk->Fill( I("hit_BX", iHit) );
+				    }
+				    if(I("hit_isRPC", iHit)==1){
+					    RPCHitBXinBXm3Trk->Fill( I("hit_BX", iHit) );
+				    }
+					    
+			    }//end loop over hits
                             break;
 		        default:
                             break;
 		    }//end switch
 				    
-	    }//end if trk BX!=0 && high pT
+	    }//end if high pT
 	    
 	     
     }//end loop over tracks
@@ -183,6 +269,22 @@ void NTuple_Analyzer() {
   RPCModeBXm1->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm2->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm3->GetXaxis()->SetTitle("RPC Mode");
+
+  CSCHitBXinBX0Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBX1Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBX2Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBX3Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBXm1Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBXm2Trk->GetXaxis()->SetTitle("CSC Hit BX");
+  CSCHitBXinBXm3Trk->GetXaxis()->SetTitle("CSC Hit BX");
+	
+  RPCHitBXinBX0Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBX1Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBX2Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBX3Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBXm1Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBXm2Trk->GetXaxis()->SetTitle("RPC Hit BX");
+  RPCHitBXinBXm3Trk->GetXaxis()->SetTitle("RPC Hit BX");
 	
   ModeBX0->Write();
   ModeBX1->Write();
@@ -207,6 +309,22 @@ void NTuple_Analyzer() {
   RPCModeBXm1->Write();
   RPCModeBXm2->Write();
   RPCModeBXm3->Write();
+	
+  CSCHitBXinBX0Trk->Write();
+  CSCHitBXinBX1Trk->Write();
+  CSCHitBXinBX2Trk->Write();
+  CSCHitBXinBX3Trk->Write();
+  CSCHitBXinBXm1Trk->Write();
+  CSCHitBXinBXm2Trk->Write();
+  CSCHitBXinBXm3Trk->Write();
+  
+  RPCHitBXinBX0Trk->Write();
+  RPCHitBXinBX1Trk->Write();
+  RPCHitBXinBX2Trk->Write();
+  RPCHitBXinBX3Trk->Write();
+  RPCHitBXinBXm1Trk->Write();
+  RPCHitBXinBXm2Trk->Write();
+  RPCHitBXinBXm3Trk->Write();
         
   myPlot.Close();
   
