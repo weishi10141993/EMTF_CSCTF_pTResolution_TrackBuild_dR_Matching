@@ -42,11 +42,11 @@ void NTuple_Analyzer() {
 
   // List of input files
   std::vector<TString> in_file_names;
-  TString store = "root://eoscms.cern.ch//store/user/abrinke1/EMTF/Emulator/";
-  TString in_dir = "ntuples/HADD/";
+  TString store = "/afs/cern.ch/work/w/wshi/public/EMTFAnalyzer/CMSSW_10_1_1/src/EMTFAnalyzer";
+  TString in_dir = "NTupleMaker/test";
   TString file_name;
 
-  file_name.Form("%s/%s/NTuple_ZeroBias8b4e_FlatNtuple_Skim_Run_302674_2017_09_30.root", store.Data(), in_dir.Data());
+  file_name.Form("%s/%s/EMTF_NTuple_314650.root", store.Data(), in_dir.Data());
   std::cout << "Adding file " << file_name.Data() << std::endl;
   in_file_names.push_back(file_name.Data());
 
