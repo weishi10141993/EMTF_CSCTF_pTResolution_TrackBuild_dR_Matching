@@ -19,16 +19,10 @@
 //USER modify here ONLY//
 //================================================================
 const int MAX_FILES = 1;   // Max number of files to process
-const int MAX_EVT   = 1000000;   // Max number of events to process
-const int PRT_EVT   =  1;   // Print every N events
+const int MAX_EVT   = -1;   // Max number of events to process
+const int PRT_EVT   = 100000;   // Print every N events
 const bool verbose  = true; // Print information about the event and RECO and L1T muon
 const int PT_CUT = 22;
-const float ETA_UP = 2.4;
-const float ETA_LOW = 1.6;
-const int CUT1_UP = 16;//dTheta(1-X)
-const int CUT1_LOW = 0;
-const int CUT2_UP = 8;//dTheta(X-Y)
-const int CUT2_LOW = 0;
 //================================================================
 
 ///////////////////////////////////////////
@@ -61,7 +55,7 @@ void NTuple_Analyzer() {
   }
 
   // Add tree from the input files to the TChain
-  TChain *in_chain= new TChain("ntuple/tree");
+  TChain *in_chain= new TChain("FlatNtupleData/tree");
   for (int i = 0; i < in_file_names.size(); i++) {
     in_chain->Add( in_file_names.at(i) );
   }
