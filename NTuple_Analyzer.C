@@ -59,12 +59,27 @@ void NTuple_Analyzer() {
   for (int i = 0; i < in_file_names.size(); i++) {
     in_chain->Add( in_file_names.at(i) );
   }
-  TString Topology4Title="";
-  Topology4Title = Topology4Title + "dTh cuts 4-station tracks: pT >= "+ Form("%d", PT_CUT) +"GeV, abs(eta) ["+Form("%.1f", ETA_LOW)+", "+ Form("%.1f", ETA_UP)+"]";
-  TString Topology3Title="";
-  Topology3Title = Topology3Title + "dTh cuts 3-station tracks: pT >= "+ Form("%d", PT_CUT) +"GeV, abs(eta) ["+Form("%.1f", ETA_LOW)+", "+ Form("%.1f", ETA_UP)+"]";
-  TH2F *CutTopology4 = new TH2F("CutTopology4", Topology4Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
-  TH2F *CutTopology3 = new TH2F("CutTopology3", Topology3Title, CUT1_UP-CUT1_LOW+2, CUT1_LOW-1, CUT1_UP+1, CUT2_UP-CUT2_LOW+2, CUT2_LOW-1, CUT2_UP+1);
+ 
+  TH1F *ModeBX1 = new TH1F("ModeBX1", "ModeBX1", 15, 0, 15);
+  TH1F *ModeBX2 = new TH1F("ModeBX2", "ModeBX2", 15, 0, 15);
+  TH1F *ModeBX3 = new TH1F("ModeBX1", "ModeBX1", 15, 0, 15);
+  TH1F *ModeBXm1 = new TH1F("ModeBXm1", "ModeBXm1", 15, 0, 15);
+  TH1F *ModeBXm2 = new TH1F("ModeBXm2", "ModeBXm2", 15, 0, 15);
+  TH1F *ModeBXm3 = new TH1F("ModeBXm3", "ModeBXm3", 15, 0, 15);
+	
+  TH1F *CSCModeBX1 = new TH1F("CSCModeBX1", "CSCModeBX1", 15, 0, 15);
+  TH1F *CSCModeBX2 = new TH1F("CSCModeBX2", "CSCModeBX2", 15, 0, 15);
+  TH1F *CSCModeBX3 = new TH1F("CSCModeBX1", "CSCModeBX1", 15, 0, 15);
+  TH1F *CSCModeBXm1 = new TH1F("CSCModeBXm1", "CSCModeBXm1", 15, 0, 15);
+  TH1F *CSCModeBXm2 = new TH1F("CSCModeBXm2", "CSCModeBXm2", 15, 0, 15);
+  TH1F *CSCModeBXm3 = new TH1F("CSCModeBXm3", "CSCModeBXm3", 15, 0, 15);
+	
+  TH1F *RPCModeBX1 = new TH1F("RPCModeBX1", "RPCModeBX1", 15, 0, 15);
+  TH1F *RPCModeBX2 = new TH1F("RPCModeBX2", "RPCModeBX2", 15, 0, 15);
+  TH1F *RPCModeBX3 = new TH1F("RPCModeBX1", "RPCModeBX1", 15, 0, 15);
+  TH1F *RPCModeBXm1 = new TH1F("RPCModeBXm1", "RPCModeBXm1", 15, 0, 15);
+  TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 15, 0, 15);
+  TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 15, 0, 15);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
@@ -72,7 +87,7 @@ void NTuple_Analyzer() {
   std::cout << "\n******* About to loop over the events *******" << std::endl;
   int nEvents = in_chain->GetEntries();
   for (int iEvt = 0; iEvt < nEvents; iEvt++) {
-    if (iEvt > MAX_EVT) break;
+    if (iEvt > MAX_EVT && MAX_EVT!=-1) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
       std::cout << "Looking at event " << iEvt << " out of " << nEvents << std::endl;
@@ -82,153 +97,50 @@ void NTuple_Analyzer() {
     in_chain->GetEntry(iEvt);
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
-    // Print info for unpacked EMTF tracks
-    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
-    for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
-	    
-	    int th1=-99;
-	    int th2=-99;
-	    int th3=-99;
-	    int th4=-99;
-	    int dTh12=-99;
-	    int dTh13=-99;
-	    int dTh14=-99;
-	    int dTh23=-99;
-	    int dTh24=-99;
-	    int dTh34=-99;
-	    int dTh1X=-99;
-	    int dThXY=-99;
-
-	    if(fabs(I("unp_trk_BX", itrack)) <= 1 && I("unp_trk_nHits",itrack) >= 3 && F("unp_trk_pt", itrack) >= PT_CUT && I("unp_trk_nRPC",itrack) == 0 && I("unp_trk_found_hits",itrack) == 1 && fabs(F("unp_trk_eta",itrack)) >= ETA_LOW && fabs(F("unp_trk_eta",itrack)) <= ETA_UP){
+    if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
+    for (int itrack = 0; itrack < I("nTracks"); itrack++) {
+	    if( I("trk_BX", itrack) != 0 && I("trk_pt", itrack)> PT_CUT ){
 		    
-		    if (verbose) std::cout << " * Mode " << I("unp_trk_mode", itrack) << " nHits:"<<I("unp_trk_nHits",itrack)<< " track with BX = " << I("unp_trk_BX", itrack) << ", pT = " << F("unp_trk_pt", itrack) << ", eta = " << F("unp_trk_eta", itrack) << ", phi = " << F("unp_trk_phi", itrack) << ", max dPhi_int among hits = " << I("unp_trk_dPhi_int", itrack) << std::endl;
-		    
-	            for (int jhit = 0; jhit < I("unp_trk_nHits", itrack); jhit++) {
-			    
-			    int iHit = I("unp_trk_iHit", itrack, jhit);  // Access the index of each hit in the selected track
-			    if (verbose) std::cout << "  - LCT with BX = " << I("hit_BX", iHit) << ", endcap = " << I("hit_endcap", iHit) << ", station = " << I("hit_station", iHit) << ", ring = " << I("hit_ring", iHit) <<", theta = "<< I("hit_theta_int", iHit);<< std::endl; 
+		    switch ( I("trk_BX", itrack) ) {
+                            
+                        case 1:
+                            ModeBX1->Fill(I("trk_mode", itrack));
+		            CSCModeBX1->Fill("trk_mode_CSC", itrack);
+		            RPCModeBX1->Fill("trk_mode_RPC", itrack);
+                            break; 
+			case 2:
+                            ModeBX2->Fill(I("trk_mode", itrack));
+		            CSCModeBX2->Fill("trk_mode_CSC", itrack);
+		            RPCModeBX2->Fill("trk_mode_RPC", itrack);
+                            break;
+			case 3:
+			    ModeBX3->Fill(I("trk_mode", itrack));
+		            CSCModeBX3->Fill("trk_mode_CSC", itrack);
+		            RPCModeBX3->Fill("trk_mode_RPC", itrack);
+                            break;
+		        case -1:
+                            ModeBXm1->Fill(I("trk_mode", itrack));
+		            CSCModeBXm1->Fill("trk_mode_CSC", itrack);
+		            RPCModeBXm1->Fill("trk_mode_RPC", itrack);
+                            break; 
+			case -2:
+                            ModeBXm2->Fill(I("trk_mode", itrack));
+		            CSCModeBXm2->Fill("trk_mode_CSC", itrack);
+		            RPCModeBXm2->Fill("trk_mode_RPC", itrack);
+                            break;
+			case -3:
+			    ModeBXm3->Fill(I("trk_mode", itrack));
+		            CSCModeBXm3->Fill("trk_mode_CSC", itrack);
+		            RPCModeBXm3->Fill("trk_mode_RPC", itrack);
+                            break;
+		        default:
+                            break;
+		    }//end switch
 				    
-			    if( I("hit_station", iHit) ==1 ){
-				    th1=I("hit_theta_int", iHit);
-		            }
-			    else if ( I("hit_station", iHit) == 2 ){
-			            th2=I("hit_theta_int", iHit);
-			    }
-			    else if ( I("hit_station", iHit) == 3 ){
-				    th3=I("hit_theta_int", iHit);
-			    }
-		            else if ( I("hit_station", iHit) == 4 ){
-			            th4=I("hit_theta_int", iHit);
-			    }
-		    }//end loop over hits in selected unpacked track
-		    //4-station
-		    if (I("unp_trk_mode", itrack) == 15){
-			    dTh12=fabs(th1-th2);
-			    dTh13=fabs(th1-th3);
-			    dTh14=fabs(th1-th4);
-			    dTh23=fabs(th2-th3);
-	                    dTh24=fabs(th2-th4);
-	                    dTh34=fabs(th3-th4);
-			    dTh1X=dTh12>dTh13?dTh12:dTh13;
-			    dTh1X=dTh1X>dTh14?dTh1X:dTh14;
-			    dThXY=dTh23>dTh24?dTh23:dTh24;
-			    dThXY=dThXY>dTh34?dThXY:dTh34;
-			    //no cut bin
-			    CutTopology4->Fill(CUT1_LOW-1,CUT2_LOW-1);
-			    //loop over cut on dTheta(1-X)
-                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-				    //loop over cut on dTheta(X-Y)
-  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-					    if(dTh1X<=i && dThXY<=j){
-						    CutTopology4->Fill(i,j);
-					    }
-	  			    }//end cut2
-  			    }//end cut1
-			    
-		    }//end mode 15
-		    //station 123
-		    if (I("unp_trk_mode", itrack) == 14){
-			    dTh12=fabs(th1-th2);
-			    dTh13=fabs(th1-th3);
-			    dTh23=fabs(th2-th3);
-			    dTh1X=dTh12>dTh13?dTh12:dTh13;
-			    dThXY=dTh23;
-			    //no cut bin
-			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
-			    //loop over cut on dTheta(1-X)
-                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-				    //loop over cut on dTheta(X-Y)
-  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-					    if(dTh1X<=i && dThXY<=j){
-						    CutTopology3->Fill(i,j);
-					    }
-	  			    }//end cut2
-  			    }//end cut1
-			    
-		    }
-		    //station 124
-		    if (I("unp_trk_mode", itrack) == 13){
-			    dTh12=fabs(th1-th2);
-			    dTh14=fabs(th1-th4);
-	                    dTh24=fabs(th2-th4);
-			    dTh1X=dTh12>dTh14?dTh12:dTh14;
-			    dThXY=dTh24;
-			    //no cut bin
-			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
-			    //loop over cut on dTheta(1-X)
-                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-				    //loop over cut on dTheta(X-Y)
-  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-					    if(dTh1X<=i && dThXY<=j){
-						    CutTopology3->Fill(i,j);
-					    }
-	  			    }//end cut2
-  			    }//end cut1
-			    
-		    }
-		    //station 134
-		    if (I("unp_trk_mode", itrack) == 11){
-			    dTh13=fabs(th1-th3);
-			    dTh14=fabs(th1-th4);
-	                    dTh34=fabs(th3-th4);
-			    dTh1X=dTh13>dTh14?dTh13:dTh14;
-			    dThXY=dTh34;
-			    //no cut bin
-			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
-			    //loop over cut on dTheta(1-X)
-                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-				    //loop over cut on dTheta(X-Y)
-  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-					    if(dTh1X<=i && dThXY<=j){
-						    CutTopology3->Fill(i,j);
-					    }
-	  			    }//end cut2
-  			    }//end cut1
-		    }
-		    //station 234
-		    if (I("unp_trk_mode", itrack) == 7){
-			    dTh23=fabs(th2-th3);
-	                    dTh24=fabs(th2-th4);
-	                    dTh34=fabs(th3-th4);
-			    dThXY=dTh23>dTh24?dTh23:dTh24;
-			    dThXY=dThXY>dTh34?dThXY:dTh34;
-			    //no cut bin
-			    CutTopology3->Fill(CUT1_LOW-1,CUT2_LOW-1);
-			    //loop over cut on dTheta(1-X)
-                            for(Int_t i=CUT1_LOW;i<=CUT1_UP;i++){
-				    //loop over cut on dTheta(X-Y)
-  			            for(Int_t j=CUT2_LOW;j<=CUT2_UP;j++){
-					    if(dThXY<=j){
-						    CutTopology3->Fill(i,j);
-					    }
-	  			    }//end cut2
-  			    }//end cut1
-		    }
-		    
-		    
-	    }//end selection on track
+	    }//end if trk BX!=0 && high pT
+	    
 	     
-    }//end loop over unpacked tracks
+    }//end loop over tracks
     
   } // End loop events
   std::cout << "\n******* Finished looping over the events *******" << std::endl;
@@ -237,17 +149,50 @@ void NTuple_Analyzer() {
   std::cout << "\nDone with dThetaWindow(). Exiting.\n" << std::endl;
 	
   //write to output file
-  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFPileUp/dThetaWindow_pt_";
-  outFile = outFile + Form("%d", PT_CUT) +"_eta_"+Form("%.1f", ETA_LOW)+"_"+ Form("%.1f", ETA_UP)+ ".root";
+  TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFAnalyzer/CMSSW_10_1_1/src/EMTFAnalyzer/NTupleMaker/test/Output_314650.root";
   TFile myPlot(outFile,"RECREATE");
         
-  CutTopology4->GetXaxis()->SetTitle("dTheta(1-X)");
-  CutTopology4->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology4->Write();
-        
-  CutTopology3->GetXaxis()->SetTitle("dTheta(1-X)");
-  CutTopology3->GetYaxis()->SetTitle("dTheta(X-Y)");
-  CutTopology3->Write();
+  ModeBX1->GetXaxis()->SetTitle("Mode");
+  ModeBX2->GetXaxis()->SetTitle("Mode");
+  ModeBX3->GetXaxis()->SetTitle("Mode");
+  ModeBXm1->GetXaxis()->SetTitle("Mode");
+  ModeBXm2->GetXaxis()->SetTitle("Mode");
+  ModeBXm3->GetXaxis()->SetTitle("Mode");
+	
+  CSCModeBX1->GetXaxis()->SetTitle("CSC Mode");
+  CSCModeBX2->GetXaxis()->SetTitle("CSC Mode");
+  CSCModeBX3->GetXaxis()->SetTitle("CSC Mode");
+  CSCModeBXm1->GetXaxis()->SetTitle("CSC Mode");
+  CSCModeBXm2->GetXaxis()->SetTitle("CSC Mode");
+  CSCModeBXm3->GetXaxis()->SetTitle("CSC Mode");
+	
+  RPCModeBX1->GetXaxis()->SetTitle("RPC Mode");
+  RPCModeBX2->GetXaxis()->SetTitle("RPC Mode");
+  RPCModeBX3->GetXaxis()->SetTitle("RPC Mode");
+  RPCModeBXm1->GetXaxis()->SetTitle("RPC Mode");
+  RPCModeBXm2->GetXaxis()->SetTitle("RPC Mode");
+  RPCModeBXm3->GetXaxis()->SetTitle("RPC Mode");
+	
+  ModeBX1->Write();
+  ModeBX2->Write();
+  ModeBX3->Write();
+  ModeBXm1->Write();
+  ModeBXm2->Write();
+  ModeBXm3->Write();
+	
+  CSCModeBX1->Write();
+  CSCModeBX2->Write();
+  CSCModeBX3->Write();
+  CSCModeBXm1->Write();
+  CSCModeBXm2->Write();
+  CSCModeBXm3->Write();
+	
+  RPCModeBX1->Write();
+  RPCModeBX2->Write();
+  RPCModeBX3->Write();
+  RPCModeBXm1->Write();
+  RPCModeBXm2->Write();
+  RPCModeBXm3->Write();
         
   myPlot.Close();
   
