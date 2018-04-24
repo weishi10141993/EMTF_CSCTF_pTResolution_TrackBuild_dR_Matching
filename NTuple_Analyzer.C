@@ -84,6 +84,30 @@ void NTuple_Analyzer() {
   TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 15, 0, 15);
   TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 15, 0, 15);
 
+  TH1F *PtBX0 = new TH1F("PtBX0", "PtBX0", 100, 0, 100);
+  TH1F *PtBX1 = new TH1F("PtBX1", "PtBX1", 100, 0, 100);
+  TH1F *PtBX2 = new TH1F("PtBX2", "PtBX2", 100, 0, 100);
+  TH1F *PtBX3 = new TH1F("PtBX3", "PtBX3", 100, 0, 100);
+  TH1F *PtBXm1 = new TH1F("PtBXm1", "PtBXm1", 100, 0, 100);
+  TH1F *PtBXm2 = new TH1F("PtBXm2", "PtBXm2", 100, 0, 100);
+  TH1F *PtBXm3 = new TH1F("PtBXm3", "PtBXm3", 100, 0, 100);
+
+  TH1F *EtaBX0 = new TH1F("EtaBX0", "EtaBX0", 6, -3, 3);
+  TH1F *EtaBX1 = new TH1F("EtaBX1", "EtaBX1", 6, -3, 3);
+  TH1F *EtaBX2 = new TH1F("EtaBX2", "EtaBX2", 6, -3, 3);
+  TH1F *EtaBX3 = new TH1F("EtaBX3", "EtaBX3", 6, -3, 3);
+  TH1F *EtaBXm1 = new TH1F("EtaBXm1", "EtaBXm1", 6, -3, 3);
+  TH1F *EtaBXm2 = new TH1F("EtaBXm2", "EtaBXm2", 6, -3, 3);
+  TH1F *EtaBXm3 = new TH1F("EtaBXm3", "EtaBXm3", 6, -3, 3);
+	
+  TH1F *PhiBX0 = new TH1F("PhiBX0", "PhiBX0", 400, -200, 200);
+  TH1F *PhiBX1 = new TH1F("PhiBX1", "PhiBX1", 400, -200, 200);
+  TH1F *PhiBX2 = new TH1F("PhiBX2", "PhiBX2", 400, -200, 200);
+  TH1F *PhiBX3 = new TH1F("PhiBX3", "PhiBX3", 400, -200, 200);
+  TH1F *PhiBXm1 = new TH1F("PhiBXm1", "PhiBXm1", 400, -200, 200);
+  TH1F *PhiBXm2 = new TH1F("PhiBXm2", "PhiBXm2", 400, -200, 200);
+  TH1F *PhiBXm3 = new TH1F("PhiBXm3", "PhiBXm3", 400, -200, 200);
+	
   TH1F *CSCHitBXinBX0Trk = new TH1F("CSCHitBXinBX0Trk", "CSCHitBXinBX0Trk", 8, -4, 4);
   TH1F *CSCHitBXinBX1Trk = new TH1F("CSCHitBXinBX1Trk", "CSCHitBXinBX1Trk", 8, -4, 4);
   TH1F *CSCHitBXinBX2Trk = new TH1F("CSCHitBXinBX2Trk", "CSCHitBXinBX2Trk", 8, -4, 4);
