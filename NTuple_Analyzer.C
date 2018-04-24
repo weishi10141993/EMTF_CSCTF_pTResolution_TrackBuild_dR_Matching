@@ -92,21 +92,21 @@ void NTuple_Analyzer() {
   TH1F *PtBXm2 = new TH1F("PtBXm2", "PtBXm2", 100, 0, 100);
   TH1F *PtBXm3 = new TH1F("PtBXm3", "PtBXm3", 100, 0, 100);
 
-  TH1F *EtaBX0 = new TH1F("EtaBX0", "EtaBX0", 6, -3, 3);
-  TH1F *EtaBX1 = new TH1F("EtaBX1", "EtaBX1", 6, -3, 3);
-  TH1F *EtaBX2 = new TH1F("EtaBX2", "EtaBX2", 6, -3, 3);
-  TH1F *EtaBX3 = new TH1F("EtaBX3", "EtaBX3", 6, -3, 3);
-  TH1F *EtaBXm1 = new TH1F("EtaBXm1", "EtaBXm1", 6, -3, 3);
-  TH1F *EtaBXm2 = new TH1F("EtaBXm2", "EtaBXm2", 6, -3, 3);
-  TH1F *EtaBXm3 = new TH1F("EtaBXm3", "EtaBXm3", 6, -3, 3);
+  TH1F *EtaBX0 = new TH1F("EtaBX0", "EtaBX0", 120, -3, 3);
+  TH1F *EtaBX1 = new TH1F("EtaBX1", "EtaBX1", 120, -3, 3);
+  TH1F *EtaBX2 = new TH1F("EtaBX2", "EtaBX2", 120, -3, 3);
+  TH1F *EtaBX3 = new TH1F("EtaBX3", "EtaBX3", 120, -3, 3);
+  TH1F *EtaBXm1 = new TH1F("EtaBXm1", "EtaBXm1", 120, -3, 3);
+  TH1F *EtaBXm2 = new TH1F("EtaBXm2", "EtaBXm2", 120, -3, 3);
+  TH1F *EtaBXm3 = new TH1F("EtaBXm3", "EtaBXm3", 120, -3, 3);
 	
-  TH1F *PhiBX0 = new TH1F("PhiBX0", "PhiBX0", 400, -200, 200);
-  TH1F *PhiBX1 = new TH1F("PhiBX1", "PhiBX1", 400, -200, 200);
-  TH1F *PhiBX2 = new TH1F("PhiBX2", "PhiBX2", 400, -200, 200);
-  TH1F *PhiBX3 = new TH1F("PhiBX3", "PhiBX3", 400, -200, 200);
-  TH1F *PhiBXm1 = new TH1F("PhiBXm1", "PhiBXm1", 400, -200, 200);
-  TH1F *PhiBXm2 = new TH1F("PhiBXm2", "PhiBXm2", 400, -200, 200);
-  TH1F *PhiBXm3 = new TH1F("PhiBXm3", "PhiBXm3", 400, -200, 200);
+  TH1F *PhiBX0 = new TH1F("PhiBX0", "PhiBX0", 100, -200, 200);
+  TH1F *PhiBX1 = new TH1F("PhiBX1", "PhiBX1", 100, -200, 200);
+  TH1F *PhiBX2 = new TH1F("PhiBX2", "PhiBX2", 100, -200, 200);
+  TH1F *PhiBX3 = new TH1F("PhiBX3", "PhiBX3", 100, -200, 200);
+  TH1F *PhiBXm1 = new TH1F("PhiBXm1", "PhiBXm1", 100, -200, 200);
+  TH1F *PhiBXm2 = new TH1F("PhiBXm2", "PhiBXm2", 100, -200, 200);
+  TH1F *PhiBXm3 = new TH1F("PhiBXm3", "PhiBXm3", 100, -200, 200);
 	
   TH1F *CSCHitBXinBX0Trk = new TH1F("CSCHitBXinBX0Trk", "CSCHitBXinBX0Trk", 8, -4, 4);
   TH1F *CSCHitBXinBX1Trk = new TH1F("CSCHitBXinBX1Trk", "CSCHitBXinBX1Trk", 8, -4, 4);
@@ -147,6 +147,9 @@ void NTuple_Analyzer() {
 		    switch ( I("trk_BX", itrack) ) {
 				    
 		        case 0:
+			    PtBX0->Fill( F("trk_pt",itrack) );
+			    EtaBX0->Fill( F("trk_eta",itrack) );
+			    PhiBX0->Fill( F("trk_phi",itrack) );
                             ModeBX0->Fill( I("trk_mode", itrack) );
 		            CSCModeBX0->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBX0->Fill( I("trk_mode_RPC", itrack) );
@@ -162,9 +165,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break; 
                         case 1:
-                            ModeBX1->Fill(I("trk_mode", itrack));
-		            CSCModeBX1->Fill("trk_mode_CSC", itrack);
-		            RPCModeBX1->Fill("trk_mode_RPC", itrack);
+			    PtBX1->Fill( F("trk_pt",itrack) );
+			    EtaBX1->Fill( F("trk_eta",itrack) );
+			    PhiBX1->Fill( F("trk_phi",itrack) );
+                            ModeBX1->Fill( I("trk_mode", itrack) );
+		            CSCModeBX1->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBX1->Fill( I("trk_mode_RPC", itrack) );
 			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -177,9 +183,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break; 
 			case 2:
-                            ModeBX2->Fill(I("trk_mode", itrack));
-		            CSCModeBX2->Fill("trk_mode_CSC", itrack);
-		            RPCModeBX2->Fill("trk_mode_RPC", itrack);
+			    PtBX2->Fill( F("trk_pt",itrack) );
+			    EtaBX2->Fill( F("trk_eta",itrack) );
+			    PhiBX2->Fill( F("trk_phi",itrack) );
+                            ModeBX2->Fill( I("trk_mode", itrack) );
+		            CSCModeBX2->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBX2->Fill( I("trk_mode_RPC", itrack) );
 		            for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -192,9 +201,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break;
 			case 3:
-			    ModeBX3->Fill(I("trk_mode", itrack));
-		            CSCModeBX3->Fill("trk_mode_CSC", itrack);
-		            RPCModeBX3->Fill("trk_mode_RPC", itrack);
+			    PtBX3->Fill( F("trk_pt",itrack) );
+			    EtaBX3->Fill( F("trk_eta",itrack) );
+			    PhiBX3->Fill( F("trk_phi",itrack) );
+			    ModeBX3->Fill( I("trk_mode", itrack) );
+		            CSCModeBX3->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBX3->Fill( I("trk_mode_RPC", itrack) );
 			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -207,9 +219,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break;
 		        case -1:
+			    PtBXm1->Fill( F("trk_pt",itrack) );
+			    EtaBXm1->Fill( F("trk_eta",itrack) );
+			    PhiBXm1->Fill( F("trk_phi",itrack) );
                             ModeBXm1->Fill(I("trk_mode", itrack));
-		            CSCModeBXm1->Fill("trk_mode_CSC", itrack);
-		            RPCModeBXm1->Fill("trk_mode_RPC", itrack);
+		            CSCModeBXm1->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBXm1->Fill( I("trk_mode_RPC", itrack) );
 			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -222,9 +237,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break; 
 			case -2:
+			    PtBXm2->Fill( F("trk_pt",itrack) );
+			    EtaBXm2->Fill( F("trk_eta",itrack) );
+			    PhiBXm2->Fill( F("trk_phi",itrack) );
                             ModeBXm2->Fill(I("trk_mode", itrack));
-		            CSCModeBXm2->Fill("trk_mode_CSC", itrack);
-		            RPCModeBXm2->Fill("trk_mode_RPC", itrack);
+		            CSCModeBXm2->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBXm2->Fill( I("trk_mode_RPC", itrack) );
 			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -237,9 +255,12 @@ void NTuple_Analyzer() {
 			    }//end loop over hits
                             break;
 			case -3:
+			    PtBXm3->Fill( F("trk_pt",itrack) );
+			    EtaBXm3->Fill( F("trk_eta",itrack) );
+			    PhiBXm3->Fill( F("trk_phi",itrack) );
 			    ModeBXm3->Fill(I("trk_mode", itrack));
-		            CSCModeBXm3->Fill("trk_mode_CSC", itrack);
-		            RPCModeBXm3->Fill("trk_mode_RPC", itrack);
+		            CSCModeBXm3->Fill( I("trk_mode_CSC", itrack) );
+		            RPCModeBXm3->Fill( I("trk_mode_RPC", itrack) );
 			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
 				    int iHit = I("trk_iHit", itrack, jhit); 
 				    if(I("hit_isCSC", iHit)==1){
@@ -270,6 +291,30 @@ void NTuple_Analyzer() {
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFAnalyzer/CMSSW_10_1_1/src/EMTFAnalyzer/NTupleMaker/test/Output_314650.root";
   TFile myPlot(outFile,"RECREATE");
   
+  PtBX0->GetXaxis()->SetTitle("pT[GeV]");
+  PtBX1->GetXaxis()->SetTitle("pT[GeV]");
+  PtBX2->GetXaxis()->SetTitle("pT[GeV]");
+  PtBX3->GetXaxis()->SetTitle("pT[GeV]");
+  PtBXm1->GetXaxis()->SetTitle("pT[GeV]");
+  PtBXm2->GetXaxis()->SetTitle("pT[GeV]");
+  PtBXm3->GetXaxis()->SetTitle("pT[GeV]");
+  
+  EtaBX0->GetXaxis()->SetTitle("Eta");
+  EtaBX1->GetXaxis()->SetTitle("Eta");
+  EtaBX2->GetXaxis()->SetTitle("Eta");
+  EtaBX3->GetXaxis()->SetTitle("Eta");
+  EtaBXm1->GetXaxis()->SetTitle("Eta");
+  EtaBXm2->GetXaxis()->SetTitle("Eta");
+  EtaBXm3->GetXaxis()->SetTitle("Eta");
+	
+  PhiBX0->GetXaxis()->SetTitle("Phi");
+  PhiBX1->GetXaxis()->SetTitle("Phi");
+  PhiBX2->GetXaxis()->SetTitle("Phi");
+  PhiBX3->GetXaxis()->SetTitle("Phi");
+  PhiBXm1->GetXaxis()->SetTitle("Phi");
+  PhiBXm2->GetXaxis()->SetTitle("Phi");
+  PhiBXm3->GetXaxis()->SetTitle("Phi");
+	
   ModeBX0->GetXaxis()->SetTitle("Mode");
   ModeBX1->GetXaxis()->SetTitle("Mode");
   ModeBX2->GetXaxis()->SetTitle("Mode");
