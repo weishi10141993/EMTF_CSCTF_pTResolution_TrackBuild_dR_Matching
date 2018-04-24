@@ -60,13 +60,15 @@ void NTuple_Analyzer() {
     in_chain->Add( in_file_names.at(i) );
   }
  
+  TH1F *ModeBX0 = new TH1F("ModeBX0", "ModeBX0", 15, 0, 15);
   TH1F *ModeBX1 = new TH1F("ModeBX1", "ModeBX1", 15, 0, 15);
   TH1F *ModeBX2 = new TH1F("ModeBX2", "ModeBX2", 15, 0, 15);
   TH1F *ModeBX3 = new TH1F("ModeBX1", "ModeBX1", 15, 0, 15);
   TH1F *ModeBXm1 = new TH1F("ModeBXm1", "ModeBXm1", 15, 0, 15);
   TH1F *ModeBXm2 = new TH1F("ModeBXm2", "ModeBXm2", 15, 0, 15);
   TH1F *ModeBXm3 = new TH1F("ModeBXm3", "ModeBXm3", 15, 0, 15);
-	
+  
+  TH1F *CSCModeBX0 = new TH1F("CSCModeBX0", "CSCModeBX0", 15, 0, 15);
   TH1F *CSCModeBX1 = new TH1F("CSCModeBX1", "CSCModeBX1", 15, 0, 15);
   TH1F *CSCModeBX2 = new TH1F("CSCModeBX2", "CSCModeBX2", 15, 0, 15);
   TH1F *CSCModeBX3 = new TH1F("CSCModeBX1", "CSCModeBX1", 15, 0, 15);
@@ -74,6 +76,7 @@ void NTuple_Analyzer() {
   TH1F *CSCModeBXm2 = new TH1F("CSCModeBXm2", "CSCModeBXm2", 15, 0, 15);
   TH1F *CSCModeBXm3 = new TH1F("CSCModeBXm3", "CSCModeBXm3", 15, 0, 15);
 	
+  TH1F *RPCModeBX0 = new TH1F("RPCModeBX0", "RPCModeBX0", 15, 0, 15);
   TH1F *RPCModeBX1 = new TH1F("RPCModeBX1", "RPCModeBX1", 15, 0, 15);
   TH1F *RPCModeBX2 = new TH1F("RPCModeBX2", "RPCModeBX2", 15, 0, 15);
   TH1F *RPCModeBX3 = new TH1F("RPCModeBX1", "RPCModeBX1", 15, 0, 15);
@@ -99,10 +102,15 @@ void NTuple_Analyzer() {
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_BX", itrack) != 0 && I("trk_pt", itrack)> PT_CUT ){
+	    if( I("trk_pt", itrack)> PT_CUT ){
 		    
 		    switch ( I("trk_BX", itrack) ) {
-                            
+				    
+		        case 0:
+                            ModeBX0->Fill(I("trk_mode", itrack));
+		            CSCModeBX0->Fill("trk_mode_CSC", itrack);
+		            RPCModeBX0->Fill("trk_mode_RPC", itrack);
+                            break; 
                         case 1:
                             ModeBX1->Fill(I("trk_mode", itrack));
 		            CSCModeBX1->Fill("trk_mode_CSC", itrack);
@@ -151,7 +159,8 @@ void NTuple_Analyzer() {
   //write to output file
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFAnalyzer/CMSSW_10_1_1/src/EMTFAnalyzer/NTupleMaker/test/Output_314650.root";
   TFile myPlot(outFile,"RECREATE");
-        
+  
+  ModeBX0->GetXaxis()->SetTitle("Mode");
   ModeBX1->GetXaxis()->SetTitle("Mode");
   ModeBX2->GetXaxis()->SetTitle("Mode");
   ModeBX3->GetXaxis()->SetTitle("Mode");
@@ -159,6 +168,7 @@ void NTuple_Analyzer() {
   ModeBXm2->GetXaxis()->SetTitle("Mode");
   ModeBXm3->GetXaxis()->SetTitle("Mode");
 	
+  CSCModeBX0->GetXaxis()->SetTitle("CSC Mode");
   CSCModeBX1->GetXaxis()->SetTitle("CSC Mode");
   CSCModeBX2->GetXaxis()->SetTitle("CSC Mode");
   CSCModeBX3->GetXaxis()->SetTitle("CSC Mode");
@@ -166,6 +176,7 @@ void NTuple_Analyzer() {
   CSCModeBXm2->GetXaxis()->SetTitle("CSC Mode");
   CSCModeBXm3->GetXaxis()->SetTitle("CSC Mode");
 	
+  RPCModeBX0->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBX1->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBX2->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBX3->GetXaxis()->SetTitle("RPC Mode");
@@ -173,6 +184,7 @@ void NTuple_Analyzer() {
   RPCModeBXm2->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm3->GetXaxis()->SetTitle("RPC Mode");
 	
+  ModeBX0->Write();
   ModeBX1->Write();
   ModeBX2->Write();
   ModeBX3->Write();
@@ -180,13 +192,15 @@ void NTuple_Analyzer() {
   ModeBXm2->Write();
   ModeBXm3->Write();
 	
+  CSCModeBX0->Write();
   CSCModeBX1->Write();
   CSCModeBX2->Write();
   CSCModeBX3->Write();
   CSCModeBXm1->Write();
   CSCModeBXm2->Write();
   CSCModeBXm3->Write();
-	
+
+  RPCModeBX0->Write();
   RPCModeBX1->Write();
   RPCModeBX2->Write();
   RPCModeBX3->Write();
