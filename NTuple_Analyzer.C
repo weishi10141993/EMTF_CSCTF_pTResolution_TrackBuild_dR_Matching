@@ -19,8 +19,8 @@
 //USER modify here ONLY//
 //================================================================
 const int MAX_FILES = 1;   // Max number of files to process
-const int MAX_EVT   = -1;   // Max number of events to process
-const int PRT_EVT   = 100000;   // Print every N events
+const int MAX_EVT   = 100000;   // Max number of events to process
+const int PRT_EVT   = 10000;   // Print every N events
 const bool verbose  = true; // Print information about the event and RECO and L1T muon
 const int PT_CUT = 22;
 //================================================================
@@ -108,21 +108,13 @@ void NTuple_Analyzer() {
   TH1F *PhiBXm2 = new TH1F("PhiBXm2", "PhiBXm2", 100, -200, 200);
   TH1F *PhiBXm3 = new TH1F("PhiBXm3", "PhiBXm3", 100, -200, 200);
 	
-  TH1F *CSCHitBXinBX0Trk = new TH1F("CSCHitBXinBX0Trk", "CSCHitBXinBX0Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBX1Trk = new TH1F("CSCHitBXinBX1Trk", "CSCHitBXinBX1Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBX2Trk = new TH1F("CSCHitBXinBX2Trk", "CSCHitBXinBX2Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBX3Trk = new TH1F("CSCHitBXinBX3Trk", "CSCHitBXinBX3Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBXm1Trk = new TH1F("CSCHitBXinBXm1Trk", "CSCHitBXinBXm1Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBXm2Trk = new TH1F("CSCHitBXinBXm2Trk", "CSCHitBXinBXm2Trk", 8, -4, 4);
-  TH1F *CSCHitBXinBXm3Trk = new TH1F("CSCHitBXinBXm3Trk", "CSCHitBXinBXm3Trk", 8, -4, 4);
-	
-  TH1F *RPCHitBXinBX0Trk = new TH1F("RPCHitBXinBX0Trk", "RPCHitBXinBX0Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBX1Trk = new TH1F("RPCHitBXinBX1Trk", "RPCHitBXinBX1Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBX2Trk = new TH1F("RPCHitBXinBX2Trk", "RPCHitBXinBX2Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBX3Trk = new TH1F("RPCHitBXinBX3Trk", "RPCHitBXinBX3Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBXm1Trk = new TH1F("RPCHitBXinBXm1Trk", "RPCHitBXinBXm1Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBXm2Trk = new TH1F("RPCHitBXinBXm2Trk", "RPCHitBXinBXm2Trk", 8, -4, 4);
-  TH1F *RPCHitBXinBXm3Trk = new TH1F("RPCHitBXinBXm3Trk", "RPCHitBXinBXm3Trk", 8, -4, 4);
+  TH1F *dBXinBX0Trk = new TH1F("dBXinBX0Trk", "dBXinBX0Trk", 4, 0, 4);
+  TH1F *dBXinBX1Trk = new TH1F("dBXinBX1Trk", "dBXinBX1Trk", 4, 0, 4);
+  TH1F *dBXinBX2Trk = new TH1F("dBXinBX2Trk", "dBXinBX2Trk", 4, 0, 4);
+  TH1F *dBXinBX3Trk = new TH1F("dBXinBX3Trk", "dBXinBX3Trk", 4, 0, 4);
+  TH1F *dBXinBXm1Trk = new TH1F("dBXinBXm1Trk", "dBXinBXm1Trk", 4, 0, 4);
+  TH1F *dBXinBXm2Trk = new TH1F("dBXinBXm2Trk", "dBXinBXm2Trk", 4, 0, 4);
+  TH1F *dBXinBXm3Trk = new TH1F("dBXinBXm3Trk", "dBXinBXm3Trk", 4, 0, 4);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
@@ -150,19 +142,10 @@ void NTuple_Analyzer() {
 			    PtBX0->Fill( F("trk_pt",itrack) );
 			    EtaBX0->Fill( F("trk_eta",itrack) );
 			    PhiBX0->Fill( F("trk_phi",itrack) );
+		            dBXinBX0Trk->Fill( I("trk_dBX", itrack) );
                             ModeBX0->Fill( I("trk_mode", itrack) );
 		            CSCModeBX0->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBX0->Fill( I("trk_mode_RPC", itrack) );
-		            for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBX0Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBX0Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
                             break; 
                         case 1:
 			    PtBX1->Fill( F("trk_pt",itrack) );
