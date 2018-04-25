@@ -21,7 +21,7 @@
 const int MAX_FILES = 1;   // Max number of files to process
 const int MAX_EVT   = 100000;   // Max number of events to process
 const int PRT_EVT   = 10000;   // Print every N events
-const bool verbose  = true; // Print information about the event and RECO and L1T muon
+const bool verbose  = false; // Print information about the event and RECO and L1T muon
 const int PT_CUT = 22;
 //================================================================
 
