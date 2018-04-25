@@ -321,7 +321,7 @@ void NTuple_Analyzer() {
   std::cout << "\n******* Finished looping over the events *******" << std::endl;
 
   delete in_chain;
-  std::cout << "\nDone with dThetaWindow(). Exiting.\n" << std::endl;
+  std::cout << "\nDone. Exiting.\n" << std::endl;
 	
   //write to output file
   TString outFile = "/afs/cern.ch/work/w/wshi/public/EMTFAnalyzer/CMSSW_10_1_1/src/EMTFAnalyzer/NTupleMaker/test/Output_314650.root";
