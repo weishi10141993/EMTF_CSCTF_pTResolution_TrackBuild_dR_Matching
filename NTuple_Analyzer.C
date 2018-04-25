@@ -150,7 +150,7 @@ void NTuple_Analyzer() {
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
     if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
-	    if( I("unp_trk_pt", itrack) > PT_CUT ){
+	    if( F("unp_trk_pt", itrack) > PT_CUT ){
 		    
 		    switch ( I("unp_trk_BX", itrack) ) {
 				    
@@ -238,7 +238,7 @@ void NTuple_Analyzer() {
 			    UnpRPCvsCSCBX2->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 			case 3:
-			    PtBX3->Fill( F("trk_pt",itrack) );
+			    PtBX3->Fill( F("unp_trk_pt",itrack) );
 			    EtaBX3->Fill( F("trk_eta",itrack) );
 			    PhiBX3->Fill( F("trk_phi",itrack) );
 			    dBXinBX3Trk->Fill( I("unp_trk_dBX", itrack) );
@@ -248,7 +248,7 @@ void NTuple_Analyzer() {
 			    UnpRPCvsCSCBX3->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 		        case -1:
-			    PtBXm1->Fill( F("trk_pt",itrack) );
+			    PtBXm1->Fill( F("unp_trk_pt",itrack) );
 			    EtaBXm1->Fill( F("trk_eta",itrack) );
 			    PhiBXm1->Fill( F("trk_phi",itrack) );
 			    dBXinBXm1Trk->Fill( I("unp_trk_dBX", itrack) );
@@ -258,7 +258,7 @@ void NTuple_Analyzer() {
 			    UnpRPCvsCSCBXm1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break; 
 			case -2:
-			    PtBXm2->Fill( F("trk_pt",itrack) );
+			    PtBXm2->Fill( F("unp_trk_pt",itrack) );
 			    EtaBXm2->Fill( F("trk_eta",itrack) );
 			    PhiBXm2->Fill( F("trk_phi",itrack) );
 			    dBXinBXm2Trk->Fill( I("unp_trk_dBX", itrack) );
@@ -268,7 +268,7 @@ void NTuple_Analyzer() {
 			    UnpRPCvsCSCBXm2->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 			case -3:
-			    PtBXm3->Fill( F("trk_pt",itrack) );
+			    PtBXm3->Fill( F("unp_trk_pt",itrack) );
 			    EtaBXm3->Fill( F("trk_eta",itrack) );
 			    PhiBXm3->Fill( F("trk_phi",itrack) );
 			    dBXinBXm3Trk->Fill( I("unp_trk_dBX", itrack) );
@@ -287,7 +287,7 @@ void NTuple_Analyzer() {
 	  
     if (verbose) std::cout << "\n" << I("nTracks") << " emulated tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_pt", itrack) > PT_CUT ){
+	    if( F("trk_pt", itrack) > PT_CUT ){
 		    
 		    switch ( I("trk_BX", itrack) ) {
 				    
