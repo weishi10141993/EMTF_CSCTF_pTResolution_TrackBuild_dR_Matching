@@ -175,10 +175,12 @@ void NTuple_Analyzer() {
 			    UnpRPCvsCSCBX1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
 				    
 		            //Print event#, emulated/unpacked tracks/hits where there is a BX1 track pT>pt_cut
-                            cout<<"\n* Event #"<<I("evt_event")<<" * LS #"<<I("evt_LS")<<" * BX #"<<I("evt_BX")<<" * Orbit #"<<I("evt_orbit")<<endl;
+			    std::cout << "\n*******************************************************" << std::endl;
+                            std::cout <<"Event #"<<I("evt_event")<<" * LS #"<<I("evt_LS")<<" * BX #"<<I("evt_BX")<<" * Orbit #"<<I("evt_orbit")<<endl;
+		            std::cout << "*********************************************************" << std::endl;
                             
-			    cout<<"\n========================== Emulated Tracks ============================"<<endl;
-                            cout<<"***********************************************************************"<<endl;
+			    cout<<"                       === Emulated Tracks ===                         "<<endl;
+                            cout<<"******************************************************************************"<<endl;
 			    cout<<"* BX *  dBX   * Endcap * Sector *  Eta  *  Phi  *  Pt  * CSC Mode * RPC Mode *"<<endl;
 			    for (int jtrack = 0; jtrack < I("nTracks"); jtrack++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("trk_BX", jtrack) << " * " <<setw(6)<<setprecision(6)<< I("trk_dBX", jtrack) << " * " 
@@ -188,8 +190,8 @@ void NTuple_Analyzer() {
 					       <<setw(8)<<setprecision(2)<< I("trk_mode_RPC", jtrack)<<" *"<<endl;                         
 			    }
     
-			    cout<<"\n========================== Unpacked Tracks ============================"<<endl;
-                            cout<<"***********************************************************************"<<endl;
+			    cout<<"\n                     === Unpacked Tracks ===                         "<<endl;
+                            cout<<"******************************************************************************"<<endl;
 			    cout<<"* BX *  dBX   * Endcap * Sector *  Eta  *  Phi  *  Pt  * CSC Mode * RPC Mode *"<<endl;
 			    for (int jtrack = 0; jtrack < I("nUnpTracks"); jtrack++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("unp_trk_BX", jtrack) << " * " <<setw(6)<<setprecision(6)<< I("unp_trk_dBX", jtrack) << " * " 
@@ -199,8 +201,8 @@ void NTuple_Analyzer() {
 					       <<setw(8)<<setprecision(2)<< I("unp_trk_mode_RPC", jtrack)<<" *"<<endl;                         
 			    }
 	
-			    cout<<"\n============================ Emulated Hits ===================================="<<endl;
-                            cout<<"*******************************************************************************"<<endl;
+			    cout<<"\n                     === Emulated Hits ===                               "<<endl;
+                            cout<<"***********************************************************************************"<<endl;
 			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber *  Eta  *  Phi  *"<<endl;
 			    for (int jhit = 0; jhit < I("nSimHits"); jhit++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("sim_hit_BX", jhit) << " * " <<setw(5)<<setprecision(2)<< I("sim_hit_isCSC", jhit) << " * " 
@@ -210,8 +212,8 @@ void NTuple_Analyzer() {
 					       <<setw(5)<<setprecision(3)<< F("sim_hit_eta", jhit) <<" * "<<setw(5)<<setprecision(3)<< F("sim_hit_phi", jhit) << " *"<<endl;                         
 			    }
                            
-			    cout<<"\n============================ Unpacked Hits ===================================="<<endl;
-                            cout<<"*******************************************************************************"<<endl;
+			    cout<<"\n                     === Unpacked Hits ===                                   "<<endl;
+                            cout<<"***********************************************************************************"<<endl;
 			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber *  Eta  *  Phi  *"<<endl;
 			    for (int jhit = 0; jhit < I("nHits"); jhit++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("hit_BX", jhit) << " * " <<setw(5)<<setprecision(2)<< I("hit_isCSC", jhit) << " * " 
