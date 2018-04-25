@@ -83,14 +83,30 @@ void NTuple_Analyzer() {
   TH1F *RPCModeBXm1 = new TH1F("RPCModeBXm1", "RPCModeBXm1", 15, 0, 15);
   TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 15, 0, 15);
   TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 15, 0, 15);
+	
+  TH2F *UnpRPCvsCSCBX0 = new TH2F("UnpRPCvsCSCBX0", "UnpRPCvsCSCBX0", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBX1 = new TH2F("UnpRPCvsCSCBX1", "UnpRPCvsCSCBX1", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBX2 = new TH2F("UnpRPCvsCSCBX2", "UnpRPCvsCSCBX2", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBX3 = new TH2F("UnpRPCvsCSCBX3", "UnpRPCvsCSCBX3", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBXm1 = new TH2F("UnpRPCvsCSCBXm1", "UnpRPCvsCSCBXm1", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBXm2 = new TH2F("UnpRPCvsCSCBXm2", "UnpRPCvsCSCBXm2", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBXm3 = new TH2F("UnpRPCvsCSCBXm3", "UnpRPCvsCSCBXm3", 15, 0, 15, 15, 0, 15);
+	
+  TH2F *EmuRPCvsCSCBX0 = new TH2F("EmuRPCvsCSCBX0", "EmuRPCvsCSCBX0", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBX1 = new TH2F("EmuRPCvsCSCBX1", "EmuRPCvsCSCBX1", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBX2 = new TH2F("EmuRPCvsCSCBX2", "EmuRPCvsCSCBX2", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBX3 = new TH2F("EmuRPCvsCSCBX3", "EmuRPCvsCSCBX3", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBXm1 = new TH2F("EmuRPCvsCSCBXm1", "EmuRPCvsCSCBXm1", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBXm2 = new TH2F("EmuRPCvsCSCBXm2", "EmuRPCvsCSCBXm2", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBXm3 = new TH2F("EmuRPCvsCSCBXm3", "EmuRPCvsCSCBXm3", 15, 0, 15, 15, 0, 15);
 
-  TH1F *PtBX0 = new TH1F("PtBX0", "PtBX0", 100, 0, 100);
-  TH1F *PtBX1 = new TH1F("PtBX1", "PtBX1", 100, 0, 100);
-  TH1F *PtBX2 = new TH1F("PtBX2", "PtBX2", 100, 0, 100);
-  TH1F *PtBX3 = new TH1F("PtBX3", "PtBX3", 100, 0, 100);
-  TH1F *PtBXm1 = new TH1F("PtBXm1", "PtBXm1", 100, 0, 100);
-  TH1F *PtBXm2 = new TH1F("PtBXm2", "PtBXm2", 100, 0, 100);
-  TH1F *PtBXm3 = new TH1F("PtBXm3", "PtBXm3", 100, 0, 100);
+  TH1F *PtBX0 = new TH1F("PtBX0", "PtBX0", 256, 0, 256);
+  TH1F *PtBX1 = new TH1F("PtBX1", "PtBX1", 256, 0, 256);
+  TH1F *PtBX2 = new TH1F("PtBX2", "PtBX2", 256, 0, 256);
+  TH1F *PtBX3 = new TH1F("PtBX3", "PtBX3", 256, 0, 256);
+  TH1F *PtBXm1 = new TH1F("PtBXm1", "PtBXm1", 256, 0, 256);
+  TH1F *PtBXm2 = new TH1F("PtBXm2", "PtBXm2", 256, 0, 256);
+  TH1F *PtBXm3 = new TH1F("PtBXm3", "PtBXm3", 256, 0, 256);
 
   TH1F *EtaBX0 = new TH1F("EtaBX0", "EtaBX0", 120, -3, 3);
   TH1F *EtaBX1 = new TH1F("EtaBX1", "EtaBX1", 120, -3, 3);
@@ -146,6 +162,7 @@ void NTuple_Analyzer() {
                             ModeBX0->Fill( I("unp_trk_mode", itrack) );
 		            CSCModeBX0->Fill( I("unp_trk_mode_CSC", itrack) );
 		            RPCModeBX0->Fill( I("unp_trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBX0->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break; 
                         case 1:
 			    PtBX1->Fill( F("unp_trk_pt",itrack) );
@@ -155,6 +172,7 @@ void NTuple_Analyzer() {
                             ModeBX1->Fill( I("unp_trk_mode", itrack) );
 		            CSCModeBX1->Fill( I("unp_trk_mode_CSC", itrack) );
 		            RPCModeBX1->Fill( I("unp_trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBX1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break; 
 			case 2:
 			    PtBX2->Fill( F("unp_trk_pt",itrack) );
@@ -164,6 +182,7 @@ void NTuple_Analyzer() {
                             ModeBX2->Fill( I("unp_trk_mode", itrack) );
 		            CSCModeBX2->Fill( I("unp_trk_mode_CSC", itrack) );
 		            RPCModeBX2->Fill( I("unp_trk_mode_RPC", itrack) );  
+			    UnpRPCvsCSCBX2->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 			case 3:
 			    PtBX3->Fill( F("trk_pt",itrack) );
@@ -173,6 +192,7 @@ void NTuple_Analyzer() {
 			    ModeBX3->Fill( I("trk_mode", itrack) );
 		            CSCModeBX3->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBX3->Fill( I("trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBX3->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 		        case -1:
 			    PtBXm1->Fill( F("trk_pt",itrack) );
@@ -182,6 +202,7 @@ void NTuple_Analyzer() {
                             ModeBXm1->Fill(I("trk_mode", itrack));
 		            CSCModeBXm1->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm1->Fill( I("trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBXm1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break; 
 			case -2:
 			    PtBXm2->Fill( F("trk_pt",itrack) );
@@ -191,6 +212,7 @@ void NTuple_Analyzer() {
                             ModeBXm2->Fill(I("trk_mode", itrack));
 		            CSCModeBXm2->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm2->Fill( I("trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBXm2->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 			case -3:
 			    PtBXm3->Fill( F("trk_pt",itrack) );
@@ -200,15 +222,50 @@ void NTuple_Analyzer() {
 			    ModeBXm3->Fill(I("trk_mode", itrack));
 		            CSCModeBXm3->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm3->Fill( I("trk_mode_RPC", itrack) );
+			    UnpRPCvsCSCBXm3->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
+                            break;
+		        default:
+                            break;
+		    }//end switch
+	    
+	    }//end if high pT
+    
+    }//end loop over unpacked tracks
+	  
+    if (verbose) std::cout << "\n" << I("Tracks") << " emulated tracks in the event" << std::endl;
+    for (int itrack = 0; itrack < I("nTracks"); itrack++) {
+	    if( I("trk_pt", itrack) > PT_CUT ){
+		    
+		    switch ( I("trk_BX", itrack) ) {
+				    
+		        case 0:
+			    EmuRPCvsCSCBX0->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break; 
+                        case 1:
+			    EmuRPCvsCSCBX1->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break; 
+			case 2:
+			    EmuRPCvsCSCBX2->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break;
+			case 3:
+			    EmuRPCvsCSCBX3->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break;
+		        case -1:
+			    EmuRPCvsCSCBXm1->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break; 
+			case -2:
+			    EmuRPCvsCSCBXm2->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
+                            break;
+			case -3:
+			    EmuRPCvsCSCBXm3->Fill( I("trk_mode_CSC", itrack), I("trk_mode_RPC", itrack));
                             break;
 		        default:
                             break;
 		    }//end switch
 				    
 	    }//end if high pT
-	    
 	     
-    }//end loop over tracks
+    }//end loop over emulated tracks
     
   } // End loop events
   std::cout << "\n******* Finished looping over the events *******" << std::endl;
