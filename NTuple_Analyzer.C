@@ -132,20 +132,20 @@ void NTuple_Analyzer() {
     in_chain->GetEntry(iEvt);
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
-    if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
-    for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_pt", itrack) > PT_CUT ){
+    if (verbose) std::cout << "\n" << I("nUnpTracks") << " unpacked tracks in the event" << std::endl;
+    for (int itrack = 0; itrack < I("nUnpTracks"); itrack++) {
+	    if( I("unp_trk_pt", itrack) > PT_CUT ){
 		    
-		    switch ( I("trk_BX", itrack) ) {
+		    switch ( I("unp_trk_BX", itrack) ) {
 				    
 		        case 0:
-			    PtBX0->Fill( F("trk_pt",itrack) );
-			    EtaBX0->Fill( F("trk_eta",itrack) );
-			    PhiBX0->Fill( F("trk_phi",itrack) );
-		            dBXinBX0Trk->Fill( I("trk_dBX", itrack) );
-                            ModeBX0->Fill( I("trk_mode", itrack) );
-		            CSCModeBX0->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBX0->Fill( I("trk_mode_RPC", itrack) );
+			    PtBX0->Fill( F("unp_trk_pt",itrack) );
+			    EtaBX0->Fill( F("unp_trk_eta",itrack) );
+			    PhiBX0->Fill( F("unp_trk_phi",itrack) );
+		            dBXinBX0Trk->Fill( I("unp_trk_dBX", itrack) );
+                            ModeBX0->Fill( I("unp_trk_mode", itrack) );
+		            CSCModeBX0->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBX0->Fill( I("unp_trk_mode_RPC", itrack) );
                             break; 
                         case 1:
 			    PtBX1->Fill( F("trk_pt",itrack) );
