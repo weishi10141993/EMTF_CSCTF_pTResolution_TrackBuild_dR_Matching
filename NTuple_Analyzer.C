@@ -124,13 +124,13 @@ void NTuple_Analyzer() {
   TH1F *PhiBXm2 = new TH1F("PhiBXm2", "PhiBXm2", 100, -200, 200);
   TH1F *PhiBXm3 = new TH1F("PhiBXm3", "PhiBXm3", 100, -200, 200);
 	
-  TH1F *dBXinBX0Trk = new TH1F("dBXinBX0Trk", "dBXinBX0Trk", 4, 0, 4);
-  TH1F *dBXinBX1Trk = new TH1F("dBXinBX1Trk", "dBXinBX1Trk", 4, 0, 4);
-  TH1F *dBXinBX2Trk = new TH1F("dBXinBX2Trk", "dBXinBX2Trk", 4, 0, 4);
-  TH1F *dBXinBX3Trk = new TH1F("dBXinBX3Trk", "dBXinBX3Trk", 4, 0, 4);
-  TH1F *dBXinBXm1Trk = new TH1F("dBXinBXm1Trk", "dBXinBXm1Trk", 4, 0, 4);
-  TH1F *dBXinBXm2Trk = new TH1F("dBXinBXm2Trk", "dBXinBXm2Trk", 4, 0, 4);
-  TH1F *dBXinBXm3Trk = new TH1F("dBXinBXm3Trk", "dBXinBXm3Trk", 4, 0, 4);
+  TH1F *dBXinBX0Trk = new TH1F("dBXinBX0Trk", "dBXinBX0Trk", 20020, -20010, 10);
+  TH1F *dBXinBX1Trk = new TH1F("dBXinBX1Trk", "dBXinBX1Trk", 20020, -20010, 10);
+  TH1F *dBXinBX2Trk = new TH1F("dBXinBX2Trk", "dBXinBX2Trk", 20020, -20010, 10);
+  TH1F *dBXinBX3Trk = new TH1F("dBXinBX3Trk", "dBXinBX3Trk", 20020, -20010, 10);
+  TH1F *dBXinBXm1Trk = new TH1F("dBXinBXm1Trk", "dBXinBXm1Trk", 20020, -20010, 10);
+  TH1F *dBXinBXm2Trk = new TH1F("dBXinBXm2Trk", "dBXinBXm2Trk", 20020, -20010, 10);
+  TH1F *dBXinBXm3Trk = new TH1F("dBXinBXm3Trk", "dBXinBXm3Trk", 20020, -20010, 10);
   
   InitializeMaps();
   SetBranchAddresses(in_chain);
