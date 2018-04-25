@@ -239,42 +239,42 @@ void NTuple_Analyzer() {
                             break;
 			case 3:
 			    PtBX3->Fill( F("unp_trk_pt",itrack) );
-			    EtaBX3->Fill( F("trk_eta",itrack) );
-			    PhiBX3->Fill( F("trk_phi",itrack) );
+			    EtaBX3->Fill( F("unp_trk_eta",itrack) );
+			    PhiBX3->Fill( F("unp_trk_phi",itrack) );
 			    dBXinBX3Trk->Fill( I("unp_trk_dBX", itrack) );
-			    ModeBX3->Fill( I("trk_mode", itrack) );
-		            CSCModeBX3->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBX3->Fill( I("trk_mode_RPC", itrack) );
+			    ModeBX3->Fill( I("unp_trk_mode", itrack) );
+		            CSCModeBX3->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBX3->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBX3->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 		        case -1:
 			    PtBXm1->Fill( F("unp_trk_pt",itrack) );
-			    EtaBXm1->Fill( F("trk_eta",itrack) );
-			    PhiBXm1->Fill( F("trk_phi",itrack) );
+			    EtaBXm1->Fill( F("unp_trk_eta",itrack) );
+			    PhiBXm1->Fill( F("unp_trk_phi",itrack) );
 			    dBXinBXm1Trk->Fill( I("unp_trk_dBX", itrack) );
-                            ModeBXm1->Fill(I("trk_mode", itrack));
-		            CSCModeBXm1->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBXm1->Fill( I("trk_mode_RPC", itrack) );
+                            ModeBXm1->Fill(I("unp_trk_mode", itrack));
+		            CSCModeBXm1->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBXm1->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBXm1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break; 
 			case -2:
 			    PtBXm2->Fill( F("unp_trk_pt",itrack) );
-			    EtaBXm2->Fill( F("trk_eta",itrack) );
-			    PhiBXm2->Fill( F("trk_phi",itrack) );
+			    EtaBXm2->Fill( F("unp_trk_eta",itrack) );
+			    PhiBXm2->Fill( F("unp_trk_phi",itrack) );
 			    dBXinBXm2Trk->Fill( I("unp_trk_dBX", itrack) );
-                            ModeBXm2->Fill(I("trk_mode", itrack));
-		            CSCModeBXm2->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBXm2->Fill( I("trk_mode_RPC", itrack) );
+                            ModeBXm2->Fill(I("unp_trk_mode", itrack));
+		            CSCModeBXm2->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBXm2->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBXm2->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 			case -3:
 			    PtBXm3->Fill( F("unp_trk_pt",itrack) );
-			    EtaBXm3->Fill( F("trk_eta",itrack) );
-			    PhiBXm3->Fill( F("trk_phi",itrack) );
+			    EtaBXm3->Fill( F("unp_trk_eta",itrack) );
+			    PhiBXm3->Fill( F("unp_trk_phi",itrack) );
 			    dBXinBXm3Trk->Fill( I("unp_trk_dBX", itrack) );
-			    ModeBXm3->Fill(I("trk_mode", itrack));
-		            CSCModeBXm3->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBXm3->Fill( I("trk_mode_RPC", itrack) );
+			    ModeBXm3->Fill(I("unp_trk_mode", itrack));
+		            CSCModeBXm3->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBXm3->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBXm3->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
                             break;
 		        default:
