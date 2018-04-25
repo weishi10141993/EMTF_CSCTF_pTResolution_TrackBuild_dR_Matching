@@ -142,7 +142,7 @@ void NTuple_Analyzer() {
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
       std::cout << "Looking at event " << iEvt << " out of " << nEvents << std::endl;
-      std::cout << "*************************************" << std::endl;
+      std::cout <<   "*************************************" << std::endl;
     }
 
     in_chain->GetEntry(iEvt);
@@ -177,9 +177,9 @@ void NTuple_Analyzer() {
 		            //Print event#, emulated/unpacked tracks/hits where there is a BX1 track pT>pt_cut
 			    std::cout << "\n*******************************************************" << std::endl;
                             std::cout <<"Event #"<<I("evt_event")<<" * LS #"<<I("evt_LS")<<" * BX #"<<I("evt_BX")<<" * Orbit #"<<I("evt_orbit")<<endl;
-		            std::cout << "*********************************************************" << std::endl;
+		            std::cout <<   "*******************************************************" << std::endl;
                             
-			    cout<<"                       === Emulated Tracks ===                         "<<endl;
+			    cout<<"                     === Emulated Tracks ===                                  "<<endl;
                             cout<<"******************************************************************************"<<endl;
 			    cout<<"* BX *  dBX   * Endcap * Sector *  Eta  *  Phi  *  Pt  * CSC Mode * RPC Mode *"<<endl;
 			    for (int jtrack = 0; jtrack < I("nTracks"); jtrack++) {
