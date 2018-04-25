@@ -176,7 +176,7 @@ void NTuple_Analyzer() {
 				    
 		            //Print event#, emulated/unpacked tracks/hits
 		            cout<<"*** Print out ***"<<endl;
-                            cout<<"* Event #"<<L("evt_event",iEvt)<<" * LS #"<<I("evt_LS", iEvt)<<" * BX #"<<I("evt_BX", iEvt)<<" * Orbit #"<<L("evt_orbit",iEvt)<<endl;
+                            cout<<"* Event #"<<I("evt_event",iEvt)<<" * LS #"<<I("evt_LS", iEvt)<<" * BX #"<<I("evt_BX", iEvt)<<" * Orbit #"<<I("evt_orbit",iEvt)<<endl;
                             
 			    cout<<"========================== Emulated Tracks ============================"<<endl;
                             cout<<"***********************************************************************"<<endl;
