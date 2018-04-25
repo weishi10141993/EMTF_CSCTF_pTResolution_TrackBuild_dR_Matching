@@ -173,6 +173,17 @@ void NTuple_Analyzer() {
 		            CSCModeBX1->Fill( I("unp_trk_mode_CSC", itrack) );
 		            RPCModeBX1->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBX1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
+		            //Print event#, emulated/unpacked tracks/hits
+		            cout<<"*** Print out ***"<<endl;
+                            cout<<"* Event #"<<L("evt_event",iEvt)<<endl;
+                            cout<<">> Unpacked Tracks <<"<<endl;
+                            cout<<"***************************************************************************************************"<<endl;
+                            cout<<"* GEN pT Range[GeV] * 2016 Mean * 2017 Mean * 2016 RMS * 2017 RMS * 2016 RMS/Mean * 2017 RMS/Mean *"<<endl;
+                            cout<<"* ("<<setw(6)<<setprecision(2)<<PT[0]<<", "<<setw(7)<<setprecision(2)<<PT[1]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_1[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_1[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_1[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_1[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_1[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_1[i]<<" *"<<endl;
+                            cout<<"* ("<<setw(6)<<setprecision(2)<<PT[1]<<", "<<setw(7)<<setprecision(2)<<PT[2]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_2[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_2[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_2[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_2[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_2[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_2[i]<<" *"<<endl;
+                            cout<<"* ("<<setw(6)<<setprecision(2)<<PT[2]<<", "<<setw(7)<<setprecision(2)<<PT[3]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_3[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_3[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_3[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_3[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_3[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_3[i]<<" *"<<endl;
+                            cout<<"* ("<<setw(6)<<setprecision(2)<<PT[3]<<", "<<setw(7)<<setprecision(2)<<PT[4]<<"] * "<<setw(9)<<setprecision(3)<<Mean2016_pT_bin_4[i]<<" * "<<setw(9)<<setprecision(3)<<Mean2017_pT_bin_4[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2016_pT_bin_4[i]<<" * "<<setw(8)<<setprecision(3)<<RMS2017_pT_bin_4[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2016_pT_bin_4[i]<<" * "<<setw(13)<<setprecision(3)<<MeanOverRMS2017_pT_bin_4[i]<<" *"<<endl;
+                            cout<<"***************************************************************************************************"<<endl;
                             break; 
 			case 2:
 			    PtBX2->Fill( F("unp_trk_pt",itrack) );
