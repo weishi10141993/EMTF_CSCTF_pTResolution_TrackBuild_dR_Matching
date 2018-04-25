@@ -148,112 +148,58 @@ void NTuple_Analyzer() {
 		            RPCModeBX0->Fill( I("unp_trk_mode_RPC", itrack) );
                             break; 
                         case 1:
-			    PtBX1->Fill( F("trk_pt",itrack) );
-			    EtaBX1->Fill( F("trk_eta",itrack) );
-			    PhiBX1->Fill( F("trk_phi",itrack) );
-                            ModeBX1->Fill( I("trk_mode", itrack) );
-		            CSCModeBX1->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBX1->Fill( I("trk_mode_RPC", itrack) );
-			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBX1Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBX1Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
+			    PtBX1->Fill( F("unp_trk_pt",itrack) );
+			    EtaBX1->Fill( F("unp_trk_eta",itrack) );
+			    PhiBX1->Fill( F("unp_trk_phi",itrack) );
+			    dBXinBX1Trk->Fill( I("unp_trk_dBX", itrack) );
+                            ModeBX1->Fill( I("unp_trk_mode", itrack) );
+		            CSCModeBX1->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBX1->Fill( I("unp_trk_mode_RPC", itrack) );
                             break; 
 			case 2:
-			    PtBX2->Fill( F("trk_pt",itrack) );
-			    EtaBX2->Fill( F("trk_eta",itrack) );
-			    PhiBX2->Fill( F("trk_phi",itrack) );
-                            ModeBX2->Fill( I("trk_mode", itrack) );
-		            CSCModeBX2->Fill( I("trk_mode_CSC", itrack) );
-		            RPCModeBX2->Fill( I("trk_mode_RPC", itrack) );
-		            for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBX2Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBX2Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
+			    PtBX2->Fill( F("unp_trk_pt",itrack) );
+			    EtaBX2->Fill( F("unp_trk_eta",itrack) );
+			    PhiBX2->Fill( F("unp_trk_phi",itrack) );
+			    dBXinBX2Trk->Fill( I("unp_trk_dBX", itrack) );
+                            ModeBX2->Fill( I("unp_trk_mode", itrack) );
+		            CSCModeBX2->Fill( I("unp_trk_mode_CSC", itrack) );
+		            RPCModeBX2->Fill( I("unp_trk_mode_RPC", itrack) );  
                             break;
 			case 3:
 			    PtBX3->Fill( F("trk_pt",itrack) );
 			    EtaBX3->Fill( F("trk_eta",itrack) );
 			    PhiBX3->Fill( F("trk_phi",itrack) );
+			    dBXinBX3Trk->Fill( I("unp_trk_dBX", itrack) );
 			    ModeBX3->Fill( I("trk_mode", itrack) );
 		            CSCModeBX3->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBX3->Fill( I("trk_mode_RPC", itrack) );
-			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBX3Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBX3Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
                             break;
 		        case -1:
 			    PtBXm1->Fill( F("trk_pt",itrack) );
 			    EtaBXm1->Fill( F("trk_eta",itrack) );
 			    PhiBXm1->Fill( F("trk_phi",itrack) );
+			    dBXinBXm1Trk->Fill( I("unp_trk_dBX", itrack) );
                             ModeBXm1->Fill(I("trk_mode", itrack));
 		            CSCModeBXm1->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm1->Fill( I("trk_mode_RPC", itrack) );
-			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBXm1Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBXm1Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
                             break; 
 			case -2:
 			    PtBXm2->Fill( F("trk_pt",itrack) );
 			    EtaBXm2->Fill( F("trk_eta",itrack) );
 			    PhiBXm2->Fill( F("trk_phi",itrack) );
+			    dBXinBXm2Trk->Fill( I("unp_trk_dBX", itrack) );
                             ModeBXm2->Fill(I("trk_mode", itrack));
 		            CSCModeBXm2->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm2->Fill( I("trk_mode_RPC", itrack) );
-			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBXm2Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBXm2Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
                             break;
 			case -3:
 			    PtBXm3->Fill( F("trk_pt",itrack) );
 			    EtaBXm3->Fill( F("trk_eta",itrack) );
 			    PhiBXm3->Fill( F("trk_phi",itrack) );
+			    dBXinBXm3Trk->Fill( I("unp_trk_dBX", itrack) );
 			    ModeBXm3->Fill(I("trk_mode", itrack));
 		            CSCModeBXm3->Fill( I("trk_mode_CSC", itrack) );
 		            RPCModeBXm3->Fill( I("trk_mode_RPC", itrack) );
-			    for (int jhit = 0; jhit < I("trk_nHits", itrack); jhit++) {
-				    int iHit = I("trk_iHit", itrack, jhit); 
-				    if(I("hit_isCSC", iHit)==1){
-					    CSCHitBXinBXm3Trk->Fill( I("hit_BX", iHit) );
-				    }
-				    if(I("hit_isRPC", iHit)==1){
-					    RPCHitBXinBXm3Trk->Fill( I("hit_BX", iHit) );
-				    }
-					    
-			    }//end loop over hits
                             break;
 		        default:
                             break;
@@ -330,14 +276,6 @@ void NTuple_Analyzer() {
   CSCHitBXinBXm2Trk->GetXaxis()->SetTitle("CSC Hit BX");
   CSCHitBXinBXm3Trk->GetXaxis()->SetTitle("CSC Hit BX");
 	
-  RPCHitBXinBX0Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBX1Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBX2Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBX3Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBXm1Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBXm2Trk->GetXaxis()->SetTitle("RPC Hit BX");
-  RPCHitBXinBXm3Trk->GetXaxis()->SetTitle("RPC Hit BX");
-	
   ModeBX0->Write();
   ModeBX1->Write();
   ModeBX2->Write();
@@ -362,22 +300,6 @@ void NTuple_Analyzer() {
   RPCModeBXm2->Write();
   RPCModeBXm3->Write();
 	
-  CSCHitBXinBX0Trk->Write();
-  CSCHitBXinBX1Trk->Write();
-  CSCHitBXinBX2Trk->Write();
-  CSCHitBXinBX3Trk->Write();
-  CSCHitBXinBXm1Trk->Write();
-  CSCHitBXinBXm2Trk->Write();
-  CSCHitBXinBXm3Trk->Write();
-  
-  RPCHitBXinBX0Trk->Write();
-  RPCHitBXinBX1Trk->Write();
-  RPCHitBXinBX2Trk->Write();
-  RPCHitBXinBX3Trk->Write();
-  RPCHitBXinBXm1Trk->Write();
-  RPCHitBXinBXm2Trk->Write();
-  RPCHitBXinBXm3Trk->Write();
-        
   myPlot.Close();
   
 } // End function: void NTuple_Analyzer()
