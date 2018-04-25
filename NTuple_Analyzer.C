@@ -285,7 +285,7 @@ void NTuple_Analyzer() {
     
     }//end loop over unpacked tracks
 	  
-    if (verbose) std::cout << "\n" << I("Tracks") << " emulated tracks in the event" << std::endl;
+    if (verbose) std::cout << "\n" << I("nTracks") << " emulated tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
 	    if( I("trk_pt", itrack) > PT_CUT ){
 		    
