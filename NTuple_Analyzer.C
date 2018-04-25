@@ -244,6 +244,14 @@ void NTuple_Analyzer() {
   PhiBXm2->GetXaxis()->SetTitle("Phi");
   PhiBXm3->GetXaxis()->SetTitle("Phi");
 	
+  dBXinBX0Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBX1Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBX2Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBX3Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBXm1Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBXm2Trk->GetXaxis()->SetTitle("dBX");
+  dBXinBXm3Trk->GetXaxis()->SetTitle("dBX");
+	
   ModeBX0->GetXaxis()->SetTitle("Mode");
   ModeBX1->GetXaxis()->SetTitle("Mode");
   ModeBX2->GetXaxis()->SetTitle("Mode");
@@ -267,15 +275,39 @@ void NTuple_Analyzer() {
   RPCModeBXm1->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm2->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm3->GetXaxis()->SetTitle("RPC Mode");
-
-  CSCHitBXinBX0Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBX1Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBX2Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBX3Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBXm1Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBXm2Trk->GetXaxis()->SetTitle("CSC Hit BX");
-  CSCHitBXinBXm3Trk->GetXaxis()->SetTitle("CSC Hit BX");
 	
+  PtBX0->Write();
+  PtBX1->Write();
+  PtBX2->Write();
+  PtBX3->Write();
+  PtBXm1->Write();
+  PtBXm2->Write();
+  PtBXm3->Write();
+	
+  EtaBX0->Write();
+  EtaBX1->Write();
+  EtaBX2->Write();
+  EtaBX3->Write();
+  EtaBXm1->Write();
+  EtaBXm2->Write();
+  EtaBXm3->Write();
+	
+  PhiBX0->Write();
+  PhiBX1->Write();
+  PhiBX2->Write();
+  PhiBX3->Write();
+  PhiBXm1->Write();
+  PhiBXm2->Write();
+  PhiBXm3->Write();
+	
+  dBXinBX0Trk->Write();
+  dBXinBX1Trk->Write();
+  dBXinBX2Trk->Write();
+  dBXinBX3Trk->Write();
+  dBXinBXm1Trk->Write();
+  dBXinBXm2Trk->Write();
+  dBXinBXm3Trk->Write();
+  
   ModeBX0->Write();
   ModeBX1->Write();
   ModeBX2->Write();
