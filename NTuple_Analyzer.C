@@ -60,45 +60,45 @@ void NTuple_Analyzer() {
     in_chain->Add( in_file_names.at(i) );
   }
  
-  TH1F *ModeBX0 = new TH1F("ModeBX0", "ModeBX0", 15, 0, 15);
-  TH1F *ModeBX1 = new TH1F("ModeBX1", "ModeBX1", 15, 0, 15);
-  TH1F *ModeBX2 = new TH1F("ModeBX2", "ModeBX2", 15, 0, 15);
-  TH1F *ModeBX3 = new TH1F("ModeBX3", "ModeBX3", 15, 0, 15);
-  TH1F *ModeBXm1 = new TH1F("ModeBXm1", "ModeBXm1", 15, 0, 15);
-  TH1F *ModeBXm2 = new TH1F("ModeBXm2", "ModeBXm2", 15, 0, 15);
-  TH1F *ModeBXm3 = new TH1F("ModeBXm3", "ModeBXm3", 15, 0, 15);
+  TH1F *ModeBX0 = new TH1F("ModeBX0", "ModeBX0", 16, 0, 16);
+  TH1F *ModeBX1 = new TH1F("ModeBX1", "ModeBX1", 16, 0, 16);
+  TH1F *ModeBX2 = new TH1F("ModeBX2", "ModeBX2", 16, 0, 16);
+  TH1F *ModeBX3 = new TH1F("ModeBX3", "ModeBX3", 16, 0, 16);
+  TH1F *ModeBXm1 = new TH1F("ModeBXm1", "ModeBXm1", 16, 0, 16);
+  TH1F *ModeBXm2 = new TH1F("ModeBXm2", "ModeBXm2", 16, 0, 16);
+  TH1F *ModeBXm3 = new TH1F("ModeBXm3", "ModeBXm3", 16, 0, 16);
   
-  TH1F *CSCModeBX0 = new TH1F("CSCModeBX0", "CSCModeBX0", 15, 0, 15);
-  TH1F *CSCModeBX1 = new TH1F("CSCModeBX1", "CSCModeBX1", 15, 0, 15);
-  TH1F *CSCModeBX2 = new TH1F("CSCModeBX2", "CSCModeBX2", 15, 0, 15);
-  TH1F *CSCModeBX3 = new TH1F("CSCModeBX3", "CSCModeBX3", 15, 0, 15);
-  TH1F *CSCModeBXm1 = new TH1F("CSCModeBXm1", "CSCModeBXm1", 15, 0, 15);
-  TH1F *CSCModeBXm2 = new TH1F("CSCModeBXm2", "CSCModeBXm2", 15, 0, 15);
-  TH1F *CSCModeBXm3 = new TH1F("CSCModeBXm3", "CSCModeBXm3", 15, 0, 15);
+  TH1F *CSCModeBX0 = new TH1F("CSCModeBX0", "CSCModeBX0", 16, 0, 16);
+  TH1F *CSCModeBX1 = new TH1F("CSCModeBX1", "CSCModeBX1", 16, 0, 16);
+  TH1F *CSCModeBX2 = new TH1F("CSCModeBX2", "CSCModeBX2", 16, 0, 16);
+  TH1F *CSCModeBX3 = new TH1F("CSCModeBX3", "CSCModeBX3", 16, 0, 16);
+  TH1F *CSCModeBXm1 = new TH1F("CSCModeBXm1", "CSCModeBXm1", 16, 0, 16);
+  TH1F *CSCModeBXm2 = new TH1F("CSCModeBXm2", "CSCModeBXm2", 16, 0, 16);
+  TH1F *CSCModeBXm3 = new TH1F("CSCModeBXm3", "CSCModeBXm3", 16, 0, 16);
 	
-  TH1F *RPCModeBX0 = new TH1F("RPCModeBX0", "RPCModeBX0", 15, 0, 15);
-  TH1F *RPCModeBX1 = new TH1F("RPCModeBX1", "RPCModeBX1", 15, 0, 15);
-  TH1F *RPCModeBX2 = new TH1F("RPCModeBX2", "RPCModeBX2", 15, 0, 15);
-  TH1F *RPCModeBX3 = new TH1F("RPCModeBX3", "RPCModeBX3", 15, 0, 15);
-  TH1F *RPCModeBXm1 = new TH1F("RPCModeBXm1", "RPCModeBXm1", 15, 0, 15);
-  TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 15, 0, 15);
-  TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 15, 0, 15);
+  TH1F *RPCModeBX0 = new TH1F("RPCModeBX0", "RPCModeBX0", 16, 0, 16);
+  TH1F *RPCModeBX1 = new TH1F("RPCModeBX1", "RPCModeBX1", 16, 0, 16);
+  TH1F *RPCModeBX2 = new TH1F("RPCModeBX2", "RPCModeBX2", 16, 0, 16);
+  TH1F *RPCModeBX3 = new TH1F("RPCModeBX3", "RPCModeBX3", 16, 0, 16);
+  TH1F *RPCModeBXm1 = new TH1F("RPCModeBXm1", "RPCModeBXm1", 16, 0, 16);
+  TH1F *RPCModeBXm2 = new TH1F("RPCModeBXm2", "RPCModeBXm2", 16, 0, 16);
+  TH1F *RPCModeBXm3 = new TH1F("RPCModeBXm3", "RPCModeBXm3", 16, 0, 16);
 	
-  TH2F *UnpRPCvsCSCBX0 = new TH2F("UnpRPCvsCSCBX0", "UnpRPCvsCSCBX0", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBX1 = new TH2F("UnpRPCvsCSCBX1", "UnpRPCvsCSCBX1", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBX2 = new TH2F("UnpRPCvsCSCBX2", "UnpRPCvsCSCBX2", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBX3 = new TH2F("UnpRPCvsCSCBX3", "UnpRPCvsCSCBX3", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBXm1 = new TH2F("UnpRPCvsCSCBXm1", "UnpRPCvsCSCBXm1", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBXm2 = new TH2F("UnpRPCvsCSCBXm2", "UnpRPCvsCSCBXm2", 15, 0, 15, 15, 0, 15);
-  TH2F *UnpRPCvsCSCBXm3 = new TH2F("UnpRPCvsCSCBXm3", "UnpRPCvsCSCBXm3", 15, 0, 15, 15, 0, 15);
+  TH2F *UnpRPCvsCSCBX0 = new TH2F("UnpRPCvsCSCBX0", "UnpRPCvsCSCBX0", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBX1 = new TH2F("UnpRPCvsCSCBX1", "UnpRPCvsCSCBX1", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBX2 = new TH2F("UnpRPCvsCSCBX2", "UnpRPCvsCSCBX2", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBX3 = new TH2F("UnpRPCvsCSCBX3", "UnpRPCvsCSCBX3", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBXm1 = new TH2F("UnpRPCvsCSCBXm1", "UnpRPCvsCSCBXm1", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBXm2 = new TH2F("UnpRPCvsCSCBXm2", "UnpRPCvsCSCBXm2", 16, 0, 16, 16, 0, 16);
+  TH2F *UnpRPCvsCSCBXm3 = new TH2F("UnpRPCvsCSCBXm3", "UnpRPCvsCSCBXm3", 16, 0, 16, 16, 0, 16);
 	
-  TH2F *EmuRPCvsCSCBX0 = new TH2F("EmuRPCvsCSCBX0", "EmuRPCvsCSCBX0", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBX1 = new TH2F("EmuRPCvsCSCBX1", "EmuRPCvsCSCBX1", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBX2 = new TH2F("EmuRPCvsCSCBX2", "EmuRPCvsCSCBX2", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBX3 = new TH2F("EmuRPCvsCSCBX3", "EmuRPCvsCSCBX3", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBXm1 = new TH2F("EmuRPCvsCSCBXm1", "EmuRPCvsCSCBXm1", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBXm2 = new TH2F("EmuRPCvsCSCBXm2", "EmuRPCvsCSCBXm2", 15, 0, 15, 15, 0, 15);
-  TH2F *EmuRPCvsCSCBXm3 = new TH2F("EmuRPCvsCSCBXm3", "EmuRPCvsCSCBXm3", 15, 0, 15, 15, 0, 15);
+  TH2F *EmuRPCvsCSCBX0 = new TH2F("EmuRPCvsCSCBX0", "EmuRPCvsCSCBX0", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBX1 = new TH2F("EmuRPCvsCSCBX1", "EmuRPCvsCSCBX1", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBX2 = new TH2F("EmuRPCvsCSCBX2", "EmuRPCvsCSCBX2", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBX3 = new TH2F("EmuRPCvsCSCBX3", "EmuRPCvsCSCBX3", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBXm1 = new TH2F("EmuRPCvsCSCBXm1", "EmuRPCvsCSCBXm1", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBXm2 = new TH2F("EmuRPCvsCSCBXm2", "EmuRPCvsCSCBXm2", 16, 0, 16, 16, 0, 16);
+  TH2F *EmuRPCvsCSCBXm3 = new TH2F("EmuRPCvsCSCBXm3", "EmuRPCvsCSCBXm3", 16, 0, 16, 16, 0, 16);
 
   TH1F *PtBX0 = new TH1F("PtBX0", "PtBX0", 256, 0, 256);
   TH1F *PtBX1 = new TH1F("PtBX1", "PtBX1", 256, 0, 256);
