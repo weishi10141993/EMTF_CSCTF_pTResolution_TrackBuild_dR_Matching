@@ -385,6 +385,36 @@ void NTuple_Analyzer() {
   RPCModeBXm1->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm2->GetXaxis()->SetTitle("RPC Mode");
   RPCModeBXm3->GetXaxis()->SetTitle("RPC Mode");
+
+  UnpRPCvsCSCBX0->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBX0->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBX1->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBX1->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBX2->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBX2->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBX3->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBX3->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBXm1->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBXm1->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBXm2->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBXm2->GetYaxis()->SetTitle("RPC Mode");
+  UnpRPCvsCSCBXm3->GetXaxis()->SetTitle("CSC Mode");
+  UnpRPCvsCSCBXm3->GetYaxis()->SetTitle("RPC Mode");
+	
+  EmuRPCvsCSCBX0->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBX0->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBX1->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBX1->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBX2->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBX2->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBX3->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBX3->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBXm1->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBXm1->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBXm2->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBXm2->GetYaxis()->SetTitle("RPC Mode");
+  EmuRPCvsCSCBXm3->GetXaxis()->SetTitle("CSC Mode");
+  EmuRPCvsCSCBXm3->GetYaxis()->SetTitle("RPC Mode");
 	
   PtBX0->Write();
   PtBX1->Write();
@@ -441,6 +471,22 @@ void NTuple_Analyzer() {
   RPCModeBXm1->Write();
   RPCModeBXm2->Write();
   RPCModeBXm3->Write();
+	
+  UnpRPCvsCSCBX0->Write();
+  UnpRPCvsCSCBX1->Write();
+  UnpRPCvsCSCBX2->Write();
+  UnpRPCvsCSCBX3->Write();
+  UnpRPCvsCSCBXm1->Write();
+  UnpRPCvsCSCBXm2->Write();
+  UnpRPCvsCSCBXm3->Write();
+
+  EmuRPCvsCSCBX0->Write();
+  EmuRPCvsCSCBX1->Write();
+  EmuRPCvsCSCBX2->Write();
+  EmuRPCvsCSCBX3->Write();
+  EmuRPCvsCSCBXm1->Write();
+  EmuRPCvsCSCBXm2->Write();
+  EmuRPCvsCSCBXm3->Write();
 	
   myPlot.Close();
   
