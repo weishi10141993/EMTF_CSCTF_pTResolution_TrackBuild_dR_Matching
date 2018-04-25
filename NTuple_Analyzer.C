@@ -174,58 +174,53 @@ void NTuple_Analyzer() {
 		            RPCModeBX1->Fill( I("unp_trk_mode_RPC", itrack) );
 			    UnpRPCvsCSCBX1->Fill( I("unp_trk_mode_CSC", itrack), I("unp_trk_mode_RPC", itrack));
 				    
-		            //Print event#, emulated/unpacked tracks/hits
-		            cout<<"*** Print out ***"<<endl;
-                            cout<<"* Event #"<<I("evt_event")<<" * LS #"<<I("evt_LS")<<" * BX #"<<I("evt_BX")<<" * Orbit #"<<I("evt_orbit")<<endl;
+		            //Print event#, emulated/unpacked tracks/hits where there is a BX1 track pT>pt_cut
+                            cout<<"\n* Event #"<<I("evt_event")<<" * LS #"<<I("evt_LS")<<" * BX #"<<I("evt_BX")<<" * Orbit #"<<I("evt_orbit")<<endl;
                             
-			    cout<<"========================== Emulated Tracks ============================"<<endl;
+			    cout<<"\n========================== Emulated Tracks ============================"<<endl;
                             cout<<"***********************************************************************"<<endl;
-			    cout<<"* BX * dBX * Endcap * Sector * Eta * Phi *  Pt  * CSC Mode * RPC Mode *"<<endl;
+			    cout<<"* BX *  dBX   * Endcap * Sector *  Eta  *  Phi  *  Pt  * CSC Mode * RPC Mode *"<<endl;
 			    for (int jtrack = 0; jtrack < I("nTracks"); jtrack++) {
-				    cout<< "* "<<setw(2)<<setprecision(2)<< I("trk_BX", jtrack) << " * " <<setw(3)<<setprecision(2)<< I("trk_dBX", jtrack) << " * " 
+				    cout<< "* "<<setw(2)<<setprecision(2)<< I("trk_BX", jtrack) << " * " <<setw(6)<<setprecision(6)<< I("trk_dBX", jtrack) << " * " 
 					       <<setw(6)<<setprecision(2)<< I("trk_endcap", jtrack) <<" * "<<setw(6)<<setprecision(2)<< I("trk_sector", jtrack) << " * "
-					       <<setw(3)<<setprecision(3)<< F("trk_eta", jtrack) <<" * "<<setw(3)<<setprecision(3)<< F("trk_phi", jtrack) << " * "
+					       <<setw(5)<<setprecision(3)<< F("trk_eta", jtrack) <<" * "<<setw(5)<<setprecision(3)<< F("trk_phi", jtrack) << " * "
 					       <<setw(4)<<setprecision(3)<< F("trk_pt", jtrack) <<" * "<<setw(8)<<setprecision(2)<< I("trk_mode_CSC", jtrack) << " * "
 					       <<setw(8)<<setprecision(2)<< I("trk_mode_RPC", jtrack)<<" *"<<endl;                         
 			    }
+    
+			    cout<<"\n========================== Unpacked Tracks ============================"<<endl;
                             cout<<"***********************************************************************"<<endl;
-		            
-			    cout<<"========================== Unpacked Tracks ============================"<<endl;
-                            cout<<"***********************************************************************"<<endl;
-			    cout<<"* BX * dBX * Endcap * Sector * Eta * Phi *  Pt  * CSC Mode * RPC Mode *"<<endl;
+			    cout<<"* BX *  dBX   * Endcap * Sector *  Eta  *  Phi  *  Pt  * CSC Mode * RPC Mode *"<<endl;
 			    for (int jtrack = 0; jtrack < I("nUnpTracks"); jtrack++) {
-				    cout<< "* "<<setw(2)<<setprecision(2)<< I("unp_trk_BX", jtrack) << " * " <<setw(3)<<setprecision(2)<< I("unp_trk_dBX", jtrack) << " * " 
+				    cout<< "* "<<setw(2)<<setprecision(2)<< I("unp_trk_BX", jtrack) << " * " <<setw(6)<<setprecision(6)<< I("unp_trk_dBX", jtrack) << " * " 
 					       <<setw(6)<<setprecision(2)<< I("unp_trk_endcap", jtrack) <<" * "<<setw(6)<<setprecision(2)<< I("unp_trk_sector", jtrack) << " * "
-					       <<setw(3)<<setprecision(3)<< F("unp_trk_eta", jtrack) <<" * "<<setw(3)<<setprecision(3)<< F("unp_trk_phi", jtrack) << " * "
+					       <<setw(5)<<setprecision(3)<< F("unp_trk_eta", jtrack) <<" * "<<setw(5)<<setprecision(3)<< F("unp_trk_phi", jtrack) << " * "
 					       <<setw(4)<<setprecision(3)<< F("unp_trk_pt", jtrack) <<" * "<<setw(8)<<setprecision(2)<< I("unp_trk_mode_CSC", jtrack) << " * "
 					       <<setw(8)<<setprecision(2)<< I("unp_trk_mode_RPC", jtrack)<<" *"<<endl;                         
 			    }
-                            cout<<"***********************************************************************"<<endl;
-				
-			    cout<<"============================ Emulated Hits ===================================="<<endl;
+	
+			    cout<<"\n============================ Emulated Hits ===================================="<<endl;
                             cout<<"*******************************************************************************"<<endl;
-			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber * Eta * Phi *"<<endl;
+			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber *  Eta  *  Phi  *"<<endl;
 			    for (int jhit = 0; jhit < I("nSimHits"); jhit++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("sim_hit_BX", jhit) << " * " <<setw(5)<<setprecision(2)<< I("sim_hit_isCSC", jhit) << " * " 
 					       <<setw(5)<<setprecision(2)<< I("sim_hit_isRPC", jhit) <<" * " <<setw(6)<<setprecision(2)<< I("sim_hit_endcap", jhit) <<" * "
 					       <<setw(6)<<setprecision(2)<< I("sim_hit_sector", jhit) << " * "<<setw(7)<<setprecision(2)<< I("sim_hit_station", jhit) << " * "
 					       <<setw(4)<<setprecision(2)<< I("sim_hit_ring", jhit) << " * "<<setw(7)<<setprecision(2)<< I("sim_hit_chamber", jhit) << " * "
-					       <<setw(3)<<setprecision(3)<< F("sim_hit_eta", jhit) <<" * "<<setw(3)<<setprecision(3)<< F("sim_hit_phi", jhit) << " *"<<endl;                         
+					       <<setw(5)<<setprecision(3)<< F("sim_hit_eta", jhit) <<" * "<<setw(5)<<setprecision(3)<< F("sim_hit_phi", jhit) << " *"<<endl;                         
 			    }
+                           
+			    cout<<"\n============================ Unpacked Hits ===================================="<<endl;
                             cout<<"*******************************************************************************"<<endl;
-				    
-			    cout<<"============================ Unpacked Hits ===================================="<<endl;
-                            cout<<"*******************************************************************************"<<endl;
-			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber * Eta * Phi *"<<endl;
+			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber *  Eta  *  Phi  *"<<endl;
 			    for (int jhit = 0; jhit < I("nHits"); jhit++) {
 				    cout<< "* "<<setw(2)<<setprecision(2)<< I("hit_BX", jhit) << " * " <<setw(5)<<setprecision(2)<< I("hit_isCSC", jhit) << " * " 
 					       <<setw(5)<<setprecision(2)<< I("hit_isRPC", jhit) <<" * " <<setw(6)<<setprecision(2)<< I("hit_endcap", jhit) <<" * "
 					       <<setw(6)<<setprecision(2)<< I("hit_sector", jhit) << " * "<<setw(7)<<setprecision(2)<< I("hit_station", jhit) << " * "
 					       <<setw(4)<<setprecision(2)<< I("hit_ring", jhit) << " * "<<setw(7)<<setprecision(2)<< I("hit_chamber", jhit) << " * "
-					       <<setw(3)<<setprecision(3)<< F("hit_eta", jhit) <<" * "<<setw(3)<<setprecision(3)<< F("hit_phi", jhit) << " *"<<endl;                         
+					       <<setw(5)<<setprecision(3)<< F("hit_eta", jhit) <<" * "<<setw(5)<<setprecision(3)<< F("hit_phi", jhit) << " *"<<endl;                         
 			    }
-                            cout<<"*******************************************************************************"<<endl;
-				    
+	    
                             break; 
 			case 2:
 			    PtBX2->Fill( F("unp_trk_pt",itrack) );
