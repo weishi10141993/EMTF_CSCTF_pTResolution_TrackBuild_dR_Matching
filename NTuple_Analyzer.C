@@ -200,6 +200,20 @@ void NTuple_Analyzer() {
 					       <<setw(8)<<setprecision(2)<< I("trk_mode_RPC", jtrack)<<" *"<<endl;                         
 			    }
                             cout<<"***********************************************************************"<<endl;
+				    
+			    cout<<"============================ Unpacked Hits ===================================="<<endl;
+                            cout<<"*******************************************************************************"<<endl;
+			    cout<<"* BX * isCSC * isRPC * Endcap * Sector * Station * Ring * Chamber * Eta * Phi *"<<endl;
+			    for (int jhit = 0; jhit < I("nHits"); jhit++) {
+				    cout<< "* "<<setw(2)<<setprecision(2)<< I("hit_BX", jhit) << " * " <<setw(5)<<setprecision(2)<< I("hit_isCSC", jhit) << " * " 
+					       <<setw(5)<<setprecision(2)<< I("hit_isRPC", jhit) <<" * " <<setw(6)<<setprecision(2)<< I("hit_endcap", jhit) <<" * "
+					       <<setw(6)<<setprecision(2)<< I("hit_sector", jhit) << " * "<<setw(7)<<setprecision(2)<< I("hit_station", jhit) << " * "
+					       <<setw(4)<<setprecision(2)<< I("hit_ring", jhit) << " * "<<setw(7)<<setprecision(2)<< I("hit_chamber", jhit) << " * "
+					       <<setw(3)<<setprecision(3)<< F("hit_eta", jhit) <<" * "<<setw(3)<<setprecision(3)<< F("hit_phi", jhit) << " *"<<endl;                         
+			    }
+                            cout<<"*******************************************************************************"<<endl;
+				    
+				    
                             break; 
 			case 2:
 			    PtBX2->Fill( F("unp_trk_pt",itrack) );
