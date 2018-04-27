@@ -18,12 +18,7 @@ const float ETA_LOW = 1.25;
 const int MAX_EVT = 100000000;   // Max number of events to process
 const int PRT_EVT = 10000;   // Print every N events
 //================================================================
-//Part II: EMTF unbiased setting for pT training
-const int Bias_Pt = 26;//SingleMu is collected with IsoMu24
-const float Bias_Eta = 1.0;//barrel/endcap distinction
-const float Bias_Iso = 0.25;//reco mu iso
-//================================================================
-//Part III: I/O
+//Part II: I/O
 TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
 TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
@@ -258,7 +253,7 @@ void ModesRateEffV0() {
 	
   //Loop SingleMu 
   for (int iEvt = 0; iEvt < nSMEvents; iEvt++) {
-    if (iEvt > MAX_EVT) break;
+    if (iEvt > MAX_EVT && MAX_EVT !=-1) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
       std::cout << "Looking at event " << iEvt << " out of " << nSMEvents << std::endl;
@@ -271,29 +266,23 @@ void ModesRateEffV0() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
 	
-    //===========================================================================
+    //==============
     // Trigger match
-    //===========================================================================
-    int BarrelRecoMu=0;
-    int EndcapRecoMu=0;
+    //==============
+    int nRecoMuMatchHLT=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
-	    //RECO mu pT >  Bias pT, Iso < Bias_Iso, match St1 segment, medium ID
-	    if( F("reco_pt", ireco) >= Bias_Pt && F("reco_iso", ireco) < Bias_Iso && I("reco_ID_station", ireco) == 1 && I("reco_ID_medium", ireco) == 1){
-		    //Barrel Reco mu
-		    if(fabs(F("reco_eta",ireco)) < Bias_Eta){
-			    BarrelRecoMu++;
-		    }
-		    //Endcap Reco mu
-		    if(fabs(F("reco_eta",ireco)) >= Bias_Eta){
-			    EndcapRecoMu++;
-		    }
-	    }//select RECO mu
+	    //RECO mu match HLT
+	    if( I("reco_ID_loose", ireco) > 0){
+		    nRecoMuMatchHLT++;
+	    }//end if
     }//end for ireco
-	  
+    if ( nRecoMuMatchHLT==0 ) continue;
+	
+    //==================
+    //Normal track study
+    //==================
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
-	    //==================
-	    //Normal track study
-	    //==================
+	    
 	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
 		    
