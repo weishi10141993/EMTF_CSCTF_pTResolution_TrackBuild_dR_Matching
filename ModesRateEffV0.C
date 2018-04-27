@@ -291,9 +291,9 @@ void ModesRateEffV0() {
     }//end for ireco
 	  
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
-	    //*** ==================
-	    //*** Normal track study
-	    //*** ==================
+	    //==================
+	    //Normal track study
+	    //==================
 	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
 		    
@@ -315,7 +315,7 @@ void ModesRateEffV0() {
 				SMRecoPtUniqueMatchBX0->Fill( F("reco_pt", ireco) );   
 			}//Uniquely matched EMTF trk && trk BX=0
 			   
-			//SingluMu only
+			//SingluMu
 			if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 15 || 
 			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 14 || 
 			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 13 || 
@@ -332,10 +332,14 @@ void ModesRateEffV0() {
 			         }//require trk_BX=0
 			}
 			   
-			//DoubleMu Only
-			if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 12 || 
+			//DoubleMu Inclusive
+			if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 9  || 
 			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 10 || 
-			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 7){
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 7  ||
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 15 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 14 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 13 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 11){
 				SMRecoPtMatchDoubleMuModes->Fill( F("reco_pt", ireco) ); 
 			        if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchDoubleMuModesBX0->Fill( F("reco_pt", ireco) ); 
@@ -348,11 +352,18 @@ void ModesRateEffV0() {
 			         }//require trk_BX=0
 			}
 			   
-			//MuOpen
-			if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 9 || 
-			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 6 || 
-			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 5 || 
-			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 3){
+			//MuOpen Inclusive
+			if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 12 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 6  || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 5  || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 3  ||
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 9  || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 10 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 7  ||
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 15 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 14 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 13 || 
+			    I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 11){
 				SMRecoPtMatchMuOpenModes->Fill( F("reco_pt", ireco) ); 
 			        if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMuOpenModesBX0->Fill( F("reco_pt", ireco) ); 
