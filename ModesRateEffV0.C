@@ -276,7 +276,7 @@ void ModesRateEffV0() {
     int nRecoMuMatchHLT=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
 	    //RECO mu match HLT
-	    if( I("reco_ID_loose", ireco) > 0){
+	    if( I("reco_trig_ID", ireco) > 0){
 		    nRecoMuMatchHLT++;
 	    }//end if
     }//end for ireco
