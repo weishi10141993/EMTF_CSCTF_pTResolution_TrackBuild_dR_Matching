@@ -48,7 +48,6 @@ void ModesRateEffV0() {
   std::vector<TString> ZB_in_file_names;//Zerobias
   TString SM_file_name;
   TString ZB_file_name;
-
   
   for (int i = 0; i < USESingleMu; i++) {
 	  SM_file_name.Form( "%s/%s/%s", store.Data(), in_dir.Data(), SingleMu_files[i].Data() );
@@ -93,89 +92,89 @@ void ModesRateEffV0() {
 	
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
-  TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
-  TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtUniqueMatch = new TH1F("SMRecoPtUniqueMatch", "UniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtUniqueMatchBX0 = new TH1F("SMRecoPtUniqueMatchBX0", "UniqueMatchBX0 "+ SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtUniqueMatch = new TH1F("SMRecoPtUniqueMatch", "UniqueMatch "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtUniqueMatchBX0 = new TH1F("SMRecoPtUniqueMatchBX0", "UniqueMatchBX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
   //SingleMu only, DoubleMu only MuOpen Only
-  TH1F *SMRecoPtMatchSingleMuModes = new TH1F("SMRecoPtMatchSingleMuModes", "Match SingleMu Modes" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchDoubleMuModes = new TH1F("SMRecoPtMatchDoubleMuModes", "Match DoubleMu Modes" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMuOpenModes = new TH1F("SMRecoPtMatchMuOpenModes", "Match MuOpen Modes" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchSingleMuModes = new TH1F("SMRecoPtMatchSingleMuModes", "Match SingleMu Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchDoubleMuModes = new TH1F("SMRecoPtMatchDoubleMuModes", "Match DoubleMu Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMuOpenModes = new TH1F("SMRecoPtMatchMuOpenModes", "Match MuOpen Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
-  TH1F *SMRecoPtMatchSingleMuModesBX0 = new TH1F("SMRecoPtMatchSingleMuModesBX0", "Match SingleMu ModesBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchDoubleMuModesBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0", "Match DoubleMu ModesBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMuOpenModesBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0", "Match MuOpen ModesBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchSingleMuModesBX0 = new TH1F("SMRecoPtMatchSingleMuModesBX0", "Match SingleMu ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0", "Match DoubleMu ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMuOpenModesBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0", "Match MuOpen ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
-  TH1F *SMRecoPtMatchSingleMuModesBX0dBX0 = new TH1F("SMRecoPtMatchSingleMuModesBX0dBX0", "Match SingleMu ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchDoubleMuModesBX0dBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0dBX0", "Match DoubleMu ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMuOpenModesBX0dBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0dBX0", "Match MuOpen ModesBX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchSingleMuModesBX0dBX0 = new TH1F("SMRecoPtMatchSingleMuModesBX0dBX0", "Match SingleMu ModesBX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0dBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0dBX0", "Match DoubleMu ModesBX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMuOpenModesBX0dBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0dBX0", "Match MuOpen ModesBX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
-  TH1F *SMRecoPtMatchSingleMuModesBX0Plateau = new TH1F("SMRecoPtMatchSingleMuModesBX0Plateau", "Match SingleMu ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchDoubleMuModesBX0Plateau = new TH1F("SMRecoPtMatchDoubleMuModesBX0Plateau", "Match DoubleMu ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMuOpenModesBX0Plateau = new TH1F("SMRecoPtMatchMuOpenModesBX0Plateau", "Match MuOpen ModesBX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchSingleMuModesBX0Plateau = new TH1F("SMRecoPtMatchSingleMuModesBX0Plateau", "Match SingleMu ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchDoubleMuModesBX0Plateau = new TH1F("SMRecoPtMatchDoubleMuModesBX0Plateau", "Match DoubleMu ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMuOpenModesBX0Plateau = new TH1F("SMRecoPtMatchMuOpenModesBX0Plateau", "Match MuOpen ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
   //SingluMu quality: Q>=12
-  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode13" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode11" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode13" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode11" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //DoubleMu quality: Q>=8
-  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode12" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode10" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode7" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode12" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode10" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode7" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //MuOpen quality: Q>=4
-  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode9" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode6" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode5" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode3" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode9" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode6" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode5" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode3" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
   //SingluMu quality: Q>=12
-  TH1F *SMRecoPtMatchMode15BX0 = new TH1F("SMRecoPtMatchMode15BX0", "Match Mode15BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode14BX0 = new TH1F("SMRecoPtMatchMode14BX0", "Match Mode14BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode13BX0 = new TH1F("SMRecoPtMatchMode13BX0", "Match Mode13BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode11BX0 = new TH1F("SMRecoPtMatchMode11BX0", "Match Mode11BX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode15BX0 = new TH1F("SMRecoPtMatchMode15BX0", "Match Mode15BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode14BX0 = new TH1F("SMRecoPtMatchMode14BX0", "Match Mode14BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode13BX0 = new TH1F("SMRecoPtMatchMode13BX0", "Match Mode13BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode11BX0 = new TH1F("SMRecoPtMatchMode11BX0", "Match Mode11BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //DoubleMu quality: Q>=8
-  TH1F *SMRecoPtMatchMode12BX0 = new TH1F("SMRecoPtMatchMode12BX0", "Match Mode12BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode10BX0 = new TH1F("SMRecoPtMatchMode10BX0", "Match Mode10BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode7BX0 = new TH1F("SMRecoPtMatchMode7BX0", "Match Mode7BX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode12BX0 = new TH1F("SMRecoPtMatchMode12BX0", "Match Mode12BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode10BX0 = new TH1F("SMRecoPtMatchMode10BX0", "Match Mode10BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode7BX0 = new TH1F("SMRecoPtMatchMode7BX0", "Match Mode7BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //MuOpen quality: Q>=4
-  TH1F *SMRecoPtMatchMode9BX0 = new TH1F("SMRecoPtMatchMode9BX0", "Match Mode9BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode6BX0 = new TH1F("SMRecoPtMatchMode6BX0", "Match Mode6BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode5BX0 = new TH1F("SMRecoPtMatchMode5BX0", "Match Mode5BX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode3BX0 = new TH1F("SMRecoPtMatchMode3BX0", "Match Mode3BX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode9BX0 = new TH1F("SMRecoPtMatchMode9BX0", "Match Mode9BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode6BX0 = new TH1F("SMRecoPtMatchMode6BX0", "Match Mode6BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode5BX0 = new TH1F("SMRecoPtMatchMode5BX0", "Match Mode5BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode3BX0 = new TH1F("SMRecoPtMatchMode3BX0", "Match Mode3BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
   //SingluMu quality: Q>=12
-  TH1F *SMRecoPtMatchMode15BX0dBX0 = new TH1F("SMRecoPtMatchMode15BX0dBX0", "Match Mode15BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode14BX0dBX0 = new TH1F("SMRecoPtMatchMode14BX0dBX0", "Match Mode14BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode13BX0dBX0 = new TH1F("SMRecoPtMatchMode13BX0dBX0", "Match Mode13BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode11BX0dBX0 = new TH1F("SMRecoPtMatchMode11BX0dBX0", "Match Mode11BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode15BX0dBX0 = new TH1F("SMRecoPtMatchMode15BX0dBX0", "Match Mode15BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode14BX0dBX0 = new TH1F("SMRecoPtMatchMode14BX0dBX0", "Match Mode14BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode13BX0dBX0 = new TH1F("SMRecoPtMatchMode13BX0dBX0", "Match Mode13BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode11BX0dBX0 = new TH1F("SMRecoPtMatchMode11BX0dBX0", "Match Mode11BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //DoubleMu quality: Q>=8
-  TH1F *SMRecoPtMatchMode12BX0dBX0 = new TH1F("SMRecoPtMatchMode12BX0dBX0", "Match Mode12BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode10BX0dBX0 = new TH1F("SMRecoPtMatchMode10BX0dBX0", "Match Mode10BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode7BX0dBX0 = new TH1F("SMRecoPtMatchMode7BX0dBX0", "Match Mode7BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode12BX0dBX0 = new TH1F("SMRecoPtMatchMode12BX0dBX0", "Match Mode12BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode10BX0dBX0 = new TH1F("SMRecoPtMatchMode10BX0dBX0", "Match Mode10BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode7BX0dBX0 = new TH1F("SMRecoPtMatchMode7BX0dBX0", "Match Mode7BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //MuOpen quality: Q>=4
-  TH1F *SMRecoPtMatchMode9BX0dBX0 = new TH1F("SMRecoPtMatchMode9BX0dBX0", "Match Mode9BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode6BX0dBX0 = new TH1F("SMRecoPtMatchMode6BX0dBX0", "Match Mode6BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode5BX0dBX0 = new TH1F("SMRecoPtMatchMode5BX0dBX0", "Match Mode5BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode3BX0dBX0 = new TH1F("SMRecoPtMatchMode3BX0dBX0", "Match Mode3BX0dBX0" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode9BX0dBX0 = new TH1F("SMRecoPtMatchMode9BX0dBX0", "Match Mode9BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode6BX0dBX0 = new TH1F("SMRecoPtMatchMode6BX0dBX0", "Match Mode6BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode5BX0dBX0 = new TH1F("SMRecoPtMatchMode5BX0dBX0", "Match Mode5BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode3BX0dBX0 = new TH1F("SMRecoPtMatchMode3BX0dBX0", "Match Mode3BX0dBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
   //SingluMu quality: Q>=12
-  TH1F *SMRecoPtMatchMode15BX0Plateau = new TH1F("SMRecoPtMatchMode15BX0Plateau", "Match Mode15BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode14BX0Plateau = new TH1F("SMRecoPtMatchMode14BX0Plateau", "Match Mode14BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode13BX0Plateau = new TH1F("SMRecoPtMatchMode13BX0Plateau", "Match Mode13BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode11BX0Plateau = new TH1F("SMRecoPtMatchMode11BX0Plateau", "Match Mode11BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode15BX0Plateau = new TH1F("SMRecoPtMatchMode15BX0Plateau", "Match Mode15BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode14BX0Plateau = new TH1F("SMRecoPtMatchMode14BX0Plateau", "Match Mode14BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode13BX0Plateau = new TH1F("SMRecoPtMatchMode13BX0Plateau", "Match Mode13BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode11BX0Plateau = new TH1F("SMRecoPtMatchMode11BX0Plateau", "Match Mode11BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //DoubleMu quality: Q>=8
-  TH1F *SMRecoPtMatchMode12BX0Plateau = new TH1F("SMRecoPtMatchMode12BX0Plateau", "Match Mode12BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode10BX0Plateau = new TH1F("SMRecoPtMatchMode10BX0Plateau", "Match Mode10BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode7BX0Plateau = new TH1F("SMRecoPtMatchMode7BX0Plateau", "Match Mode7BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode12BX0Plateau = new TH1F("SMRecoPtMatchMode12BX0Plateau", "Match Mode12BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode10BX0Plateau = new TH1F("SMRecoPtMatchMode10BX0Plateau", "Match Mode10BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode7BX0Plateau = new TH1F("SMRecoPtMatchMode7BX0Plateau", "Match Mode7BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   //MuOpen quality: Q>=4
-  TH1F *SMRecoPtMatchMode9BX0Plateau = new TH1F("SMRecoPtMatchMode9BX0Plateau", "Match Mode9BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode6BX0Plateau = new TH1F("SMRecoPtMatchMode6BX0Plateau", "Match Mode6BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode5BX0Plateau = new TH1F("SMRecoPtMatchMode5BX0Plateau", "Match Mode5BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Match Mode3BX0Plateau" + SMRecoPtTitle, 30, 0, 30);
+  TH1F *SMRecoPtMatchMode9BX0Plateau = new TH1F("SMRecoPtMatchMode9BX0Plateau", "Match Mode9BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode6BX0Plateau = new TH1F("SMRecoPtMatchMode6BX0Plateau", "Match Mode6BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode5BX0Plateau = new TH1F("SMRecoPtMatchMode5BX0Plateau", "Match Mode5BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Match Mode3BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
   //Initialize variables for rate
   double TrigPT[30]={0};
