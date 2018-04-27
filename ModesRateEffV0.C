@@ -559,9 +559,13 @@ void ModesRateEffV0() {
 					    }
 				   }
 				   //DoubleMu Only
-				   if( I("trk_mode", itrack ) == 12 || 
+				   if( I("trk_mode", itrack ) == 9  || 
 			               I("trk_mode", itrack ) == 10 || 
-			    	       I("trk_mode", itrack ) == 7){
+			    	       I("trk_mode", itrack ) == 7  ||
+				       I("trk_mode", itrack ) == 15 || 
+			               I("trk_mode", itrack ) == 14 || 
+			    	       I("trk_mode", itrack ) == 13 || 
+			    	       I("trk_mode", itrack ) == 11){
 					    CountDoubleMuModes[i]++; 
 					    if( I("trk_dBX", itrack) == 0 ){
 						 CountDoubleMuModesdBX0[i]++;   
@@ -574,10 +578,17 @@ void ModesRateEffV0() {
 					    }
 				   }
 				   //MuOpen Only
-				   if( I("trk_mode", itrack ) == 9 || 
-			               I("trk_mode", itrack ) == 6 || 
-			    	       I("trk_mode", itrack ) == 5 || 
-			    	       I("trk_mode", itrack ) == 3){
+				   if( I("trk_mode", itrack ) == 12 || 
+			               I("trk_mode", itrack ) == 6  || 
+			    	       I("trk_mode", itrack ) == 5  || 
+			    	       I("trk_mode", itrack ) == 3  ||
+				       I("trk_mode", itrack ) == 9  || 
+			               I("trk_mode", itrack ) == 10 || 
+			    	       I("trk_mode", itrack ) == 7  ||
+				       I("trk_mode", itrack ) == 15 || 
+			               I("trk_mode", itrack ) == 14 || 
+			    	       I("trk_mode", itrack ) == 13 || 
+			    	       I("trk_mode", itrack ) == 11){
 					    CountMuOpenModes[i]++; 
 					    if( I("trk_dBX", itrack) == 0 ){
 						 CountMuOpenModesdBX0[i]++;   
