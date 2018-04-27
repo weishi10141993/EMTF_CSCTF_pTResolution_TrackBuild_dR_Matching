@@ -349,153 +349,110 @@ void ModesRateEffV0() {
 			switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {
                             
                         case 15:
-                            //SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode15BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode15BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }//require trk_dBX=0
-				    */
+				    
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode15BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }//require trk_pt > reco_pt * (7/8)
 			    }//require trk_BX=0
                             break; 
 			case 14:
-                            //SMRecoPtMatchMode14->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode14BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode14BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				   
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode14BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break;
 		        case 13:
-                            //SMRecoPtMatchMode13->Fill( F("reco_pt", ireco) ); 
+                           
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode13BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode13BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }*/
+				  
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode13BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break; 
 			case 11:
-                            //SMRecoPtMatchMode11->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode11BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode11BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				    
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode11BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break;
 			case 12:
-                            //SMRecoPtMatchMode12->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode12BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode12BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				    
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode12BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break; 
 			case 10:
-                            //SMRecoPtMatchMode10->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode10BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode10BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				   
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode10BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break;
 			case 7:
-                            //SMRecoPtMatchMode7->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode7BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode7BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				 
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode7BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break; 
 			case 9:
-                            //SMRecoPtMatchMode9->Fill( F("reco_pt", ireco) ); 
+                           
                             if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode9BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode9BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				   
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode9BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
 			    break;
 			case 6:
-                            //SMRecoPtMatchMode6->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode6BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode6BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				   
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode6BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break; 
 			case 5:
-                            //SMRecoPtMatchMode5->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode5BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode5BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				    
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode5BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
 			    }
                             break;
 			case 3:
-                            //SMRecoPtMatchMode3->Fill( F("reco_pt", ireco) ); 
+                            
 			    if( I("trk_BX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
 				    SMRecoPtMatchMode3BX0->Fill( F("reco_pt", ireco) ); 
-				    /*
-				    if( I("trk_dBX", I("reco_dR_match_iTrk", ireco) )  == 0 ){
-					    SMRecoPtMatchMode3BX0dBX0->Fill( F("reco_pt", ireco) ); 
-				    }
-				    */
+				  
 				    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
 					    SMRecoPtMatchMode3BX0Plateau->Fill( F("reco_pt", ireco) );
 				    }
@@ -546,6 +503,27 @@ void ModesRateEffV0() {
 			       I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == 11){
 				   SMRecoPtMatchMuOpenModes->Fill( F("reco_pt", ireco) ); 
 			   }//End MuOpen
+			   
+			   //each mode  
+			   switch ( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) ) {
+				   case 15:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
+				   case 14:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
+				   case 13:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
+				   case 9:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
+				   case 10:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
+				   case 7:
+					   SMRecoPtMatchMode15->Fill( F("reco_pt", ireco) );
+					   break; 
 			   
 		   }//end reco_dR_match_nTrk>0
 	    
