@@ -10,7 +10,7 @@
 //****************************
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
 //================================
-//= Part I: Rate/eff by track mode
+//= Part I: Kinematics
 //================================
 const bool verbose = false; // Print information
 const int PT_UP = 30;//Reco pT range
