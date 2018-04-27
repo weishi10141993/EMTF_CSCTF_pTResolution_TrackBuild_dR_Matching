@@ -27,10 +27,8 @@ const float Bias_Iso = 0.25;//reco mu iso
 TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
 TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
-TString SingleMu_files[3] = { 
-	  		    "NTuple_SingleMuon_FlatNtuple_Run_306092_2018_03_02_SingleMu.root",
-   			    "NTuple_SingleMuon_FlatNtuple_Run_306135_2018_03_02_SingleMu.root",
-   			    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_03_02_SingleMu.root"
+TString SingleMu_files[1] = { 
+	  		    "NTuple_0.root"
 };   
 TString ZeroBias_files[4] = { 
 	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",
@@ -38,7 +36,7 @@ TString ZeroBias_files[4] = {
 		            "NTuple_ZeroBias3_FlatNtuple_Run_306091_2018_03_02_ZB3.root", 
 		 	    "NTuple_ZeroBias4_FlatNtuple_Run_306091_2018_03_02_ZB4.root"
 };
-const int USESingleMu = 3;//# of SM files to use
+const int USESingleMu = 1;//# of SM files to use
 const int USEZerobias = 4;//# of ZB files to use
 //*** USER modify above ONLY ***//
 
