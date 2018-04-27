@@ -96,8 +96,6 @@ void ModesRateEffV0() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMUnbiasedRecoPtA = new TH1F("SMUnbiasedRecoPtA", "A-Unbiased " + SMRecoPtTitle, 30, 0, 30);
-  TH1F *SMUnbiasedRecoPtB = new TH1F("SMUnbiasedRecoPtB", "B-Unbiased " + SMRecoPtTitle, 30, 0, 30);
 	
   TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "NoMatch "+ SMRecoPtTitle, 30, 0, 30);
   TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "NoUniqueMatch "+ SMRecoPtTitle, 30, 0, 30);
@@ -273,10 +271,9 @@ void ModesRateEffV0() {
     // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
 	
-    //*** ===========================================================================
-    //*** Get unbiased SingleMu events(IsoMu24 biased) suitable for EMTF pT training,
-    //*** should expect 1/RECO pT distribution
-    //*** ===========================================================================
+    //===========================================================================
+    // Trigger match
+    //===========================================================================
     int BarrelRecoMu=0;
     int EndcapRecoMu=0;
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
@@ -292,26 +289,6 @@ void ModesRateEffV0() {
 		    }
 	    }//select RECO mu
     }//end for ireco
-	  
-    //A: remove EMTF bias: >0 in barrel or >2 in endcap
-    if ( BarrelRecoMu>0 || EndcapRecoMu>1 ){
-	    //loop over all RECOmu again to fill pT spectrum
-	    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
-		    //same requirement as track eff study below
-		    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
-			    SMUnbiasedRecoPtA->Fill( F("reco_pt", jreco) );
-		    }
-	    }//end loop 
-    }//end if A
-	
-    //B: This should definitely be unbiased, lower statistics than A
-    if ( BarrelRecoMu>0 && EndcapRecoMu==0 ){
-	    for (int jreco = 0; jreco < I("nRecoMuons"); jreco++) {
-		    if( F("reco_pt", jreco) >= PT_LOW && F("reco_pt", jreco) <= PT_UP && I("reco_ID_loose", jreco) == 1 && I("reco_ID_station", jreco) == 1 && fabs(F("reco_eta_St2",jreco)) >= ETA_LOW && fabs(F("reco_eta_St2", jreco) ) <= ETA_UP){
-			    SMUnbiasedRecoPtB->Fill( F("reco_pt", jreco) );
-		    }
-	    }//end loop 
-    }//end if
 	  
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
 	    //*** ==================
@@ -766,8 +743,7 @@ void ModesRateEffV0() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMUnbiasedRecoPtA->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMUnbiasedRecoPtB->GetXaxis()->SetTitle("RECO pT[GeV]");
+  
   SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
@@ -837,8 +813,6 @@ void ModesRateEffV0() {
   SMRecoPtMatchMode3BX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
 
   SMRecoPt->Write();
-  SMUnbiasedRecoPtA->Write();
-  SMUnbiasedRecoPtB->Write();
   //divide histograms for all modes
   //SingleMu
   TCanvas *CSingleMuModes = new TCanvas("CSingleMuModes","SingleMuModes",700,500);
