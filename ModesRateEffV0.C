@@ -9,8 +9,9 @@
 //* USER modify below ONLY   *
 //****************************
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
-//================================================================
-//Part I: Rate/eff by track mode
+//================================
+//= Part I: Rate/eff by track mode
+//================================
 const bool verbose = false; // Print information
 const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
@@ -18,8 +19,9 @@ const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
 const int MAX_EVT = -1;   // Max number of events to process
 const int PRT_EVT = 10000;   // Print every N events
-//================================================================
-//Part II: I/O
+//==============
+//= Part II: I/O
+//==============
 TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
 TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
