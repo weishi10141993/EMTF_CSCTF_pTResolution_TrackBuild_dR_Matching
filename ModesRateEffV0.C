@@ -26,7 +26,8 @@ TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
 TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
 TString SingleMu_files[1] = { 
-	  		    "NTuple_0.root"
+	  		    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_04_26_SingleMu_2017_emul.root"
+			    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_04_26_SingleMu_2018_emul_dTh4.root"//2018 emulator change
 };   
 TString ZeroBias_files[4] = { 
 	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",
