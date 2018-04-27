@@ -520,6 +520,7 @@ void ModesRateEffV0() {
 					   break;
 				   default:
                             		   break;
+			   }//end switch
 			   
 		   }//end reco_dR_match_nTrk>0
 	    
