@@ -18,7 +18,7 @@ std::vector<TString> vFlt = {{
     
     "reco_d0_BS", "reco_d0_PV", "reco_dR_match_dEta", "reco_dR_match_dPhi", "reco_dR_match_dR", "reco_dZ_BS", "reco_dZ_PV",
     "reco_eta", "reco_eta_St1", "reco_eta_St2", "reco_iso", "reco_phi", "reco_phi_St1", "reco_phi_St2", 
-    "reco_pt", "reco_theta", "reco_theta_St1", "reco_theta_St2",
+    "reco_pt", "reco_theta", "reco_theta_St1", "reco_theta_St2", "reco_trig_dR",
 	
     "unp_trk_pt", "unp_trk_eta", "unp_trk_theta", "unp_trk_phi", "unp_trk_phi_loc",
     "unp_trk_emu_match_dEta", "unp_trk_emu_match_dPhi", "unp_trk_emu_match_dR"
