@@ -42,7 +42,7 @@ const int USESingleMu = 3;//# of SM files to use
 const int USEZerobias = 4;//# of ZB files to use
 //*** USER modify above ONLY ***//
 
-void ModesRateEff() {
+void ModesRateEffV0() {
    
   // Initialize empty file to access each file in the list
   TFile *file_tmp(0);
