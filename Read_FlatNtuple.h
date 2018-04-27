@@ -40,7 +40,7 @@ std::vector<TString> vInt = {{
     "trk_unp_match_dBX", "trk_unp_match_exact", "trk_unp_match_iUnp", "trk_unp_match_unique",
 	
     "reco_ID_PF", "reco_ID_global", "reco_ID_loose", "reco_ID_medium", "reco_ID_nStations", "reco_ID_soft", "reco_ID_stand", 
-    "reco_ID_station", "reco_ID_tight", "reco_ID_tracker", "reco_charge", "reco_dR_match_iTrk", "reco_dR_match_nTrk", "reco_dR_match_unique",
+    "reco_ID_station", "reco_ID_tight", "reco_ID_tracker", "reco_charge", "reco_dR_match_iTrk", "reco_dR_match_nTrk", "reco_dR_match_unique", "reco_trig_ID",
 	
     "unp_trk_pt_int", "unp_trk_eta_int", "unp_trk_theta_int", "unp_trk_phi_int", "unp_trk_BX","unp_trk_endcap",
     "unp_trk_sector", "unp_trk_sector_index", "unp_trk_mode", "unp_trk_mode_CSC", "unp_trk_mode_RPC", "unp_trk_mode_neighbor",
