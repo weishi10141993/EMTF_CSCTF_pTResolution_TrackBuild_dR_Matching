@@ -286,6 +286,8 @@ void ModesRateEffV0() {
     //Normal track study
     //==================
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
+	    if( nRecoMuMatchHLT>=2 || 
+	        (nRecoMuMatchHLT==1 && I("reco_trig_ID", ireco) < 0 ) ){
 	    
 	    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
@@ -510,7 +512,8 @@ void ModesRateEffV0() {
 			   
 		   }//matched to unique EMTF trk
 		   
-	    }//selection on reco mu
+	    }//end if selection on reco mu
+	    }//end if nRecoMuMatchHLT
     }//end 2nd loop over SingleMu
     
   } // End loop events
