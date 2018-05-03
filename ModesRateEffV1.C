@@ -114,138 +114,18 @@ void ModesRateEffV1() {
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
-  TH1F *SMRecoPtNoMatch = new TH1F("SMRecoPtNoMatch", "No Match "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtNoUniqueMatch = new TH1F("SMRecoPtNoUniqueMatch", "No Unique Match "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtUniqueMatchBX0 = new TH1F("SMRecoPtUniqueMatchBX0", "Unique Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatch = new TH1F("SMRecoPtMatch", "Match "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
-
-  //Has match
-  TH1F *SMRecoPtMatchSingleMuModes = new TH1F("SMRecoPtMatchSingleMuModes", "Match SingleMu Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchDoubleMuModes = new TH1F("SMRecoPtMatchDoubleMuModes", "Match DoubleMu Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMuOpenModes = new TH1F("SMRecoPtMatchMuOpenModes", "Match MuOpen Modes" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0SingleMu = new TH1F("SMRecoPtMatchBX0SingleMu", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0SingleMuPlateau = new TH1F("SMRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
+  TH1F *SMRecoPtUniqueMatchBX0SingleMu = new TH1F("SMRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
-  TH1F *SMRecoPtMatchMode15 = new TH1F("SMRecoPtMatchMode15", "Match Mode15" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode14 = new TH1F("SMRecoPtMatchMode14", "Match Mode14" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode13 = new TH1F("SMRecoPtMatchMode13", "Match Mode13" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode11 = new TH1F("SMRecoPtMatchMode11", "Match Mode11" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  
-  TH1F *SMRecoPtMatchMode12 = new TH1F("SMRecoPtMatchMode12", "Match Mode12" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode10 = new TH1F("SMRecoPtMatchMode10", "Match Mode10" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode7 = new TH1F("SMRecoPtMatchMode7", "Match Mode7" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0DoubleMuInc = new TH1F("SMRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
+  TH1F *SMRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
-  TH1F *SMRecoPtMatchMode9 = new TH1F("SMRecoPtMatchMode9", "Match Mode9" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode6 = new TH1F("SMRecoPtMatchMode6", "Match Mode6" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode5 = new TH1F("SMRecoPtMatchMode5", "Match Mode5" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode3 = new TH1F("SMRecoPtMatchMode3", "Match Mode3" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  
-  //Unique match BX0
-  TH1F *SMRecoPtMatchSingleMuModesBX0 = new TH1F("SMRecoPtMatchSingleMuModesBX0", "Unique Match SingleMu ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchDoubleMuModesBX0 = new TH1F("SMRecoPtMatchDoubleMuModesBX0", "Unique Match DoubleMu ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMuOpenModesBX0 = new TH1F("SMRecoPtMatchMuOpenModesBX0", "Unique Match MuOpen ModesBX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-	
-  TH1F *SMRecoPtMatchMode15BX0 = new TH1F("SMRecoPtMatchMode15BX0", "Unique Match Mode15BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode14BX0 = new TH1F("SMRecoPtMatchMode14BX0", "Unique Match Mode14BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode13BX0 = new TH1F("SMRecoPtMatchMode13BX0", "Unique Match Mode13BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode11BX0 = new TH1F("SMRecoPtMatchMode11BX0", "Unique Match Mode11BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-	
-  TH1F *SMRecoPtMatchMode12BX0 = new TH1F("SMRecoPtMatchMode12BX0", "Unique Match Mode12BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode10BX0 = new TH1F("SMRecoPtMatchMode10BX0", "Unique Match Mode10BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode7BX0 = new TH1F("SMRecoPtMatchMode7BX0", "Unique Match Mode7BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0MuOpenInc = new TH1F("SMRecoPtMatchBX0MuOpenInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
+  TH1F *SMRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 
-  TH1F *SMRecoPtMatchMode9BX0 = new TH1F("SMRecoPtMatchMode9BX0", "Unique Match Mode9BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode6BX0 = new TH1F("SMRecoPtMatchMode6BX0", "Unique Match Mode6BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode5BX0 = new TH1F("SMRecoPtMatchMode5BX0", "Unique Match Mode5BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode3BX0 = new TH1F("SMRecoPtMatchMode3BX0", "Unique Match Mode3BX0" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  
-  //Unique match BX0 Plateau
-  TH1F *SMRecoPtMatchSingleMuModesBX0Plateau = new TH1F("SMRecoPtMatchSingleMuModesBX0Plateau", "Unique Match SingleMu ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchDoubleMuModesBX0Plateau = new TH1F("SMRecoPtMatchDoubleMuModesBX0Plateau", "Unique Match DoubleMu ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMuOpenModesBX0Plateau = new TH1F("SMRecoPtMatchMuOpenModesBX0Plateau", "Unique Match MuOpen ModesBX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-	
-  TH1F *SMRecoPtMatchMode15BX0Plateau = new TH1F("SMRecoPtMatchMode15BX0Plateau", "Unique Match Mode15BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode14BX0Plateau = new TH1F("SMRecoPtMatchMode14BX0Plateau", "Unique Match Mode14BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode13BX0Plateau = new TH1F("SMRecoPtMatchMode13BX0Plateau", "Unique Match Mode13BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode11BX0Plateau = new TH1F("SMRecoPtMatchMode11BX0Plateau", "Unique Match Mode11BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-
-  TH1F *SMRecoPtMatchMode12BX0Plateau = new TH1F("SMRecoPtMatchMode12BX0Plateau", "Unique Match Mode12BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode10BX0Plateau = new TH1F("SMRecoPtMatchMode10BX0Plateau", "Unique Match Mode10BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode7BX0Plateau = new TH1F("SMRecoPtMatchMode7BX0Plateau", "Unique Match Mode7BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-
-  TH1F *SMRecoPtMatchMode9BX0Plateau = new TH1F("SMRecoPtMatchMode9BX0Plateau", "Unique Match Mode9BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode6BX0Plateau = new TH1F("SMRecoPtMatchMode6BX0Plateau", "Unique Match Mode6BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode5BX0Plateau = new TH1F("SMRecoPtMatchMode5BX0Plateau", "Unique Match Mode5BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchMode3BX0Plateau = new TH1F("SMRecoPtMatchMode3BX0Plateau", "Unique Match Mode3BX0Plateau" + SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-
-  //Initialize variables for rate
-  double TrigPT[30]={0};
-  for(int i=0;i<30;i++){
-	  TrigPT[i]=i*1.0;
-  }
-  double Count[30]={0};
-  double CountdBX0[30]={0};
-  double CountRecoSoft[30]={0};
-  double CountRecoOnly[30]={0};
-	
-  double CountSingleMuModes[30]={0};
-  double CountSingleMuModesdBX0[30]={0};
-  double CountSingleMuModesRecoSoft[30]={0};
-  double CountSingleMuModesRecoOnly[30]={0};
- 
-  double CountDoubleMuModes[30]={0};
-  double CountDoubleMuModesdBX0[30]={0};
-  double CountDoubleMuModesRecoSoft[30]={0};
-  double CountDoubleMuModesRecoOnly[30]={0};
-	
-  double CountMuOpenModes[30]={0};
-  double CountMuOpenModesdBX0[30]={0};
-  double CountMuOpenModesRecoSoft[30]={0};
-  double CountMuOpenModesRecoOnly[30]={0};
-
-  double CountMode15[30]={0};
-  double CountMode15dBX0[30]={0};
-  double CountMode15RecoSoft[30]={0};
-  double CountMode15RecoOnly[30]={0};
-  double CountMode14[30]={0};
-  double CountMode14dBX0[30]={0};
-  double CountMode14RecoSoft[30]={0};
-  double CountMode14RecoOnly[30]={0};
-  double CountMode13[30]={0};
-  double CountMode13dBX0[30]={0};
-  double CountMode13RecoSoft[30]={0};
-  double CountMode13RecoOnly[30]={0};
-  double CountMode11[30]={0};
-  double CountMode11dBX0[30]={0};
-  double CountMode11RecoSoft[30]={0};
-  double CountMode11RecoOnly[30]={0};
-  double CountMode12[30]={0};
-  double CountMode12dBX0[30]={0};
-  double CountMode12RecoSoft[30]={0};
-  double CountMode12RecoOnly[30]={0};
-  double CountMode10[30]={0};
-  double CountMode10dBX0[30]={0};
-  double CountMode10RecoSoft[30]={0};
-  double CountMode10RecoOnly[30]={0};
-  double CountMode7[30]={0};
-  double CountMode7dBX0[30]={0};
-  double CountMode7RecoSoft[30]={0};
-  double CountMode7RecoOnly[30]={0};
-  double CountMode9[30]={0};
-  double CountMode9dBX0[30]={0};
-  double CountMode9RecoSoft[30]={0};
-  double CountMode9RecoOnly[30]={0};
-  double CountMode6[30]={0};
-  double CountMode6dBX0[30]={0};
-  double CountMode6RecoSoft[30]={0};
-  double CountMode6RecoOnly[30]={0};
-  double CountMode5[30]={0};
-  double CountMode5dBX0[30]={0};
-  double CountMode5RecoSoft[30]={0};
-  double CountMode5RecoOnly[30]={0};
-  double CountMode3[30]={0};
-  double CountMode3dBX0[30]={0};
-  double CountMode3RecoSoft[30]={0};
-  double CountMode3RecoOnly[30]={0};
-	
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
   SetBranchAddresses(ZB_in_chain);
