@@ -262,21 +262,14 @@ void ModesRateEffV1() {
     //==============
     // Trigger match
     //==============
-    int nRecoMuMatchHLT=0;
-    for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {
-	    //RECO mu match HLT
-	    if( I("reco_trig_ID", ireco) > 0){
-		    nRecoMuMatchHLT++;
-	    }//end if
-    }//end for ireco
-    if ( nRecoMuMatchHLT==0 ) continue;
+    if ( I("nRecoMuonsTrig")==0 ) continue;
 	
     //==================
     //Normal track study
     //==================
     for (int ireco = 0; ireco < I("nRecoMuons"); ireco++) {    
-	    if( nRecoMuMatchHLT>=2 || 
-	        (nRecoMuMatchHLT==1 && I("reco_trig_ID", ireco) < 0 ) ){
+	    if( I("nRecoMuonsTrig")>=2 || 
+	      ( I("nRecoMuonsTrig")==1 && I("nRecoMuonsTrigCen")==1 && I("reco_trig_ID", ireco) < 0 ) ){
 		    
 	       if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 && fabs(F("reco_eta_St2",ireco)) >= ETA_LOW && fabs(F("reco_eta_St2", ireco) ) <= ETA_UP){
 		   SMRecoPt->Fill( F("reco_pt", ireco) ); 
