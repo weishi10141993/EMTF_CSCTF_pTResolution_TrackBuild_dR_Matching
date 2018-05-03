@@ -25,9 +25,11 @@ const int PRT_EVT = 10000;   // Print every N events
 TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
 TString in_dir = "Ntuples/"; //sub dir
 TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
-TString SingleMu_files[1] = { 
-	  		    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_04_26_SingleMu_2017_emul.root"
-			    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_04_26_SingleMu_2018_emul_dTh4.root"//2018 emulator change
+TString SingleMu_files[4] = { 
+	  		    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2017_emul.root",//2017 emulator
+			    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh4.root",//2018 emulator changes
+	                    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh6.root",  
+                            "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh8.root"
 };   
 TString ZeroBias_files[4] = { 
 	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",
@@ -41,7 +43,7 @@ const int USEZerobias = 4;//# of ZB files to use
 //* USER modify above ONLY   *
 //****************************
 
-void ModesRateEffV0() {
+void ModesRateEffV1() {
    
   // Initialize empty file to access each file in the list
   TFile *file_tmp(0);
