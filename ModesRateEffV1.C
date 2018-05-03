@@ -19,6 +19,12 @@ const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
 const int MAX_EVT = -1;   // Max number of events to process
 const int PRT_EVT = 10000;   // Print every N events
+const int SingleMu2017[4]={15,14,13,11};
+const int DoubleMuInc2017[7]={12,10,7,15,14,13,11};
+const int MuOpenInc2017[11]={9,6,5,3,12,10,7,15,14,13,11};
+const int SingleMuModes2018[4]={15,14,13,11};
+const int DoubleMuInc2018[7]={9,10,7,15,14,13,11};
+const int MuOpenInc2018[11]={12,6,5,3,9,10,7,15,14,13,11};
 //==============
 //= Part II: I/O
 //==============
