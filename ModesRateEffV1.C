@@ -308,59 +308,81 @@ void ModesRateEffV1() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMLogRecoPt->GetXaxis()->SetTitle("log2(RECO pT)");
  
   //SingleMu
-  SMRecoPtMatchBX0SingleMu->SetLineColor(1);//blk
   SMRecoPtMatchBX0SingleMu->Divide(SMRecoPt);
   SMRecoPtMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0");
   SMRecoPtMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  SMRecoPtMatchBX0SingleMuPlateau->SetLineColor(1);//blk
   SMRecoPtMatchBX0SingleMuPlateau->Divide(SMRecoPt);
   SMRecoPtMatchBX0SingleMuPlateau->SetTitle("SingleMu: IsRecoMatch && BX0 && Plateau");
   SMRecoPtMatchBX0SingleMuPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0SingleMuPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  SMRecoPtUniqueMatchBX0SingleMu->SetLineColor(1);//blk
   SMRecoPtUniqueMatchBX0SingleMu->Divide(SMRecoPt);
   SMRecoPtUniqueMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0 && Unique");
   SMRecoPtUniqueMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  SMLogRecoPtMatchBX0SingleMu->Divide(SMLogRecoPt);
+  SMLogRecoPtMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0");
+  SMLogRecoPtMatchBX0SingleMu->GetXaxis()->SetTitle("log2(RECO pT)");
+  SMLogRecoPtMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
+
+  SMLogRecoPtMatchBX0SingleMuPlateau->Divide(SMLogRecoPt);
+  SMLogRecoPtMatchBX0SingleMuPlateau->SetTitle("SingleMu: IsRecoMatch && BX0 && Plateau");
+  SMLogRecoPtMatchBX0SingleMuPlateau->GetXaxis()->SetTitle("log2(RECO pT)");
+  SMLogRecoPtMatchBX0SingleMuPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  SMLogRecoPtUniqueMatchBX0SingleMu->Divide(SMLogRecoPt);
+  SMLogRecoPtUniqueMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0 && Unique");
+  SMLogRecoPtUniqueMatchBX0SingleMu->GetXaxis()->SetTitle("log2(RECO pT)");
+  SMLogRecoPtUniqueMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
   
   //DoubleMu Inclusive
-  SMRecoPtMatchBX0DoubleMuInc->SetLineColor(1);//blk
   SMRecoPtMatchBX0DoubleMuInc->Divide(SMRecoPt);
   SMRecoPtMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0");
   SMRecoPtMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  SMRecoPtMatchBX0DoubleMuIncPlateau->SetLineColor(1);//blk
   SMRecoPtMatchBX0DoubleMuIncPlateau->Divide(SMRecoPt);
   SMRecoPtMatchBX0DoubleMuIncPlateau->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Plateau");
   SMRecoPtMatchBX0DoubleMuIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0DoubleMuIncPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  SMRecoPtUniqueMatchBX0DoubleMuInc->SetLineColor(1);//blk
+  SMRecoPtUniqueMatchBX0DoubleMuInc->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Unique");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
+
+  SMLogRecoPtMatchBX0DoubleMuInc->Divide(SMLogRecoPt);
+  SMLogRecoPtMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0");
+  SMLogRecoPtMatchBX0DoubleMuInc->GetXaxis()->SetTitle("log2(RECO pT)");
+  SMLogRecoPtMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  SMRecoPtMatchBX0DoubleMuIncPlateau->Divide(SMRecoPt);
+  SMRecoPtMatchBX0DoubleMuIncPlateau->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Plateau");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
   SMRecoPtUniqueMatchBX0DoubleMuInc->Divide(SMRecoPt);
   SMRecoPtUniqueMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Unique");
   SMRecoPtUniqueMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 
   //MuOpen
-  SMRecoPtMatchBX0MuOpenInc->SetLineColor(1);//blk
   SMRecoPtMatchBX0MuOpenInc->Divide(SMRecoPt);
   SMRecoPtMatchBX0MuOpenInc->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0");
   SMRecoPtMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0MuOpenInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  SMRecoPtMatchBX0MuOpenIncPlateau->SetLineColor(1);//blk
   SMRecoPtMatchBX0MuOpenIncPlateau->Divide(SMRecoPt);
   SMRecoPtMatchBX0MuOpenIncPlateau->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Plateau");
   SMRecoPtMatchBX0MuOpenIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0MuOpenIncPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 
-  SMRecoPtUniqueMatchBX0MuOpenInc->SetLineColor(1);//blk
   SMRecoPtUniqueMatchBX0MuOpenInc->Divide(SMRecoPt);
   SMRecoPtUniqueMatchBX0MuOpenInc->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Unique");
   SMRecoPtUniqueMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
