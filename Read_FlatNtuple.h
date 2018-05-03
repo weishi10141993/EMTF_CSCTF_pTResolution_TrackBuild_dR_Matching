@@ -1,4 +1,4 @@
-//up to date with Apr 27 EMTF Ntuple.
+//Up-to-date with May 3 EMTF Ntuple.
 std::vector<TString> ints = {{
     "evt_run", "evt_LS", "evt_BX",
     "nHits", "nHitsCSC", "nHitsRPC", "nHitsBX0", "nHitsCSCBX0", "nHitsRPCBX0",
