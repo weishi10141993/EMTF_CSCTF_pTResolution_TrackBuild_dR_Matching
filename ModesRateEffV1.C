@@ -112,20 +112,31 @@ void ModesRateEffV1() {
 	
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
+  TString SMLogRecoPtTitle="";
+  SMLogRecoPtTitle = SMLogRecoPtTitle + "Log2(RECO pT) [" + Form("%d", Log2_PT_LOW)+", "+ Form("%d", Log2_PT_UP) + "], looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMLogRecoPt = new TH1F("SMLogRecoPt", SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 	
   TH1F *SMRecoPtMatchBX0SingleMu = new TH1F("SMRecoPtMatchBX0SingleMu", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMRecoPtMatchBX0SingleMuPlateau = new TH1F("SMRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
-  TH1F *SMRecoPtUniqueMatchBX0SingleMu = new TH1F("SMRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPtMatchBX0SingleMuPlateau = new TH1F("SMRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
+  TH1F *SMRecoPtUniqueMatchBX0SingleMu = new TH1F("SMRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMLogRecoPtMatchBX0SingleMu = new TH1F("SMLogRecoPtMatchBX0SingleMu", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0SingleMuPlateau = new TH1F("SMLogRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0SingleMu = new TH1F("SMLogRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 	
   TH1F *SMRecoPtMatchBX0DoubleMuInc = new TH1F("SMRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
   TH1F *SMRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMLogRecoPtMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMLogRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 
   TH1F *SMRecoPtMatchBX0MuOpenInc = new TH1F("SMRecoPtMatchBX0MuOpenInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
   TH1F *SMRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMLogRecoPtMatchBX0MuOpenInc = new TH1F("SMLogRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMLogRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMLogRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
@@ -163,12 +174,16 @@ void ModesRateEffV1() {
 	      ){
 		    
 		    //select RECO muon
-		    if( F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP && 
+		    if( F("reco_pt", ireco) > 0 && 
 		        I("reco_ID_loose", ireco) == 1 && I("reco_ID_station", ireco) == 1 &&
 		        fabs( F("reco_eta_St2",ireco) ) >= ETA_LOW && fabs( F("reco_eta_St2", ireco) ) <= ETA_UP
 		      ){
-			    
-			    SMRecoPt->Fill( F("reco_pt", ireco) );
+			    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+				    SMRecoPt->Fill( F("reco_pt", ireco) );
+			    }
+			    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+				    SMLogRecoPt->Fill( log2( F("reco_pt", ireco) ) );
+			    }
 			    
 			    //***********************
 		            //* IsRECOMatch && BX=0 *
@@ -180,16 +195,31 @@ void ModesRateEffV1() {
 				    //SingleMu
 				    for(int i=0;i<nSingleMu;i++){
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == SingleMu[i]){
-						    SMRecoPtMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
+						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+							    SMRecoPtMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
+						    }
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    SMLogRecoPtMatchBX0SingleMu->Fill( log2( F("reco_pt", ireco) ) );
+						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
 						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
 						      ){
-							    SMRecoPtMatchBX0SingleMuPlateau->Fill( F("reco_pt", ireco) );
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtMatchBX0SingleMuPlateau->Fill( F("reco_pt", ireco) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtMatchBX0SingleMuPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 						    //Unique match
 						    if( I("reco_dR_match_unique", ireco) == 1 ){
-							    SMRecoPtUniqueMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtUniqueMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
+							    }
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtUniqueMatchBX0SingleMu->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 					    }//end if
 				    }//End for
@@ -197,16 +227,31 @@ void ModesRateEffV1() {
 				    //DMu Inc
 				    for(int j=0;j<nDoubleMuInc;j++){
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == DoubleMuInc[j]){
-						    SMRecoPtMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
+						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+							    SMRecoPtMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) );
+						    }
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    SMLogRecoPtMatchBX0DoubleMuInc->Fill( log2( F("reco_pt", ireco) ) );
+						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
 						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
 						      ){
-							    SMRecoPtMatchBX0DoubleMuIncPlateau->Fill( F("reco_pt", ireco) );
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtMatchBX0DoubleMuIncPlateau->Fill( F("reco_pt", ireco) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtMatchBX0DoubleMuIncPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 						    //Unique match
 						    if( I("reco_dR_match_unique", ireco) == 1 ){
-							    SMRecoPtUniqueMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtUniqueMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
+							    }
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtUniqueMatchBX0DoubleMuInc->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 					    }//end if
 				    }//End for
@@ -214,19 +259,35 @@ void ModesRateEffV1() {
 				    //MuO Inc
 				    for(int k=0;k<nMuOpenInc;k++){
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == MuOpenInc[k]){
-						    SMRecoPtMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) ); 
+						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+							    SMRecoPtMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) ); 
+						    }
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    SMLogRecoPtMatchBX0MuOpenInc->Fill( log2( F("reco_pt", ireco) ) );
+						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
 						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
 						      ){
-							    SMRecoPtMatchBX0MuOpenIncPlateau->Fill( F("reco_pt", ireco) );
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtMatchBX0MuOpenIncPlateau->Fill( F("reco_pt", ireco) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtMatchBX0MuOpenIncPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 						    //Unique match
 						    if( I("reco_dR_match_unique", ireco) == 1 ){
-							    SMRecoPtUniqueMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) ); 
+							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
+								    SMRecoPtUniqueMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) );
+							    } 
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+								    SMLogRecoPtUniqueMatchBX0MuOpenInc->Fill( log2( F("reco_pt", ireco) ) );
+							    }
 						    }
 					    }//end if
-				    }//End for
+				    }//End for MuO
+				    
 			    }//end IsRECOMatch && BX=0
 			    
 		    }//end if selection on reco mu
@@ -249,94 +310,76 @@ void ModesRateEffV1() {
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
  
   //SingleMu
-  TH1F *SMRecoPtMatchBX0SingleMuClone = (TH1F*)SMRecoPtMatchBX0SingleMu->Clone("SMRecoPtMatchBX0SingleMuClone");
-  SMRecoPtMatchBX0SingleMuClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0SingleMuClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0SingleMuClone->SetTitle("SingleMu: IsRecoMatch && BX0");
-  SMRecoPtMatchBX0SingleMuClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0SingleMuClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0SingleMu->SetLineColor(1);//blk
+  SMRecoPtMatchBX0SingleMu->Divide(SMRecoPt);
+  SMRecoPtMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0");
+  SMRecoPtMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  TH1F *SMRecoPtMatchBX0SingleMuPlateauClone = (TH1F*)SMRecoPtMatchBX0SingleMuPlateau->Clone("SMRecoPtMatchBX0SingleMuPlateauClone");
-  SMRecoPtMatchBX0SingleMuPlateauClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0SingleMuPlateauClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0SingleMuPlateauClone->SetTitle("SingleMu: IsRecoMatch && BX0 && Plateau");
-  SMRecoPtMatchBX0SingleMuPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0SingleMuPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0SingleMuPlateau->SetLineColor(1);//blk
+  SMRecoPtMatchBX0SingleMuPlateau->Divide(SMRecoPt);
+  SMRecoPtMatchBX0SingleMuPlateau->SetTitle("SingleMu: IsRecoMatch && BX0 && Plateau");
+  SMRecoPtMatchBX0SingleMuPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMuPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  TH1F *SMRecoPtUniqueMatchBX0SingleMuClone = (TH1F*)SMRecoPtUniqueMatchBX0SingleMu->Clone("SMRecoPtUniqueMatchBX0SingleMuClone");
-  SMRecoPtUniqueMatchBX0SingleMuClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtUniqueMatchBX0SingleMuClone->Divide(SMRecoPt);
-  SMRecoPtUniqueMatchBX0SingleMuClone->SetTitle("SingleMu: IsRecoMatch && BX0 && Unique");
-  SMRecoPtUniqueMatchBX0SingleMuClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0SingleMuClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtUniqueMatchBX0SingleMu->SetLineColor(1);//blk
+  SMRecoPtUniqueMatchBX0SingleMu->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0SingleMu->SetTitle("SingleMu: IsRecoMatch && BX0 && Unique");
+  SMRecoPtUniqueMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0SingleMu->GetYaxis()->SetTitle("Fraction of RECO muons");
   
   //DoubleMu Inclusive
-  TH1F *SMRecoPtMatchBX0DoubleMuIncClone = (TH1F*)SMRecoPtMatchBX0DoubleMuInc->Clone("SMRecoPtMatchBX0DoubleMuIncClone");
-  SMRecoPtMatchBX0DoubleMuIncClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0DoubleMuIncClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0DoubleMuIncClone->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0");
-  SMRecoPtMatchBX0DoubleMuIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0DoubleMuIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0DoubleMuInc->SetLineColor(1);//blk
+  SMRecoPtMatchBX0DoubleMuInc->Divide(SMRecoPt);
+  SMRecoPtMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0");
+  SMRecoPtMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  TH1F *SMRecoPtMatchBX0DoubleMuIncPlateauClone = (TH1F*)SMRecoPtMatchBX0DoubleMuIncPlateau->Clone("SMRecoPtMatchBX0DoubleMuIncPlateauClone");
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Plateau");
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->SetLineColor(1);//blk
+  SMRecoPtMatchBX0DoubleMuIncPlateau->Divide(SMRecoPt);
+  SMRecoPtMatchBX0DoubleMuIncPlateau->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Plateau");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  TH1F *SMRecoPtUniqueMatchBX0DoubleMuIncClone = (TH1F*)SMRecoPtUniqueMatchBX0DoubleMuInc->Clone("SMRecoPtUniqueMatchBX0DoubleMuIncClone");
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->Divide(SMRecoPt);
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Unique");
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->SetLineColor(1);//blk
+  SMRecoPtUniqueMatchBX0DoubleMuInc->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0DoubleMuInc->SetTitle("DoubleMu Inclusive: IsRecoMatch && BX0 && Unique");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 
   //MuOpen
-  TH1F *SMRecoPtMatchBX0MuOpenIncClone = (TH1F*)SMRecoPtMatchBX0MuOpenInc->Clone("SMRecoPtMatchBX0MuOpenIncClone");
-  SMRecoPtMatchBX0MuOpenIncClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0MuOpenIncClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0MuOpenIncClone->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0");
-  SMRecoPtMatchBX0MuOpenIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0MuOpenIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0MuOpenInc->SetLineColor(1);//blk
+  SMRecoPtMatchBX0MuOpenInc->Divide(SMRecoPt);
+  SMRecoPtMatchBX0MuOpenInc->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0");
+  SMRecoPtMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0MuOpenInc->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  TH1F *SMRecoPtMatchBX0MuOpenIncPlateauClone = (TH1F*)SMRecoPtMatchBX0MuOpenIncPlateau->Clone("SMRecoPtMatchBX0MuOpenIncPlateauClone");
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->Divide(SMRecoPt);
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Plateau");
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtMatchBX0MuOpenIncPlateau->SetLineColor(1);//blk
+  SMRecoPtMatchBX0MuOpenIncPlateau->Divide(SMRecoPt);
+  SMRecoPtMatchBX0MuOpenIncPlateau->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Plateau");
+  SMRecoPtMatchBX0MuOpenIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0MuOpenIncPlateau->GetYaxis()->SetTitle("Fraction of RECO muons");
 
-  TH1F *SMRecoPtUniqueMatchBX0MuOpenIncClone = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("SMRecoPtUniqueMatchBX0MuOpenIncClone");
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->SetLineColor(1);//blk
-  gStyle->SetOptStat(0);
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->Divide(SMRecoPt);
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Unique");
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+  SMRecoPtUniqueMatchBX0MuOpenInc->SetLineColor(1);//blk
+  SMRecoPtUniqueMatchBX0MuOpenInc->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0MuOpenInc->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Unique");
+  SMRecoPtUniqueMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0MuOpenInc->GetYaxis()->SetTitle("Fraction of RECO muons");
  
   //intermidiate plots
   SMRecoPt->Write();
 	
-  SMRecoPtMatchBX0SingleMuClone->Write();
-  SMRecoPtMatchBX0SingleMuPlateauClone->Write();
-  SMRecoPtUniqueMatchBX0SingleMuClone->Write();
+  SMRecoPtMatchBX0SingleMu->Write();
+  SMRecoPtMatchBX0SingleMuPlateau->Write();
+  SMRecoPtUniqueMatchBX0SingleMu->Write();
 
-  SMRecoPtMatchBX0DoubleMuIncClone->Write();
-  SMRecoPtMatchBX0DoubleMuIncPlateauClone->Write();
-  SMRecoPtUniqueMatchBX0DoubleMuIncClone->Write();
+  SMRecoPtMatchBX0DoubleMuInc->Write();
+  SMRecoPtMatchBX0DoubleMuIncPlateau->Write();
+  SMRecoPtUniqueMatchBX0DoubleMuInc->Write();
 	
-  SMRecoPtMatchBX0MuOpenIncClone->Write();
-  SMRecoPtMatchBX0MuOpenIncPlateauClone->Write();
-  SMRecoPtUniqueMatchBX0MuOpenIncClone->Write();
+  SMRecoPtMatchBX0MuOpenInc->Write();
+  SMRecoPtMatchBX0MuOpenIncPlateau->Write();
+  SMRecoPtUniqueMatchBX0MuOpenInc->Write();
   
   myPlot.Close();
   
