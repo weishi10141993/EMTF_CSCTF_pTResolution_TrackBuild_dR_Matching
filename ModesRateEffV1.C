@@ -113,6 +113,7 @@ void ModesRateEffV1() {
   TString SMRecoPtTitle="";
   SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
+  TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
 	
   TH1F *SMRecoPtMatchBX0SingleMu = new TH1F("SMRecoPtMatchBX0SingleMu", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0SingleMuPlateau = new TH1F("SMRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
@@ -321,13 +322,12 @@ void ModesRateEffV1() {
   SMRecoPtMatchBX0MuOpenIncPlateauClone->Divide(SMRecoPt);
   SMRecoPtMatchBX0MuOpenIncPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtMatchBX0MuOpenIncPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
-	
-  TCanvas *CUniqueMatchBX0MuOpenInc = new TCanvas("UniqueMatchBX0MuOpenInc","MuOpen Inclusive: IsRecoMatch && BX0 && Unique",700,500);
-  CUniqueMatchBX0MuOpenInc->cd();
+
   TH1F *SMRecoPtUniqueMatchBX0MuOpenIncClone = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("SMRecoPtUniqueMatchBX0MuOpenIncClone");
   SMRecoPtUniqueMatchBX0MuOpenIncClone->SetLineColor(1);//blk
   gStyle->SetOptStat(0);
   SMRecoPtUniqueMatchBX0MuOpenIncClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Unique");
   SMRecoPtUniqueMatchBX0MuOpenIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
   SMRecoPtUniqueMatchBX0MuOpenIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
  
