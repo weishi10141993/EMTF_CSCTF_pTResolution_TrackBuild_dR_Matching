@@ -301,7 +301,9 @@ void ModesRateEffV1() {
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == SingleMu[i]){
 						    SMRecoPtMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
 						    //Plateau
-						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
+						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
+						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
+						      ){
 							    SMRecoPtMatchBX0SingleMuPlateau->Fill( F("reco_pt", ireco) );
 						    }
 						    //Unique match
@@ -316,7 +318,9 @@ void ModesRateEffV1() {
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == DoubleMuInc[j]){
 						    SMRecoPtMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
 						    //Plateau
-						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
+						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
+						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
+						      ){
 							    SMRecoPtMatchBX0DoubleMuIncPlateau->Fill( F("reco_pt", ireco) );
 						    }
 						    //Unique match
@@ -329,9 +333,11 @@ void ModesRateEffV1() {
 				    //MuO Inc
 				    for(int k=0;k<nMuOpenInc;k++){
 					    if( I("trk_mode", I("reco_dR_match_iTrk", ireco) ) == MuOpenInc[k]){
-						    SMRecoPtMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
+						    SMRecoPtMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) ); 
 						    //Plateau
-						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco) )  >  F("reco_pt", ireco) * 7.0/8.0){
+						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
+						        F("trk_pt", I("reco_dR_match_iTrk", ireco)) > 22
+						      ){
 							    SMRecoPtMatchBX0MuOpenIncPlateau->Fill( F("reco_pt", ireco) );
 						    }
 						    //Unique match
@@ -360,293 +366,117 @@ void ModesRateEffV1() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
-  
-  SMRecoPtNoMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtNoUniqueMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatch->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-
-  SMRecoPtMatchSingleMuModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchSingleMuModesBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchSingleMuModesBX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
 	
-  SMRecoPtMatchDoubleMuModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchDoubleMuModesBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchDoubleMuModesBX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-	
-  SMRecoPtMatchMuOpenModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMuOpenModesBX0->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchMuOpenModesBX0Plateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMuPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
 
-  SMRecoPt->Write();
-  //divide histograms for all modes
+  SMRecoPtMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+	
+  SMRecoPtMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0MuOpenIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
+ 
   //SingleMu
-  TCanvas *CSingleMuModes = new TCanvas("CSingleMuModes","SingleMuModes",700,500);
-  THStack *SSingleMuModes = new THStack("SSingleMuModes","SingleMuModes");
-  CSingleMuModes->cd();
-  TH1F *SMRecoPtMatchSingleMuModesClone = (TH1F*)SMRecoPtMatchSingleMuModes->Clone("SMRecoPtMatchSingleMuModesClone");
-  TH1F *SMRecoPtMatchSingleMuModesBX0Clone = (TH1F*)SMRecoPtMatchSingleMuModesBX0->Clone("SMRecoPtMatchSingleMuModesBX0Clone");
-  TH1F *SMRecoPtMatchSingleMuModesBX0PlateauClone = (TH1F*)SMRecoPtMatchSingleMuModesBX0Plateau->Clone("SMRecoPtMatchSingleMuModesBX0PlateauClone");
-  SMRecoPtMatchSingleMuModesClone->SetLineColor(1);//blk
-  SMRecoPtMatchSingleMuModesBX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchSingleMuModesBX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CMatchBX0SingleMu = new TCanvas("CMatchBX0SingleMu","SingleMu: IsRecoMatch && BX0",700,500);
+  CMatchBX0SingleMu->cd();
+  TH1F *SMRecoPtMatchBX0SingleMuClone = (TH1F*)SMRecoPtMatchBX0SingleMu->Clone("SMRecoPtMatchBX0SingleMuClone");
+  SMRecoPtMatchBX0SingleMuClone->SetLineColor(1);//blk
   gStyle->SetOptStat(0);
-  SMRecoPtMatchSingleMuModesClone->Divide(SMRecoPt);
-  SMRecoPtMatchSingleMuModesBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchSingleMuModesBX0PlateauClone->Divide(SMRecoPt);
-  SSingleMuModes->Add(SMRecoPtMatchSingleMuModesClone);
-  SSingleMuModes->Add(SMRecoPtMatchSingleMuModesBX0Clone);
-  SSingleMuModes->Add(SMRecoPtMatchSingleMuModesBX0PlateauClone);
-  SSingleMuModes->Draw("nostack");
-  SSingleMuModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SSingleMuModes->GetYaxis()->SetTitle("Fraction of RECO muons");
-  SSingleMuModes->Modified();
-        
-  TLegend* LSingleMuModes = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchSingleMuModes = "";
-  LMatchSingleMuModes = LMatchSingleMuModes + "RecoMu Match";
-  TString LMatchSingleMuModesBX0 = "";
-  LMatchSingleMuModesBX0 = LMatchSingleMuModesBX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchSingleMuModesBX0Plateau = "";
-  LMatchSingleMuModesBX0Plateau = LMatchSingleMuModesBX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LSingleMuModes->AddEntry(SMRecoPtMatchSingleMuModesClone, LMatchSingleMuModes);
-  LSingleMuModes->AddEntry(SMRecoPtMatchSingleMuModesBX0Clone, LMatchSingleMuModesBX0);
-  LSingleMuModes->AddEntry(SMRecoPtMatchSingleMuModesBX0PlateauClone, LMatchSingleMuModesBX0Plateau);
-  LSingleMuModes->SetFillStyle(0);
-  LSingleMuModes->SetBorderSize(0);
-  LSingleMuModes->Draw(); 
-  CSingleMuModes->Write();
-  
-  //DoubleMu
-  TCanvas *CDoubleMuModes = new TCanvas("CDoubleMuModes","DoubleMuModes",700,500);
-  THStack *SDoubleMuModes = new THStack("SDoubleMuModes","DoubleMuModes");
-  CDoubleMuModes->cd();
-  TH1F *SMRecoPtMatchDoubleMuModesClone = (TH1F*)SMRecoPtMatchDoubleMuModes->Clone("SMRecoPtMatchDoubleMuModesClone");
-  TH1F *SMRecoPtMatchDoubleMuModesBX0Clone = (TH1F*)SMRecoPtMatchDoubleMuModesBX0->Clone("SMRecoPtMatchDoubleMuModesBX0Clone");
-  TH1F *SMRecoPtMatchDoubleMuModesBX0PlateauClone = (TH1F*)SMRecoPtMatchDoubleMuModesBX0Plateau->Clone("SMRecoPtMatchDoubleMuModesBX0PlateauClone");
-  SMRecoPtMatchDoubleMuModesClone->SetLineColor(1);//blk
-  SMRecoPtMatchDoubleMuModesBX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchDoubleMuModesBX0PlateauClone->SetLineColor(4);//blue
+  SMRecoPtMatchBX0SingleMuClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0SingleMuClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMuClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  TCanvas *CMatchBX0SingleMuPlateau = new TCanvas("CMatchBX0SingleMuPlateau","SingleMu: IsRecoMatch && BX0 && Plateau",700,500);
+  CMatchBX0SingleMuPlateau->cd();
+  TH1F *SMRecoPtMatchBX0SingleMuPlateauClone = (TH1F*)SMRecoPtMatchBX0SingleMuPlateau->Clone("SMRecoPtMatchBX0SingleMuPlateauClone");
+  SMRecoPtMatchBX0SingleMuPlateauClone->SetLineColor(1);//blk
   gStyle->SetOptStat(0);
-  SMRecoPtMatchDoubleMuModesClone->Divide(SMRecoPt);
-  SMRecoPtMatchDoubleMuModesBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchDoubleMuModesBX0PlateauClone->Divide(SMRecoPt);
-  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesClone);
-  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesBX0Clone);
-  SDoubleMuModes->Add(SMRecoPtMatchDoubleMuModesBX0PlateauClone);
-  SDoubleMuModes->Draw("nostack");
-  SDoubleMuModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SDoubleMuModes->GetYaxis()->SetTitle("Fraction of RECO muons");
-  SDoubleMuModes->Modified();
-        
-  TLegend* LDoubleMuModes = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchDoubleMuModes = "";
-  LMatchDoubleMuModes = LMatchDoubleMuModes + "RecoMu Match";
-  TString LMatchDoubleMuModesBX0 = "";
-  LMatchDoubleMuModesBX0 = LMatchDoubleMuModesBX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchDoubleMuModesBX0Plateau = "";
-  LMatchDoubleMuModesBX0Plateau = LMatchDoubleMuModesBX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesClone, LMatchDoubleMuModes);
-  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesBX0Clone, LMatchDoubleMuModesBX0);
-  LDoubleMuModes->AddEntry(SMRecoPtMatchDoubleMuModesBX0PlateauClone, LMatchDoubleMuModesBX0Plateau);
-  LDoubleMuModes->SetFillStyle(0);
-  LDoubleMuModes->SetBorderSize(0);
-  LDoubleMuModes->Draw(); 
-  CDoubleMuModes->Write();
+  SMRecoPtMatchBX0SingleMuPlateauClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0SingleMuPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0SingleMuPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  TCanvas *CUniqueMatchBX0SingleMu = new TCanvas("UniqueMatchBX0SingleMu","SingleMu: IsRecoMatch && BX0 && Unique",700,500);
+  CUniqueMatchBX0SingleMu->cd();
+  TH1F *SMRecoPtUniqueMatchBX0SingleMuClone = (TH1F*)SMRecoPtUniqueMatchBX0SingleMu->Clone("SMRecoPtUniqueMatchBX0SingleMuClone");
+  SMRecoPtUniqueMatchBX0SingleMuClone->SetLineColor(1);//blk
+  gStyle->SetOptStat(0);
+  SMRecoPtUniqueMatchBX0SingleMuClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0SingleMuClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0SingleMuClone->GetYaxis()->SetTitle("Fraction of RECO muons");
   
+  //DoubleMu Inclusive
+  TCanvas *CMatchBX0DoubleMuInc = new TCanvas("CMatchBX0DoubleMuInc","DoubleMu Inclusive: IsRecoMatch && BX0",700,500);
+  CMatchBX0DoubleMuInc->cd();
+  TH1F *SMRecoPtMatchBX0DoubleMuIncClone = (TH1F*)SMRecoPtMatchBX0DoubleMuInc->Clone("SMRecoPtMatchBX0DoubleMuIncClone");
+  SMRecoPtMatchBX0DoubleMuIncClone->SetLineColor(1);//blk
+  gStyle->SetOptStat(0);
+  SMRecoPtMatchBX0DoubleMuIncClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0DoubleMuIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  TCanvas *CMatchBX0DoubleMuIncPlateau = new TCanvas("CMatchBX0DoubleMuIncPlateau","DoubleMu Inclusive: IsRecoMatch && BX0 && Plateau",700,500);
+  CMatchBX0DoubleMuIncPlateau->cd();
+  TH1F *SMRecoPtMatchBX0DoubleMuIncPlateauClone = (TH1F*)SMRecoPtMatchBX0DoubleMuIncPlateau->Clone("SMRecoPtMatchBX0DoubleMuIncPlateauClone");
+  SMRecoPtMatchBX0DoubleMuIncPlateauClone->SetLineColor(1);//blk
+  gStyle->SetOptStat(0);
+  SMRecoPtMatchBX0DoubleMuIncPlateauClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0DoubleMuIncPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0DoubleMuIncPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+	
+  TCanvas *CUniqueMatchBX0DoubleMuInc = new TCanvas("UniqueMatchBX0DoubleMuInc","DoubleMu Inclusive: IsRecoMatch && BX0 && Unique",700,500);
+  CUniqueMatchBX0DoubleMuInc->cd();
+  TH1F *SMRecoPtUniqueMatchBX0DoubleMuIncClone = (TH1F*)SMRecoPtUniqueMatchBX0DoubleMuInc->Clone("SMRecoPtUniqueMatchBX0DoubleMuIncClone");
+  SMRecoPtUniqueMatchBX0DoubleMuIncClone->SetLineColor(1);//blk
+  gStyle->SetOptStat(0);
+  SMRecoPtUniqueMatchBX0DoubleMuIncClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0DoubleMuIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0DoubleMuIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
+
   //MuOpen
-  TCanvas *CMuOpenModes = new TCanvas("CMuOpenModes","MuOpenModes",700,500);
-  THStack *SMuOpenModes = new THStack("SMuOpenModes","MuOpenModes");
-  CMuOpenModes->cd();
-  TH1F *SMRecoPtMatchMuOpenModesClone = (TH1F*)SMRecoPtMatchMuOpenModes->Clone("SMRecoPtMatchMuOpenModesClone");
-  TH1F *SMRecoPtMatchMuOpenModesBX0Clone = (TH1F*)SMRecoPtMatchMuOpenModesBX0->Clone("SMRecoPtMatchMuOpenModesBX0Clone");
-  TH1F *SMRecoPtMatchMuOpenModesBX0PlateauClone = (TH1F*)SMRecoPtMatchMuOpenModesBX0Plateau->Clone("SMRecoPtMatchMuOpenModesBX0PlateauClone");
-  SMRecoPtMatchMuOpenModesClone->SetLineColor(1);//blk
-  SMRecoPtMatchMuOpenModesBX0Clone->SetLineColor(2);//red
-  SMRecoPtMatchMuOpenModesBX0PlateauClone->SetLineColor(4);//blue
+  TCanvas *CMatchBX0MuOpenInc = new TCanvas("CMatchBX0MuOpenInc","MuOpen Inclusive: IsRecoMatch && BX0",700,500);
+  CMatchBX0MuOpenInc->cd();
+  TH1F *SMRecoPtMatchBX0MuOpenIncClone = (TH1F*)SMRecoPtMatchBX0MuOpenInc->Clone("SMRecoPtMatchBX0MuOpenIncClone");
+  SMRecoPtMatchBX0MuOpenIncClone->SetLineColor(1);//blk
   gStyle->SetOptStat(0);
-  SMRecoPtMatchMuOpenModesClone->Divide(SMRecoPt);
-  SMRecoPtMatchMuOpenModesBX0Clone->Divide(SMRecoPt);
-  SMRecoPtMatchMuOpenModesBX0PlateauClone->Divide(SMRecoPt);
-  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesClone);
-  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesBX0Clone);
-  SMuOpenModes->Add(SMRecoPtMatchMuOpenModesBX0PlateauClone);
-  SMuOpenModes->Draw("nostack");
-  SMuOpenModes->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMuOpenModes->GetYaxis()->SetTitle("Fraction of RECO muons");
-  SMuOpenModes->Modified();
-        
-  TLegend* LMuOpenModes = new TLegend(0.6,0.6,0.9,0.9);
-  TString LMatchMuOpenModes = "";
-  LMatchMuOpenModes = LMatchMuOpenModes + "RecoMu Match";
-  TString LMatchMuOpenModesBX0 = "";
-  LMatchMuOpenModesBX0 = LMatchMuOpenModesBX0 + "RecoMu Unique Match && TrkBX=0";
-  TString LMatchMuOpenModesBX0Plateau = "";
-  LMatchMuOpenModesBX0Plateau = LMatchMuOpenModesBX0Plateau + "RecoMu Unique Match && TrkBX=0 && Plateau";
-  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesClone, LMatchMuOpenModes);
-  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesBX0Clone, LMatchMuOpenModesBX0);
-  LMuOpenModes->AddEntry(SMRecoPtMatchMuOpenModesBX0PlateauClone, LMatchMuOpenModesBX0Plateau);
-  LMuOpenModes->SetFillStyle(0);
-  LMuOpenModes->SetBorderSize(0);
-  LMuOpenModes->Draw(); 
-  CMuOpenModes->Write();
+  SMRecoPtMatchBX0MuOpenIncClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0MuOpenIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0MuOpenIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  //divide histograms for eff
-  TCanvas *CBadMatchEff = new TCanvas("CBadMatchEff","CBadMatchEff",700,500);
-  THStack *SBadMatchEff = new THStack("SBadMatchEff","SBadMatchEff");
-  CBadMatchEff->cd();
-  TH1F *SMRecoPtNoMatchClone = (TH1F*)SMRecoPtNoMatch->Clone("SMRecoPtNoMatchClone");
-  TH1F *SMRecoPtNoUniqueMatchClone = (TH1F*)SMRecoPtNoUniqueMatch->Clone("SMRecoPtNoUniqueMatchClone");
-  TH1F *SMRecoPtMatchClone = (TH1F*)SMRecoPtMatch->Clone("SMRecoPtMatchClone");
-  TH1F *SMRecoPtUniqueMatchBX0Clone = (TH1F*)SMRecoPtUniqueMatchBX0->Clone("SMRecoPtUniqueMatchBX0Clone");
-  SMRecoPtNoMatchClone->SetLineColor(1);//red
-  SMRecoPtNoUniqueMatchClone->SetLineColor(2);//blk
-  SMRecoPtMatchClone->SetLineColor(3);//green
-  SMRecoPtUniqueMatchBX0Clone->SetLineColor(4);//blue
+  TCanvas *CMatchBX0MuOpenIncPlateau = new TCanvas("CMatchBX0MuOpenIncPlateau","MuOpen Inclusive: IsRecoMatch && BX0 && Plateau",700,500);
+  CMatchBX0MuOpenIncPlateau->cd();
+  TH1F *SMRecoPtMatchBX0MuOpenIncPlateauClone = (TH1F*)SMRecoPtMatchBX0MuOpenIncPlateau->Clone("SMRecoPtMatchBX0MuOpenIncPlateauClone");
+  SMRecoPtMatchBX0MuOpenIncPlateauClone->SetLineColor(1);//blk
   gStyle->SetOptStat(0);
-  SMRecoPtNoMatchClone->Divide(SMRecoPt);
-  SMRecoPtNoUniqueMatchClone->Divide(SMRecoPt);
-  SMRecoPtMatchClone->Divide(SMRecoPt);
-  SMRecoPtUniqueMatchBX0Clone->Divide(SMRecoPt);
-  SBadMatchEff->Add(SMRecoPtNoMatchClone);
-  SBadMatchEff->Add(SMRecoPtNoUniqueMatchClone);
-  SBadMatchEff->Add(SMRecoPtMatchClone);
-  SBadMatchEff->Add(SMRecoPtUniqueMatchBX0Clone);
-  SBadMatchEff->Draw("nostack");
-  SBadMatchEff->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SBadMatchEff->GetYaxis()->SetTitle("Fraction of RECO muons");
-  CBadMatchEff->Modified();
-        
-  TLegend* LBadMatchEff = new TLegend(0.6,0.6,0.9,0.9);
-  TString LNoMatch = "";
-  LNoMatch = LNoMatch + "RecoMu No Match";
-  TString LNoUniqueMatch = "";
-  LNoUniqueMatch = LNoUniqueMatch + "RecoMu Not Uniquely Matched";
-  TString LMatch = "";
-  LMatch = LMatch + "RecoMu Match";
-  TString LUniqueMatchBX0 = "";
-  LUniqueMatchBX0 = LUniqueMatchBX0 + "RecoMu Unique Match && trk BX=0";
-  LBadMatchEff->AddEntry(SMRecoPtNoMatchClone, LNoMatch);
-  LBadMatchEff->AddEntry(SMRecoPtNoUniqueMatchClone, LNoUniqueMatch);
-  LBadMatchEff->AddEntry(SMRecoPtMatchClone, LMatch);
-  LBadMatchEff->AddEntry(SMRecoPtUniqueMatchBX0Clone, LUniqueMatchBX0);
-  LBadMatchEff->SetFillStyle(0);
-  LBadMatchEff->SetBorderSize(0);
-  LBadMatchEff->Draw(); 
-  CBadMatchEff->Write();
-
-//rate ratio
-  double RatioSingleMuModes[30]={0};
-  double RatioSingleMuModesdBX0[30]={0};
-  double RatioSingleMuModesRecoSoft[30]={0};
-  double RatioSingleMuModesRecoOnly[30]={0};
-
-  double RatioDoubleMuModes[30]={0};
-  double RatioDoubleMuModesdBX0[30]={0};
-  double RatioDoubleMuModesRecoSoft[30]={0};
-  double RatioDoubleMuModesRecoOnly[30]={0};
+  SMRecoPtMatchBX0MuOpenIncPlateauClone->Divide(SMRecoPt);
+  SMRecoPtMatchBX0MuOpenIncPlateauClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtMatchBX0MuOpenIncPlateauClone->GetYaxis()->SetTitle("Fraction of RECO muons");
 	
-  double RatioMuOpenModes[30]={0};
-  double RatioMuOpenModesdBX0[30]={0};
-  double RatioMuOpenModesRecoSoft[30]={0};
-  double RatioMuOpenModesRecoOnly[30]={0};
-  
-  TCanvas *CRate=new TCanvas("CRate","All Modes",700,500);
-	
-  TCanvas *CRateSingleMuModes=new TCanvas("CRateSingleMuModes","SingleMuModes",700,500);
-  TCanvas *CRateDoubleMuModes=new TCanvas("CRateDoubleMuModes","DoubleMuModes",700,500);
-  TCanvas *CRateMuOpenModes=new TCanvas("CRateMuOpenModes","MuOpenModes",700,500);
-	
-//all modes
-  TMultiGraph *mg=new TMultiGraph();
-  CRate->cd();
-  mg->SetTitle("All Modes");
-  mg->Add(Rate);
-  mg->Add(RatedBX0);
-  mg->Add(RateRecoSoft);
-  mg->Add(RateRecoOnly);
-  mg->Draw("L");
-  mg->Write();
-//SingleMu
-  TMultiGraph *mgSingleMuModes=new TMultiGraph();
-  for(int i=0;i<30;i++){
-	  RatioSingleMuModes[i] = 1.0*CountSingleMuModes[i]/Count[i];
-	  RatioSingleMuModesdBX0[i] = 1.0*CountSingleMuModesdBX0[i]/Count[i];
-          RatioSingleMuModesRecoSoft[i] = 1.0*CountSingleMuModesRecoSoft[i]/Count[i];
-          RatioSingleMuModesRecoOnly[i] = 1.0*CountSingleMuModesRecoOnly[i]/Count[i];
-  }
-  TGraph *RateRatioSingleMuModes = new TGraph(30, TrigPT, RatioSingleMuModes); RateRatioSingleMuModes->SetMarkerStyle(22); RateRatioSingleMuModes->SetLineColor(1);
-  TGraph *RateRatioSingleMuModesdBX0 = new TGraph(30, TrigPT, RatioSingleMuModesdBX0); RateRatioSingleMuModesdBX0->SetMarkerStyle(22); RateRatioSingleMuModesdBX0->SetLineColor(2);
-  TGraph *RateRatioSingleMuModesRecoSoft = new TGraph(30, TrigPT, RatioSingleMuModesRecoSoft); RateRatioSingleMuModesRecoSoft->SetMarkerStyle(22); RateRatioSingleMuModesRecoSoft->SetLineColor(3);
-  TGraph *RateRatioSingleMuModesRecoOnly = new TGraph(30, TrigPT, RatioSingleMuModesRecoOnly); RateRatioSingleMuModesRecoOnly->SetMarkerStyle(22); RateRatioSingleMuModesRecoOnly->SetLineColor(4);
-  CRateSingleMuModes->cd();
-  mgSingleMuModes->SetTitle("SingleMu Modes");
-  mgSingleMuModes->Add(RateRatioSingleMuModes);
-  mgSingleMuModes->Add(RateRatioSingleMuModesdBX0);
-  mgSingleMuModes->Add(RateRatioSingleMuModesRecoSoft);
-  mgSingleMuModes->Add(RateRatioSingleMuModesRecoOnly);
-  mgSingleMuModes->Draw("LP");
-  mgSingleMuModes->Write();
-	
-//DoubleMu
-  TMultiGraph *mgDoubleMuModes=new TMultiGraph();
-  for(int i=0;i<30;i++){
-	  RatioDoubleMuModes[i] = 1.0*CountDoubleMuModes[i]/Count[i];
-	  RatioDoubleMuModesdBX0[i] = 1.0*CountDoubleMuModesdBX0[i]/Count[i];
-          RatioDoubleMuModesRecoSoft[i] = 1.0*CountDoubleMuModesRecoSoft[i]/Count[i];
-          RatioDoubleMuModesRecoOnly[i] = 1.0*CountDoubleMuModesRecoOnly[i]/Count[i];
-  }
-  TGraph *RateRatioDoubleMuModes = new TGraph(30, TrigPT, RatioDoubleMuModes); RateRatioDoubleMuModes->SetMarkerStyle(22); RateRatioDoubleMuModes->SetLineColor(1);
-  TGraph *RateRatioDoubleMuModesdBX0 = new TGraph(30, TrigPT, RatioDoubleMuModesdBX0); RateRatioDoubleMuModesdBX0->SetMarkerStyle(22); RateRatioDoubleMuModesdBX0->SetLineColor(2);
-  TGraph *RateRatioDoubleMuModesRecoSoft = new TGraph(30, TrigPT, RatioDoubleMuModesRecoSoft); RateRatioDoubleMuModesRecoSoft->SetMarkerStyle(22); RateRatioDoubleMuModesRecoSoft->SetLineColor(3);
-  TGraph *RateRatioDoubleMuModesRecoOnly = new TGraph(30, TrigPT, RatioDoubleMuModesRecoOnly); RateRatioDoubleMuModesRecoOnly->SetMarkerStyle(22); RateRatioDoubleMuModesRecoOnly->SetLineColor(4);
-  CRateDoubleMuModes->cd();
-  mgDoubleMuModes->SetTitle("DoubleMu Modes");
-  mgDoubleMuModes->Add(RateRatioDoubleMuModes);
-  mgDoubleMuModes->Add(RateRatioDoubleMuModesdBX0);
-  mgDoubleMuModes->Add(RateRatioDoubleMuModesRecoSoft);
-  mgDoubleMuModes->Add(RateRatioDoubleMuModesRecoOnly);
-  mgDoubleMuModes->Draw("LP");
-  mgDoubleMuModes->Write();
-	
-//MuOpen
-  TMultiGraph *mgMuOpenModes=new TMultiGraph();
-  for(int i=0;i<30;i++){
-	  RatioMuOpenModes[i] = 1.0*CountMuOpenModes[i]/Count[i];
-	  RatioMuOpenModesdBX0[i] = 1.0*CountMuOpenModesdBX0[i]/Count[i];
-          RatioMuOpenModesRecoSoft[i] = 1.0*CountMuOpenModesRecoSoft[i]/Count[i];
-          RatioMuOpenModesRecoOnly[i] = 1.0*CountMuOpenModesRecoOnly[i]/Count[i];
-  }
-  TGraph *RateRatioMuOpenModes = new TGraph(30, TrigPT, RatioMuOpenModes); RateRatioMuOpenModes->SetMarkerStyle(22); RateRatioMuOpenModes->SetLineColor(1);
-  TGraph *RateRatioMuOpenModesdBX0 = new TGraph(30, TrigPT, RatioMuOpenModesdBX0); RateRatioMuOpenModesdBX0->SetMarkerStyle(22); RateRatioMuOpenModesdBX0->SetLineColor(2);
-  TGraph *RateRatioMuOpenModesRecoSoft = new TGraph(30, TrigPT, RatioMuOpenModesRecoSoft); RateRatioMuOpenModesRecoSoft->SetMarkerStyle(22); RateRatioMuOpenModesRecoSoft->SetLineColor(3);
-  TGraph *RateRatioMuOpenModesRecoOnly = new TGraph(30, TrigPT, RatioMuOpenModesRecoOnly); RateRatioMuOpenModesRecoOnly->SetMarkerStyle(22); RateRatioMuOpenModesRecoOnly->SetLineColor(4);
-  CRateMuOpenModes->cd();
-  mgMuOpenModes->SetTitle("MuOpen Modes");
-  mgMuOpenModes->Add(RateRatioMuOpenModes);
-  mgMuOpenModes->Add(RateRatioMuOpenModesdBX0);
-  mgMuOpenModes->Add(RateRatioMuOpenModesRecoSoft);
-  mgMuOpenModes->Add(RateRatioMuOpenModesRecoOnly);
-  mgMuOpenModes->Draw("LP");
-  mgMuOpenModes->Write();
+  TCanvas *CUniqueMatchBX0MuOpenInc = new TCanvas("UniqueMatchBX0MuOpenInc","MuOpen Inclusive: IsRecoMatch && BX0 && Unique",700,500);
+  CUniqueMatchBX0MuOpenInc->cd();
+  TH1F *SMRecoPtUniqueMatchBX0MuOpenIncClone = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("SMRecoPtUniqueMatchBX0MuOpenIncClone");
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->SetLineColor(1);//blk
+  gStyle->SetOptStat(0);
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->Divide(SMRecoPt);
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->GetXaxis()->SetTitle("RECO pT[GeV]");
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->GetYaxis()->SetTitle("Fraction of RECO muons");
  
   //intermidiate plots
-  SMRecoPtNoMatch->Write();
-  SMRecoPtNoUniqueMatch->Write();
-  SMRecoPtMatch->Write();
-  SMRecoPtUniqueMatchBX0->Write();
+  SMRecoPt->Write();
 	
-  SMRecoPtMatchSingleMuModes->Write();
-  SMRecoPtMatchSingleMuModesBX0->Write();
-  SMRecoPtMatchSingleMuModesBX0Plateau->Write();
+  SMRecoPtMatchBX0SingleMuClone->Write();
+  SMRecoPtMatchBX0SingleMuPlateauClone->Write();
+  SMRecoPtUniqueMatchBX0SingleMuClone->Write();
 
-  SMRecoPtMatchDoubleMuModes->Write();
-  SMRecoPtMatchDoubleMuModesBX0->Write();
-  SMRecoPtMatchDoubleMuModesBX0Plateau->Write();
+  SMRecoPtMatchBX0DoubleMuIncClone->Write();
+  SMRecoPtMatchBX0DoubleMuIncPlateauClone->Write();
+  SMRecoPtUniqueMatchBX0DoubleMuIncClone->Write();
 	
-  SMRecoPtMatchMuOpenModes->Write();
-  SMRecoPtMatchMuOpenModesBX0->Write();
-  SMRecoPtMatchMuOpenModesBX0Plateau->Write();
+  SMRecoPtMatchBX0MuOpenIncClone->Write();
+  SMRecoPtMatchBX0MuOpenIncPlateauClone->Write();
+  SMRecoPtUniqueMatchBX0MuOpenIncClone->Write();
   
   myPlot.Close();
   
