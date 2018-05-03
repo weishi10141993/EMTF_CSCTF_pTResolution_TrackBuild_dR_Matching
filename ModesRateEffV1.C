@@ -366,18 +366,6 @@ void ModesRateEffV1() {
   TFile myPlot(outFile,"RECREATE");
         
   SMRecoPt->GetXaxis()->SetTitle("RECO pT[GeV]");
-	
-  SMRecoPtMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0SingleMuPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0SingleMu->GetXaxis()->SetTitle("RECO pT[GeV]");
-
-  SMRecoPtMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0DoubleMuIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0DoubleMuInc->GetXaxis()->SetTitle("RECO pT[GeV]");
-	
-  SMRecoPtMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtMatchBX0MuOpenIncPlateau->GetXaxis()->SetTitle("RECO pT[GeV]");
-  SMRecoPtUniqueMatchBX0MuOpenInc->GetXaxis()->SetTitle("RECO pT[GeV]");
  
   //SingleMu
   TCanvas *CMatchBX0SingleMu = new TCanvas("CMatchBX0SingleMu","SingleMu: IsRecoMatch && BX0",700,500);
