@@ -115,28 +115,28 @@ void ModesRateEffV1() {
   TString SMLogRecoPtTitle="";
   SMLogRecoPtTitle = SMLogRecoPtTitle + "Log2(RECO pT) [" + Form("%d", Log2_PT_LOW)+", "+ Form("%d", Log2_PT_UP) + "], looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMLogRecoPt = new TH1F("SMLogRecoPt", SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPt = new TH1F("SMLogRecoPt", SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 	
   TH1F *SMRecoPtMatchBX0SingleMu = new TH1F("SMRecoPtMatchBX0SingleMu", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0SingleMuPlateau = new TH1F("SMRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
   TH1F *SMRecoPtUniqueMatchBX0SingleMu = new TH1F("SMRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMLogRecoPtMatchBX0SingleMu = new TH1F("SMLogRecoPtMatchBX0SingleMu", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
-  TH1F *SMLogRecoPtMatchBX0SingleMuPlateau = new TH1F("SMLogRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
-  TH1F *SMLogRecoPtUniqueMatchBX0SingleMu = new TH1F("SMLogRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0SingleMu = new TH1F("SMLogRecoPtMatchBX0SingleMu", "Match BX0 "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0SingleMuPlateau = new TH1F("SMLogRecoPtMatchBX0SingleMuPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0SingleMu = new TH1F("SMLogRecoPtUniqueMatchBX0SingleMu", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 	
   TH1F *SMRecoPtMatchBX0DoubleMuInc = new TH1F("SMRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
   TH1F *SMRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMLogRecoPtMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
-  TH1F *SMLogRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMLogRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
-  TH1F *SMLogRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtMatchBX0DoubleMuInc", "Match BX0 "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0DoubleMuIncPlateau = new TH1F("SMLogRecoPtMatchBX0DoubleMuIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0DoubleMuInc = new TH1F("SMLogRecoPtUniqueMatchBX0DoubleMuInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 
   TH1F *SMRecoPtMatchBX0MuOpenInc = new TH1F("SMRecoPtMatchBX0MuOpenInc", "Match BX0 "+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);	
   TH1F *SMRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique"+ SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
-  TH1F *SMLogRecoPtMatchBX0MuOpenInc = new TH1F("SMLogRecoPtMatchBX0MuOpenInc", "Match BX0 "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
-  TH1F *SMLogRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMLogRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
-  TH1F *SMLogRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMLogRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0MuOpenInc = new TH1F("SMLogRecoPtMatchBX0MuOpenInc", "Match BX0 "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
+  TH1F *SMLogRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMLogRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
+  TH1F *SMLogRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMLogRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
