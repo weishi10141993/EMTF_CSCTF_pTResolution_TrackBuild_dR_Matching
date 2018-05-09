@@ -298,6 +298,226 @@ void ModesRateEffV2() {
     
   } // End loop events
   std::cout << "\n******* Finished looping over the SingleMu events *******" << std::endl;
+	
+  std::cout << "\n******* About to loop over the Zerobias events *******" << std::endl;
+  int nZBEvents = ZB_in_chain->GetEntries();
+  for (int iEvt = 0; iEvt < nZBEvents; iEvt++) {
+    if (iEvt > MAX_EVT) break;
+    if ( (iEvt % PRT_EVT) == 0 ) {
+      std::cout << "\n*************************************" << std::endl;
+      std::cout << "Looking at event " << iEvt << " out of " << nZBEvents << std::endl;
+      std::cout << "*************************************" << std::endl;
+    }
+
+    ZB_in_chain->GetEntry(iEvt);
+   
+    if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
+    for (int itrack = 0; itrack < I("nTracks"); itrack++) {
+	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW && I("trk_mode_neighbor", itrack ) < I("trk_mode", itrack ) ){
+		    for(int i=0;i<30;i++){
+			    
+			    if( F("trk_pt", itrack)> TrigPT[i]){
+				   Count[i]++; 
+				   if( I("trk_dBX", itrack) == 0 ){
+					CountdBX0[i]++;   
+			           }
+				   if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+				        CountRecoSoft[i]++;   
+			           }
+				   if( I("trk_dR_match_nReco", itrack) >= 1 ){
+				        CountRecoOnly[i]++;   
+			           }
+				   //SingleMu Only
+				   if( I("trk_mode", itrack ) == 15 || 
+			               I("trk_mode", itrack ) == 14 || 
+			    	       I("trk_mode", itrack ) == 13 || 
+			    	       I("trk_mode", itrack ) == 11){
+					    CountSingleMuModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountSingleMuModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountSingleMuModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountSingleMuModesRecoOnly[i]++;   
+					    }
+				   }
+				   //DoubleMu Only
+				   if( I("trk_mode", itrack ) == 12 || 
+			               I("trk_mode", itrack ) == 10 || 
+			    	       I("trk_mode", itrack ) == 7){
+					    CountDoubleMuModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountDoubleMuModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountDoubleMuModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountDoubleMuModesRecoOnly[i]++;   
+					    }
+				   }
+				   //MuOpen Only
+				   if( I("trk_mode", itrack ) == 9 || 
+			               I("trk_mode", itrack ) == 6 || 
+			    	       I("trk_mode", itrack ) == 5 || 
+			    	       I("trk_mode", itrack ) == 3){
+					    CountMuOpenModes[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMuOpenModesdBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMuOpenModesRecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMuOpenModesRecoOnly[i]++;   
+					    }
+				   }
+				   //each trk mode
+				   switch ( I("trk_mode", itrack ) ) {
+				    case 15:
+					    CountMode15[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode15dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode15RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode15RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 14:
+					    CountMode14[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode14dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode14RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode14RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 13:
+					    CountMode13[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode13dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode13RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode13RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 11:
+					    CountMode11[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode11dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode11RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode11RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 12:
+					    CountMode12[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode12dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode12RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode12RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 10:
+					    CountMode10[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode10dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode10RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode10RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 7:
+					    CountMode7[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode7dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode7RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode7RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 9:
+					    CountMode9[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode9dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode9RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode9RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 6:
+					    CountMode6[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode6dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode6RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode6RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 5:
+					    CountMode5[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode5dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode5RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode5RecoOnly[i]++;   
+					    }
+                            	            break;
+				    case 3:
+					    CountMode3[i]++; 
+					    if( I("trk_dBX", itrack) == 0 ){
+						 CountMode3dBX0[i]++;   
+					    }
+					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
+						 CountMode3RecoSoft[i]++;   
+					    }
+					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
+						 CountMode3RecoOnly[i]++;   
+					    }
+                            	            break;
+			            default:
+                                            break; 
+			           }//end switch mode
+			    }       
+		    }//loop over trig pT  
+	    }//select over trks
+    }//end loop over tracks
+    
+  } // End loop events
+  std::cout << "\n******* Finished looping over the Zerobias events *******" << std::endl;
 
   delete SM_in_chain;
   delete ZB_in_chain;
