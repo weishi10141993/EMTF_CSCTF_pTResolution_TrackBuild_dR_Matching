@@ -44,11 +44,12 @@ TString SingleMu_files[1] = {
                             //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh8.root"
 };   
 TString ZeroBias_files[1] = { 
-	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2017_emul.root"//2017 emulator
-		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh4.root",//2018 emulator
-		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root", 
-		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"
+	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2017_emul.root"//2017 emulator: 1553014 processed events
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh4.root"//2018 emulator: 1553014 
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root"//1536252
+		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"//1570564
 };
+const double scale=28500000./1553014;//Hz
 const int nSingleMu = 4;//# of modes
 const int nDoubleMuInc = 7;
 const int nMuOpenInc = 11;
@@ -312,7 +313,6 @@ void ModesRateEffV2() {
 	
   std::cout << "\n******* About to loop over the Zerobias events *******" << std::endl;
   int nZBEvents = ZB_in_chain->GetEntries();
-  double scale = 28500000./nZBEvents;//(Hz), 28500 kHz is the ZeroBias rate @full machine
   for (int iEvt = 0; iEvt < nZBEvents; iEvt++) {
     if (iEvt > MAX_EVT && MAX_EVT !=-1) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
