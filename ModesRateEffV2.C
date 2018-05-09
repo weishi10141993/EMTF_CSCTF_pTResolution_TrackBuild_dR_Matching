@@ -15,7 +15,7 @@
 const bool verbose = false; // Debug
 const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
-const int Log2_PT_UP = 9;
+const int Log2_PT_UP = 15;//upper limit in single mu files
 const int Log2_PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
