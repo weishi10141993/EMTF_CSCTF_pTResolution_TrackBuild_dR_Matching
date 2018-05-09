@@ -335,8 +335,8 @@ void ModesRateEffV2() {
 				   Count[i]++; 
 				    
 				   //SingleMu 
-				   for(int i=0;i<nSingleMu;i++){
-					    if( I("trk_mode", itrack) == SingleMu[i] ){
+				   for(int m=0;m<nSingleMu;m++){
+					    if( I("trk_mode", itrack) == SingleMu[m] ){
 						    CountSingleMu[i]++; 
 					    }//end if
 				   }//end single mu
