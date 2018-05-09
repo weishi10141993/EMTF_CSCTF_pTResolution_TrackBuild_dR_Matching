@@ -49,7 +49,7 @@ TString ZeroBias_files[1] = {
 		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root"//1536252
 		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"//1570564
 };
-const double scale=28500000./1553014;//Hz
+const double scale = 28500000./1553014;//Hz
 const int nSingleMu = 4;//# of modes
 const int nDoubleMuInc = 7;
 const int nMuOpenInc = 11;
