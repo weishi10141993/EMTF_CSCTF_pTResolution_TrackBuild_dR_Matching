@@ -43,22 +43,22 @@ TString SingleMu_files[1] = {
 	                    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh6.root"  
                             //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh8.root"
 };   
-TString ZeroBias_files[0] = { 
-	  		    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_03_02_ZB1.root",//Obselete
-		            //"NTuple_ZeroBias2_FlatNtuple_Run_306091_2018_03_02_ZB2.root",
-		            //"NTuple_ZeroBias3_FlatNtuple_Run_306091_2018_03_02_ZB3.root", 
-		 	    //"NTuple_ZeroBias4_FlatNtuple_Run_306091_2018_03_02_ZB4.root"
+TString ZeroBias_files[4] = { 
+	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2017_emul.root",
+		            "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh4.root",
+		            "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root", 
+		 	    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"
 };
 const int nSingleMu = 4;//# of modes
 const int nDoubleMuInc = 7;
 const int nMuOpenInc = 11;
-const int USESingleMu = 1;//# of SM files to use
-const int USEZerobias = 0;//# of ZB files to use
+const int USESingleMu = 0;//# of SM files to use
+const int USEZerobias = 4;//# of ZB files to use
 //****************************
 //* USER modify above ONLY   *
 //****************************
 
-void ModesRateEffV1() {
+void ModesRateEffV2() {
    
   // Initialize empty file to access each file in the list
   TFile *file_tmp(0);
