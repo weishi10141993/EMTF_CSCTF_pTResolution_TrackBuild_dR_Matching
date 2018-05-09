@@ -325,7 +325,7 @@ void ModesRateEffV2() {
    
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_mode_CSC", itrack) == I("trk_mode", itrack) && I("trk_BX", itrack) == -2 && // address bug in emulator
+	    if( I("trk_BX", itrack) == 0 && // address bug in emulator
 	        fabs( F("trk_eta", itrack) ) >= ETA_LOW && (I("trk_mode_neighbor", itrack ) != I("trk_mode", itrack )) 
 	      ){
 		    for(int i=0;i<30;i++){
