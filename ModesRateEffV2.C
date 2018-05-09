@@ -480,15 +480,22 @@ void ModesRateEffV2() {
   }
 
   //Rate plots
-  TGraph *GRate = new TGraph(30, TrigPT, Rate); GRate->SetMarkerStyle(22); GRate->SetTitle("Rate;Trig pT[GeV];Rate[Hz]");
-  TGraph *GRateSingleMu = new TGraph(30, TrigPT, RateSingleMu); GRateSingleMu->SetMarkerStyle(22); GRateSingleMu->SetTitle("SingleMu;Trig pT[GeV];Rate[Hz]");//SingleMu only
-  TGraph *GRateDoubleMuInc = new TGraph(30, TrigPT, RateDoubleMuInc);GRateDoubleMuInc->SetMarkerStyle(22); GRateDoubleMuInc->SetTitle("DoubleMu Inclusive;Trig pT[GeV];Rate[Hz]");//DoubleMu Inc
-  TGraph *GRateMuOpenInc = new TGraph(30, TrigPT, RateMuOpenInc); GRateMuOpenInc->SetMarkerStyle(22); GRateMuOpenInc->SetTitle("MuOpen Inclusive;Trig pT[GeV];Rate[Hz]");//MuOpen Inc
+  TH1F *HRate = new TH1F("HRate", "Rate", PT_UP-PT_LOW, PT_LOW, PT_UP); HRate->GetXaxis()->SetTitle("Trig pT[GeV]"); HRate->GetYaxis()->SetTitle("Rate[Hz]");
+  TH1F *HRateSingleMu = new TH1F("HRateSingleMu", "SingleMu", PT_UP-PT_LOW, PT_LOW, PT_UP); HRateSingleMu->GetXaxis()->SetTitle("Trig pT[GeV]"); HRateSingleMu->GetYaxis()->SetTitle("Rate[Hz]");//SingleMu only
+  TH1F *HRateDoubleMuInc = new TH1F("HRateDoubleMuInc", "DoubleMu Inclusive", PT_UP-PT_LOW, PT_LOW, PT_UP); HRateDoubleMuInc->GetXaxis()->SetTitle("Trig pT[GeV]"); HRateDoubleMuInc->GetYaxis()->SetTitle("Rate[Hz]");//DoubleMu Inc
+  TH1F *HRateMuOpenInc = new TH1F("HRateMuOpenInc", "MuOpen Inclusive", PT_UP-PT_LOW, PT_LOW, PT_UP); HRateMuOpenInc->GetXaxis()->SetTitle("Trig pT[GeV]"); HRateMuOpenInc->GetYaxis()->SetTitle("Rate[Hz]");//MuOpen Inc
 	
-  GRate->Write();
-  GRateSingleMu->Write();
-  GRateDoubleMuInc->Write();	  
-  GRateMuOpenInc->Write();	 
+  for(int i=0;i<30;i++){
+	  HRate->Fill(TrigPT[i],Rate[i]);
+	  HRateSingleMu->Fill(TrigPT[i],RateSingleMu[i]);
+	  HRateDoubleMuInc->Fill(TrigPT[i],RateDoubleMuInc[i]);
+	  HRateMuOpenInc->Fill(TrigPT[i],RateMuOpenInc[i]);
+  }
+	
+  HRate->Write();
+  HRateSingleMu->Write();
+  HRateDoubleMuInc->Write();	  
+  HRateMuOpenInc->Write();	 
 	 
   //plots
   SMRecoPt->Write();
