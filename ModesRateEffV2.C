@@ -15,7 +15,7 @@
 const bool verbose = false; // Debug
 const int PT_UP = 30;//Reco pT range
 const int PT_LOW = 0;
-const int Log2_PT_UP = 15;//upper limit in single mu files
+const int Log2_PT_UP = 9;//upper limit in single mu files
 const int Log2_PT_LOW = 0;
 const float ETA_UP = 2.4;//Reco eta @station 2
 const float ETA_LOW = 1.25;
@@ -196,8 +196,11 @@ void ModesRateEffV2() {
 			    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 				    SMRecoPt->Fill( F("reco_pt", ireco) );
 			    }
-			    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+			    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 				    SMLogRecoPt->Fill( log2( F("reco_pt", ireco) ) );
+			    }
+			    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){//Put Overflow pT in last bin
+				    SMLogRecoPt->Fill(Log2_PT_UP-0.5);//Fill fixed value
 			    }
 			    
 			    //***********************
@@ -213,8 +216,11 @@ void ModesRateEffV2() {
 						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 							    SMRecoPtMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
 						    }
-						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 							    SMLogRecoPtMatchBX0SingleMu->Fill( log2( F("reco_pt", ireco) ) );
+						    }
+						    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+							    SMLogRecoPtMatchBX0SingleMu->Fill( Log2_PT_UP-0.5);
 						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
@@ -223,8 +229,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtMatchBX0SingleMuPlateau->Fill( F("reco_pt", ireco) );
 							    }
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtMatchBX0SingleMuPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtMatchBX0SingleMuPlateau->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 						    //Unique match
@@ -232,8 +241,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtUniqueMatchBX0SingleMu->Fill( F("reco_pt", ireco) ); 
 							    }
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtUniqueMatchBX0SingleMu->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtUniqueMatchBX0SingleMu->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 					    }//end if
@@ -245,8 +257,11 @@ void ModesRateEffV2() {
 						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 							    SMRecoPtMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) );
 						    }
-						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 							    SMLogRecoPtMatchBX0DoubleMuInc->Fill( log2( F("reco_pt", ireco) ) );
+						    }
+						    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+							    SMLogRecoPtMatchBX0DoubleMuInc->Fill(Log2_PT_UP-0.5);
 						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
@@ -255,8 +270,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtMatchBX0DoubleMuIncPlateau->Fill( F("reco_pt", ireco) );
 							    }
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtMatchBX0DoubleMuIncPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtMatchBX0DoubleMuIncPlateau->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 						    //Unique match
@@ -264,8 +282,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtUniqueMatchBX0DoubleMuInc->Fill( F("reco_pt", ireco) ); 
 							    }
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtUniqueMatchBX0DoubleMuInc->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtUniqueMatchBX0DoubleMuInc->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 					    }//end if
@@ -277,8 +298,11 @@ void ModesRateEffV2() {
 						    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 							    SMRecoPtMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) ); 
 						    }
-						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+						    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 							    SMLogRecoPtMatchBX0MuOpenInc->Fill( log2( F("reco_pt", ireco) ) );
+						    }
+						    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+							    SMLogRecoPtMatchBX0MuOpenInc->Fill(Log2_PT_UP-0.5);
 						    }
 						    //Plateau
 						    if( F("trk_pt", I("reco_dR_match_iTrk", ireco)) > F("reco_pt", ireco) * 7.0/8.0 ||
@@ -287,8 +311,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtMatchBX0MuOpenIncPlateau->Fill( F("reco_pt", ireco) );
 							    }
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtMatchBX0MuOpenIncPlateau->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtMatchBX0MuOpenIncPlateau->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 						    //Unique match
@@ -296,8 +323,11 @@ void ModesRateEffV2() {
 							    if(F("reco_pt", ireco) >= PT_LOW && F("reco_pt", ireco) <= PT_UP){
 								    SMRecoPtUniqueMatchBX0MuOpenInc->Fill( F("reco_pt", ireco) );
 							    } 
-							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP){
+							    if(log2( F("reco_pt", ireco) ) >= Log2_PT_LOW && log2( F("reco_pt", ireco) ) <= Log2_PT_UP-1){
 								    SMLogRecoPtUniqueMatchBX0MuOpenInc->Fill( log2( F("reco_pt", ireco) ) );
+							    }
+							    if(log2( F("reco_pt", ireco) ) > Log2_PT_UP-1){
+								    SMLogRecoPtUniqueMatchBX0MuOpenInc->Fill(Log2_PT_UP-0.5);
 							    }
 						    }
 					    }//end if
