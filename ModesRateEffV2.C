@@ -475,8 +475,8 @@ void ModesRateEffV2() {
   for(int i=0;i<30;i++){
 	  Rate[i] = 1.0*Count[i]*scale;
 	  RateSingleMu[i] = 1.0*CountSingleMu[i]*scale;
-          RateDoubleMuInc[i] = 1.0*CountSingleMuInc[i]*scale;
-          RateMuOpenInc[i] = 1.0*CountSingleMuInc[i]*scale;
+          RateDoubleMuInc[i] = 1.0*CountDoubleMuInc[i]*scale;
+          RateMuOpenInc[i] = 1.0*CountMuOpenInc[i]*scale;
   }
 
   //Rate plots
