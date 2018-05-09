@@ -328,37 +328,34 @@ void ModesRateEffV2() {
    
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_BX", itrack) == 0 && // address bug in emulator
-	        fabs( F("trk_eta", itrack) ) >= ETA_LOW && (I("trk_mode_neighbor", itrack ) != I("trk_mode", itrack )) 
+	    if( I("trk_BX", itrack) == 0 && 
+	        fabs( F("trk_eta", itrack) ) >= ETA_LOW && 
+	        ( I("trk_mode_neighbor", itrack ) != I("trk_mode", itrack ) ) 
 	      ){
 		    for(int i=0;i<30;i++){
 			    
-			    if( F("trk_pt", itrack)>= TrigPT[i]){
-				    
-				   Count[i]++; 
-				    
+			    if( F("trk_pt", itrack)>= TrigPT[i]){  
+				   Count[i]++;   
 				   //SingleMu 
 				   for(int m=0;m<nSingleMu;m++){
 					    if( I("trk_mode", itrack) == SingleMu[m] ){
 						    CountSingleMu[i]++; 
 					    }//end if
 				   }//end single mu
-				   
 				   //DoubleMu Inclusive
 				   for(int j=0;j<nDoubleMuInc;j++){
 					    if( I("trk_mode", itrack) == DoubleMuInc[j] ){
 						    CountDoubleMuInc[i]++; 
 					    }
 				   }//end double mu
-				  
 				   //MuOpen Inclusive
 				    for(int k=0;k<nMuOpenInc;k++){
 					    if( I("trk_mode", itrack) == MuOpenInc[k] ){
 						    CountMuOpenInc[i]++; 
 					    }
-				    }//end mu open
-				   
+				    }//end mu open 
 			    } //end if      
+			    
 		    }//end for 
 	    }//select over trks
     }//end loop over tracks
