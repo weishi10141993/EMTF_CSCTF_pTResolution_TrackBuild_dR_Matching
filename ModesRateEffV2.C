@@ -9,18 +9,30 @@
 //* USER modify below ONLY   *
 //****************************
 #include "Read_FlatNtuple.h" //make sure it's up-to-date with the Ntuple
+//==============
+//= Part I: I/O
+//==============
+const double scale = 28500000./1487898;//ZB rate scale, unit: Hz
+TString ZeroBias_files[1] = { 
+	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2017_emul.root"//2017 emulator: 1487898 processed events
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh4.root"//2018 emulator: 1487898 
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh6.root"//1475029
+		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh8.root"//1487898
+};
+TString SingleMu_files[1] = { 
+	  		    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2017_emul.root"//2017 emulator
+			    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh4.root"//2018 emulator changes
+	                    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh6.root"  
+                            //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh8.root"
+}; 
+const int USESingleMu = 1;//# of SM files to use
+const int USEZerobias = 1;//# of ZB files to use
+TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
+TString in_dir = "Ntuples/"; //sub dir
+TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output  
 //================================
-//= Part I: Kinematics
+//= Part II: Kinematics
 //================================
-const bool verbose = false; // Debug
-const int PT_UP = 30;//Reco pT range
-const int PT_LOW = 0;
-const int Log2_PT_UP = 9;//upper limit in single mu files
-const int Log2_PT_LOW = 0;
-const float ETA_UP = 2.4;//Reco eta @station 2
-const float ETA_LOW = 1.25;
-const int MAX_EVT = -1;   // Max number of events to process
-const int PRT_EVT = 10000;   // Print every N events
 //2017 modes
 const int SingleMu[4]={15,14,13,11};
 const int DoubleMuInc[7]={12,10,7,15,14,13,11};
@@ -31,30 +43,18 @@ const int SingleMu[4]={15,14,13,11};
 const int DoubleMuInc[7]={9,10,7,15,14,13,11};
 const int MuOpenInc[11]={12,6,5,3,9,10,7,15,14,13,11};
 */
-//==============
-//= Part II: I/O
-//==============
-TString store = "/home/ws13/TMVA/TMVA/INPUT/"; //main dir
-TString in_dir = "Ntuples/"; //sub dir
-TString outFile = "/home/ws13/TMVA/TMVA/Study/ModesRateEff"; //output
-TString SingleMu_files[1] = { 
-	  		    "NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2017_emul.root"//2017 emulator
-			    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh4.root"//2018 emulator changes
-	                    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh6.root"  
-                            //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_07_SingleMu_2018_emul_dTh8.root"
-};   
-TString ZeroBias_files[1] = { 
-	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2017_emul.root"//2017 emulator: 1487898 processed events
-		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh4.root"//2018 emulator: 1487898 
-		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh6.root"//1475029
-		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh8.root"//1487898
-};
-const double scale = 28500000./1487898;//Hz
 const int nSingleMu = 4;//# of modes
 const int nDoubleMuInc = 7;
 const int nMuOpenInc = 11;
-const int USESingleMu = 1;//# of SM files to use
-const int USEZerobias = 1;//# of ZB files to use
+const bool verbose = false; // Debug
+const int PT_UP = 30;//Reco pT range
+const int PT_LOW = 0;
+const int Log2_PT_UP = 9;//upper limit in single mu files
+const int Log2_PT_LOW = 0;
+const float ETA_UP = 2.4;//Reco eta @station 2
+const float ETA_LOW = 1.25;
+const int MAX_EVT = -1;   // Max number of events to process
+const int PRT_EVT = 10000;   // Print every N events
 //****************************
 //* USER modify above ONLY   *
 //****************************
