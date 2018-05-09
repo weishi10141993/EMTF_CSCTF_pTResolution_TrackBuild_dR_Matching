@@ -43,17 +43,17 @@ TString SingleMu_files[1] = {
 	                    //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh6.root"  
                             //"NTuple_SingleMuon_FlatNtuple_Run_306154_2018_05_01_SingleMu_2018_emul_dTh8.root"
 };   
-TString ZeroBias_files[4] = { 
-	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2017_emul.root",
-		            "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh4.root",
-		            "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root", 
-		 	    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"
+TString ZeroBias_files[1] = { 
+	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2017_emul.root"//2017 emulator
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh4.root",//2018 emulator
+		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh6.root", 
+		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_04_ZB1_2018_emul_dTh8.root"
 };
 const int nSingleMu = 4;//# of modes
 const int nDoubleMuInc = 7;
 const int nMuOpenInc = 11;
 const int USESingleMu = 0;//# of SM files to use
-const int USEZerobias = 4;//# of ZB files to use
+const int USEZerobias = 1;//# of ZB files to use
 //****************************
 //* USER modify above ONLY   *
 //****************************
@@ -138,6 +138,17 @@ void ModesRateEffV2() {
   TH1F *SMLogRecoPtMatchBX0MuOpenIncPlateau = new TH1F("SMLogRecoPtMatchBX0MuOpenIncPlateau", "Match BX0 Plateau "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);	
   TH1F *SMLogRecoPtUniqueMatchBX0MuOpenInc = new TH1F("SMLogRecoPtUniqueMatchBX0MuOpenInc", "Match BX0 Unique "+ SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 
+  //Initialize variables for rate
+  double TrigPT[30]={0};
+  for(int i=0;i<30;i++){
+	  TrigPT[i]=i*1.0;
+  }
+  
+  double Count[30]={0};
+  double CountSingleMu[30]={0};
+  double CountDoubleMuInc[30]={0};
+  double CountMuOpenInc[30]={0};
+	
   InitializeMaps();
   SetBranchAddresses(SM_in_chain);
   SetBranchAddresses(ZB_in_chain);
@@ -301,8 +312,9 @@ void ModesRateEffV2() {
 	
   std::cout << "\n******* About to loop over the Zerobias events *******" << std::endl;
   int nZBEvents = ZB_in_chain->GetEntries();
+  double scale = 28500000./nZBEvents;//(Hz), 28500 kHz is the ZeroBias rate @full machine
   for (int iEvt = 0; iEvt < nZBEvents; iEvt++) {
-    if (iEvt > MAX_EVT) break;
+    if (iEvt > MAX_EVT && MAX_EVT !=-1) break;
     if ( (iEvt % PRT_EVT) == 0 ) {
       std::cout << "\n*************************************" << std::endl;
       std::cout << "Looking at event " << iEvt << " out of " << nZBEvents << std::endl;
@@ -313,206 +325,38 @@ void ModesRateEffV2() {
    
     if (verbose) std::cout << "\n" << I("nTracks") << " tracks in the event" << std::endl;
     for (int itrack = 0; itrack < I("nTracks"); itrack++) {
-	    if( I("trk_BX", itrack) == 0 && fabs( F("trk_eta", itrack) ) >= ETA_LOW && I("trk_mode_neighbor", itrack ) < I("trk_mode", itrack ) ){
+	    if( I("trk_mode_CSC", itrack) == I("trk_mode", itrack) && I("trk_BX", itrack) == -2 && // address bug in emulator
+	        fabs( F("trk_eta", itrack) ) >= ETA_LOW && (I("trk_mode_neighbor", itrack ) != I("trk_mode", itrack )) 
+	      ){
 		    for(int i=0;i<30;i++){
 			    
-			    if( F("trk_pt", itrack)> TrigPT[i]){
+			    if( F("trk_pt", itrack)>= TrigPT[i]){
+				    
 				   Count[i]++; 
-				   if( I("trk_dBX", itrack) == 0 ){
-					CountdBX0[i]++;   
-			           }
-				   if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-				        CountRecoSoft[i]++;   
-			           }
-				   if( I("trk_dR_match_nReco", itrack) >= 1 ){
-				        CountRecoOnly[i]++;   
-			           }
-				   //SingleMu Only
-				   if( I("trk_mode", itrack ) == 15 || 
-			               I("trk_mode", itrack ) == 14 || 
-			    	       I("trk_mode", itrack ) == 13 || 
-			    	       I("trk_mode", itrack ) == 11){
-					    CountSingleMuModes[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountSingleMuModesdBX0[i]++;   
+				    
+				   //SingleMu 
+				   for(int i=0;i<nSingleMu;i++){
+					    if( I("trk_mode", itrack) == SingleMu[i] ){
+						    CountSingleMu[i]++; 
+					    }//end if
+				   }//end single mu
+				   
+				   //DoubleMu Inclusive
+				   for(int j=0;j<nDoubleMuInc;j++){
+					    if( I("trk_mode", itrack) == DoubleMuInc[j] ){
+						    CountDoubleMuInc[i]++; 
 					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountSingleMuModesRecoSoft[i]++;   
+				   }//end double mu
+				  
+				   //MuOpen Inclusive
+				    for(int k=0;k<nMuOpenInc;k++){
+					    if( I("trk_mode", itrack) == MuOpenInc[k] ){
+						    CountMuOpenInc[i]++; 
 					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountSingleMuModesRecoOnly[i]++;   
-					    }
-				   }
-				   //DoubleMu Only
-				   if( I("trk_mode", itrack ) == 12 || 
-			               I("trk_mode", itrack ) == 10 || 
-			    	       I("trk_mode", itrack ) == 7){
-					    CountDoubleMuModes[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountDoubleMuModesdBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountDoubleMuModesRecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountDoubleMuModesRecoOnly[i]++;   
-					    }
-				   }
-				   //MuOpen Only
-				   if( I("trk_mode", itrack ) == 9 || 
-			               I("trk_mode", itrack ) == 6 || 
-			    	       I("trk_mode", itrack ) == 5 || 
-			    	       I("trk_mode", itrack ) == 3){
-					    CountMuOpenModes[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMuOpenModesdBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMuOpenModesRecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMuOpenModesRecoOnly[i]++;   
-					    }
-				   }
-				   //each trk mode
-				   switch ( I("trk_mode", itrack ) ) {
-				    case 15:
-					    CountMode15[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode15dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode15RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode15RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 14:
-					    CountMode14[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode14dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode14RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode14RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 13:
-					    CountMode13[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode13dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode13RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode13RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 11:
-					    CountMode11[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode11dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode11RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode11RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 12:
-					    CountMode12[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode12dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode12RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode12RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 10:
-					    CountMode10[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode10dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode10RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode10RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 7:
-					    CountMode7[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode7dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode7RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode7RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 9:
-					    CountMode9[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode9dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode9RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode9RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 6:
-					    CountMode6[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode6dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode6RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode6RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 5:
-					    CountMode5[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode5dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode5RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode5RecoOnly[i]++;   
-					    }
-                            	            break;
-				    case 3:
-					    CountMode3[i]++; 
-					    if( I("trk_dBX", itrack) == 0 ){
-						 CountMode3dBX0[i]++;   
-					    }
-					    if( (I("trk_dR_match_nReco", itrack) + I("trk_dR_match_nRecoSoft", itrack)) >= 1 ){
-						 CountMode3RecoSoft[i]++;   
-					    }
-					    if( I("trk_dR_match_nReco", itrack) >= 1 ){
-						 CountMode3RecoOnly[i]++;   
-					    }
-                            	            break;
-			            default:
-                                            break; 
-			           }//end switch mode
-			    }       
-		    }//loop over trig pT  
+				    }//end mu open
+				   
+			    } //end if      
+		    }//end for 
 	    }//select over trks
     }//end loop over tracks
     
@@ -622,7 +466,30 @@ void ModesRateEffV2() {
   SMLogRecoPtUniqueMatchBX0MuOpenInc->SetTitle("MuOpen Inclusive: IsRecoMatch && BX0 && Unique");
   SMLogRecoPtUniqueMatchBX0MuOpenInc->GetXaxis()->SetTitle("log2(RECO pT)");
   SMLogRecoPtUniqueMatchBX0MuOpenInc->GetYaxis()->SetTitle("Fraction of RECO muons");
- 
+
+  double Rate[30]={0};//Hz
+  double RateSingleMu[30]={0};
+  double RateDoubleMuInc[30]={0};
+  double RateMuOpenInc[30]={0};
+
+  for(int i=0;i<30;i++){
+	  Rate[i] = 1.0*Count[i]*scale;
+	  RateSingleMu[i] = 1.0*CountSingleMu[i]*scale;
+          RateDoubleMuInc[i] = 1.0*CountSingleMuInc[i]*scale;
+          RateMuOpenInc[i] = 1.0*CountSingleMuInc[i]*scale;
+  }
+
+  //Rate plots
+  TGraph *GRate = new TGraph(30, TrigPT, Rate); GRate->SetMarkerStyle(22); GRate->SetTitle("Rate;Trig pT[GeV];Rate[Hz]");
+  TGraph *GRateSingleMu = new TGraph(30, TrigPT, RateSingleMu); GRateSingleMu->SetMarkerStyle(22); GRateSingleMu->SetTitle("SingleMu;Trig pT[GeV];Rate[Hz]");//SingleMu only
+  TGraph *GRateDoubleMuInc = new TGraph(30, TrigPT, RateDoubleMuInc);GRateDoubleMuInc->SetMarkerStyle(22); GRateDoubleMuInc->SetTitle("DoubleMu Inclusive;Trig pT[GeV];Rate[Hz]");//DoubleMu Inc
+  TGraph *GRateMuOpenInc = new TGraph(30, TrigPT, RateMuOpenInc); GRateMuOpenInc->SetMarkerStyle(22); GRateMuOpenInc->SetTitle("MuOpen Inclusive;Trig pT[GeV];Rate[Hz]");//MuOpen Inc
+	
+  GRate->Write();
+  GRateSingleMu->Write();
+  GRateDoubleMuInc->Write();	  
+  GRateMuOpenInc->Write();	 
+	 
   //plots
   SMRecoPt->Write();
   SMLogRecoPt->Write();
