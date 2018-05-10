@@ -187,9 +187,10 @@ void ModesRateEffV2() {
 		    
 		    //select RECO muon
 		    if( F("reco_pt", ireco) > 0 && 
-		        //I("reco_ID_loose", ireco) == 1 &&
-		        //( F("reco_pt", ireco) < 16 || I("reco_ID_medium", ireco) == 1 ) &&
-		        //( F("reco_pt", ireco) < 64 || I("reco_ID_tight", ireco) == 1 ) &&
+		        /*
+			I("reco_ID_loose", ireco) == 1 &&
+		        ( F("reco_pt", ireco) < 16 || I("reco_ID_medium", ireco) == 1 ) && 
+			*/
 		        I("reco_ID_medium", ireco) == 1  &&  
 		        ( F("reco_pt", ireco) < 64 || I("reco_ID_tight", ireco) == 1 ) &&
 		        fabs( F("reco_eta_St1",ireco) ) > ETA_LOW && fabs( F("reco_eta_St1", ireco) ) < ETA_UP &&
