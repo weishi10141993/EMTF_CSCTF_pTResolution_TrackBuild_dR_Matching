@@ -151,8 +151,7 @@ void PlotOverlay() {
   file5->Close();
 	
   //write to output file
-  outFile = "Overlay.root";
-  TFile myPlot(outFile,"RECREATE");
+  TFile myPlot("Overlay.root","RECREATE");
   
   TCanvas *C1=new TCanvas("C1","Rate: SingleMu",700,500);
   TCanvas *C2=new TCanvas("C2","Rate: DoubleMu Inclusive",700,500);
