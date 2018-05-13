@@ -192,6 +192,8 @@ void PlotOverlay() {
   HRateSingleMu2018_dTh6->Draw("HISTSAME");
   HRateSingleMu2018_dTh8->Divide(HRateSingleMu2017);
   HRateSingleMu2018_dTh8->Draw("HISTSAME");
+  HRateSingleMu2017_dBX->Divide(HRateSingleMu2017);
+  HRateSingleMu2017_dBX->Draw("HISTSAME");
   C4->Write();
 
   C5->cd();
@@ -201,6 +203,9 @@ void PlotOverlay() {
   HRateDoubleMuInc2018_dTh6->Draw("HISTSAME");
   HRateDoubleMuInc2018_dTh8->Divide(HRateDoubleMuInc2017);
   HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
+  HRateDoubleMuInc2017_dBX->Divide(HRateDoubleMuInc2017);
+  HRateDoubleMuInc2017_dBX->Draw("HISTSAME");
+	//2017 dBX with 2018 mu quality
   C5->Write();
 	
   C6->cd();
@@ -210,6 +215,9 @@ void PlotOverlay() {
   HRateMuOpenInc2018_dTh6->Draw("HISTSAME");
   HRateMuOpenInc2018_dTh8->Divide(HRateMuOpenInc2017);
   HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
+  HRateMuOpenInc2017_dBX->Divide(HRateMuOpenInc2017);
+  HRateMuOpenInc2017_dBX->Draw("HISTSAME");
+	//2017 dBX with 2018 mu quality
   C6->Write();
 	
   C7->cd();
