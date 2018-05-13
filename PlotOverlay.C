@@ -311,8 +311,8 @@ void PlotOverlay() {
   C18->cd();
   MatchBX0MuOpenIncPlateau2017Log->SetLineColor(1); MatchBX0MuOpenIncPlateau2017Log->Draw();
   MatchBX0MuOpenIncPlateau2018_dTh4Log->SetLineColor(2); MatchBX0MuOpenIncPlateau2018_dTh4Log->Draw("SAME");
-  MatchBX0MuOpenIncPlateau2018_dTh6Log->SetLineColor(2); MatchBX0MuOpenIncPlateau2018_dTh6Log->Draw("SAME");
-  MatchBX0MuOpenIncPlateau2018_dTh8Log->SetLineColor(2); MatchBX0MuOpenIncPlateau2018_dTh8Log->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh6Log->SetLineColor(3); MatchBX0MuOpenIncPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh8Log->SetLineColor(4); MatchBX0MuOpenIncPlateau2018_dTh8Log->Draw("SAME");
   C18->Write();
 	
   C19->cd();
