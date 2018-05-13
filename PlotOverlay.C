@@ -151,7 +151,11 @@ void PlotOverlay() {
   //write to output file
   outFile = "Overlay.root";
   TFile myPlot(outFile,"RECREATE");
-        
+  
+  TCanvas *C1=new TCanvas("C1","SingleMu",700,500);
+  TCanvas *C2=new TCanvas("C2","SingleMu",700,500);
+  TCanvas *C3=new TCanvas("C3","SingleMu",700,500);
+  TCanvas *C4=new TCanvas("C4","SingleMu",700,500);
  
   myPlot.Close();
   
