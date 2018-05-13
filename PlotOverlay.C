@@ -144,6 +144,30 @@ void PlotOverlay() {
   file4->Close();
 	
   TFile *file5 = TFile::Open("2017_dBX_2018Quality_ModesRateEff_eta_1.25_2.40.root");
+  TH1F *HRateSingleMu2017_dBX_2018Quality = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2017_dBX_2018Quality");
+  TH1F *HRateDoubleMuInc2017_dBX_2018Quality = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2017_dBX_2018Quality");
+  TH1F *HRateMuOpenInc2017_dBX_2018Quality = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2017_dBX_2018Quality");
+	
+  TH1F *MatchBX0SingleMu2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2017_dBX_2018Quality");
+  TH1F *MatchBX0SingleMu2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2017_dBX_2018QualityLog");
+  TH1F *MatchBX0SingleMuPlateau2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2017_dBX_2018Quality");
+  TH1F *MatchBX0SingleMuPlateau2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2017_dBX_2018QualityLog");
+  TH1F *MatchBX0SingleMuUnique2017_dBX_2018Quality = (TH1F*)SMRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2017_dBX_2018Quality");
+  TH1F *MatchBX0SingleMuUnique2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2017_dBX_2018QualityLog");
+
+  TH1F *MatchBX0DoubleMuInc2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2017_dBX_2018Quality");
+  TH1F *MatchBX0DoubleMuInc2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2017_dBX_2018QualityLog");
+  TH1F *MatchBX0DoubleMuIncPlateau2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2017_dBX_2018Quality");
+  TH1F *MatchBX0DoubleMuIncPlateau2017_dBX_2018Quality_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2017_dBX_2018QualityLog");
+  TH1F *MatchBX0DoubleMuIncUnique2017_dBX_2018Quality = (TH1F*)SMRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2017_dBX_2018Quality");
+  TH1F *MatchBX0DoubleMuIncUnique2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2017_dBX_2018QualityLog");
+	
+  TH1F *MatchBX0MuOpenInc2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0MuOpenInc->Clone("MatchBX0MuOpenInc2017_dBX_2018Quality");
+  TH1F *MatchBX0MuOpenInc2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0MuOpenInc->Clone("MatchBX0MuOpenInc2017_dBX_2018QualityLog");
+  TH1F *MatchBX0MuOpenIncPlateau2017_dBX_2018Quality = (TH1F*)SMRecoPtMatchBX0MuOpenIncPlateau->Clone("MatchBX0MuOpenIncPlateau2017_dBX_2018Quality");
+  TH1F *MatchBX0MuOpenIncPlateau2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtMatchBX0MuOpenIncPlateau->Clone("MatchBX0MuOpenIncPlateau2017_dBX_2018QualityLog");
+  TH1F *MatchBX0MuOpenIncUnique2017_dBX_2018Quality = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("MatchBX0MuOpenIncUnique2017_dBX_2018Quality");
+  TH1F *MatchBX0MuOpenIncUnique2017_dBX_2018QualityLog = (TH1F*)SMLogRecoPtUniqueMatchBX0MuOpenInc->Clone("MatchBX0MuOpenIncUnique2017_dBX_2018QualityLog");
   file5->Close();
 	
   //write to output file
@@ -205,7 +229,8 @@ void PlotOverlay() {
   HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
   HRateDoubleMuInc2017_dBX->Divide(HRateDoubleMuInc2017);
   HRateDoubleMuInc2017_dBX->Draw("HISTSAME");
-	//2017 dBX with 2018 mu quality
+  HRateDoubleMuInc2017_dBX_2018Quality->Divide(HRateDoubleMuInc2017);
+  HRateDoubleMuInc2017_dBX_2018Quality->Draw("HISTSAME");//2017 dBX with 2018 mu quality
   C5->Write();
 	
   C6->cd();
@@ -217,7 +242,8 @@ void PlotOverlay() {
   HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
   HRateMuOpenInc2017_dBX->Divide(HRateMuOpenInc2017);
   HRateMuOpenInc2017_dBX->Draw("HISTSAME");
-	//2017 dBX with 2018 mu quality
+  HRateMuOpenInc2017_dBX->Divide(HRateMuOpenInc2017);
+  HRateMuOpenInc2017_dBX->Draw("HISTSAME");	//2017 dBX with 2018 mu quality
   C6->Write();
 	
   C7->cd();
