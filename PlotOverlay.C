@@ -241,78 +241,78 @@ void PlotOverlay() {
   C7->cd();
   MatchBX0SingleMu2017->SetLineColor(1); MatchBX0SingleMu2017->Draw();
   MatchBX0SingleMu2018_dTh4->SetLineColor(2); MatchBX0SingleMu2018_dTh4->Draw("SAME");
-  MatchBX0SingleMu2018_dTh4->SetLineColor(3); MatchBX0SingleMu2018_dTh6->Draw("SAME");
-  MatchBX0SingleMu2018_dTh4->SetLineColor(4); MatchBX0SingleMu2018_dTh8->Draw("SAME");
+  MatchBX0SingleMu2018_dTh6->SetLineColor(3); MatchBX0SingleMu2018_dTh6->Draw("SAME");
+  MatchBX0SingleMu2018_dTh8->SetLineColor(4); MatchBX0SingleMu2018_dTh8->Draw("SAME");
   C7->Write();
 	
   C8->cd();
   MatchBX0DoubleMuInc2017->SetLineColor(1); MatchBX0DoubleMuInc2017->Draw();
   MatchBX0DoubleMuInc2018_dTh4->SetLineColor(2); MatchBX0DoubleMuInc2018_dTh4->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh4->SetLineColor(3); MatchBX0DoubleMuInc2018_dTh6->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh4->SetLineColor(4); MatchBX0DoubleMuInc2018_dTh8->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh6->SetLineColor(3); MatchBX0DoubleMuInc2018_dTh6->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh8->SetLineColor(4); MatchBX0DoubleMuInc2018_dTh8->Draw("SAME");
   C8->Write();
 
   C9->cd();
   MatchBX0MuOpenInc2017->SetLineColor(1); MatchBX0MuOpenInc2017->Draw();
   MatchBX0MuOpenInc2018_dTh4->SetLineColor(2); MatchBX0MuOpenInc2018_dTh4->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh4->SetLineColor(3); MatchBX0MuOpenInc2018_dTh6->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh4->SetLineColor(4); MatchBX0MuOpenInc2018_dTh8->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh6->SetLineColor(3); MatchBX0MuOpenInc2018_dTh6->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh8->SetLineColor(4); MatchBX0MuOpenInc2018_dTh8->Draw("SAME");
   C9->Write();
 	
   C10->cd();
-  MatchBX0SingleMu2017Log->Draw();
-  MatchBX0SingleMu2018_dTh4Log->Draw("SAME");
-  MatchBX0SingleMu2018_dTh6Log->Draw("SAME");
-  MatchBX0SingleMu2018_dTh8Log->Draw("SAME");
+  MatchBX0SingleMu2017Log->SetLineColor(1); MatchBX0SingleMu2017Log->Draw();
+  MatchBX0SingleMu2018_dTh4Log->SetLineColor(2); MatchBX0SingleMu2018_dTh4Log->Draw("SAME");
+  MatchBX0SingleMu2018_dTh6Log->SetLineColor(3); MatchBX0SingleMu2018_dTh6Log->Draw("SAME");
+  MatchBX0SingleMu2018_dTh8Log->SetLineColor(4); MatchBX0SingleMu2018_dTh8Log->Draw("SAME");
   C10->Write();
 	
   C11->cd();
-  MatchBX0DoubleMuInc2017Log->Draw();
-  MatchBX0DoubleMuInc2018_dTh4Log->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh6Log->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh8Log->Draw("SAME");
+  MatchBX0DoubleMuInc2017Log->SetLineColor(1); MatchBX0DoubleMuInc2017Log->Draw();
+  MatchBX0DoubleMuInc2018_dTh4Log->SetLineColor(2); MatchBX0DoubleMuInc2018_dTh4Log->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh6Log->SetLineColor(3); MatchBX0DoubleMuInc2018_dTh6Log->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh8Log->SetLineColor(4); MatchBX0DoubleMuInc2018_dTh8Log->Draw("SAME");
   C11->Write();
 
   C12->cd();
-  MatchBX0MuOpenInc2017Log->Draw();
-  MatchBX0MuOpenInc2018_dTh4Log->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh6Log->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh8Log->Draw("SAME");
+  MatchBX0MuOpenInc2017Log->SetLineColor(1); MatchBX0MuOpenInc2017Log->Draw();
+  MatchBX0MuOpenInc2018_dTh4Log->SetLineColor(2); MatchBX0MuOpenInc2018_dTh4Log->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh6Log->SetLineColor(3); MatchBX0MuOpenInc2018_dTh6Log->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh8Log->SetLineColor(4); MatchBX0MuOpenInc2018_dTh8Log->Draw("SAME");
   C12->Write();	
 	
   C13->cd();
-  MatchBX0SingleMuPlateau2017->Draw();
-  MatchBX0SingleMuPlateau2018_dTh4->Draw("SAME");
-  MatchBX0SingleMuPlateau2018_dTh6->Draw("SAME");
-  MatchBX0SingleMuPlateau2018_dTh8->Draw("SAME");
+  MatchBX0SingleMuPlateau2017->SetLineColor(1); MatchBX0SingleMuPlateau2017->Draw();
+  MatchBX0SingleMuPlateau2018_dTh4->SetLineColor(2); MatchBX0SingleMuPlateau2018_dTh4->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh6->SetLineColor(3); MatchBX0SingleMuPlateau2018_dTh6->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh8->SetLineColor(4); MatchBX0SingleMuPlateau2018_dTh8->Draw("SAME");
   C13->Write();
 	
   C14->cd();
-  MatchBX0DoubleMuIncPlateau2017->Draw();
-  MatchBX0DoubleMuIncPlateau2018_dTh4->Draw("SAME");
-  MatchBX0DoubleMuIncPlateau2018_dTh6->Draw("SAME");
-  MatchBX0DoubleMuIncPlateau2018_dTh8->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2017->SetLineColor(1); MatchBX0DoubleMuIncPlateau2017->Draw();
+  MatchBX0DoubleMuIncPlateau2018_dTh4->SetLineColor(2); MatchBX0DoubleMuIncPlateau2018_dTh4->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh6->SetLineColor(3); MatchBX0DoubleMuIncPlateau2018_dTh6->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh8->SetLineColor(4); MatchBX0DoubleMuIncPlateau2018_dTh8->Draw("SAME");
   C14->Write();
 
   C15->cd();
-  MatchBX0MuOpenIncPlateau2017->Draw();
-  MatchBX0MuOpenIncPlateau2018_dTh4->Draw("SAME");
-  MatchBX0MuOpenIncPlateau2018_dTh6->Draw("SAME");
-  MatchBX0MuOpenIncPlateau2018_dTh8->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2017->SetLineColor(1); MatchBX0MuOpenIncPlateau2017->Draw();
+  MatchBX0MuOpenIncPlateau2018_dTh4->SetLineColor(2); MatchBX0MuOpenIncPlateau2018_dTh4->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh6->SetLineColor(3); MatchBX0MuOpenIncPlateau2018_dTh6->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh8->SetLineColor(4); MatchBX0MuOpenIncPlateau2018_dTh8->Draw("SAME");
   C15->Write();
 
   C16->cd();
-  MatchBX0SingleMuPlateau2017Log->Draw();
-  MatchBX0SingleMuPlateau2018_dTh4Log->Draw("SAME");
-  MatchBX0SingleMuPlateau2018_dTh6Log->Draw("SAME");
-  MatchBX0SingleMuPlateau2018_dTh8Log->Draw("SAME");
+  MatchBX0SingleMuPlateau2017Log->SetLineColor(1); MatchBX0SingleMuPlateau2017Log->Draw();
+  MatchBX0SingleMuPlateau2018_dTh4Log->SetLineColor(2); MatchBX0SingleMuPlateau2018_dTh4Log->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh6Log->SetLineColor(3); MatchBX0SingleMuPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh8Log->SetLineColor(4); MatchBX0SingleMuPlateau2018_dTh8Log->Draw("SAME");
   C16->Write();
 	
   C17->cd();
-  MatchBX0DoubleMuIncPlateau2017Log->Draw();
-  MatchBX0DoubleMuIncPlateau2018_dTh4Log->Draw("SAME");
-  MatchBX0DoubleMuIncPlateau2018_dTh6Log->Draw("SAME");
-  MatchBX0DoubleMuIncPlateau2018_dTh8Log->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2017Log->SetLineColor(1); MatchBX0DoubleMuIncPlateau2017Log->Draw();
+  MatchBX0DoubleMuIncPlateau2018_dTh4Log->SetLineColor(2); MatchBX0DoubleMuIncPlateau2018_dTh4Log->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh6Log->SetLineColor(3); MatchBX0DoubleMuIncPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh8Log->SetLineColor(4); MatchBX0DoubleMuIncPlateau2018_dTh8Log->Draw("SAME");
   C17->Write();
 
   C18->cd();
