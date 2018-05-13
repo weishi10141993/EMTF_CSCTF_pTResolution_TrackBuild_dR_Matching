@@ -8,6 +8,7 @@
 #include "TCanvas.h"
 
 void PlotOverlay() {
+	
   TFile *file0 = TFile::Open("2017_ModesRateEff_eta_1.25_2.40.root");//1
   TH1F *HRateSingleMu2017 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2017");
   TH1F *HRateDoubleMuInc2017 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2017");
@@ -166,6 +167,20 @@ void PlotOverlay() {
   TCanvas *C10=new TCanvas("C10","Efficiency: SingleMu (log2pT)",700,500);
   TCanvas *C11=new TCanvas("C11","Efficiency: DoubleleMu Inclusive (log2pT)",700,500);
   TCanvas *C12=new TCanvas("C12","Efficiency: MuOpen Inclusive (log2pT)",700,500);
+  //Plateau	
+  TCanvas *C13=new TCanvas("C13","Plateau Efficiency: SingleMu",700,500);
+  TCanvas *C14=new TCanvas("C14","Plateau Efficiency: DoubleleMu Inclusive",700,500);
+  TCanvas *C15=new TCanvas("C15","Plateau Efficiency: MuOpen Inclusive",700,500);
+  TCanvas *C16=new TCanvas("C16","Plateau Efficiency: SingleMu (log2pT)",700,500);
+  TCanvas *C17=new TCanvas("C17","Plateau Efficiency: DoubleleMu Inclusive (log2pT)",700,500);
+  TCanvas *C18=new TCanvas("C18","Plateau Efficiency: MuOpen Inclusive (log2pT)",700,500);
+  //Unique
+  TCanvas *C19=new TCanvas("C19","Unique Match Efficiency: SingleMu",700,500);
+  TCanvas *C20=new TCanvas("C20","Unique Match Efficiency: DoubleleMu Inclusive",700,500);
+  TCanvas *C21=new TCanvas("C21","Unique Match Efficiency: MuOpen Inclusive",700,500);
+  TCanvas *C22=new TCanvas("C22","Unique Match Efficiency: SingleMu (log2pT)",700,500);
+  TCanvas *C23=new TCanvas("C23","Unique Match Efficiency: DoubleleMu Inclusive (log2pT)",700,500);
+  TCanvas *C24=new TCanvas("C24","Unique Match Efficiency: MuOpen Inclusive (log2pT)",700,500);
 	
   C1->cd();
   HRateSingleMu2017->Draw("HIST");
@@ -264,6 +279,90 @@ void PlotOverlay() {
   MatchBX0MuOpenInc2018_dTh6Log->Draw("SAME");
   MatchBX0MuOpenInc2018_dTh8Log->Draw("SAME");
   C12->Write();	
+	
+  C13->cd();
+  MatchBX0SingleMuPlateau2017->Draw();
+  MatchBX0SingleMuPlateau2018_dTh4->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh6->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh8->Draw("SAME");
+  C13->Write();
+	
+  C14->cd();
+  MatchBX0DoubleMuIncPlateau2017->Draw();
+  MatchBX0DoubleMuIncPlateau2018_dTh4->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh6->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh8->Draw("SAME");
+  C14->Write();
+
+  C15->cd();
+  MatchBX0MuOpenIncPlateau2017->Draw();
+  MatchBX0MuOpenIncPlateau2018_dTh4->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh6->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh8->Draw("SAME");
+  C15->Write();
+
+  C16->cd();
+  MatchBX0SingleMuPlateau2017Log->Draw();
+  MatchBX0SingleMuPlateau2018_dTh4Log->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0SingleMuPlateau2018_dTh8Log->Draw("SAME");
+  C16->Write();
+	
+  C17->cd();
+  MatchBX0DoubleMuIncPlateau2017Log->Draw();
+  MatchBX0DoubleMuIncPlateau2018_dTh4Log->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0DoubleMuIncPlateau2018_dTh8Log->Draw("SAME");
+  C17->Write();
+
+  C18->cd();
+  MatchBX0MuOpenIncPlateau2017Log->Draw();
+  MatchBX0MuOpenIncPlateau2018_dTh4Log->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh6Log->Draw("SAME");
+  MatchBX0MuOpenIncPlateau2018_dTh8Log->Draw("SAME");
+  C18->Write();
+	
+  C19->cd();
+  MatchBX0SingleMuUnique2017->Draw();
+  MatchBX0SingleMuUnique2018_dTh4->Draw("SAME");
+  MatchBX0SingleMuUnique2018_dTh6->Draw("SAME");
+  MatchBX0SingleMuUnique2018_dTh8->Draw("SAME");
+  C19->Write();
+	
+  C20->cd();
+  MatchBX0DoubleMuIncUnique2017->Draw();
+  MatchBX0DoubleMuIncUnique2018_dTh4->Draw("SAME");
+  MatchBX0DoubleMuIncUnique2018_dTh6->Draw("SAME");
+  MatchBX0DoubleMuIncUnique2018_dTh8->Draw("SAME");
+  C20->Write();
+	
+  C21->cd();
+  MatchBX0MuOpenIncUnique2017->Draw();
+  MatchBX0MuOpenIncUnique2018_dTh4->Draw("SAME");
+  MatchBX0MuOpenIncUnique2018_dTh6->Draw("SAME");
+  MatchBX0MuOpenIncUnique2018_dTh8->Draw("SAME");
+  C21->Write();
+	
+  C22->cd();
+  MatchBX0SingleMuUnique2017Log->Draw();
+  MatchBX0SingleMuUnique2018_dTh4Log->Draw("SAME");
+  MatchBX0SingleMuUnique2018_dTh6Log->Draw("SAME");
+  MatchBX0SingleMuUnique2018_dTh8Log->Draw("SAME");
+  C22->Write();
+	
+  C23->cd();
+  MatchBX0DoubleMuIncUnique2017Log->Draw();
+  MatchBX0DoubleMuIncUnique2018_dTh4Log->Draw("SAME");
+  MatchBX0DoubleMuIncUnique2018_dTh6Log->Draw("SAME");
+  MatchBX0DoubleMuIncUnique2018_dTh8Log->Draw("SAME");
+  C23->Write();
+	
+  C24->cd();
+  MatchBX0MuOpenIncUnique2017Log->Draw();
+  MatchBX0MuOpenIncUnique2018_dTh4Log->Draw("SAME");
+  MatchBX0MuOpenIncUnique2018_dTh6Log->Draw("SAME");
+  MatchBX0MuOpenIncUnique2018_dTh8Log->Draw("SAME");
+  C24->Write();
 
   myPlot.Close();
   
