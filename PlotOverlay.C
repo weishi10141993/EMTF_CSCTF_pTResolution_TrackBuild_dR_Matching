@@ -9,7 +9,6 @@
 
 void PlotOverlay() {
   TFile *file0 = TFile::Open("2017_ModesRateEff_eta_1.25_2.40.root");//1
-  TH1F *HRate2017 = (TH1F*)HRate->Clone("HRate2017");
   TH1F *HRateSingleMu2017 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2017");
   TH1F *HRateDoubleMuInc2017 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2017");
   TH1F *HRateMuOpenInc2017 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2017");
@@ -37,7 +36,6 @@ void PlotOverlay() {
   file0->Close();
 	
   TFile *file1 = TFile::Open("2018_dTh4_ModesRateEff_eta_1.25_2.40.root");//2
-  TH1F *HRate2018_dTh4 = (TH1F*)HRate->Clone("HRate2018_dTh4");
   TH1F *HRateSingleMu2018_dTh4 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2018_dTh4");
   TH1F *HRateDoubleMuInc2018_dTh4 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2018_dTh4");
   TH1F *HRateMuOpenInc2018_dTh4 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018_dTh4");
@@ -65,7 +63,6 @@ void PlotOverlay() {
   file1->Close();
 	
   TFile *file2 = TFile::Open("2018_dTh6_ModesRateEff_eta_1.25_2.40.root");//3
-  TH1F *HRate2018_dTh6 = (TH1F*)HRate->Clone("HRate2018_dTh6");
   TH1F *HRateSingleMu2018_dTh6 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2018_dTh6");
   TH1F *HRateDoubleMuInc2018_dTh6 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2018_dTh6");
   TH1F *HRateMuOpenInc2018_dTh6 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018_dTh6");
@@ -93,7 +90,6 @@ void PlotOverlay() {
   file2->Close();
 	
   TFile *file3 = TFile::Open("2018_dTh8_ModesRateEff_eta_1.25_2.40.root");//4
-  TH1F *HRate2018_dTh8 = (TH1F*)HRate->Clone("HRate2018_dTh8");
   TH1F *HRateSingleMu2018_dTh8 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2018_dTh8");
   TH1F *HRateDoubleMuInc2018_dTh8 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2018_dTh8");
   TH1F *HRateMuOpenInc2018_dTh8 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018_dTh8");
@@ -121,7 +117,6 @@ void PlotOverlay() {
   file3->Close();
 	
   TFile *file4 = TFile::Open("2017_dBX_ModesRateEff_eta_1.25_2.40.root");//6
-  TH1F *HRate2017_dBX = (TH1F*)HRate->Clone("HRate2017_dBX");
   TH1F *HRateSingleMu2017_dBX = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2017_dBX");
   TH1F *HRateDoubleMuInc2017_dBX = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2017_dBX");
   TH1F *HRateMuOpenInc2017_dBX = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2017_dBX");
@@ -152,11 +147,26 @@ void PlotOverlay() {
   outFile = "Overlay.root";
   TFile myPlot(outFile,"RECREATE");
   
-  TCanvas *C1=new TCanvas("C1","SingleMu",700,500);
-  TCanvas *C2=new TCanvas("C2","SingleMu",700,500);
-  TCanvas *C3=new TCanvas("C3","SingleMu",700,500);
-  TCanvas *C4=new TCanvas("C4","SingleMu",700,500);
- 
+  TCanvas *C1=new TCanvas("C1","Rate: SingleMu",700,500);
+  TCanvas *C2=new TCanvas("C2","Rate: DoubleMu Inclusive",700,500);
+  TCanvas *C3=new TCanvas("C3","Rate: MuOpen Inclusive",700,500);
+  TCanvas *C1=new TCanvas("C1","Rate: SingleMu",700,500);
+  TCanvas *C2=new TCanvas("C2","Rate: DoubleMu Inclusive",700,500);
+  TCanvas *C3=new TCanvas("C3","Rate: MuOpen Inclusive",700,500);
+	
+  TCanvas *C4=new TCanvas("C4","Efficiency: SingleMu",700,500);
+  TCanvas *C5=new TCanvas("C5","Efficiency: DoubleleMu Inclusive",700,500);
+  TCanvas *C6=new TCanvas("C6","Efficiency: MuOpen Inclusive",700,500);
+  TCanvas *C4=new TCanvas("C4","Efficiency: SingleMu",700,500);
+  TCanvas *C5=new TCanvas("C5","Efficiency: DoubleleMu Inclusive",700,500);
+  TCanvas *C6=new TCanvas("C6","Efficiency: MuOpen Inclusive",700,500);
+	
+  C1->cd();
+  HRateSingleMu2017->Draw("HIST");
+  HRateSingleMu2018_dTh4->Draw("HISTSAME");
+  HRateSingleMu2018_dTh6->Draw("HISTSAME");
+  HRateSingleMu2018_dTh8->Draw("HISTSAME");
+
   myPlot.Close();
   
 } // End function: void 
