@@ -9,6 +9,7 @@
 
 void PlotOverlay() {
   TFile *file0 = TFile::Open("2017_ModesRateEff_eta_1.25_2.40.root");//1
+  TH1F *HRateMuOpenInc2018dTh8Clone = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018dTh8Clone");
   TFile *file1 = TFile::Open("2018_dTh4_ModesRateEff_eta_1.25_2.40.root");//2
   TFile *file2 = TFile::Open("2018_dTh6_ModesRateEff_eta_1.25_2.40.root");//3
   TFile *file3 = TFile::Open("2018_dTh8_ModesRateEff_eta_1.25_2.40.root");//4
