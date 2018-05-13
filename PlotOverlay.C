@@ -93,24 +93,24 @@ void PlotOverlay() {
   file2->Close();
 	
   TFile *file3 = TFile::Open("2018_dTh8_ModesRateEff_eta_1.25_2.40.root");//4
-  TH1F *HRate2018_dTh8 = (TH1F*)HRate->Clone("HRate2018_dTh6");
-  TH1F *HRateSingleMu2018_dTh8 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2018_dTh6");
-  TH1F *HRateDoubleMuInc2018_dTh8 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2018_dTh6");
-  TH1F *HRateMuOpenInc2018_dTh8 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018_dTh6");
+  TH1F *HRate2018_dTh8 = (TH1F*)HRate->Clone("HRate2018_dTh8");
+  TH1F *HRateSingleMu2018_dTh8 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2018_dTh8");
+  TH1F *HRateDoubleMuInc2018_dTh8 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2018_dTh8");
+  TH1F *HRateMuOpenInc2018_dTh8 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2018_dTh8");
 	
-  TH1F *MatchBX0SingleMu2018_dTh8 = (TH1F*)SMRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2018_dTh6");
-  TH1F *MatchBX0SingleMu2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2018_dTh6Log");
-  TH1F *MatchBX0SingleMuPlateau2018_dTh8 = (TH1F*)SMRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2018_dTh6");
-  TH1F *MatchBX0SingleMuPlateau2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2018_dTh6Log");
-  TH1F *MatchBX0SingleMuUnique2018_dTh8 = (TH1F*)SMRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2018_dTh6");
-  TH1F *MatchBX0SingleMuUnique2018_dTh8Log = (TH1F*)SMLogRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2018_dTh6Log");
+  TH1F *MatchBX0SingleMu2018_dTh8 = (TH1F*)SMRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2018_dTh8");
+  TH1F *MatchBX0SingleMu2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0SingleMu->Clone("MatchBX0SingleMu2018_dTh8Log");
+  TH1F *MatchBX0SingleMuPlateau2018_dTh8 = (TH1F*)SMRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2018_dTh8");
+  TH1F *MatchBX0SingleMuPlateau2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0SingleMuPlateau->Clone("MatchBX0SingleMuPlateau2018_dTh8Log");
+  TH1F *MatchBX0SingleMuUnique2018_dTh8 = (TH1F*)SMRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2018_dTh8");
+  TH1F *MatchBX0SingleMuUnique2018_dTh8Log = (TH1F*)SMLogRecoPtUniqueMatchBX0SingleMu->Clone("MatchBX0SingleMuUnique2018_dTh8Log");
 
-  TH1F *MatchBX0DoubleMuInc2018_dTh8 = (TH1F*)SMRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2018_dTh6");
-  TH1F *MatchBX0DoubleMuInc2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2018_dTh6Log");
-  TH1F *MatchBX0DoubleMuIncPlateau2018_dTh8 = (TH1F*)SMRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2018_dTh6");
-  TH1F *MatchBX0DoubleMuIncPlateau2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2018_dTh6Log");
-  TH1F *MatchBX0DoubleMuIncUnique2018_dTh8 = (TH1F*)SMRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2018_dTh6");
-  TH1F *MatchBX0DoubleMuIncUnique2018_dTh8Log = (TH1F*)SMLogRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2018_dTh6Log");
+  TH1F *MatchBX0DoubleMuInc2018_dTh8 = (TH1F*)SMRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2018_dTh8");
+  TH1F *MatchBX0DoubleMuInc2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuInc2018_dTh8Log");
+  TH1F *MatchBX0DoubleMuIncPlateau2018_dTh8 = (TH1F*)SMRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2018_dTh8");
+  TH1F *MatchBX0DoubleMuIncPlateau2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0DoubleMuIncPlateau->Clone("MatchBX0DoubleMuIncPlateau2018_dTh8Log");
+  TH1F *MatchBX0DoubleMuIncUnique2018_dTh8 = (TH1F*)SMRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2018_dTh8");
+  TH1F *MatchBX0DoubleMuIncUnique2018_dTh8Log = (TH1F*)SMLogRecoPtUniqueMatchBX0DoubleMuInc->Clone("MatchBX0DoubleMuIncUnique2018_dTh8Log");
 	
   TH1F *MatchBX0MuOpenInc2018_dTh8 = (TH1F*)SMRecoPtMatchBX0MuOpenInc->Clone("MatchBX0MuOpenInc2018_dTh8");
   TH1F *MatchBX0MuOpenInc2018_dTh8Log = (TH1F*)SMLogRecoPtMatchBX0MuOpenInc->Clone("MatchBX0MuOpenInc2018_dTh8Log");
@@ -144,7 +144,7 @@ void PlotOverlay() {
   TH1F *MatchBX0MuOpenInc2017_dBXLog = (TH1F*)SMLogRecoPtMatchBX0MuOpenInc->Clone("MatchBX0MuOpenInc2017_dBXLog");
   TH1F *MatchBX0MuOpenIncPlateau2017_dBX = (TH1F*)SMRecoPtMatchBX0MuOpenIncPlateau->Clone("MatchBX0MuOpenIncPlateau2017_dBX");
   TH1F *MatchBX0MuOpenIncPlateau2017_dBXLog = (TH1F*)SMLogRecoPtMatchBX0MuOpenIncPlateau->Clone("MatchBX0MuOpenIncPlateau2017_dBXLog");
-  TH1F *MatchBX0MuOpenIncUnique2017_dBX_dBX = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("MatchBX0MuOpenIncUnique2017_dBX");
+  TH1F *MatchBX0MuOpenIncUnique2017_dBX = (TH1F*)SMRecoPtUniqueMatchBX0MuOpenInc->Clone("MatchBX0MuOpenIncUnique2017_dBX");
   TH1F *MatchBX0MuOpenIncUnique2017_dBXLog = (TH1F*)SMLogRecoPtUniqueMatchBX0MuOpenInc->Clone("MatchBX0MuOpenIncUnique2017_dBXLog");
   file4->Close();
 	
