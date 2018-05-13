@@ -10,7 +10,7 @@
 void PlotOverlay() {
 	
   TFile *file0 = TFile::Open("2017_ModesRateEff_eta_1.25_2.40.root");//1
-  TH1F *HRateSingleMu2017 = (TH1F*)HRateSingleMu->Clone("HRateSingleMu2017");
+  TH1F *HRateSingleMu2017 = (TH1F*)file0.Get("HRateSingleMu")->Clone("HRateSingleMu2017");
   TH1F *HRateDoubleMuInc2017 = (TH1F*)HRateDoubleMuInc->Clone("HRateDoubleMuInc2017");
   TH1F *HRateMuOpenInc2017 = (TH1F*)HRateMuOpenInc->Clone("HRateMuOpenInc2017");
 	
