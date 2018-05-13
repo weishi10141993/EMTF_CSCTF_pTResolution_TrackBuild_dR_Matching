@@ -15,7 +15,7 @@
 const double scale = 28500000./1487898;//ZB rate scale, unit: Hz
 TString ZeroBias_files[1] = { 
 	  		    "NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2017_emul.root"//2017 emulator: 1487898 processed events
-			    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2017_emul_dBX.root"//2017 emulator+2BX+dBX=0 for 2-station: 1487898
+			    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2017_emul_dBX.root"//2017 emulator+2BX+dBX=0 for 2-station: 1566129
 		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh4.root"//2018 emulator: 1487898 
 		            //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh6.root"//1475029
 		 	    //"NTuple_ZeroBias1_FlatNtuple_Run_306091_2018_05_07_ZB1_2018_emul_dTh8.root"//1487898
