@@ -183,80 +183,80 @@ void PlotOverlay() {
   TCanvas *C24=new TCanvas("C24","Unique Match Efficiency: MuOpen Inclusive (log2pT)",700,500);
 	
   C1->cd();
-  HRateSingleMu2017->Draw("HIST");
-  HRateSingleMu2018_dTh4->Draw("HISTSAME");
-  HRateSingleMu2018_dTh6->Draw("HISTSAME");
-  HRateSingleMu2018_dTh8->Draw("HISTSAME");
+  HRateSingleMu2017->SetLineColor(1); HRateSingleMu2017->Draw("HIST");
+  HRateSingleMu2018_dTh4->SetLineColor(2); HRateSingleMu2018_dTh4->Draw("HISTSAME");
+  HRateSingleMu2018_dTh6->SetLineColor(3); HRateSingleMu2018_dTh6->Draw("HISTSAME");
+  HRateSingleMu2018_dTh8->SetLineColor(4); HRateSingleMu2018_dTh8->Draw("HISTSAME");
   C1->Write();
 	
   C2->cd();
-  HRateDoubleMuInc2017->Draw("HIST");
-  HRateDoubleMuInc2018_dTh4->Draw("HISTSAME");
-  HRateDoubleMuInc2018_dTh6->Draw("HISTSAME");
-  HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
+  HRateDoubleMuInc2017->SetLineColor(1); HRateDoubleMuInc2017->Draw("HIST");
+  HRateDoubleMuInc2018_dTh4->SetLineColor(2); HRateDoubleMuInc2018_dTh4->Draw("HISTSAME");
+  HRateDoubleMuInc2018_dTh6->SetLineColor(3); HRateDoubleMuInc2018_dTh6->Draw("HISTSAME");
+  HRateDoubleMuInc2018_dTh8->SetLineColor(4); HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
   C2->Write();
 	
   C3->cd();
-  HRateMuOpenInc2017->Draw("HIST");
-  HRateMuOpenInc2018_dTh4->Draw("HISTSAME");
-  HRateMuOpenInc2018_dTh6->Draw("HISTSAME");
-  HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
+  HRateMuOpenInc2017->SetLineColor(1); HRateMuOpenInc2017->Draw("HIST");
+  HRateMuOpenInc2018_dTh4->SetLineColor(2); HRateMuOpenInc2018_dTh4->Draw("HISTSAME");
+  HRateMuOpenInc2018_dTh6->SetLineColor(3); HRateMuOpenInc2018_dTh6->Draw("HISTSAME");
+  HRateMuOpenInc2018_dTh8->SetLineColor(4); HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
   C3->Write();
 	
   C4->cd();
   HRateSingleMu2018_dTh4->Divide(HRateSingleMu2017);
-  HRateSingleMu2018_dTh4->Draw("HIST");
+  HRateSingleMu2018_dTh4->SetLineColor(2); HRateSingleMu2018_dTh4->Draw("HIST");
   HRateSingleMu2018_dTh6->Divide(HRateSingleMu2017);
-  HRateSingleMu2018_dTh6->Draw("HISTSAME");
+  HRateSingleMu2018_dTh6->SetLineColor(3); HRateSingleMu2018_dTh6->Draw("HISTSAME");
   HRateSingleMu2018_dTh8->Divide(HRateSingleMu2017);
-  HRateSingleMu2018_dTh8->Draw("HISTSAME");
+  HRateSingleMu2018_dTh8->SetLineColor(4); HRateSingleMu2018_dTh8->Draw("HISTSAME");
   HRateSingleMu2017_dBX->Divide(HRateSingleMu2017);
-  HRateSingleMu2017_dBX->Draw("HISTSAME");
+  HRateSingleMu2017_dBX->SetLineColor(6); HRateSingleMu2017_dBX->Draw("HISTSAME");
   C4->Write();
 
   C5->cd();
   HRateDoubleMuInc2018_dTh4->Divide(HRateDoubleMuInc2017);
-  HRateDoubleMuInc2018_dTh4->Draw("HIST");
+  HRateDoubleMuInc2018_dTh4->SetLineColor(2); HRateDoubleMuInc2018_dTh4->Draw("HIST");
   HRateDoubleMuInc2018_dTh6->Divide(HRateDoubleMuInc2017);
-  HRateDoubleMuInc2018_dTh6->Draw("HISTSAME");
+  HRateDoubleMuInc2018_dTh6->SetLineColor(3); HRateDoubleMuInc2018_dTh6->Draw("HISTSAME");
   HRateDoubleMuInc2018_dTh8->Divide(HRateDoubleMuInc2017);
-  HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
+  HRateDoubleMuInc2018_dTh8->SetLineColor(4); HRateDoubleMuInc2018_dTh8->Draw("HISTSAME");
   HRateDoubleMuInc2017_dBX->Divide(HRateDoubleMuInc2017);
-  HRateDoubleMuInc2017_dBX->Draw("HISTSAME");
+  HRateDoubleMuInc2017_dBX->SetLineColor(6); HRateDoubleMuInc2017_dBX->Draw("HISTSAME");
   HRateDoubleMuInc2017_dBX_2018Quality->Divide(HRateDoubleMuInc2017);
-  HRateDoubleMuInc2017_dBX_2018Quality->Draw("HISTSAME");//2017 dBX with 2018 mu quality
+  HRateDoubleMuInc2017_dBX_2018Quality->SetLineColor(7); HRateDoubleMuInc2017_dBX_2018Quality->Draw("HISTSAME");//2017 dBX with 2018 mu quality
   C5->Write();
 	
   C6->cd();
   HRateMuOpenInc2018_dTh4->Divide(HRateMuOpenInc2017);
-  HRateMuOpenInc2018_dTh4->Draw("HIST");
+  HRateMuOpenInc2018_dTh4->SetLineColor(2); HRateMuOpenInc2018_dTh4->Draw("HIST");
   HRateMuOpenInc2018_dTh6->Divide(HRateMuOpenInc2017);
-  HRateMuOpenInc2018_dTh6->Draw("HISTSAME");
+  HRateMuOpenInc2018_dTh6->SetLineColor(3); HRateMuOpenInc2018_dTh6->Draw("HISTSAME");
   HRateMuOpenInc2018_dTh8->Divide(HRateMuOpenInc2017);
-  HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
+  HRateMuOpenInc2018_dTh8->SetLineColor(4); HRateMuOpenInc2018_dTh8->Draw("HISTSAME");
   HRateMuOpenInc2017_dBX->Divide(HRateMuOpenInc2017);
-  HRateMuOpenInc2017_dBX->Draw("HISTSAME");
+  HRateMuOpenInc2017_dBX->SetLineColor(6); HRateMuOpenInc2017_dBX->Draw("HISTSAME");
   C6->Write();
 	
   C7->cd();
-  MatchBX0SingleMu2017->Draw();
-  MatchBX0SingleMu2018_dTh4->Draw("SAME");
-  MatchBX0SingleMu2018_dTh6->Draw("SAME");
-  MatchBX0SingleMu2018_dTh8->Draw("SAME");
+  MatchBX0SingleMu2017->SetLineColor(1); MatchBX0SingleMu2017->Draw();
+  MatchBX0SingleMu2018_dTh4->SetLineColor(2); MatchBX0SingleMu2018_dTh4->Draw("SAME");
+  MatchBX0SingleMu2018_dTh4->SetLineColor(3); MatchBX0SingleMu2018_dTh6->Draw("SAME");
+  MatchBX0SingleMu2018_dTh4->SetLineColor(4); MatchBX0SingleMu2018_dTh8->Draw("SAME");
   C7->Write();
 	
   C8->cd();
-  MatchBX0DoubleMuInc2017->Draw();
-  MatchBX0DoubleMuInc2018_dTh4->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh6->Draw("SAME");
-  MatchBX0DoubleMuInc2018_dTh8->Draw("SAME");
+  MatchBX0DoubleMuInc2017->SetLineColor(1); MatchBX0DoubleMuInc2017->Draw();
+  MatchBX0DoubleMuInc2018_dTh4->SetLineColor(2); MatchBX0DoubleMuInc2018_dTh4->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh4->SetLineColor(3); MatchBX0DoubleMuInc2018_dTh6->Draw("SAME");
+  MatchBX0DoubleMuInc2018_dTh4->SetLineColor(4); MatchBX0DoubleMuInc2018_dTh8->Draw("SAME");
   C8->Write();
 
   C9->cd();
-  MatchBX0MuOpenInc2017->Draw();
-  MatchBX0MuOpenInc2018_dTh4->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh6->Draw("SAME");
-  MatchBX0MuOpenInc2018_dTh8->Draw("SAME");
+  MatchBX0MuOpenInc2017->SetLineColor(1); MatchBX0MuOpenInc2017->Draw();
+  MatchBX0MuOpenInc2018_dTh4->SetLineColor(2); MatchBX0MuOpenInc2018_dTh4->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh4->SetLineColor(3); MatchBX0MuOpenInc2018_dTh6->Draw("SAME");
+  MatchBX0MuOpenInc2018_dTh4->SetLineColor(4); MatchBX0MuOpenInc2018_dTh8->Draw("SAME");
   C9->Write();
 	
   C10->cd();
