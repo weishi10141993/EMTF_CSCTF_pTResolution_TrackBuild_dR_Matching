@@ -113,9 +113,9 @@ void ModesRateEffV2() {
   }
 	
   TString SMRecoPtTitle="";
-  SMRecoPtTitle = SMRecoPtTitle + "RECO pT [" + Form("%d", PT_LOW)+", "+ Form("%d", PT_UP) + "]GeV, looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
+  SMRecoPtTitle = SMRecoPtTitle + "RECO muon after selection";
   TString SMLogRecoPtTitle="";
-  SMLogRecoPtTitle = SMLogRecoPtTitle + "Log2(RECO pT) [" + Form("%d", Log2_PT_LOW)+", "+ Form("%d", Log2_PT_UP) + "], looseID, ReachStationOne, " + "abs(eta_St2) [" + Form("%.2f", ETA_LOW)+", "+ Form("%.2f", ETA_UP) + "]";
+  SMLogRecoPtTitle = SMRecoPtTitle;
   TH1F *SMRecoPt = new TH1F("SMRecoPt", SMRecoPtTitle, PT_UP-PT_LOW, PT_LOW, PT_UP);
   TH1F *SMLogRecoPt = new TH1F("SMLogRecoPt", SMLogRecoPtTitle, Log2_PT_UP-Log2_PT_LOW, Log2_PT_LOW, Log2_PT_UP);
 	
