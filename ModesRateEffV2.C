@@ -170,7 +170,6 @@ void ModesRateEffV2() {
     SM_in_chain->GetEntry(iEvt);
     
     // From Read_FlatNtuple.h, use 'I("branch_name")' to get an integer branch value, 'F("branch_name") to get a float
-    // Print info for unpacked EMTF tracks
     if (verbose) std::cout << "\n" << I("nRecoMuons") << " reco muons in the event" << std::endl;
 	
     //Skip events without HLT fired
